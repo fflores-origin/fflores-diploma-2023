@@ -1,0 +1,12 @@
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\bin\Debug\net6.0\PD.Services.deps.json
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\bin\Debug\net6.0\PD.Services.dll
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\bin\Debug\net6.0\PD.Services.pdb
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.csproj.AssemblyReference.cache
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.AssemblyInfoInputs.cache
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.AssemblyInfo.cs
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.csproj.CoreCompileInputs.cache
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.dll
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\refint\PD.Services.dll
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\PD.Services.pdb
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.Services\obj\Debug\net6.0\ref\PD.Services.dll

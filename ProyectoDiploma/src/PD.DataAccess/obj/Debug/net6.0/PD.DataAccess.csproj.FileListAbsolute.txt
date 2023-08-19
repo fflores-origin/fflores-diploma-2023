@@ -1,0 +1,12 @@
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\bin\Debug\net6.0\PD.DataAccess.deps.json
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\bin\Debug\net6.0\PD.DataAccess.dll
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\bin\Debug\net6.0\PD.DataAccess.pdb
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.csproj.AssemblyReference.cache
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.AssemblyInfoInputs.cache
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.AssemblyInfo.cs
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.csproj.CoreCompileInputs.cache
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.dll
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\refint\PD.DataAccess.dll
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\PD.DataAccess.pdb
+D:\projects\uai\fflores-diploma-2023\ProyectoDiploma\src\PD.DataAccess\obj\Debug\net6.0\ref\PD.DataAccess.dll
