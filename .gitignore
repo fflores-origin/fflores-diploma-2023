@@ -11,3 +11,12 @@ pids
 *.pid
 *.seed
 *.pid.lock
+
+#VISUAL STUDIO
+*.vs
+*/bin
+*bin
+/bin
+*/obj
+*obj
+/obj
