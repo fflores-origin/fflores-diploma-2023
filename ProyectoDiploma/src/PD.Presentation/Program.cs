@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using PD.Presentation.Bootstrap;
 
 namespace PD.Presentation
 {
@@ -41,8 +41,7 @@ namespace PD.Presentation
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((ctx, services) =>
                 {
-                    services.AddSingleton<Main>();
-                    services.AddLogging(configure => configure.AddConsole());
+                    services.AddDependendyInjectionBase();
                 });
         }
     }
