@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PD.DataAccess;
+using PD.DataAccess.Interfaces;
 using PD.Repositories;
 using PD.Repositories.Interfaces;
 
@@ -8,7 +10,9 @@ namespace PD.Presentation.Bootstrap
     {
         public static void AddDependencyInjectionRepositories(this IServiceCollection services)
         {
-            services.AddTransient<IArticuloRepository, ArticuloRepository>();
+            services
+                .AddTransient<IConnection, Connection>()
+                .AddTransient<IArticuloRepository, ArticuloRepository>();
         }
     }
 }

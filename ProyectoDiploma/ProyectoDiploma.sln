@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Core", "src\PD.Core\PD.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Services", "src\PD.Services\PD.Services.csproj", "{E4C7941A-E190-4410-A9EC-EB41346BEEC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Repositories", "src\PD.Repositories\PD.Repositories.csproj", "{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Repositories", "src\PD.Repositories\PD.Repositories.csproj", "{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Seguridad", "src\PD.Seguridad\PD.Seguridad.csproj", "{38529003-8D3A-4B1F-AA72-ECDD26438C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,6 +42,8 @@ namespace PD.Presentation
                 .ConfigureServices((ctx, services) =>
                 {
                     services.AddDependendyInjectionBase();
+                    services.AddDependencyInjectionRepositories();
+                    services.AddDependencyInjectionmanagers();
                 });
         }
     }
