@@ -7,16 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\PD.DataAccess\PD.DataAccess.csproj" />
     <ProjectReference Include="..\PD.Entities\PD.Entities.csproj" />
-    <ProjectReference Include="..\PD.Repositories\PD.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

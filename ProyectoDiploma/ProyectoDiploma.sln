@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Presentation", "src\PD.Presentation\PD.Presentation.csproj", "{C6685CEF-0FD9-4F43-9FC7-BF22211EF463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Presentation", "src\PD.Presentation\PD.Presentation.csproj", "{C6685CEF-0FD9-4F43-9FC7-BF22211EF463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.DataAccess", "src\PD.DataAccess\PD.DataAccess.csproj", "{9D9676BA-F3C2-472C-8FF3-0645D45B42C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.DataAccess", "src\PD.DataAccess\PD.DataAccess.csproj", "{9D9676BA-F3C2-472C-8FF3-0645D45B42C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Entities", "src\PD.Entities\PD.Entities.csproj", "{9D438134-768B-4308-925B-195E24167B28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Entities", "src\PD.Entities\PD.Entities.csproj", "{9D438134-768B-4308-925B-195E24167B28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Core", "src\PD.Core\PD.Core.csproj", "{34125265-6EFF-425F-BCC6-D360B1DB61EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Core", "src\PD.Core\PD.Core.csproj", "{34125265-6EFF-425F-BCC6-D360B1DB61EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Services", "src\PD.Services\PD.Services.csproj", "{E4C7941A-E190-4410-A9EC-EB41346BEEC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Services", "src\PD.Services\PD.Services.csproj", "{E4C7941A-E190-4410-A9EC-EB41346BEEC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PD.Repositories", "src\PD.Repositories\PD.Repositories.csproj", "{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PD.Seguridad", "src\PD.Seguridad\PD.Seguridad.csproj", "{38529003-8D3A-4B1F-AA72-ECDD26438C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{E4C7941A-E190-4410-A9EC-EB41346BEEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C7941A-E190-4410-A9EC-EB41346BEEC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C7941A-E190-4410-A9EC-EB41346BEEC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2061DC8F-6228-4F13-AF34-8211E7DA1CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38529003-8D3A-4B1F-AA72-ECDD26438C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

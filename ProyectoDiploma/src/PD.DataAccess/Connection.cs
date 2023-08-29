@@ -7,11 +7,12 @@ namespace PD.DataAccess
     public class Connection : IConnection
     {
         private readonly string _connectionString;
-        private readonly SqlConnection _connection;
 
         public Connection(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("data");
+            _connectionString = configuration.GetConnectionString("defaultConnection");
         }
+
+        public SqlConnection GetConnection() => new(_connectionString);
     }
 }
