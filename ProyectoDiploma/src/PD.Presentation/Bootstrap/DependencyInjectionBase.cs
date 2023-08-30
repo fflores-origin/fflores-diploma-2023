@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using PD.Presentation.Forms.Articulos;
 
 namespace PD.Presentation.Bootstrap
@@ -8,9 +7,9 @@ namespace PD.Presentation.Bootstrap
     {
         public static void AddDependendyInjectionBase(this IServiceCollection services)
         {
-            services.AddSingleton<Main>();
-            services.AddSingleton<GestionArticulos>();
-            services.AddLogging(configure => configure.AddConsole());
+            services
+                .AddSingleton<Main>()
+                .AddSingleton<GestionArticulos>();
         }
     }
 }

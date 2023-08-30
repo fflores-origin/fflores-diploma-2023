@@ -8,7 +8,8 @@ namespace PD.Presentation.Bootstrap
     {
         public static void AddDependencyInjectionmanagers(this IServiceCollection services)
         {
-            services.AddTransient<IArticulosManager, ArticulosManager>();
+            services
+                .AddTransient<IArticulosManager, ArticulosManager>();
         }
     }
 }
