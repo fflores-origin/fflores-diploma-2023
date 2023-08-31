@@ -28,33 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_all = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // lbl_all
-            // 
-            this.lbl_all.AutoSize = true;
-            this.lbl_all.Location = new System.Drawing.Point(451, 145);
-            this.lbl_all.Name = "lbl_all";
-            this.lbl_all.Size = new System.Drawing.Size(37, 15);
-            this.lbl_all.TabIndex = 0;
-            this.lbl_all.Text = "lbl_all";
+            SuspendLayout();
             // 
             // GestionArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbl_all);
-            this.Name = "GestionArticulos";
-            this.Text = "Articulos";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(997, 662);
+            Name = "GestionArticulos";
+            Text = "Articulos";
+            ResumeLayout(false);
         }
 
         #endregion
-
-        private Label lbl_all;
     }
 }
