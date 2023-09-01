@@ -1,11 +1,19 @@
-use master
+GO
+USE master
 GO 
-DROP DATABASE IF EXISTS DomainDB
+IF EXISTS(SELECT name FROM sys.databases WHERE name = 'DomainDB')
+BEGIN
+	DECLARE @kill varchar(8000) = '';  
+	SELECT @kill = @kill + 'kill ' + CONVERT(VARCHAR(5), session_id) + ';'  
+	FROM sys.dm_exec_sessions
+	WHERE database_id  = db_id('DomainDB')
+	EXEC(@kill);
+	DROP DATABASE DomainDB
+END
 GO
 CREATE DATABASE DomainDB
 GO
 USE DomainDB
-
 GO
 IF OBJECT_ID('Categorias', 'U') IS NOT NULL 
   DROP TABLE Categorias; 
@@ -26,8 +34,6 @@ create table Articulos (
 	[Descripcion] VARCHAR(200),
 	--[CategoriaId] uniqueidentifier
 )
-
-
 
 GO
 IF OBJECT_ID('Listas', 'U') IS NOT NULL 
@@ -57,6 +63,7 @@ IF OBJECT_ID('Clientes', 'U') IS NOT NULL
 GO
 create table Clientes (
 	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(100),
 	[Documento] varchar(12),
 	[TipoDocumentoId] uniqueidentifier
 )
