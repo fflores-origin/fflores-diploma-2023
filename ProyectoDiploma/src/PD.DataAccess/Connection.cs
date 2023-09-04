@@ -13,6 +13,6 @@ namespace PD.DataAccess
             _connectionString = configuration.GetConnectionString("defaultConnection");
         }
 
-        public SqlConnection GetConnection() => new(_connectionString);
+        public SqlConnection CreateConnection() => new(_connectionString);
     }
 }

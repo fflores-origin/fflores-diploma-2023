@@ -41,7 +41,7 @@
             this.tsb_articulos});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1072, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1252, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -59,19 +59,21 @@
             // btn_gestionarArticulos
             // 
             this.btn_gestionarArticulos.Name = "btn_gestionarArticulos";
-            this.btn_gestionarArticulos.Size = new System.Drawing.Size(180, 22);
+            this.btn_gestionarArticulos.Size = new System.Drawing.Size(174, 22);
             this.btn_gestionarArticulos.Text = "Gestionar Articulos";
-            this.btn_gestionarArticulos.Click += new System.EventHandler(this.btn_gestionarArticulos_Click);
+            this.btn_gestionarArticulos.Click += new System.EventHandler(this.Btn_gestionarArticulos_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 629);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(1252, 732);
             this.Controls.Add(this.toolStrip1);
             this.IsMdiContainer = true;
             this.Name = "Main";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

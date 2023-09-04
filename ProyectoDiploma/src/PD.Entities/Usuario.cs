@@ -1,8 +1,8 @@
 ﻿namespace PD.Entities
 {
-    public class Usuario : EntidadBase
+    public class Usuario : BaseEntity
     {
-        private List<Permiso> _permisos;
+        private List<PermisoBase> _permisos;
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Contrasenia { get; set; }
@@ -10,10 +10,10 @@
 
         public Usuario()
         {
-            _permisos = new List<Permiso>();
+            _permisos = new List<PermisoBase>();
         }
 
-        public List<Permiso> Permisos
+        public List<PermisoBase> Permisos
         { get { return _permisos; } }
 
         public override string ToString() => Nombre;

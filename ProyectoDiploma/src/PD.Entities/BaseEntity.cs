@@ -1,6 +1,6 @@
 ﻿namespace PD.Entities
 {
-    public abstract class EntidadBase
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
     }

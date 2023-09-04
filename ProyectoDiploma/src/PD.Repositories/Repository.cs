@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace PD.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : EntidadBase
+    public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly IConnection _connection;
 
@@ -17,7 +17,7 @@ namespace PD.Repositories
 
         public void Delete(Guid id)
         {
-            using (var connection = _connection.GetConnection())
+            using (var connection = _connection.CreateConnection())
             {
                 var properties = typeof(T).GetProperties();
             }
@@ -25,12 +25,13 @@ namespace PD.Repositories
 
         public T Get(Guid id)
         {
-            using var connection = _connection.GetConnection();
+            using var connection = _connection.CreateConnection();
             connection.Open();
             T result = default(T);
 
             try
             {
+                // TODO: agregar join con complejos
                 var query = $"SELECT * FROM {GetPluralTableName()} WHERE Id = '{id}'";
                 var command = new SqlCommand(query, connection);
                 var reader = command.ExecuteReader();
@@ -50,7 +51,7 @@ namespace PD.Repositories
 
         public IQueryable<T> GetAll()
         {
-            using var connection = _connection.GetConnection();
+            using var connection = _connection.CreateConnection();
             connection.Open();
 
             var list = new List<T>();

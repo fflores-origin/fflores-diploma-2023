@@ -4,6 +4,6 @@ namespace PD.DataAccess.Interfaces
 {
     public interface IConnection
     {
-        SqlConnection GetConnection();
+        SqlConnection CreateConnection();
     }
 }

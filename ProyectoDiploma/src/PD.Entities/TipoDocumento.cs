@@ -1,6 +1,6 @@
 ﻿namespace PD.Entities
 {
-    public class TipoDocumento : EntidadBase
+    public class TipoDocumento : BaseEntity
     {
         public string Nombre { get; set; }
     }

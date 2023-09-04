@@ -1,6 +1,6 @@
 ﻿namespace PD.Entities
 {
-    public class Lista : EntidadBase
+    public class Lista : BaseEntity
     {
         public string Nombre { get; set; }
     }

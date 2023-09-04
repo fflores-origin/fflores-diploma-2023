@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PD.Presentation.Bootstrap;
+using PD.Presentation.Forms.Login;
 
 namespace PD.Presentation
 {
@@ -22,7 +23,7 @@ namespace PD.Presentation
                 try
                 {
                     Console.WriteLine("Start Program");
-                    var mainForm = services.GetRequiredService<Main>();
+                    var mainForm = services.GetRequiredService<Login>();
                     Application.Run(mainForm);
                 }
                 catch (Exception ex)

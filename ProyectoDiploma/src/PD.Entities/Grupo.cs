@@ -1,18 +1,18 @@
 ﻿namespace PD.Entities
 {
-    public class Grupo : Permiso
+    public class Grupo : PermisoBase
     {
         public Grupo()
         {
-            _permisos = new List<Permiso>();
+            _permisos = new List<PermisoBase>();
         }
 
-        private IList<Permiso> _permisos;
+        private IList<PermisoBase> _permisos;
 
-        public override IList<Permiso> Permisos
+        public override IList<PermisoBase> Permisos
         { get { return _permisos.ToArray(); } }
 
-        public override void AgregarPermiso(Permiso permiso) => _permisos.Add(permiso);
+        public override void AgregarPermiso(PermisoBase permiso) => _permisos.Add(permiso);
 
         public override void LimpiarPermisos() => _permisos.Clear();
     }

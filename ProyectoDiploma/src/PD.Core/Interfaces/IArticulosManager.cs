@@ -1,7 +1,9 @@
-﻿namespace PD.Core.Interfaces
+﻿using PD.Entities;
+
+namespace PD.Core.Interfaces
 {
     public interface IArticulosManager
     {
-        void GetAll();
+        List<Articulo> GetAll();
     }
 }

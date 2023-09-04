@@ -18,9 +18,14 @@ namespace PD.Presentation
             _gestionArticulosForm.MdiParent = this;
         }
 
-        private void btn_gestionarArticulos_Click(object sender, EventArgs e)
+        private void Btn_gestionarArticulos_Click(object sender, EventArgs e)
         {
             _gestionArticulosForm.Show();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

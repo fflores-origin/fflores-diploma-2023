@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PD.Core.Interfaces;
+using PD.Entities;
 using PD.Repositories.Interfaces;
 
 namespace PD.Core
@@ -17,9 +18,10 @@ namespace PD.Core
             _repository = repository;
         }
 
-        public void GetAll()
+        public List<Articulo> GetAll()
         {
             var data = _repository.GetAll();
+            return data.ToList();
         }
     }
 }
