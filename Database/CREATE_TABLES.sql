@@ -22,6 +22,10 @@ create table Categorias (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] VARCHAR(100),
 )
+GO
+
+INSERT INTO Categorias(Id, Nombre) VALUES('AA174E45-E3C1-4F4A-A961-10671FE79761','Libreria')
+INSERT INTO Categorias(Id, Nombre) VALUES('882F8085-B15A-41DE-A905-124893068B8E','Libros')
 
 GO
 IF OBJECT_ID('Articulos', 'U') IS NOT NULL 
@@ -32,7 +36,8 @@ create table Articulos (
 	[Nombre] VARCHAR(100),
 	[Codigo] VARCHAR(100),
 	[Descripcion] VARCHAR(200),
-	--[CategoriaId] uniqueidentifier
+	[Imagen] VARCHAR(200) default(''),
+	[CategoriaId] uniqueidentifier
 )
 
 GO
@@ -74,4 +79,14 @@ IF OBJECT_ID('Usuario', 'U') IS NOT NULL
 GO
 create table Usuario (
 	[Id] uniqueidentifier not null primary key default(newid()),
+)
+
+
+IF OBJECT_ID('Permisos', 'U') IS NOT NULL 
+  DROP TABLE Permisos; 
+GO
+create table Permisos (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(100),
+	[TipoPermiso] varchar(100),
 )
