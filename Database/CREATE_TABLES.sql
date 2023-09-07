@@ -81,7 +81,7 @@ create table Usuario (
 	[Id] uniqueidentifier not null primary key default(newid()),
 )
 
-
+GO
 IF OBJECT_ID('Permisos', 'U') IS NOT NULL 
   DROP TABLE Permisos; 
 GO
@@ -89,4 +89,14 @@ create table Permisos (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100),
 	[TipoPermiso] varchar(100),
+)
+
+GO
+IF OBJECT_ID('Usuarios', 'U') IS NOT NULL 
+  DROP TABLE Usuarios; 
+GO
+create table Usuarios (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(100),
+	[Contrasenia] varchar(100),
 )

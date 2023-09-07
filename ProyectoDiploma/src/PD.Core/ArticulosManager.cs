@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PD.Core.Interfaces;
-using PD.Entities;
+using PD.Entities.DTO;
 using PD.Repositories.Interfaces;
 
 namespace PD.Core
@@ -18,10 +18,17 @@ namespace PD.Core
             _repository = repository;
         }
 
-        public List<Articulo> GetAll()
+        public List<ArticulolistaDTO> GetList()
         {
             var data = _repository.GetAll();
-            return data.ToList();
+
+            throw new NotImplementedException();
         }
+
+        //public List<ArticuloListaDTO> GetList()
+        //{
+        //    var data = _repository.GetAll();
+        //    return data.ToList();
+        //}
     }
 }

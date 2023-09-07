@@ -1,6 +1,6 @@
 ﻿namespace PD.Entities
 {
-    public class Articulo : BaseEntity
+    public class ArticuloListaDTO : BaseEntity
     {
         public string Nombre { get; set; }
         public string Codigo { get; set; }
