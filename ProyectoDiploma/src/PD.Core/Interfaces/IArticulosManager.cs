@@ -1,10 +1,9 @@
-﻿using PD.Entities;
-using PD.Entities.DTO;
+﻿using PD.Core.DTO;
 
 namespace PD.Core.Interfaces
 {
     public interface IArticulosManager
     {
-        List<ArticulolistaDTO> GetList();
+        List<ArticuloListaDTO> GetList();
     }
 }

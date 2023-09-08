@@ -1,14 +1,13 @@
-﻿namespace PD.Entities
+﻿using PD.Core.DTOs;
+
+namespace PD.Core.DTO
 {
-    public class Articulo : BaseEntity
+    public class ArticuloListaDTO : BaseDto
     {
+        public Guid Id { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public string Imagen { get; set; }
-        
-
-        public Guid CategoriaId { get; set; }
-        public Categoria Categoria { get; set; }
     }
 }

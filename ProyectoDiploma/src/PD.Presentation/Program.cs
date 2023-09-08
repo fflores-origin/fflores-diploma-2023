@@ -44,8 +44,9 @@ namespace PD.Presentation
                 .ConfigureServices((ctx, services) =>
                 {
                     services.AddDependendyInjectionBase();
+                    services.AddDependencyInjectionMappers();
                     services.AddDependencyInjectionRepositories();
-                    services.AddDependencyInjectionmanagers();
+                    services.AddDependencyInjectionManagers();
 
                     services.AddLogging(configure => configure.AddConsole());
                 });

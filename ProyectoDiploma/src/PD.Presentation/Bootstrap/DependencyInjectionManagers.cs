@@ -6,7 +6,7 @@ namespace PD.Presentation.Bootstrap
 {
     internal static class DependencyInjectionManagers
     {
-        public static void AddDependencyInjectionmanagers(this IServiceCollection services)
+        public static void AddDependencyInjectionManagers(this IServiceCollection services)
         {
             services
                 .AddTransient<IArticulosManager, ArticulosManager>();

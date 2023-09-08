@@ -1,5 +1,5 @@
-﻿using PD.Core.Interfaces;
-using PD.Entities;
+﻿using PD.Core.DTO;
+using PD.Core.Interfaces;
 
 namespace PD.Presentation.Forms.Articulos
 {

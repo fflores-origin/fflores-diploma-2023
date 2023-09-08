@@ -2,7 +2,7 @@
 
 namespace PD.Repositories.Interfaces
 {
-    public interface IArticuloRepository : IRepository<ArticuloListaDTO>
+    public interface IArticuloRepository : IRepository<Articulo>
     {
     }
 }

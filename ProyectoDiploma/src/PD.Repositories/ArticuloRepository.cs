@@ -5,7 +5,7 @@ using PD.Repositories.Interfaces;
 
 namespace PD.Repositories
 {
-    public class ArticuloRepository : Repository<ArticuloListaDTO>, IArticuloRepository
+    public class ArticuloRepository : Repository<Articulo>, IArticuloRepository
     {
         private readonly IConfiguration _configuration;
         private readonly IConnection _connection;
