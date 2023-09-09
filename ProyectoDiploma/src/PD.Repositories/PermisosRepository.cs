@@ -14,9 +14,9 @@ namespace PD.Repositories
             _connection = connection;
         }
 
-        public List<Grupo> GetGrupos()
+        public List<Familia> GetGrupos()
         {
-            var grupos = new List<Grupo>();
+            var grupos = new List<Familia>();
 
             using (var conn = _connection.CreateConnection())
             {
@@ -29,12 +29,12 @@ namespace PD.Repositories
                 }
             }
 
-            return new List<Grupo>();
+            return new List<Familia>();
         }
 
-        public List<Permiso> GetPermisos()
+        public List<Patente> GetPermisos()
         {
-            return new List<Permiso>();
+            return new List<Patente>();
         }
     }
 }

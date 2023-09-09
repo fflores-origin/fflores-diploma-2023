@@ -5,14 +5,15 @@ namespace PD.Entities
     public abstract class PermisoBase : BaseEntity
     {
         public string Nombre { get; set; }
-        public abstract IList<PermisoBase> Permisos { get; }
 
-        public abstract void AgregarPermiso(PermisoBase permiso);
+        public abstract void AddPermiso(PermisoBase permiso);
+        public abstract void RemovePermiso(PermisoBase permiso);
+        public abstract IList<PermisoBase> ObtenerHijos();
 
-        public abstract void LimpiarPermisos();
+        //public abstract void LimpiarPermisos();
 
-        public TipoPermiso TipoPermiso { get; set; }
+        //public TipoPermiso TipoPermiso { get; set; }
 
-        public override string ToString() => Nombre;
+        public override string ToString() => this.Nombre;
     }
 }

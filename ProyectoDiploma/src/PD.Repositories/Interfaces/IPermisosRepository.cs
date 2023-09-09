@@ -4,7 +4,7 @@ namespace PD.Repositories.Interfaces
 {
     public interface IPermisosRepository
     {
-        List<Permiso> GetPermisos();
-        List<Grupo> GetGrupos();
+        List<Patente> GetPermisos();
+        List<Familia> GetGrupos();
     }
 }

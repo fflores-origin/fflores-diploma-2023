@@ -2,10 +2,12 @@
 {
     public class Usuario : BaseEntity
     {
-        private List<PermisoBase> _permisos;
-        public string Nombre { get; set; }
+        private IList<PermisoBase> _permisos;
+
+        public string NombreUsuario { get; set; }
         public string Email { get; set; }
-        public string Contrasenia { get; set; }
+        public string Password { get; set; }
+        public Guid IdiomaId { get; set; }
         public Idioma Idioma { get; set; }
 
         public Usuario()
@@ -13,9 +15,9 @@
             _permisos = new List<PermisoBase>();
         }
 
-        public List<PermisoBase> Permisos
+        public IList<PermisoBase> Permisos
         { get { return _permisos; } }
 
-        public override string ToString() => Nombre;
+        public override string ToString() => NombreUsuario;
     }
 }

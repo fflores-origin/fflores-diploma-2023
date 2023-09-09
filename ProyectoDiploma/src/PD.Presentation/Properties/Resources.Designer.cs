@@ -63,9 +63,9 @@ namespace PD.Presentation.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stock {
+        internal static System.Drawing.Bitmap stock1 {
             get {
-                object obj = ResourceManager.GetObject("stock", resourceCulture);
+                object obj = ResourceManager.GetObject("stock1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
