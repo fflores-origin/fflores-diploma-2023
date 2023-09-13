@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PD.Entities\PD.Entities.csproj" />
     <ProjectReference Include="..\PD.Repositories\PD.Repositories.csproj" />
+    <ProjectReference Include="..\PD.Services\PD.Services.csproj" />
   </ItemGroup>
 
 </Project>
