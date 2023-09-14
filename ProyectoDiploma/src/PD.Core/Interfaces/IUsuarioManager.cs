@@ -5,6 +5,9 @@ namespace PD.Core.Interfaces
     public interface IUsuarioManager
     {
         LoginResult Login(string username, string password);
+
         void LogOut();
+
+        void CrearUsuario(string username, string password);
     }
 }

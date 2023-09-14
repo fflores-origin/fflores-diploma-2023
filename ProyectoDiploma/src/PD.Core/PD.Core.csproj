@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PD.Entities\PD.Entities.csproj" />
     <ProjectReference Include="..\PD.Repositories\PD.Repositories.csproj" />
     <ProjectReference Include="..\PD.Services\PD.Services.csproj" />
   </ItemGroup>
