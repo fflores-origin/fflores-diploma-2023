@@ -8,5 +8,7 @@
         public Cliente Cliente { get; set; }
         public Guid ClienteId { get; set; }
         public List<Articulo> Articulos { get; set; }
+        public Guid TipoOrdenId { get; set; }
+        public TipoOrden TipoOrden { get; set; }
     }
 }
