@@ -1,4 +1,6 @@
-﻿namespace PD.Entities
+﻿using PD.Entities.Permisos;
+
+namespace PD.Entities
 {
     public class Usuario : BaseEntity
     {

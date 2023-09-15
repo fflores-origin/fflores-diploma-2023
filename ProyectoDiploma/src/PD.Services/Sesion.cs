@@ -1,5 +1,6 @@
 ﻿using PD.Entities;
 using PD.Entities.Enums;
+using PD.Entities.Permisos;
 using PD.Services.Interfaces;
 
 namespace PD.Services

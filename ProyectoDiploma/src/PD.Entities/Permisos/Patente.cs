@@ -1,6 +1,6 @@
 ﻿using PD.Entities.Enums;
 
-namespace PD.Entities
+namespace PD.Entities.Permisos
 {
     public class Patente : PermisoBase
     {

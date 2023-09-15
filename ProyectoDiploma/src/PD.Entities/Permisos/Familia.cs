@@ -1,4 +1,4 @@
-﻿namespace PD.Entities
+﻿namespace PD.Entities.Permisos
 {
     public class Familia : PermisoBase
     {

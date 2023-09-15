@@ -1,6 +1,6 @@
 ﻿using PD.Entities.Enums;
 
-namespace PD.Entities
+namespace PD.Entities.Permisos
 {
     public abstract class PermisoBase : BaseEntity
     {
@@ -14,6 +14,6 @@ namespace PD.Entities
 
         //public TipoPermiso TipoPermiso { get; set; }
 
-        public override string ToString() => this.Nombre;
+        public override string ToString() => Nombre;
     }
 }

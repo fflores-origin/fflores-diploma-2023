@@ -1,5 +1,5 @@
 ﻿using PD.DataAccess.Interfaces;
-using PD.Entities;
+using PD.Entities.Permisos;
 using PD.Repositories.Interfaces;
 using System.Data.SqlClient;
 

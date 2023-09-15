@@ -1,4 +1,4 @@
-﻿using PD.Entities;
+﻿using PD.Entities.Permisos;
 
 namespace PD.Repositories.Interfaces
 {
