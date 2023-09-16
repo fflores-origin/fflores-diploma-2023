@@ -1,18 +1,14 @@
-﻿using PD.Entities.Enums;
-
-namespace PD.Entities.Permisos
+﻿namespace PD.Entities.Permisos
 {
     public abstract class PermisoBase : BaseEntity
     {
         public string Nombre { get; set; }
 
         public abstract void AddPermiso(PermisoBase permiso);
+
         public abstract void RemovePermiso(PermisoBase permiso);
+
         public abstract IList<PermisoBase> ObtenerHijos();
-
-        //public abstract void LimpiarPermisos();
-
-        //public TipoPermiso TipoPermiso { get; set; }
 
         public override string ToString() => Nombre;
     }

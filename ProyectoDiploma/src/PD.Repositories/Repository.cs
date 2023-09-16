@@ -1,4 +1,5 @@
-﻿using PD.DataAccess.Interfaces;
+﻿using Microsoft.Extensions.Configuration;
+using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
 using System.Data.SqlClient;
@@ -10,10 +11,14 @@ namespace PD.Repositories
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly IConnection _connection;
+        private readonly IConfiguration _configuration;
 
-        public Repository(IConnection connection)
+        public Repository(
+            IConnection connection,
+            IConfiguration configuration)
         {
             _connection = connection;
+            _configuration = configuration;
         }
 
         public void Delete(Guid id)
@@ -91,7 +96,7 @@ namespace PD.Repositories
             throw new NotImplementedException();
         }
 
-        private static T GetObject(SqlDataReader reader)
+        private T GetObject(SqlDataReader reader)
         {
             var properties = GetProperties<T>();
             var instance = Activator.CreateInstance<T>();
@@ -104,15 +109,14 @@ namespace PD.Repositories
 
                     var subInstance = Activator.CreateInstance(type);
                     var subProps = type.GetProperties();
-                    
+
                     foreach (var subProp in subProps)
                     {
-                        if (!Equals(reader[$"{prop.Name}{subProp.Name}"], DBNull.Value)) 
+                        if (!Equals(reader[$"{prop.Name}{subProp.Name}"], DBNull.Value))
                             subProp.SetValue(subInstance, reader[$"{prop.Name}{subProp.Name}"], null);
                     }
 
                     prop.SetValue(instance, subInstance);
-                    
                 }
                 else
                 {
@@ -123,7 +127,7 @@ namespace PD.Repositories
             return instance;
         }
 
-        private static string CreateQuery()
+        private string CreateQuery()
         {
             var addedColumns = "";
             var properties = GetProperties<T>();
@@ -148,10 +152,10 @@ namespace PD.Repositories
             return query;
         }
 
-        private static PropertyInfo[] GetProperties<T>()
+        private PropertyInfo[] GetProperties<T>()
             => typeof(T).GetProperties();
 
-        private static string GetColumnsComplex(PropertyInfo propType, int index, string tableName)
+        private string GetColumnsComplex(PropertyInfo propType, int index, string tableName)
         {
             var columns = new StringBuilder();
 
@@ -162,13 +166,13 @@ namespace PD.Repositories
             return columns.ToString();
         }
 
-        private static bool IsPropertyComplex(PropertyInfo property)
-            => property.PropertyType.BaseType?.Name == "BaseEntity";
+        private bool IsPropertyComplex(PropertyInfo property)
+            => property.PropertyType.BaseType?.Name == _configuration["Initial:DefaultEntity"];
 
-        private static string GetPluralTableName<T>()
+        private string GetPluralTableName<T>()
             => typeof(T).Name + "s";
 
-        private static string GetPluralTableName(string value)
+        private string GetPluralTableName(string value)
             => $"{value}s";
     }
 }
