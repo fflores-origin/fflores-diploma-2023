@@ -1,6 +1,6 @@
 ﻿namespace PD.Presentation.Forms.Articulos
 {
-    partial class EditArticulo
+    partial class ArticulosLista
     {
         /// <summary>
         /// Required designer variable.

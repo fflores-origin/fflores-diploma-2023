@@ -11,7 +11,7 @@ namespace PD.Repositories
         private readonly IConnection _connection;
 
         public ArticuloRepository(IConfiguration configuration, IConnection connection)
-            : base(connection)
+            : base(connection, configuration)
         {
             _configuration = configuration;
             _connection = connection;

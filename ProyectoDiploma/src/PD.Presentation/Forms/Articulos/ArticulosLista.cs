@@ -1,8 +1,8 @@
 ﻿namespace PD.Presentation.Forms.Articulos
 {
-    public partial class EditArticulo : Form
+    public partial class ArticulosLista : Form
     {
-        public EditArticulo()
+        public ArticulosLista()
         {
             InitializeComponent();
         }

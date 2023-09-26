@@ -19,7 +19,7 @@ GO
 USE DomainDB
 
 GO
-create table Categoria (
+CREATE TABLE Categoria (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] VARCHAR(100),
 )
@@ -28,7 +28,7 @@ INSERT INTO Categoria(Id, Nombre) VALUES('AA174E45-E3C1-4F4A-A961-10671FE79761',
 INSERT INTO Categoria(Id, Nombre) VALUES('882F8085-B15A-41DE-A905-124893068B8E','Libros')
 
 GO
-create table Articulo (
+CREATE TABLE Articulo (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] VARCHAR(100),
 	[Codigo] VARCHAR(100),
@@ -38,13 +38,13 @@ create table Articulo (
 )
 
 GO
-create table Lista (
+CREATE TABLE Lista (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100)
 )
 
 GO
-create table TipoDocumento (
+CREATE TABLE TipoDocumento (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100)
 )
@@ -56,7 +56,7 @@ INSERT INTO TipoDocumento(Id, Nombre) VALUES('BBA8F733-3C22-4D3F-8165-69D875A493
 
 
 GO
-create table Cliente (
+CREATE TABLE Cliente (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100),
 	[Documento] varchar(12),
@@ -64,14 +64,14 @@ create table Cliente (
 )
 
 GO
-create table Permiso (
+CREATE TABLE Permiso (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100),
 	[TipoPermiso] varchar(100),
 )
 
 GO
-create table Usuario (
+CREATE TABLE Usuario (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100),
 	[Email] varchar (200),
@@ -80,9 +80,14 @@ create table Usuario (
 )
 
 GO
-create table UsuarioPermiso (
+CREATE TABLE UsuarioPermiso (
 	[UsuarioId] uniqueidentifier not null,
 	[PermisoId] uniqueidentifier not null,
-
 	CONSTRAINT PK_UsuarioPermiso PRIMARY KEY(UsuarioId,PermisoId)
+)
+
+GO
+CREATE TABLE Permiso (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(100),
 )
