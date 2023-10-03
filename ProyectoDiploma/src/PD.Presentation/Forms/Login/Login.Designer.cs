@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btn_reset = new Button();
-            txt_user = new TextBox();
-            txt_password = new TextBox();
-            lbl_user = new Label();
-            lbl_password = new Label();
             btn_login = new Button();
             lbl_version = new Label();
             lbl_versionValue = new Label();
@@ -40,6 +37,9 @@
             btn_x = new Button();
             panel1 = new Panel();
             btn_minimize = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            txt_user = new Resources.CustomControllers.TextBoxCustom();
+            txt_pass = new Resources.CustomControllers.TextBoxCustom();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -57,42 +57,6 @@
             btn_reset.Text = "¿ Olvidaste tu contraseña ?";
             btn_reset.UseVisualStyleBackColor = true;
             btn_reset.Click += btn_reset_Click;
-            // 
-            // txt_user
-            // 
-            txt_user.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_user.Location = new Point(427, 107);
-            txt_user.Name = "txt_user";
-            txt_user.Size = new Size(289, 32);
-            txt_user.TabIndex = 1;
-            // 
-            // txt_password
-            // 
-            txt_password.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_password.Location = new Point(427, 189);
-            txt_password.Name = "txt_password";
-            txt_password.Size = new Size(289, 32);
-            txt_password.TabIndex = 2;
-            // 
-            // lbl_user
-            // 
-            lbl_user.AutoSize = true;
-            lbl_user.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_user.Location = new Point(427, 85);
-            lbl_user.Name = "lbl_user";
-            lbl_user.Size = new Size(70, 19);
-            lbl_user.TabIndex = 3;
-            lbl_user.Text = "USUARIO";
-            // 
-            // lbl_password
-            // 
-            lbl_password.AutoSize = true;
-            lbl_password.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_password.Location = new Point(427, 167);
-            lbl_password.Name = "lbl_password";
-            lbl_password.Size = new Size(101, 19);
-            lbl_password.TabIndex = 4;
-            lbl_password.Text = "CONTRASEÑA";
             // 
             // btn_login
             // 
@@ -176,22 +140,55 @@
             btn_minimize.UseVisualStyleBackColor = false;
             btn_minimize.Click += btn_minimize_Click;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // txt_user
+            // 
+            txt_user.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_user.Location = new Point(427, 107);
+            txt_user.Margin = new Padding(4);
+            txt_user.Multiline = false;
+            txt_user.Name = "txt_user";
+            txt_user.PasswordChar = false;
+            txt_user.PlaceholderColor = Color.DarkGray;
+            txt_user.PlaceholderText = "Usuario";
+            txt_user.Size = new Size(289, 26);
+            txt_user.TabIndex = 0;
+            txt_user.Texts = "";
+            txt_user.UnderlinedStyle = false;
+            // 
+            // txt_pass
+            // 
+            txt_pass.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_pass.Location = new Point(427, 182);
+            txt_pass.Margin = new Padding(4);
+            txt_pass.Multiline = false;
+            txt_pass.Name = "txt_pass";
+            txt_pass.PasswordChar = false;
+            txt_pass.PlaceholderColor = Color.DarkGray;
+            txt_pass.PlaceholderText = "Contraseña";
+            txt_pass.Size = new Size(289, 26);
+            txt_pass.TabIndex = 2;
+            txt_pass.Texts = "";
+            txt_pass.UnderlinedStyle = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(810, 447);
+            Controls.Add(txt_pass);
+            Controls.Add(txt_user);
             Controls.Add(btn_minimize);
             Controls.Add(panel1);
             Controls.Add(btn_x);
             Controls.Add(lbl_versionValue);
             Controls.Add(lbl_version);
             Controls.Add(btn_login);
-            Controls.Add(lbl_password);
-            Controls.Add(lbl_user);
-            Controls.Add(txt_password);
-            Controls.Add(txt_user);
             Controls.Add(btn_reset);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
@@ -206,10 +203,6 @@
         #endregion
 
         private Button btn_reset;
-        private TextBox txt_user;
-        private TextBox txt_password;
-        private Label lbl_user;
-        private Label lbl_password;
         private Button btn_login;
         private Label lbl_version;
         private Label lbl_versionValue;
@@ -217,5 +210,8 @@
         private Button btn_x;
         private Panel panel1;
         private Button btn_minimize;
+        private ContextMenuStrip contextMenuStrip1;
+        private Resources.CustomControllers.TextBoxCustom txt_user;
+        private Resources.CustomControllers.TextBoxCustom txt_pass;
     }
 }

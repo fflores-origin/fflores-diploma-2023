@@ -6,5 +6,11 @@
         {
             InitializeComponent();
         }
+
+
+        public void ShowOverParent(Form parent)
+        {
+            this.Visible = true;
+        }
     }
 }
