@@ -87,7 +87,7 @@ CREATE TABLE UsuarioPermiso (
 )
 
 GO
-CREATE TABLE Permiso (
+CREATE TABLE PermisoUsuario (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100),
 )

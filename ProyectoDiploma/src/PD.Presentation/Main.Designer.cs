@@ -32,12 +32,14 @@
             toolStrip1 = new ToolStrip();
             tsb_articulos = new ToolStripDropDownButton();
             btn_gestionarArticulos = new ToolStripMenuItem();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            gestionarPermisosToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos, toolStripDropDownButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(861, 25);
@@ -57,9 +59,26 @@
             // btn_gestionarArticulos
             // 
             btn_gestionarArticulos.Name = "btn_gestionarArticulos";
-            btn_gestionarArticulos.Size = new Size(174, 22);
+            btn_gestionarArticulos.Size = new Size(180, 22);
             btn_gestionarArticulos.Text = "Gestionar Articulos";
             btn_gestionarArticulos.Click += Btn_gestionarArticulos_Click;
+            // 
+            // toolStripDropDownButton1
+            // 
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { gestionarPermisosToolStripMenuItem });
+            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(73, 22);
+            toolStripDropDownButton1.Text = "Seguridad";
+            // 
+            // gestionarPermisosToolStripMenuItem
+            // 
+            gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
+            gestionarPermisosToolStripMenuItem.Size = new Size(180, 22);
+            gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
+            gestionarPermisosToolStripMenuItem.Click += gestionarPermisosToolStripMenuItem_Click;
             // 
             // Main
             // 
@@ -83,5 +102,7 @@
         private ToolStrip toolStrip1;
         private ToolStripDropDownButton tsb_articulos;
         private ToolStripMenuItem btn_gestionarArticulos;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem gestionarPermisosToolStripMenuItem;
     }
 }
