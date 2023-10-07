@@ -63,6 +63,7 @@ CREATE TABLE Cliente (
 	[TipoDocumentoId] uniqueidentifier
 )
 
+-- #start USUARIOS PERMISOS
 GO
 CREATE TABLE Permiso (
 	[Id] uniqueidentifier not null primary key default(newid()),
@@ -73,9 +74,9 @@ CREATE TABLE Permiso (
 GO
 CREATE TABLE Usuario (
 	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(100),
+	[Nombre] varchar(100) not null,
 	[Email] varchar (200),
-	[Contrasenia] varchar(100),
+	[Contrasenia] varchar(100) not null,
 	[IdiomaId] uniqueidentifier
 )
 
@@ -87,7 +88,26 @@ CREATE TABLE UsuarioPermiso (
 )
 
 GO
-CREATE TABLE PermisoUsuario (
-	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(100),
+CREATE TABLE PermisoComponente (
+	[PermisoPadreId] uniqueidentifier not null,
+	[PermisoHijoId] uniqueidentifier not null,
+	constraint PK_PermisoComponente primary key([PermisoPadreId], [PermisoHijoId]) 
 )
+-- #end USUARIOS PERMISOS
+
+-- #start MULTI-IDIOMA
+GO
+CREATE TABLE Idioma (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(50) not null,
+	[IsoCode] varchar(50) not null,
+	[IsDefault] bit not null default(0)
+)
+
+GO
+CREATE TABLE Etiqueta (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(50) not null
+)
+
+-- #end MULTI-IDIOMA
