@@ -1,4 +1,5 @@
-﻿using PD.Services.Enums;
+﻿using PD.Core.DTOs;
+using PD.Services.Enums;
 
 namespace PD.Core.Interfaces
 {
@@ -9,5 +10,7 @@ namespace PD.Core.Interfaces
         void LogOut();
 
         void CrearUsuario(string username, string password);
+
+        List<UsuarioDto> GetUsuarios();
     }
 }
