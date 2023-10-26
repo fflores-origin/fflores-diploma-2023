@@ -14,6 +14,7 @@ namespace PD.Presentation.Bootstrap
                 .AddSingleton<GestionArticulos>()
                 .AddSingleton<Login>()
                 .AddSingleton<Recover>()
+                .AddSingleton<EdicionArticulo>()
                 .AddSingleton<GestionarPermisos>();
         }
     }
