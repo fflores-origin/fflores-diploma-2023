@@ -209,10 +209,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Trebuchet MS", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(54, 11);
             label4.Name = "label4";
-            label4.Size = new Size(125, 29);
+            label4.Size = new Size(126, 32);
             label4.TabIndex = 6;
             label4.Text = "ARTICULO";
             // 
@@ -323,7 +323,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Location = new Point(536, 21);
             button1.Name = "button1";
-            button1.Size = new Size(60, 58);
+            button1.Size = new Size(60, 60);
             button1.TabIndex = 15;
             button1.UseVisualStyleBackColor = true;
             // 
@@ -344,7 +344,7 @@
             btn_save.FlatStyle = FlatStyle.Flat;
             btn_save.Location = new Point(624, 21);
             btn_save.Name = "btn_save";
-            btn_save.Size = new Size(60, 58);
+            btn_save.Size = new Size(60, 60);
             btn_save.TabIndex = 0;
             btn_save.UseVisualStyleBackColor = true;
             // 

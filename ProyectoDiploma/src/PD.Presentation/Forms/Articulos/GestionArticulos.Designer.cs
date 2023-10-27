@@ -40,6 +40,8 @@
             button2 = new Button();
             panel2 = new Panel();
             panel1 = new Panel();
+            panel5 = new Panel();
+            lbl_add = new Label();
             pnl_head.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_articulos).BeginInit();
             pnl_seachbar.SuspendLayout();
@@ -50,18 +52,19 @@
             // pnl_head
             // 
             pnl_head.BackColor = Color.White;
+            pnl_head.Controls.Add(panel5);
             pnl_head.Controls.Add(label1);
             pnl_head.Dock = DockStyle.Top;
             pnl_head.Location = new Point(0, 0);
             pnl_head.Name = "pnl_head";
-            pnl_head.Size = new Size(1089, 46);
+            pnl_head.Size = new Size(1089, 54);
             pnl_head.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(57, 10);
             label1.Name = "label1";
             label1.Size = new Size(140, 32);
             label1.TabIndex = 1;
@@ -74,7 +77,7 @@
             dgv_articulos.Location = new Point(42, 6);
             dgv_articulos.Name = "dgv_articulos";
             dgv_articulos.RowTemplate.Height = 25;
-            dgv_articulos.Size = new Size(1005, 577);
+            dgv_articulos.Size = new Size(1005, 569);
             dgv_articulos.TabIndex = 0;
             // 
             // pnl_seachbar
@@ -83,7 +86,7 @@
             pnl_seachbar.Controls.Add(button1);
             pnl_seachbar.Controls.Add(txt_search);
             pnl_seachbar.Dock = DockStyle.Top;
-            pnl_seachbar.Location = new Point(0, 46);
+            pnl_seachbar.Location = new Point(0, 54);
             pnl_seachbar.Name = "pnl_seachbar";
             pnl_seachbar.Size = new Size(1089, 53);
             pnl_seachbar.TabIndex = 2;
@@ -96,8 +99,9 @@
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(1046, 10);
+            button1.Location = new Point(1009, 10);
             button1.Name = "button1";
+            button1.Padding = new Padding(6);
             button1.Size = new Size(31, 31);
             button1.TabIndex = 3;
             button1.UseVisualStyleBackColor = false;
@@ -106,9 +110,9 @@
             // 
             txt_search.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txt_search.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_search.Location = new Point(12, 10);
+            txt_search.Location = new Point(42, 10);
             txt_search.Name = "txt_search";
-            txt_search.Size = new Size(1028, 31);
+            txt_search.Size = new Size(952, 31);
             txt_search.TabIndex = 2;
             // 
             // pnl_list
@@ -118,16 +122,17 @@
             pnl_list.Controls.Add(panel1);
             pnl_list.Controls.Add(dgv_articulos);
             pnl_list.Dock = DockStyle.Fill;
-            pnl_list.Location = new Point(0, 99);
+            pnl_list.Location = new Point(0, 107);
             pnl_list.Name = "pnl_list";
-            pnl_list.Size = new Size(1089, 689);
+            pnl_list.Size = new Size(1089, 681);
             pnl_list.TabIndex = 3;
             // 
             // pnl_buttons
             // 
+            pnl_buttons.Controls.Add(lbl_add);
             pnl_buttons.Controls.Add(button2);
             pnl_buttons.Dock = DockStyle.Bottom;
-            pnl_buttons.Location = new Point(36, 589);
+            pnl_buttons.Location = new Point(36, 581);
             pnl_buttons.Name = "pnl_buttons";
             pnl_buttons.Size = new Size(1017, 100);
             pnl_buttons.TabIndex = 4;
@@ -139,9 +144,9 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(934, 12);
+            button2.Location = new Point(944, 14);
             button2.Name = "button2";
-            button2.Size = new Size(77, 76);
+            button2.Size = new Size(60, 60);
             button2.TabIndex = 0;
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
@@ -151,7 +156,7 @@
             panel2.Dock = DockStyle.Right;
             panel2.Location = new Point(1053, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(36, 689);
+            panel2.Size = new Size(36, 681);
             panel2.TabIndex = 2;
             // 
             // panel1
@@ -159,8 +164,26 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(36, 689);
+            panel1.Size = new Size(36, 681);
             panel1.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(4, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 8;
+            // 
+            // lbl_add
+            // 
+            lbl_add.AutoSize = true;
+            lbl_add.Location = new Point(952, 76);
+            lbl_add.Name = "lbl_add";
+            lbl_add.Size = new Size(49, 15);
+            lbl_add.TabIndex = 1;
+            lbl_add.Text = "Agregar";
             // 
             // GestionArticulos
             // 
@@ -180,6 +203,7 @@
             pnl_seachbar.PerformLayout();
             pnl_list.ResumeLayout(false);
             pnl_buttons.ResumeLayout(false);
+            pnl_buttons.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -196,5 +220,7 @@
         private Button button1;
         private TextBox txt_search;
         private Button button2;
+        private Panel panel5;
+        private Label lbl_add;
     }
 }
