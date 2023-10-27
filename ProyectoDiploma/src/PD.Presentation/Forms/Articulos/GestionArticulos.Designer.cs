@@ -28,156 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnl_head = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgv_articulos = new System.Windows.Forms.DataGridView();
-            this.pnl_seachbar = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txt_search = new System.Windows.Forms.TextBox();
-            this.pnl_list = new System.Windows.Forms.Panel();
-            this.pnl_buttons = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pnl_head.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).BeginInit();
-            this.pnl_seachbar.SuspendLayout();
-            this.pnl_list.SuspendLayout();
-            this.pnl_buttons.SuspendLayout();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionArticulos));
+            pnl_head = new Panel();
+            label1 = new Label();
+            dgv_articulos = new DataGridView();
+            pnl_seachbar = new Panel();
+            button1 = new Button();
+            txt_search = new TextBox();
+            pnl_list = new Panel();
+            pnl_buttons = new Panel();
+            button2 = new Button();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            pnl_head.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_articulos).BeginInit();
+            pnl_seachbar.SuspendLayout();
+            pnl_list.SuspendLayout();
+            pnl_buttons.SuspendLayout();
+            SuspendLayout();
             // 
             // pnl_head
             // 
-            this.pnl_head.BackColor = System.Drawing.Color.White;
-            this.pnl_head.Controls.Add(this.label1);
-            this.pnl_head.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_head.Location = new System.Drawing.Point(0, 0);
-            this.pnl_head.Name = "pnl_head";
-            this.pnl_head.Size = new System.Drawing.Size(1089, 46);
-            this.pnl_head.TabIndex = 0;
+            pnl_head.BackColor = Color.White;
+            pnl_head.Controls.Add(label1);
+            pnl_head.Dock = DockStyle.Top;
+            pnl_head.Location = new Point(0, 0);
+            pnl_head.Name = "pnl_head";
+            pnl_head.Size = new Size(1089, 46);
+            pnl_head.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ARTICULOS";
+            label1.AutoSize = true;
+            label1.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(140, 32);
+            label1.TabIndex = 1;
+            label1.Text = "ARTICULOS";
             // 
             // dgv_articulos
             // 
-            this.dgv_articulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_articulos.Location = new System.Drawing.Point(42, 6);
-            this.dgv_articulos.Name = "dgv_articulos";
-            this.dgv_articulos.RowTemplate.Height = 25;
-            this.dgv_articulos.Size = new System.Drawing.Size(1005, 577);
-            this.dgv_articulos.TabIndex = 0;
+            dgv_articulos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_articulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_articulos.Location = new Point(42, 6);
+            dgv_articulos.Name = "dgv_articulos";
+            dgv_articulos.RowTemplate.Height = 25;
+            dgv_articulos.Size = new Size(1005, 577);
+            dgv_articulos.TabIndex = 0;
             // 
             // pnl_seachbar
             // 
-            this.pnl_seachbar.Controls.Add(this.button1);
-            this.pnl_seachbar.Controls.Add(this.txt_search);
-            this.pnl_seachbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_seachbar.Location = new System.Drawing.Point(0, 46);
-            this.pnl_seachbar.Name = "pnl_seachbar";
-            this.pnl_seachbar.Size = new System.Drawing.Size(1089, 53);
-            this.pnl_seachbar.TabIndex = 2;
+            pnl_seachbar.BackColor = Color.White;
+            pnl_seachbar.Controls.Add(button1);
+            pnl_seachbar.Controls.Add(txt_search);
+            pnl_seachbar.Dock = DockStyle.Top;
+            pnl_seachbar.Location = new Point(0, 46);
+            pnl_seachbar.Name = "pnl_seachbar";
+            pnl_seachbar.Size = new Size(1089, 53);
+            pnl_seachbar.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.BackgroundImage = global::PD.Presentation.Properties.Resources.seach;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(1046, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 31);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            button1.Anchor = AnchorStyles.Left;
+            button1.BackColor = Color.White;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(1046, 10);
+            button1.Name = "button1";
+            button1.Size = new Size(31, 31);
+            button1.TabIndex = 3;
+            button1.UseVisualStyleBackColor = false;
             // 
             // txt_search
             // 
-            this.txt_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_search.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_search.Location = new System.Drawing.Point(12, 10);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(1065, 31);
-            this.txt_search.TabIndex = 2;
+            txt_search.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txt_search.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_search.Location = new Point(12, 10);
+            txt_search.Name = "txt_search";
+            txt_search.Size = new Size(1028, 31);
+            txt_search.TabIndex = 2;
             // 
             // pnl_list
             // 
-            this.pnl_list.Controls.Add(this.pnl_buttons);
-            this.pnl_list.Controls.Add(this.panel2);
-            this.pnl_list.Controls.Add(this.panel1);
-            this.pnl_list.Controls.Add(this.dgv_articulos);
-            this.pnl_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_list.Location = new System.Drawing.Point(0, 99);
-            this.pnl_list.Name = "pnl_list";
-            this.pnl_list.Size = new System.Drawing.Size(1089, 689);
-            this.pnl_list.TabIndex = 3;
+            pnl_list.Controls.Add(pnl_buttons);
+            pnl_list.Controls.Add(panel2);
+            pnl_list.Controls.Add(panel1);
+            pnl_list.Controls.Add(dgv_articulos);
+            pnl_list.Dock = DockStyle.Fill;
+            pnl_list.Location = new Point(0, 99);
+            pnl_list.Name = "pnl_list";
+            pnl_list.Size = new Size(1089, 689);
+            pnl_list.TabIndex = 3;
             // 
             // pnl_buttons
             // 
-            this.pnl_buttons.Controls.Add(this.button2);
-            this.pnl_buttons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_buttons.Location = new System.Drawing.Point(36, 589);
-            this.pnl_buttons.Name = "pnl_buttons";
-            this.pnl_buttons.Size = new System.Drawing.Size(1017, 100);
-            this.pnl_buttons.TabIndex = 4;
+            pnl_buttons.Controls.Add(button2);
+            pnl_buttons.Dock = DockStyle.Bottom;
+            pnl_buttons.Location = new Point(36, 589);
+            pnl_buttons.Name = "pnl_buttons";
+            pnl_buttons.Size = new Size(1017, 100);
+            pnl_buttons.TabIndex = 4;
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::PD.Presentation.Properties.Resources.plus;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(934, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 76);
-            this.button2.TabIndex = 0;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(934, 12);
+            button2.Name = "button2";
+            button2.Size = new Size(77, 76);
+            button2.TabIndex = 0;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // panel2
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1053, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(36, 689);
-            this.panel2.TabIndex = 2;
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(1053, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(36, 689);
+            panel2.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(36, 689);
-            this.panel1.TabIndex = 1;
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(36, 689);
+            panel1.TabIndex = 1;
             // 
             // GestionArticulos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 788);
-            this.Controls.Add(this.pnl_list);
-            this.Controls.Add(this.pnl_seachbar);
-            this.Controls.Add(this.pnl_head);
-            this.Name = "GestionArticulos";
-            this.Text = "Articulos";
-            this.pnl_head.ResumeLayout(false);
-            this.pnl_head.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).EndInit();
-            this.pnl_seachbar.ResumeLayout(false);
-            this.pnl_seachbar.PerformLayout();
-            this.pnl_list.ResumeLayout(false);
-            this.pnl_buttons.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1089, 788);
+            Controls.Add(pnl_list);
+            Controls.Add(pnl_seachbar);
+            Controls.Add(pnl_head);
+            Name = "GestionArticulos";
+            Text = "Articulos";
+            pnl_head.ResumeLayout(false);
+            pnl_head.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_articulos).EndInit();
+            pnl_seachbar.ResumeLayout(false);
+            pnl_seachbar.PerformLayout();
+            pnl_list.ResumeLayout(false);
+            pnl_buttons.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

@@ -11,7 +11,7 @@ namespace PD.Presentation.Forms.Articulos
 
 
         public GestionArticulos(
-            IArticulosManager articuloManager, 
+            IArticulosManager articuloManager,
             EdicionArticulo edicionArticuloForm)
         {
             InitializeComponent();
