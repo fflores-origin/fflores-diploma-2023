@@ -38,8 +38,6 @@
             panel1 = new Panel();
             btn_minimize = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            txt_user = new Resources.CustomControllers.TextBoxCustom();
-            txt_pass = new Resources.CustomControllers.TextBoxCustom();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -144,36 +142,7 @@
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // txt_user
-            // 
-            txt_user.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_user.Location = new Point(427, 107);
-            txt_user.Margin = new Padding(4);
-            txt_user.Multiline = false;
-            txt_user.Name = "txt_user";
-            txt_user.PasswordChar = false;
-            txt_user.PlaceholderColor = Color.DarkGray;
-            txt_user.PlaceholderText = "Usuario";
-            txt_user.Size = new Size(289, 26);
-            txt_user.TabIndex = 0;
-            txt_user.Texts = "";
-            txt_user.UnderlinedStyle = false;
-            // 
-            // txt_pass
-            // 
-            txt_pass.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_pass.Location = new Point(427, 182);
-            txt_pass.Margin = new Padding(4);
-            txt_pass.Multiline = false;
-            txt_pass.Name = "txt_pass";
-            txt_pass.PasswordChar = false;
-            txt_pass.PlaceholderColor = Color.DarkGray;
-            txt_pass.PlaceholderText = "Contraseña";
-            txt_pass.Size = new Size(289, 26);
-            txt_pass.TabIndex = 2;
-            txt_pass.Texts = "";
-            txt_pass.UnderlinedStyle = false;
+           
             // 
             // Login
             // 
@@ -181,8 +150,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(810, 447);
-            Controls.Add(txt_pass);
-            Controls.Add(txt_user);
             Controls.Add(btn_minimize);
             Controls.Add(panel1);
             Controls.Add(btn_x);
@@ -211,7 +178,5 @@
         private Panel panel1;
         private Button btn_minimize;
         private ContextMenuStrip contextMenuStrip1;
-        private Resources.CustomControllers.TextBoxCustom txt_user;
-        private Resources.CustomControllers.TextBoxCustom txt_pass;
     }
 }

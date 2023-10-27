@@ -233,9 +233,10 @@ namespace PD.Presentation.Resources.CustomControllers
             RemovePlaceholder();
         }
 
-        private void txt_OnTextChanged(object sender, EventArgs e)
+        private void txt_OnTextChanged(object? sender, EventArgs e)
         {
-            if (_TextChanged != null) _TextChanged.Invoke(sender, e);
+            //if (_TextChanged != null) 
+                _TextChanged.Invoke(sender, e);
         }
 
         #endregion Events

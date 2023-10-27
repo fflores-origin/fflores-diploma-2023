@@ -28,7 +28,7 @@ namespace PD.Presentation
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error {errorMessage}", ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
@@ -36,7 +36,7 @@ namespace PD.Presentation
         private static IHostBuilder CreateHostBuilder(string[] args)
         {
             var configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                    .SetBasePath(Directory.GetParent(AppContext.BaseDirectory)?.FullName)
                     .AddJsonFile("appsettings.json", false)
                     .Build();
 

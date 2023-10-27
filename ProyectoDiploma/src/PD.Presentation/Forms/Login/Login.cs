@@ -7,7 +7,6 @@ namespace PD.Presentation.Forms.Login
         private readonly Main _main;
         private readonly Recover _recover;
         private readonly IConfiguration _configuration;
-        
 
         public Login(
             Main main,
@@ -24,7 +23,6 @@ namespace PD.Presentation.Forms.Login
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-
             this.Hide();
             _main.Show();
         }

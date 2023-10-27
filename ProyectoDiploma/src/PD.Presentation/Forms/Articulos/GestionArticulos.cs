@@ -9,7 +9,6 @@ namespace PD.Presentation.Forms.Articulos
         private List<ArticuloListaDTO> _articulos;
         private EdicionArticulo _edicionArticuloForm;
 
-
         public GestionArticulos(
             IArticulosManager articuloManager,
             EdicionArticulo edicionArticuloForm)
@@ -27,7 +26,6 @@ namespace PD.Presentation.Forms.Articulos
         private void button2_Click(object sender, EventArgs e)
         {
             _edicionArticuloForm.Show();
-
         }
     }
 }

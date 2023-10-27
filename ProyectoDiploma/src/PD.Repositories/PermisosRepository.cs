@@ -25,7 +25,6 @@ namespace PD.Repositories
 
                 using (var cmd = new SqlCommand(qry, conn))
                 {
-
                 }
             }
 

@@ -22,7 +22,7 @@ namespace PD.Core
             _articuloMapper = articuloMapper;
         }
 
-        public List<ArticuloListaDTO> GetList() 
+        public List<ArticuloListaDTO> GetList()
             => _articuloMapper.GetArticuloListas(_repository.GetAll().ToList());
     }
 }
