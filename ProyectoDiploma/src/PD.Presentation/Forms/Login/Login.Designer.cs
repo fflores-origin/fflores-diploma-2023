@@ -38,6 +38,10 @@
             panel1 = new Panel();
             btn_minimize = new Button();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            label1 = new Label();
+            txt_user = new TextBox();
+            txt_pass = new TextBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -63,7 +67,7 @@
             btn_login.FlatStyle = FlatStyle.Flat;
             btn_login.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_login.ForeColor = Color.White;
-            btn_login.Location = new Point(427, 260);
+            btn_login.Location = new Point(427, 272);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(289, 50);
             btn_login.TabIndex = 5;
@@ -142,7 +146,42 @@
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
-           
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(427, 83);
+            label1.Name = "label1";
+            label1.Size = new Size(64, 21);
+            label1.TabIndex = 13;
+            label1.Text = "Usuario";
+            // 
+            // txt_user
+            // 
+            txt_user.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_user.Location = new Point(427, 107);
+            txt_user.Name = "txt_user";
+            txt_user.Size = new Size(289, 29);
+            txt_user.TabIndex = 14;
+            // 
+            // txt_pass
+            // 
+            txt_pass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_pass.Location = new Point(427, 187);
+            txt_pass.Name = "txt_pass";
+            txt_pass.Size = new Size(289, 29);
+            txt_pass.TabIndex = 16;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(427, 163);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 21);
+            label2.TabIndex = 15;
+            label2.Text = "Contraseña";
             // 
             // Login
             // 
@@ -150,6 +189,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(810, 447);
+            Controls.Add(txt_pass);
+            Controls.Add(label2);
+            Controls.Add(txt_user);
+            Controls.Add(label1);
             Controls.Add(btn_minimize);
             Controls.Add(panel1);
             Controls.Add(btn_x);
@@ -178,5 +221,9 @@
         private Panel panel1;
         private Button btn_minimize;
         private ContextMenuStrip contextMenuStrip1;
+        private Label label1;
+        private TextBox txt_user;
+        private TextBox txt_pass;
+        private Label label2;
     }
 }

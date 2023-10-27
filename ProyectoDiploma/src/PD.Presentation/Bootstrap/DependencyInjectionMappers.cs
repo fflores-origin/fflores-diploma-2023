@@ -9,6 +9,7 @@ namespace PD.Presentation.Bootstrap
         public static void AddDependencyInjectionMappers(this IServiceCollection services)
         {
             services
+                .AddTransient<IUsuariosMapper, UsuariosMapper>()
                 .AddTransient<IArticulosMapper, ArticulosMapper>();
         }
     }

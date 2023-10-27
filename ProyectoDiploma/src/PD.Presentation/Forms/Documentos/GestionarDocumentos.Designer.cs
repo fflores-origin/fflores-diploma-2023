@@ -28,12 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "GestionarDocumentos";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarDocumentos));
+            panel3 = new Panel();
+            panel5 = new Panel();
+            lbl_title_categoria = new Label();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(panel5);
+            panel3.Controls.Add(lbl_title_categoria);
+            panel3.Location = new Point(12, 12);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(776, 51);
+            panel3.TabIndex = 6;
+            // 
+            // panel5
+            // 
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 7;
+            // 
+            // lbl_title_categoria
+            // 
+            lbl_title_categoria.AutoSize = true;
+            lbl_title_categoria.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_title_categoria.Location = new Point(54, 11);
+            lbl_title_categoria.Name = "lbl_title_categoria";
+            lbl_title_categoria.Size = new Size(168, 32);
+            lbl_title_categoria.TabIndex = 6;
+            lbl_title_categoria.Text = "FACTURACION";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(15, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(773, 329);
+            panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Location = new Point(15, 404);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(773, 92);
+            panel2.TabIndex = 8;
+            // 
+            // GestionarDocumentos
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(242, 242, 242);
+            ClientSize = new Size(800, 515);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(panel3);
+            Name = "GestionarDocumentos";
+            Text = "GestionarDocumentos";
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel3;
+        private Panel panel5;
+        private Label lbl_title_categoria;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

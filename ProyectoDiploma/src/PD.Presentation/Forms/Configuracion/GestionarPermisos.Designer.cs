@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPermisos));
             panel1 = new Panel();
             dgv_usuarios = new DataGridView();
             btn_add_family = new Button();
@@ -42,14 +43,19 @@
             treeView1 = new TreeView();
             panel3 = new Panel();
             btn_save = new Button();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_usuarios).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.BackColor = Color.White;
             panel1.Controls.Add(dgv_usuarios);
             panel1.Controls.Add(btn_add_family);
             panel1.Controls.Add(btn_add_patente);
@@ -58,7 +64,7 @@
             panel1.Controls.Add(comboBox3);
             panel1.Controls.Add(comboBox2);
             panel1.Controls.Add(lbl_users);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
             panel1.Size = new Size(365, 330);
             panel1.TabIndex = 0;
@@ -135,9 +141,10 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.White;
             panel2.Controls.Add(lbl_permisos);
             panel2.Controls.Add(treeView1);
-            panel2.Location = new Point(383, 12);
+            panel2.Location = new Point(383, 69);
             panel2.Name = "panel2";
             panel2.Size = new Size(429, 330);
             panel2.TabIndex = 1;
@@ -160,8 +167,9 @@
             // 
             // panel3
             // 
+            panel3.BackColor = Color.White;
             panel3.Controls.Add(btn_save);
-            panel3.Location = new Point(12, 348);
+            panel3.Location = new Point(12, 405);
             panel3.Name = "panel3";
             panel3.Size = new Size(797, 90);
             panel3.TabIndex = 2;
@@ -175,11 +183,42 @@
             btn_save.Text = "Guardar";
             btn_save.UseVisualStyleBackColor = true;
             // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(label4);
+            panel4.Location = new Point(12, 12);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(800, 51);
+            panel4.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(54, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 32);
+            label4.TabIndex = 6;
+            label4.Text = "PERMISOS";
+            // 
             // GestionarPermisos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(824, 450);
+            BackColor = Color.FromArgb(242, 242, 242);
+            ClientSize = new Size(824, 514);
+            Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -192,6 +231,8 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -211,5 +252,8 @@
         private Panel panel3;
         private Button btn_save;
         private DataGridView dgv_usuarios;
+        private Panel panel4;
+        private Panel panel5;
+        private Label label4;
     }
 }

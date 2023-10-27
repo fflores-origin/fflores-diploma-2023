@@ -34,12 +34,14 @@
             btn_gestionarArticulos = new ToolStripMenuItem();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
             gestionarPermisosToolStripMenuItem = new ToolStripMenuItem();
+            toolStripDropDownButton2 = new ToolStripDropDownButton();
+            categoriasToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos, toolStripDropDownButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos, toolStripDropDownButton1, toolStripDropDownButton2 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(861, 25);
@@ -59,7 +61,7 @@
             // btn_gestionarArticulos
             // 
             btn_gestionarArticulos.Name = "btn_gestionarArticulos";
-            btn_gestionarArticulos.Size = new Size(180, 22);
+            btn_gestionarArticulos.Size = new Size(174, 22);
             btn_gestionarArticulos.Text = "Gestionar Articulos";
             btn_gestionarArticulos.Click += Btn_gestionarArticulos_Click;
             // 
@@ -76,9 +78,26 @@
             // gestionarPermisosToolStripMenuItem
             // 
             gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
-            gestionarPermisosToolStripMenuItem.Size = new Size(180, 22);
+            gestionarPermisosToolStripMenuItem.Size = new Size(175, 22);
             gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
             gestionarPermisosToolStripMenuItem.Click += gestionarPermisosToolStripMenuItem_Click;
+            // 
+            // toolStripDropDownButton2
+            // 
+            toolStripDropDownButton2.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem });
+            toolStripDropDownButton2.Image = (Image)resources.GetObject("toolStripDropDownButton2.Image");
+            toolStripDropDownButton2.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            toolStripDropDownButton2.Size = new Size(96, 22);
+            toolStripDropDownButton2.Text = "Configuracion";
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Text = "Categorias";
+            categoriasToolStripMenuItem.Click += OpenCategoriasForm;
             // 
             // Main
             // 
@@ -104,5 +123,7 @@
         private ToolStripMenuItem btn_gestionarArticulos;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem gestionarPermisosToolStripMenuItem;
+        private ToolStripDropDownButton toolStripDropDownButton2;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
     }
 }

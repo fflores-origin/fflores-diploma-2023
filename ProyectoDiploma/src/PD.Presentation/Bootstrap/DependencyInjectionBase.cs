@@ -7,15 +7,31 @@ namespace PD.Presentation.Bootstrap
 {
     internal static class DependencyInjectionBase
     {
-        public static void AddDependendyInjectionBase(this IServiceCollection services)
+        public static void AddDependendyInjectionForms(this IServiceCollection services)
         {
             services
                 .AddSingleton<Main>()
-                .AddSingleton<GestionArticulos>()
                 .AddSingleton<Login>()
-                .AddSingleton<Recover>()
+                .AddSingleton<Recover>();
+
+            services.AddDependencyInjectionConfiguracion();
+            services.AddDependencyInjectionArticulos();
+        }
+
+        private static void AddDependencyInjectionArticulos(this IServiceCollection services)
+        {
+            services
+                .AddSingleton<GestionListas>()
                 .AddSingleton<EdicionArticulo>()
-                .AddSingleton<GestionarPermisos>();
+                .AddSingleton<GestionArticulos>();
+        }
+
+        private static void AddDependencyInjectionConfiguracion(this IServiceCollection services)
+        {
+            services
+                .AddSingleton<GestionarPermisos>()
+                .AddSingleton<GestionarIdiomas>()
+                .AddSingleton<GestionCategorias>();
         }
     }
 }

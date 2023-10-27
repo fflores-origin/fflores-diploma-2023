@@ -9,6 +9,7 @@ namespace PD.Presentation.Bootstrap
         public static void AddDependencyInjectionManagers(this IServiceCollection services)
         {
             services
+                .AddTransient<IUsuarioManager, UsuarioManager>()
                 .AddTransient<IArticulosManager, ArticulosManager>();
         }
     }

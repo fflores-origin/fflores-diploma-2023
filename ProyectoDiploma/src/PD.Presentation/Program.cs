@@ -43,10 +43,10 @@ namespace PD.Presentation
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((ctx, services) =>
                 {
-                    services.AddDependendyInjectionBase();
                     services.AddDependencyInjectionMappers();
                     services.AddDependencyInjectionRepositories();
                     services.AddDependencyInjectionManagers();
+                    services.AddDependendyInjectionForms();
 
                     services.AddLogging(configure => configure.AddConsole());
                 });
