@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionArticulos));
             pnl_head = new Panel();
             label1 = new Label();
             dgv_articulos = new DataGridView();
             pnl_seachbar = new Panel();
             button1 = new Button();
             txt_search = new TextBox();
-            label2 = new Label();
             pnl_list = new Panel();
             pnl_buttons = new Panel();
             button2 = new Button();
@@ -49,7 +49,7 @@
             // 
             // pnl_head
             // 
-            pnl_head.BackColor = Color.FromArgb(224, 224, 224);
+            pnl_head.BackColor = Color.White;
             pnl_head.Controls.Add(label1);
             pnl_head.Dock = DockStyle.Top;
             pnl_head.Location = new Point(0, 0);
@@ -60,12 +60,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(105, 32);
+            label1.Size = new Size(140, 32);
             label1.TabIndex = 1;
-            label1.Text = "LISTADO";
+            label1.Text = "ARTICULOS";
             // 
             // dgv_articulos
             // 
@@ -79,9 +79,9 @@
             // 
             // pnl_seachbar
             // 
+            pnl_seachbar.BackColor = Color.White;
             pnl_seachbar.Controls.Add(button1);
             pnl_seachbar.Controls.Add(txt_search);
-            pnl_seachbar.Controls.Add(label2);
             pnl_seachbar.Dock = DockStyle.Top;
             pnl_seachbar.Location = new Point(0, 46);
             pnl_seachbar.Name = "pnl_seachbar";
@@ -91,30 +91,25 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Left;
-            button1.Location = new Point(1037, 6);
+            button1.BackColor = Color.White;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(1046, 10);
             button1.Name = "button1";
-            button1.Size = new Size(40, 40);
+            button1.Size = new Size(31, 31);
             button1.TabIndex = 3;
-            button1.Text = "Q";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             // 
             // txt_search
             // 
             txt_search.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             txt_search.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_search.Location = new Point(63, 10);
+            txt_search.Location = new Point(12, 10);
             txt_search.Name = "txt_search";
-            txt_search.Size = new Size(968, 31);
+            txt_search.Size = new Size(1028, 31);
             txt_search.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Buscar:";
             // 
             // pnl_list
             // 
@@ -139,14 +134,17 @@
             // 
             // button2
             // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(930, 12);
+            button2.Location = new Point(934, 12);
             button2.Name = "button2";
             button2.Size = new Size(77, 76);
             button2.TabIndex = 0;
-            button2.Text = "+";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // panel2
             // 
@@ -168,13 +166,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1089, 788);
             Controls.Add(pnl_list);
             Controls.Add(pnl_seachbar);
             Controls.Add(pnl_head);
             Name = "GestionArticulos";
             Text = "Articulos";
-            Load += GestionArticulos_Load;
             pnl_head.ResumeLayout(false);
             pnl_head.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_articulos).EndInit();
@@ -192,7 +190,6 @@
         private DataGridView dgv_articulos;
         private Panel pnl_seachbar;
         private Panel pnl_list;
-        private Label label2;
         private Panel pnl_buttons;
         private Panel panel2;
         private Panel panel1;
