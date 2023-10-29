@@ -10,7 +10,8 @@ namespace PD.Presentation.Bootstrap
         {
             services
                 .AddTransient<IUsuariosMapper, UsuariosMapper>()
-                .AddTransient<IArticulosMapper, ArticulosMapper>();
+                .AddTransient<IArticulosMapper, ArticulosMapper>()
+                .AddTransient<ICategoriaMapper, CategoriaMapper>();
         }
     }
 }

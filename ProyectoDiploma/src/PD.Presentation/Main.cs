@@ -21,10 +21,11 @@ namespace PD.Presentation
             _configuration = configuration;
             _gestionArticulosForm = gestionArticulosForm;
             _gestionarPermisosFrom = gestionarPermisosFrom;
+            _gestionCategoriasForm = gestionCategoriasForm;
 
             _gestionArticulosForm.MdiParent = this;
             _gestionarPermisosFrom.MdiParent = this;
-            _gestionCategoriasForm = gestionCategoriasForm;
+            _gestionCategoriasForm.MdiParent = this;
         }
 
         private void Btn_gestionarArticulos_Click(object sender, EventArgs e)
@@ -39,6 +40,8 @@ namespace PD.Presentation
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
+            _gestionCategoriasForm.Dispose();
+            _gestionarPermisosFrom.Dispose();
             Application.Exit();
         }
 

@@ -15,8 +15,13 @@ namespace PD.Presentation.Forms.Configuracion
         public void ListarUsuario()
         {
             var list = _usuarioManager.GetUsuarios();
-
             dgv_usuarios.DataSource = list;
+        }
+
+        private void FormHide(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

@@ -73,6 +73,7 @@
             Controls.Add(panel3);
             Name = "GestionarIdiomas";
             Text = "GestionarIdiomas";
+            FormClosing += FormHide;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);

@@ -28,7 +28,12 @@ namespace PD.Presentation
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    MessageBox.Show(
+                        $"ERROR : \t {ex.Message} \n\n" +
+                        $"TRACE --------------- \n {ex.StackTrace}", 
+                        "ERROR EN LA EJECUCIÓN", 
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                 }
             }
         }

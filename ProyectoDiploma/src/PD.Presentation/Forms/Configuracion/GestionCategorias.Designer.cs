@@ -33,15 +33,15 @@
             panel5 = new Panel();
             lbl_title_categoria = new Label();
             panel1 = new Panel();
-            dataGridView1 = new DataGridView();
+            dgv_list = new DataGridView();
             panel2 = new Panel();
             lbl_nombre = new Label();
-            textBox1 = new TextBox();
+            txt_nombre = new TextBox();
             lbl_save = new Label();
             btn_save = new Button();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_list).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,27 +77,27 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(dgv_list);
             panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
             panel1.Size = new Size(459, 209);
             panel1.TabIndex = 6;
             // 
-            // dataGridView1
+            // dgv_list
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 10);
-            dataGridView1.Margin = new Padding(10);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(437, 189);
-            dataGridView1.TabIndex = 0;
+            dgv_list.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_list.Location = new Point(12, 10);
+            dgv_list.Margin = new Padding(10);
+            dgv_list.Name = "dgv_list";
+            dgv_list.RowTemplate.Height = 25;
+            dgv_list.Size = new Size(437, 189);
+            dgv_list.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(lbl_nombre);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txt_nombre);
             panel2.Controls.Add(lbl_save);
             panel2.Controls.Add(btn_save);
             panel2.Location = new Point(12, 284);
@@ -108,18 +108,18 @@
             // lbl_nombre
             // 
             lbl_nombre.AutoSize = true;
-            lbl_nombre.Location = new Point(45, 36);
+            lbl_nombre.Location = new Point(27, 18);
             lbl_nombre.Name = "lbl_nombre";
             lbl_nombre.Size = new Size(51, 15);
             lbl_nombre.TabIndex = 18;
             lbl_nombre.Text = "Nombre";
             // 
-            // textBox1
+            // txt_nombre
             // 
-            textBox1.Location = new Point(45, 56);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(241, 23);
-            textBox1.TabIndex = 17;
+            txt_nombre.Location = new Point(27, 36);
+            txt_nombre.Name = "txt_nombre";
+            txt_nombre.Size = new Size(241, 23);
+            txt_nombre.TabIndex = 17;
             // 
             // lbl_save
             // 
@@ -141,22 +141,27 @@
             btn_save.Size = new Size(60, 60);
             btn_save.TabIndex = 15;
             btn_save.UseVisualStyleBackColor = true;
+            btn_save.Click += btn_save_Click;
             // 
             // GestionCategorias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(485, 450);
+            ClientSize = new Size(485, 436);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionCategorias";
+            FormClosing += HideForm;
             Load += GestionCategorias_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_list).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -168,11 +173,11 @@
         private Panel panel5;
         private Label lbl_title_categoria;
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_list;
         private Panel panel2;
         private Label lbl_save;
         private Button btn_save;
-        private TextBox textBox1;
+        private TextBox txt_nombre;
         private Label lbl_nombre;
     }
 }

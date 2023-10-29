@@ -6,5 +6,11 @@
         {
             InitializeComponent();
         }
+
+        private void FormHide(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }

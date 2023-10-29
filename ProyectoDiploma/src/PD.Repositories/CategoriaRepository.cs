@@ -27,7 +27,7 @@ namespace PD.Repositories
             using (SqlConnection conn = _connection.CreateConnection())
             {
                 conn.Open();
-                var query = "";
+                var query = "SELECT * FROM Categoria";
                 using SqlCommand cmd = new(query, conn);
                 using SqlDataAdapter da = new(cmd);
                 using DataSet ds = new();

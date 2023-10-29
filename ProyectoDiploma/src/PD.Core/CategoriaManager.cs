@@ -1,5 +1,6 @@
 ﻿using PD.Core.DTOs;
 using PD.Core.Interfaces;
+using PD.Core.Mappers.Interfaces;
 using PD.Repositories.Interfaces;
 
 namespace PD.Core
@@ -7,16 +8,19 @@ namespace PD.Core
     public class CategoriaManager : ICategoriaManager
     {
         private readonly ICategoriaRepository _repository;
+        private readonly ICategoriaMapper _mapper;
 
         public CategoriaManager(
-            ICategoriaRepository repository)
+            ICategoriaRepository repository, 
+            ICategoriaMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
         public IList<CategoriaDto> GetList()
         {
-            throw new NotImplementedException();
+            return _mapper.Map(_repository.GetAll().ToList());
         }
     }
 }
