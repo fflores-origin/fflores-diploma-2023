@@ -245,10 +245,10 @@
         kJCQkFAD0R13/BectucsPeYsSAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_qr.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIsAAACHCAYAAAAm26qEAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAACUhJREFUeF7tnMFtFU0TRQmBDEwIZGAygQwcgiUScAKWHAos2YOcgNeWQPLev+rT
+        vQAADr0BR/uQrQAACUhJREFUeF7tnMFtFU0TRQmBDEwIZGAygQwcgiUScAKWHAos2YOcgNeWQPLev+rT
         SO9N9ynNrVc9PYa/jnQ2rXur5pla8+61KETqWAqZ7lhubm5eP3369GZ8eHhYvmybd+/edapQ15wF/fYj
         Jbq/xvX1Nf7RjvL29nb5sm2or0Jdcxa0+0iJOpYF6pqzoN1HStSxLFDXnAXtPlKijmWBuuYsaPeREtKx
         2Jv9o+0t7bb3DO28qISai9DOu7q66v4+e/j58+dut0lIx2JDZ2B7Ru9u50Ul1FyEdp79O8zg27dv3W6T

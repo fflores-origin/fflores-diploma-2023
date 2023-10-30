@@ -196,7 +196,6 @@
             Controls.Add(pnl_head);
             Name = "GestionArticulos";
             Text = "Articulos";
-            FormClosing += FormHide;
             pnl_head.ResumeLayout(false);
             pnl_head.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_articulos).EndInit();

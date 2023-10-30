@@ -3,7 +3,7 @@ using PD.Core.Interfaces;
 
 namespace PD.Presentation.Forms.Articulos
 {
-    public partial class GestionArticulos : Form
+    public partial class GestionArticulos : FormBase
     {
         private readonly IArticulosManager _articuloManager;
         private List<ArticuloListaDTO> _articulos;
@@ -11,7 +11,7 @@ namespace PD.Presentation.Forms.Articulos
 
         public GestionArticulos(
             IArticulosManager articuloManager,
-            EdicionArticulo edicionArticuloForm)
+            EdicionArticulo edicionArticuloForm) : base()
         {
             InitializeComponent();
             _articuloManager = articuloManager;
@@ -26,12 +26,6 @@ namespace PD.Presentation.Forms.Articulos
         private void button2_Click(object sender, EventArgs e)
         {
             _edicionArticuloForm.Show();
-        }
-
-        private void FormHide(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
     }
 }
