@@ -1,6 +1,6 @@
 ﻿namespace PD.Presentation.Forms.Documentos
 {
-    partial class GestionarDocumentos
+    partial class GestionDocumentos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarDocumentos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionDocumentos));
             panel3 = new Panel();
             panel5 = new Panel();
             lbl_title_categoria = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
+            dataGridView1 = new DataGridView();
             panel3.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel3
@@ -69,6 +72,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(15, 69);
             panel1.Name = "panel1";
             panel1.Size = new Size(773, 329);
@@ -82,6 +86,15 @@
             panel2.Size = new Size(773, 92);
             panel2.TabIndex = 8;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(24, 31);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(727, 279);
+            dataGridView1.TabIndex = 0;
+            // 
             // GestionarDocumentos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -91,10 +104,13 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarDocumentos";
-            Text = "GestionarDocumentos";
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -105,5 +121,6 @@
         private Label lbl_title_categoria;
         private Panel panel1;
         private Panel panel2;
+        private DataGridView dataGridView1;
     }
 }

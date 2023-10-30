@@ -1,8 +1,8 @@
 ﻿namespace PD.Presentation.Forms.Documentos
 {
-    public partial class GestionarDocumentos : Form
+    public partial class GestionDocumentos : Form
     {
-        public GestionarDocumentos()
+        public GestionDocumentos()
         {
             InitializeComponent();
         }

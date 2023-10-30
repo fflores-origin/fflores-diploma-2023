@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionArticulos));
             pnl_head = new Panel();
+            panel5 = new Panel();
             label1 = new Label();
             dgv_articulos = new DataGridView();
             pnl_seachbar = new Panel();
@@ -37,11 +38,10 @@
             txt_search = new TextBox();
             pnl_list = new Panel();
             pnl_buttons = new Panel();
+            lbl_add = new Label();
             button2 = new Button();
             panel2 = new Panel();
             panel1 = new Panel();
-            panel5 = new Panel();
-            lbl_add = new Label();
             pnl_head.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_articulos).BeginInit();
             pnl_seachbar.SuspendLayout();
@@ -59,6 +59,15 @@
             pnl_head.Name = "pnl_head";
             pnl_head.Size = new Size(1089, 54);
             pnl_head.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(4, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 8;
             // 
             // label1
             // 
@@ -137,6 +146,15 @@
             pnl_buttons.Size = new Size(1017, 100);
             pnl_buttons.TabIndex = 4;
             // 
+            // lbl_add
+            // 
+            lbl_add.AutoSize = true;
+            lbl_add.Location = new Point(952, 76);
+            lbl_add.Name = "lbl_add";
+            lbl_add.Size = new Size(49, 15);
+            lbl_add.TabIndex = 1;
+            lbl_add.Text = "Agregar";
+            // 
             // button2
             // 
             button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
@@ -167,24 +185,6 @@
             panel1.Size = new Size(36, 681);
             panel1.TabIndex = 1;
             // 
-            // panel5
-            // 
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
-            panel5.BackgroundImageLayout = ImageLayout.Stretch;
-            panel5.Location = new Point(4, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(45, 45);
-            panel5.TabIndex = 8;
-            // 
-            // lbl_add
-            // 
-            lbl_add.AutoSize = true;
-            lbl_add.Location = new Point(952, 76);
-            lbl_add.Name = "lbl_add";
-            lbl_add.Size = new Size(49, 15);
-            lbl_add.TabIndex = 1;
-            lbl_add.Text = "Agregar";
-            // 
             // GestionArticulos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -196,6 +196,7 @@
             Controls.Add(pnl_head);
             Name = "GestionArticulos";
             Text = "Articulos";
+            FormClosing += FormHide;
             pnl_head.ResumeLayout(false);
             pnl_head.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_articulos).EndInit();

@@ -11,7 +11,7 @@ namespace PD.Core
         private readonly ICategoriaMapper _mapper;
 
         public CategoriaManager(
-            ICategoriaRepository repository, 
+            ICategoriaRepository repository,
             ICategoriaMapper mapper)
         {
             _repository = repository;
@@ -21,6 +21,11 @@ namespace PD.Core
         public IList<CategoriaDto> GetList()
         {
             return _mapper.Map(_repository.GetAll().ToList());
+        }
+
+        public void Save(CategoriaDto categoriaDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }

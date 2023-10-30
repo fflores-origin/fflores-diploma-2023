@@ -27,5 +27,11 @@ namespace PD.Presentation.Forms.Articulos
         {
             _edicionArticuloForm.Show();
         }
+
+        private void FormHide(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
     }
 }

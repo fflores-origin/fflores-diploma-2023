@@ -35,11 +35,15 @@ namespace PD.Presentation
 
         private void Main_Load(object sender, EventArgs e)
         {
+
+            // todo idiomas
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
+            _gestionArticulosForm.Dispose();
             _gestionCategoriasForm.Dispose();
             _gestionarPermisosFrom.Dispose();
             Application.Exit();
