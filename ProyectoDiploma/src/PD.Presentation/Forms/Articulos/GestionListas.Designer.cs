@@ -29,140 +29,141 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionListas));
-            panel3 = new Panel();
-            panel5 = new Panel();
-            label4 = new Label();
-            panel1 = new Panel();
-            dataGridView1 = new DataGridView();
-            panel2 = new Panel();
-            dataGridView2 = new DataGridView();
-            btn_add = new Button();
-            lbl_producto = new Label();
-            lbl_listas = new Label();
-            panel3.SuspendLayout();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_listas = new System.Windows.Forms.Label();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_producto = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.SuspendLayout();
             // 
             // panel3
             // 
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(panel5);
-            panel3.Controls.Add(label4);
-            panel3.Location = new Point(12, 12);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(399, 51);
-            panel3.TabIndex = 5;
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(12, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(399, 51);
+            this.panel3.TabIndex = 5;
             // 
             // panel5
             // 
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
-            panel5.BackgroundImageLayout = ImageLayout.Stretch;
-            panel5.Location = new Point(3, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(45, 45);
-            panel5.TabIndex = 7;
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(45, 45);
+            this.panel5.TabIndex = 7;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(98, 32);
-            label4.TabIndex = 6;
-            label4.Text = "LISTAS";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(54, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 32);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "LISTAS";
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(lbl_listas);
-            panel1.Controls.Add(btn_add);
-            panel1.Controls.Add(dataGridView1);
-            panel1.Location = new Point(12, 69);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(399, 208);
-            panel1.TabIndex = 6;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(23, 45);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(351, 104);
-            dataGridView1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(lbl_producto);
-            panel2.Controls.Add(dataGridView2);
-            panel2.Location = new Point(12, 283);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(399, 378);
-            panel2.TabIndex = 7;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(22, 44);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(351, 281);
-            dataGridView2.TabIndex = 0;
-            // 
-            // btn_add
-            // 
-            btn_add.Location = new Point(307, 157);
-            btn_add.Name = "btn_add";
-            btn_add.Size = new Size(67, 31);
-            btn_add.TabIndex = 1;
-            btn_add.Text = "Agregar";
-            btn_add.UseVisualStyleBackColor = true;
-            // 
-            // lbl_producto
-            // 
-            lbl_producto.AutoSize = true;
-            lbl_producto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_producto.Location = new Point(23, 11);
-            lbl_producto.Name = "lbl_producto";
-            lbl_producto.Size = new Size(80, 21);
-            lbl_producto.TabIndex = 13;
-            lbl_producto.Text = "Productos";
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lbl_listas);
+            this.panel1.Controls.Add(this.btn_add);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(12, 69);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(399, 208);
+            this.panel1.TabIndex = 6;
             // 
             // lbl_listas
             // 
-            lbl_listas.AutoSize = true;
-            lbl_listas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_listas.Location = new Point(22, 11);
-            lbl_listas.Name = "lbl_listas";
-            lbl_listas.Size = new Size(49, 21);
-            lbl_listas.TabIndex = 14;
-            lbl_listas.Text = "Listas";
+            this.lbl_listas.AutoSize = true;
+            this.lbl_listas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_listas.Location = new System.Drawing.Point(22, 11);
+            this.lbl_listas.Name = "lbl_listas";
+            this.lbl_listas.Size = new System.Drawing.Size(49, 21);
+            this.lbl_listas.TabIndex = 14;
+            this.lbl_listas.Text = "Listas";
+            // 
+            // btn_add
+            // 
+            this.btn_add.Location = new System.Drawing.Point(253, 155);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(120, 31);
+            this.btn_add.TabIndex = 1;
+            this.btn_add.Text = "Agregar";
+            this.btn_add.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(23, 45);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(351, 104);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lbl_producto);
+            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Location = new System.Drawing.Point(12, 283);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(399, 378);
+            this.panel2.TabIndex = 7;
+            // 
+            // lbl_producto
+            // 
+            this.lbl_producto.AutoSize = true;
+            this.lbl_producto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_producto.Location = new System.Drawing.Point(23, 11);
+            this.lbl_producto.Name = "lbl_producto";
+            this.lbl_producto.Size = new System.Drawing.Size(80, 21);
+            this.lbl_producto.TabIndex = 13;
+            this.lbl_producto.Text = "Productos";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(22, 44);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(351, 281);
+            this.dataGridView2.TabIndex = 0;
             // 
             // GestionListas
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(427, 695);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(panel3);
-            Name = "GestionListas";
-            Text = "GestionListas";
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(427, 675);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
+            this.Name = "GestionListas";
+            this.Text = "GestionListas";
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
