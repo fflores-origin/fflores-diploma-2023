@@ -42,6 +42,7 @@
             txt_user = new TextBox();
             txt_pass = new TextBox();
             label2 = new Label();
+            btn_registro = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -52,10 +53,10 @@
             btn_reset.FlatStyle = FlatStyle.Flat;
             btn_reset.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             btn_reset.ForeColor = Color.Gray;
-            btn_reset.Location = new Point(497, 345);
+            btn_reset.Location = new Point(427, 345);
             btn_reset.Name = "btn_reset";
-            btn_reset.Size = new Size(150, 23);
-            btn_reset.TabIndex = 0;
+            btn_reset.Size = new Size(289, 23);
+            btn_reset.TabIndex = 4;
             btn_reset.Text = "¿ Olvidaste tu contraseña ?";
             btn_reset.UseVisualStyleBackColor = true;
             btn_reset.Click += btn_reset_Click;
@@ -70,7 +71,7 @@
             btn_login.Location = new Point(427, 272);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(289, 50);
-            btn_login.TabIndex = 5;
+            btn_login.TabIndex = 3;
             btn_login.Text = "ACCEDER";
             btn_login.UseVisualStyleBackColor = false;
             btn_login.Click += btn_login_Click;
@@ -107,7 +108,7 @@
             // 
             // btn_x
             // 
-            btn_x.BackColor = Color.White;
+            btn_x.BackColor = Color.RosyBrown;
             btn_x.FlatAppearance.BorderSize = 0;
             btn_x.FlatStyle = FlatStyle.Flat;
             btn_x.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -121,7 +122,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.MidnightBlue;
+            panel1.BackColor = Color.FromArgb(215, 243, 251);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(-3, 0);
             panel1.Name = "panel1";
@@ -130,7 +131,7 @@
             // 
             // btn_minimize
             // 
-            btn_minimize.BackColor = Color.White;
+            btn_minimize.BackColor = Color.FromArgb(215, 243, 251);
             btn_minimize.FlatAppearance.BorderSize = 0;
             btn_minimize.FlatStyle = FlatStyle.Flat;
             btn_minimize.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -163,7 +164,7 @@
             txt_user.Location = new Point(427, 107);
             txt_user.Name = "txt_user";
             txt_user.Size = new Size(289, 29);
-            txt_user.TabIndex = 14;
+            txt_user.TabIndex = 1;
             // 
             // txt_pass
             // 
@@ -171,7 +172,8 @@
             txt_pass.Location = new Point(427, 187);
             txt_pass.Name = "txt_pass";
             txt_pass.Size = new Size(289, 29);
-            txt_pass.TabIndex = 16;
+            txt_pass.TabIndex = 2;
+            txt_pass.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -183,12 +185,27 @@
             label2.TabIndex = 15;
             label2.Text = "Contraseña";
             // 
+            // btn_registro
+            // 
+            btn_registro.FlatAppearance.BorderSize = 0;
+            btn_registro.FlatStyle = FlatStyle.Flat;
+            btn_registro.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            btn_registro.ForeColor = Color.Gray;
+            btn_registro.Location = new Point(427, 374);
+            btn_registro.Name = "btn_registro";
+            btn_registro.Size = new Size(289, 23);
+            btn_registro.TabIndex = 16;
+            btn_registro.Text = "Registrarse";
+            btn_registro.UseVisualStyleBackColor = true;
+            btn_registro.Click += btn_registro_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(810, 447);
+            Controls.Add(btn_registro);
             Controls.Add(txt_pass);
             Controls.Add(label2);
             Controls.Add(txt_user);
@@ -225,5 +242,6 @@
         private TextBox txt_user;
         private TextBox txt_pass;
         private Label label2;
+        private Button btn_registro;
     }
 }

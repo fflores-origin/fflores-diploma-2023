@@ -20,7 +20,7 @@ namespace PD.Presentation.Forms.Articulos
 
         private void GestionArticulos_Load(object sender, EventArgs e)
         {
-            //_articulos = _articuloManager.GetList();
+            _articulos = _articuloManager.GetList();
         }
 
         private void button2_Click(object sender, EventArgs e)

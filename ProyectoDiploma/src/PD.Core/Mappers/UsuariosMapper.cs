@@ -13,7 +13,7 @@ namespace PD.Core.Mappers
 
         public UsuarioDto Map(Usuario entity)
         {
-            return new UsuarioDto() { Id = entity.Id, NombreUsuario = entity.NombreUsuario };
+            return new UsuarioDto() { Id = entity.Id, NombreUsuario = entity.Nombre };
         }
 
         public List<UsuarioDto> Map(List<Usuario> usuarios)
@@ -25,7 +25,7 @@ namespace PD.Core.Mappers
                     new UsuarioDto()
                     {
                         Id = x.Id,
-                        NombreUsuario = x.NombreUsuario
+                        NombreUsuario = x.Nombre
                     })
                 .ToList();
         }

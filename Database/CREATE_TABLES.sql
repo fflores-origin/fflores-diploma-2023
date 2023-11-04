@@ -76,9 +76,12 @@ CREATE TABLE Usuario (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100) not null,
 	[Email] varchar (200),
-	[Contrasenia] varchar(100) not null,
+	[Password] varchar(100) not null,
 	[IdiomaId] uniqueidentifier
 )
+--Pass : Novedad01
+GO
+insert into Usuario (Id, Nombre, Email,Password,IdiomaId) values('8723672E-2A7D-49E9-9817-F4727DAD7CE3','admin','admin@admin.com','0g1hLWBXrrBM05D+kxmcTEhAtqzEhyFmc4oSzLE8fDQ=','948F36EC-1ADB-4437-AE83-F76C6AD4058F')
 
 GO
 CREATE TABLE UsuarioPermiso (
@@ -103,6 +106,9 @@ CREATE TABLE Idioma (
 	[IsoCode] varchar(50) not null,
 	[IsDefault] bit not null default(0)
 )
+
+GO
+INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES('948F36EC-1ADB-4437-AE83-F76C6AD4058F','Español','es',1 )
 
 GO
 CREATE TABLE Etiqueta (

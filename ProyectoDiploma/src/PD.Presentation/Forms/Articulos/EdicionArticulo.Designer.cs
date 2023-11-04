@@ -58,6 +58,14 @@
             btn_qr = new Button();
             lbl_save = new Label();
             btn_save = new Button();
+            txt_cantidad = new TextBox();
+            label9 = new Label();
+            txt_ubicacion = new TextBox();
+            lbl_ubicacion = new Label();
+            lbl_almacen = new Label();
+            lbl_lista = new Label();
+            textBox1 = new TextBox();
+            lbl_precio_lista = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel6.SuspendLayout();
@@ -69,16 +77,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(37, 100);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(26, 60);
             label1.Name = "label1";
-            label1.Size = new Size(78, 25);
+            label1.Size = new Size(51, 15);
             label1.TabIndex = 1;
             label1.Text = "Nombre";
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(lbl_precio_lista);
+            panel1.Controls.Add(lbl_lista);
+            panel1.Controls.Add(lbl_almacen);
+            panel1.Controls.Add(txt_ubicacion);
+            panel1.Controls.Add(lbl_ubicacion);
+            panel1.Controls.Add(txt_cantidad);
+            panel1.Controls.Add(label9);
             panel1.Controls.Add(txt_marca);
             panel1.Controls.Add(txt_precio);
             panel1.Controls.Add(txt_descripcion);
@@ -93,50 +108,44 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(17, 115);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1080, 620);
+            panel1.Size = new Size(756, 372);
             panel1.TabIndex = 2;
             // 
             // txt_marca
             // 
-            txt_marca.Location = new Point(170, 282);
-            txt_marca.Margin = new Padding(4, 5, 4, 5);
+            txt_marca.Location = new Point(119, 169);
             txt_marca.Name = "txt_marca";
-            txt_marca.Size = new Size(320, 31);
+            txt_marca.Size = new Size(225, 23);
             txt_marca.TabIndex = 18;
             // 
             // txt_precio
             // 
-            txt_precio.Location = new Point(170, 217);
-            txt_precio.Margin = new Padding(4, 5, 4, 5);
+            txt_precio.Location = new Point(119, 130);
             txt_precio.Name = "txt_precio";
-            txt_precio.Size = new Size(320, 31);
+            txt_precio.Size = new Size(225, 23);
             txt_precio.TabIndex = 17;
             // 
             // txt_descripcion
             // 
-            txt_descripcion.Location = new Point(170, 152);
-            txt_descripcion.Margin = new Padding(4, 5, 4, 5);
+            txt_descripcion.Location = new Point(119, 91);
             txt_descripcion.Name = "txt_descripcion";
-            txt_descripcion.Size = new Size(320, 31);
+            txt_descripcion.Size = new Size(225, 23);
             txt_descripcion.TabIndex = 16;
             // 
             // txt_nombre
             // 
-            txt_nombre.Location = new Point(170, 87);
-            txt_nombre.Margin = new Padding(4, 5, 4, 5);
+            txt_nombre.Location = new Point(119, 52);
             txt_nombre.Name = "txt_nombre";
-            txt_nombre.Size = new Size(320, 31);
+            txt_nombre.Size = new Size(225, 23);
             txt_nombre.TabIndex = 15;
             // 
             // btn_assign
             // 
-            btn_assign.Location = new Point(900, 207);
-            btn_assign.Margin = new Padding(4, 5, 4, 5);
+            btn_assign.Location = new Point(630, 124);
             btn_assign.Name = "btn_assign";
-            btn_assign.Size = new Size(126, 48);
+            btn_assign.Size = new Size(88, 29);
             btn_assign.TabIndex = 14;
             btn_assign.Text = "Asignar Lista";
             btn_assign.UseVisualStyleBackColor = true;
@@ -144,80 +153,72 @@
             // lst_listas
             // 
             lst_listas.FormattingEnabled = true;
-            lst_listas.ItemHeight = 25;
-            lst_listas.Location = new Point(704, 90);
-            lst_listas.Margin = new Padding(4, 5, 4, 5);
+            lst_listas.ItemHeight = 15;
+            lst_listas.Location = new Point(493, 54);
             lst_listas.Name = "lst_listas";
-            lst_listas.Size = new Size(320, 104);
+            lst_listas.Size = new Size(225, 64);
             lst_listas.TabIndex = 13;
             // 
             // lbl_general
             // 
             lbl_general.AutoSize = true;
             lbl_general.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_general.Location = new Point(37, 25);
-            lbl_general.Margin = new Padding(4, 0, 4, 0);
+            lbl_general.Location = new Point(26, 15);
             lbl_general.Name = "lbl_general";
-            lbl_general.Size = new Size(96, 32);
+            lbl_general.Size = new Size(64, 21);
             lbl_general.TabIndex = 12;
             lbl_general.Text = "General";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(571, 90);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(400, 54);
             label7.Name = "label7";
-            label7.Size = new Size(47, 25);
+            label7.Size = new Size(31, 15);
             label7.TabIndex = 11;
             label7.Text = "Lista";
             // 
             // cbx_categoria
             // 
             cbx_categoria.FormattingEnabled = true;
-            cbx_categoria.Location = new Point(170, 362);
-            cbx_categoria.Margin = new Padding(4, 5, 4, 5);
+            cbx_categoria.Location = new Point(119, 217);
             cbx_categoria.Name = "cbx_categoria";
-            cbx_categoria.Size = new Size(320, 33);
+            cbx_categoria.Size = new Size(225, 23);
             cbx_categoria.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(37, 365);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(26, 219);
             label6.Name = "label6";
-            label6.Size = new Size(88, 25);
+            label6.Size = new Size(58, 15);
             label6.TabIndex = 9;
             label6.Text = "Categoria";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(37, 295);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(26, 177);
             label5.Name = "label5";
-            label5.Size = new Size(60, 25);
+            label5.Size = new Size(40, 15);
             label5.TabIndex = 8;
             label5.Text = "Marca";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(37, 230);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(26, 138);
             label3.Name = "label3";
-            label3.Size = new Size(127, 25);
+            label3.Size = new Size(85, 15);
             label3.TabIndex = 5;
             label3.Text = "Precio Unitario";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(37, 165);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(26, 99);
             label2.Name = "label2";
-            label2.Size = new Size(104, 25);
+            label2.Size = new Size(69, 15);
             label2.TabIndex = 3;
             label2.Text = "Descripcion";
             // 
@@ -225,10 +226,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(77, 18);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(54, 11);
             label4.Name = "label4";
-            label4.Size = new Size(188, 47);
+            label4.Size = new Size(126, 32);
             label4.TabIndex = 6;
             label4.Text = "ARTICULO";
             // 
@@ -238,18 +238,16 @@
             panel2.Controls.Add(btn_image_change);
             panel2.Controls.Add(lbl_image);
             panel2.Controls.Add(panel6);
-            panel2.Location = new Point(1105, 115);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(774, 69);
             panel2.Name = "panel2";
-            panel2.Size = new Size(459, 620);
+            panel2.Size = new Size(321, 372);
             panel2.TabIndex = 3;
             // 
             // btn_image_change
             // 
-            btn_image_change.Location = new Point(263, 550);
-            btn_image_change.Margin = new Padding(4, 5, 4, 5);
+            btn_image_change.Location = new Point(184, 330);
             btn_image_change.Name = "btn_image_change";
-            btn_image_change.Size = new Size(160, 48);
+            btn_image_change.Size = new Size(112, 29);
             btn_image_change.TabIndex = 15;
             btn_image_change.Text = "Cambiar Imagen";
             btn_image_change.UseVisualStyleBackColor = true;
@@ -258,10 +256,9 @@
             // 
             lbl_image.AutoSize = true;
             lbl_image.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_image.Location = new Point(36, 25);
-            lbl_image.Margin = new Padding(4, 0, 4, 0);
+            lbl_image.Location = new Point(25, 15);
             lbl_image.Name = "lbl_image";
-            lbl_image.Size = new Size(94, 32);
+            lbl_image.Size = new Size(62, 21);
             lbl_image.TabIndex = 15;
             lbl_image.Text = "Imagen";
             // 
@@ -270,19 +267,17 @@
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(lbl_fileName);
             panel6.Controls.Add(pic_base);
-            panel6.Location = new Point(36, 75);
-            panel6.Margin = new Padding(4, 5, 4, 5);
+            panel6.Location = new Point(25, 45);
             panel6.Name = "panel6";
-            panel6.Size = new Size(386, 464);
+            panel6.Size = new Size(271, 279);
             panel6.TabIndex = 2;
             // 
             // lbl_fileName
             // 
             lbl_fileName.AutoSize = true;
-            lbl_fileName.Location = new Point(14, 415);
-            lbl_fileName.Margin = new Padding(4, 0, 4, 0);
+            lbl_fileName.Location = new Point(10, 249);
             lbl_fileName.Name = "lbl_fileName";
-            lbl_fileName.Size = new Size(82, 25);
+            lbl_fileName.Size = new Size(55, 15);
             lbl_fileName.TabIndex = 1;
             lbl_fileName.Text = "fileName";
             // 
@@ -290,10 +285,9 @@
             // 
             pic_base.BackgroundImage = (Image)resources.GetObject("pic_base.BackgroundImage");
             pic_base.BackgroundImageLayout = ImageLayout.Stretch;
-            pic_base.Location = new Point(14, 10);
-            pic_base.Margin = new Padding(4, 5, 4, 5);
+            pic_base.Location = new Point(10, 6);
             pic_base.Name = "pic_base";
-            pic_base.Size = new Size(357, 383);
+            pic_base.Size = new Size(250, 230);
             pic_base.TabIndex = 0;
             pic_base.TabStop = false;
             // 
@@ -302,20 +296,18 @@
             panel3.BackColor = Color.White;
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(17, 20);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1547, 85);
+            panel3.Size = new Size(1083, 51);
             panel3.TabIndex = 4;
             // 
             // panel5
             // 
             panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
-            panel5.Location = new Point(4, 5);
-            panel5.Margin = new Padding(4, 5, 4, 5);
+            panel5.Location = new Point(3, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(64, 75);
+            panel5.Size = new Size(45, 45);
             panel5.TabIndex = 7;
             // 
             // panel4
@@ -325,19 +317,17 @@
             panel4.Controls.Add(btn_qr);
             panel4.Controls.Add(lbl_save);
             panel4.Controls.Add(btn_save);
-            panel4.Location = new Point(17, 745);
-            panel4.Margin = new Padding(4, 5, 4, 5);
+            panel4.Location = new Point(12, 447);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1547, 203);
+            panel4.Size = new Size(1083, 122);
             panel4.TabIndex = 7;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(1307, 148);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(915, 89);
             label8.Name = "label8";
-            label8.Size = new Size(37, 25);
+            label8.Size = new Size(23, 15);
             label8.TabIndex = 16;
             label8.Text = "QR";
             // 
@@ -347,10 +337,9 @@
             btn_qr.BackgroundImageLayout = ImageLayout.Stretch;
             btn_qr.FlatAppearance.BorderSize = 0;
             btn_qr.FlatStyle = FlatStyle.Flat;
-            btn_qr.Location = new Point(1284, 57);
-            btn_qr.Margin = new Padding(4, 5, 4, 5);
+            btn_qr.Location = new Point(899, 34);
             btn_qr.Name = "btn_qr";
-            btn_qr.Size = new Size(86, 86);
+            btn_qr.Size = new Size(60, 52);
             btn_qr.TabIndex = 15;
             btn_qr.UseVisualStyleBackColor = true;
             btn_qr.Click += btn_qr_Click;
@@ -358,10 +347,9 @@
             // lbl_save
             // 
             lbl_save.AutoSize = true;
-            lbl_save.Location = new Point(1412, 148);
-            lbl_save.Margin = new Padding(4, 0, 4, 0);
+            lbl_save.Location = new Point(988, 89);
             lbl_save.Name = "lbl_save";
-            lbl_save.Size = new Size(75, 25);
+            lbl_save.Size = new Size(49, 15);
             lbl_save.TabIndex = 14;
             lbl_save.Text = "Guardar";
             // 
@@ -371,26 +359,92 @@
             btn_save.BackgroundImageLayout = ImageLayout.Stretch;
             btn_save.FlatAppearance.BorderSize = 0;
             btn_save.FlatStyle = FlatStyle.Flat;
-            btn_save.Location = new Point(1407, 57);
-            btn_save.Margin = new Padding(4, 5, 4, 5);
+            btn_save.Location = new Point(985, 34);
             btn_save.Name = "btn_save";
-            btn_save.Size = new Size(86, 86);
+            btn_save.Size = new Size(60, 52);
             btn_save.TabIndex = 0;
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
+            // txt_cantidad
+            // 
+            txt_cantidad.Location = new Point(493, 259);
+            txt_cantidad.Name = "txt_cantidad";
+            txt_cantidad.Size = new Size(225, 23);
+            txt_cantidad.TabIndex = 20;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(400, 267);
+            label9.Name = "label9";
+            label9.Size = new Size(48, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Catidad";
+            // 
+            // txt_ubicacion
+            // 
+            txt_ubicacion.Location = new Point(493, 307);
+            txt_ubicacion.Name = "txt_ubicacion";
+            txt_ubicacion.Size = new Size(225, 23);
+            txt_ubicacion.TabIndex = 22;
+            // 
+            // lbl_ubicacion
+            // 
+            lbl_ubicacion.AutoSize = true;
+            lbl_ubicacion.Location = new Point(400, 315);
+            lbl_ubicacion.Name = "lbl_ubicacion";
+            lbl_ubicacion.Size = new Size(60, 15);
+            lbl_ubicacion.TabIndex = 21;
+            lbl_ubicacion.Text = "Ubicacion";
+            // 
+            // lbl_almacen
+            // 
+            lbl_almacen.AutoSize = true;
+            lbl_almacen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_almacen.Location = new Point(400, 219);
+            lbl_almacen.Name = "lbl_almacen";
+            lbl_almacen.Size = new Size(70, 21);
+            lbl_almacen.TabIndex = 23;
+            lbl_almacen.Text = "Almacen";
+            // 
+            // lbl_lista
+            // 
+            lbl_lista.AutoSize = true;
+            lbl_lista.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_lista.Location = new Point(400, 15);
+            lbl_lista.Name = "lbl_lista";
+            lbl_lista.Size = new Size(49, 21);
+            lbl_lista.TabIndex = 24;
+            lbl_lista.Text = "Listas";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(493, 159);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(225, 23);
+            textBox1.TabIndex = 26;
+            // 
+            // lbl_precio_lista
+            // 
+            lbl_precio_lista.AutoSize = true;
+            lbl_precio_lista.Location = new Point(400, 167);
+            lbl_precio_lista.Name = "lbl_precio_lista";
+            lbl_precio_lista.Size = new Size(67, 15);
+            lbl_precio_lista.TabIndex = 25;
+            lbl_precio_lista.Text = "Precio Lista";
+            // 
             // EdicionArticulo
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(1577, 968);
+            BackColor = Color.FromArgb(230, 230, 230);
+            ClientSize = new Size(1104, 581);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "EdicionArticulo";
@@ -440,5 +494,13 @@
         private TextBox txt_precio;
         private TextBox txt_descripcion;
         private TextBox txt_nombre;
+        private TextBox txt_cantidad;
+        private Label label9;
+        private TextBox txt_ubicacion;
+        private Label lbl_ubicacion;
+        private Label lbl_lista;
+        private Label lbl_almacen;
+        private TextBox textBox1;
+        private Label lbl_precio_lista;
     }
 }
