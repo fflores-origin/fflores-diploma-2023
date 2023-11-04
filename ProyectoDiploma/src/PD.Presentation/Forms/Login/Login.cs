@@ -2,6 +2,7 @@
 using PD.Core.Interfaces;
 using PD.Presentation.Helpers;
 using PD.Services;
+using System.Runtime.InteropServices;
 
 namespace PD.Presentation.Forms.Login
 {
@@ -12,6 +13,18 @@ namespace PD.Presentation.Forms.Login
         private readonly IConfiguration _configuration;
         private readonly IUsuarioManager _usuarioManager;
         private readonly Sesion _sesion;
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+
+        private void ClickMouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
 
         public Login(
             Main main,
@@ -56,7 +69,7 @@ namespace PD.Presentation.Forms.Login
                     return;
 
                 case Services.Enums.LoginResult.ValidUser:
-                    MessageBox.Show($"Bienvenido {txt_user}");
+                    MessageBox.Show($"Bienvenido {txt_user.Text}");
                     break;
 
                 default:

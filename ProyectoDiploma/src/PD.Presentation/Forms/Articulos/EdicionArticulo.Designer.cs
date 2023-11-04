@@ -31,6 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicionArticulo));
             label1 = new Label();
             panel1 = new Panel();
+            textBox1 = new TextBox();
+            lbl_precio_lista = new Label();
+            lbl_lista = new Label();
+            lbl_almacen = new Label();
+            txt_ubicacion = new TextBox();
+            lbl_ubicacion = new Label();
+            txt_cantidad = new TextBox();
+            label9 = new Label();
             txt_marca = new TextBox();
             txt_precio = new TextBox();
             txt_descripcion = new TextBox();
@@ -58,14 +66,6 @@
             btn_qr = new Button();
             lbl_save = new Label();
             btn_save = new Button();
-            txt_cantidad = new TextBox();
-            label9 = new Label();
-            txt_ubicacion = new TextBox();
-            lbl_ubicacion = new Label();
-            lbl_almacen = new Label();
-            lbl_lista = new Label();
-            textBox1 = new TextBox();
-            lbl_precio_lista = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel6.SuspendLayout();
@@ -112,6 +112,74 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(756, 372);
             panel1.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(493, 159);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(225, 23);
+            textBox1.TabIndex = 26;
+            // 
+            // lbl_precio_lista
+            // 
+            lbl_precio_lista.AutoSize = true;
+            lbl_precio_lista.Location = new Point(400, 167);
+            lbl_precio_lista.Name = "lbl_precio_lista";
+            lbl_precio_lista.Size = new Size(67, 15);
+            lbl_precio_lista.TabIndex = 25;
+            lbl_precio_lista.Text = "Precio Lista";
+            // 
+            // lbl_lista
+            // 
+            lbl_lista.AutoSize = true;
+            lbl_lista.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_lista.Location = new Point(400, 15);
+            lbl_lista.Name = "lbl_lista";
+            lbl_lista.Size = new Size(49, 21);
+            lbl_lista.TabIndex = 24;
+            lbl_lista.Text = "Listas";
+            // 
+            // lbl_almacen
+            // 
+            lbl_almacen.AutoSize = true;
+            lbl_almacen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_almacen.Location = new Point(400, 219);
+            lbl_almacen.Name = "lbl_almacen";
+            lbl_almacen.Size = new Size(70, 21);
+            lbl_almacen.TabIndex = 23;
+            lbl_almacen.Text = "Almacen";
+            // 
+            // txt_ubicacion
+            // 
+            txt_ubicacion.Location = new Point(493, 307);
+            txt_ubicacion.Name = "txt_ubicacion";
+            txt_ubicacion.Size = new Size(225, 23);
+            txt_ubicacion.TabIndex = 22;
+            // 
+            // lbl_ubicacion
+            // 
+            lbl_ubicacion.AutoSize = true;
+            lbl_ubicacion.Location = new Point(400, 315);
+            lbl_ubicacion.Name = "lbl_ubicacion";
+            lbl_ubicacion.Size = new Size(60, 15);
+            lbl_ubicacion.TabIndex = 21;
+            lbl_ubicacion.Text = "Ubicacion";
+            // 
+            // txt_cantidad
+            // 
+            txt_cantidad.Location = new Point(493, 259);
+            txt_cantidad.Name = "txt_cantidad";
+            txt_cantidad.Size = new Size(225, 23);
+            txt_cantidad.TabIndex = 20;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(400, 267);
+            label9.Name = "label9";
+            label9.Size = new Size(48, 15);
+            label9.TabIndex = 19;
+            label9.Text = "Catidad";
             // 
             // txt_marca
             // 
@@ -251,6 +319,7 @@
             btn_image_change.TabIndex = 15;
             btn_image_change.Text = "Cambiar Imagen";
             btn_image_change.UseVisualStyleBackColor = true;
+            btn_image_change.Click += btn_image_change_Click;
             // 
             // lbl_image
             // 
@@ -365,74 +434,6 @@
             btn_save.TabIndex = 0;
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
-            // 
-            // txt_cantidad
-            // 
-            txt_cantidad.Location = new Point(493, 259);
-            txt_cantidad.Name = "txt_cantidad";
-            txt_cantidad.Size = new Size(225, 23);
-            txt_cantidad.TabIndex = 20;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(400, 267);
-            label9.Name = "label9";
-            label9.Size = new Size(48, 15);
-            label9.TabIndex = 19;
-            label9.Text = "Catidad";
-            // 
-            // txt_ubicacion
-            // 
-            txt_ubicacion.Location = new Point(493, 307);
-            txt_ubicacion.Name = "txt_ubicacion";
-            txt_ubicacion.Size = new Size(225, 23);
-            txt_ubicacion.TabIndex = 22;
-            // 
-            // lbl_ubicacion
-            // 
-            lbl_ubicacion.AutoSize = true;
-            lbl_ubicacion.Location = new Point(400, 315);
-            lbl_ubicacion.Name = "lbl_ubicacion";
-            lbl_ubicacion.Size = new Size(60, 15);
-            lbl_ubicacion.TabIndex = 21;
-            lbl_ubicacion.Text = "Ubicacion";
-            // 
-            // lbl_almacen
-            // 
-            lbl_almacen.AutoSize = true;
-            lbl_almacen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_almacen.Location = new Point(400, 219);
-            lbl_almacen.Name = "lbl_almacen";
-            lbl_almacen.Size = new Size(70, 21);
-            lbl_almacen.TabIndex = 23;
-            lbl_almacen.Text = "Almacen";
-            // 
-            // lbl_lista
-            // 
-            lbl_lista.AutoSize = true;
-            lbl_lista.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_lista.Location = new Point(400, 15);
-            lbl_lista.Name = "lbl_lista";
-            lbl_lista.Size = new Size(49, 21);
-            lbl_lista.TabIndex = 24;
-            lbl_lista.Text = "Listas";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(493, 159);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(225, 23);
-            textBox1.TabIndex = 26;
-            // 
-            // lbl_precio_lista
-            // 
-            lbl_precio_lista.AutoSize = true;
-            lbl_precio_lista.Location = new Point(400, 167);
-            lbl_precio_lista.Name = "lbl_precio_lista";
-            lbl_precio_lista.Size = new Size(67, 15);
-            lbl_precio_lista.TabIndex = 25;
-            lbl_precio_lista.Text = "Precio Lista";
             // 
             // EdicionArticulo
             // 
