@@ -7,14 +7,17 @@ namespace PD.Presentation.Forms.Articulos
     public partial class EdicionArticulo : FormBase
     {
         private readonly ICategoriaManager _categoriaManager;
+        private readonly IListasManager _listasManager;
         private ArticuloDTO _articulo;
 
         public EdicionArticulo(
-            ICategoriaManager categoriaManager)
+            ICategoriaManager categoriaManager,
+            IListasManager listasManager)
             : base()
         {
             InitializeComponent();
             _categoriaManager = categoriaManager;
+            _listasManager = listasManager;
         }
 
         private void btn_qr_Click(object sender, EventArgs e)
@@ -46,7 +49,15 @@ namespace PD.Presentation.Forms.Articulos
 
         private void EdicionArticulo_Load(object sender, EventArgs e)
         {
+            FillListas();
             FillCategorias();
+        }
+
+        #region Utils
+
+        private void FillListas()
+        {
+            _listasManager.GetAll();
         }
 
         private void FillCategorias()
@@ -56,5 +67,7 @@ namespace PD.Presentation.Forms.Articulos
             cbx_categoria.DisplayMember = "Nombre";
             cbx_categoria.ValueMember = "Id";
         }
+
+        #endregion Utils
     }
 }

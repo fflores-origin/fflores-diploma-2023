@@ -24,7 +24,7 @@ CREATE TABLE Categoria (
 	[Nombre] VARCHAR(100),
 )
 GO
-INSERT INTO Categoria(Id, Nombre) VALUES('AA174E45-E3C1-4F4A-A961-10671FE79761','Libreria')
+INSERT INTO Categoria(Id, Nombre) VALUES('AA174E45-E3C1-4F4A-A961-10671FE79761','Articulo')
 INSERT INTO Categoria(Id, Nombre) VALUES('882F8085-B15A-41DE-A905-124893068B8E','Libros')
 
 GO
@@ -42,6 +42,19 @@ CREATE TABLE Lista (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(100)
 )
+
+GO
+CREATE TABLE ListaArticulo (
+	[Id] uniqueidentifier not null default(newid()),
+	[ArticuloId] uniqueidentifier not null default(newid()),
+	[ListaId] uniqueidentifier not null default(newid()),
+	[Precio] money not null
+	CONSTRAINT PK_ListaArticulo PRIMARY KEY(Id, ArticuloId,ListaId)
+)
+
+go
+insert into Lista (Nombre) values('Publico')
+
 
 GO
 CREATE TABLE TipoDocumento (
@@ -79,7 +92,7 @@ CREATE TABLE Usuario (
 	[Password] varchar(100) not null,
 	[IdiomaId] uniqueidentifier
 )
---Pass : Novedad01
+--Pass : Novedad.01
 GO
 insert into Usuario (Id, Nombre, Email,Password,IdiomaId) values('8723672E-2A7D-49E9-9817-F4727DAD7CE3','admin','admin@admin.com','0g1hLWBXrrBM05D+kxmcTEhAtqzEhyFmc4oSzLE8fDQ=','948F36EC-1ADB-4437-AE83-F76C6AD4058F')
 

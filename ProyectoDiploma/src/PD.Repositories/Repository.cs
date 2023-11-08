@@ -170,9 +170,13 @@ namespace PD.Repositories
             => property.PropertyType.BaseType?.Name == _configuration["Initial:DefaultEntity"];
 
         private string GetPluralTableName<T>()
-            => typeof(T).Name + "s";
+            => typeof(T).Name;
+
+        //=> typeof(T).Name + "s";
 
         private string GetPluralTableName(string value)
-            => $"{value}s";
+            => $"{value}";
+
+        //=> $"{value}s";
     }
 }
