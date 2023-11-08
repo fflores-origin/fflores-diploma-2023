@@ -115,7 +115,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(493, 159);
+            textBox1.Location = new Point(478, 159);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(225, 23);
             textBox1.TabIndex = 26;
@@ -123,7 +123,7 @@
             // lbl_precio_lista
             // 
             lbl_precio_lista.AutoSize = true;
-            lbl_precio_lista.Location = new Point(400, 167);
+            lbl_precio_lista.Location = new Point(385, 167);
             lbl_precio_lista.Name = "lbl_precio_lista";
             lbl_precio_lista.Size = new Size(67, 15);
             lbl_precio_lista.TabIndex = 25;
@@ -133,7 +133,7 @@
             // 
             lbl_lista.AutoSize = true;
             lbl_lista.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_lista.Location = new Point(400, 15);
+            lbl_lista.Location = new Point(385, 15);
             lbl_lista.Name = "lbl_lista";
             lbl_lista.Size = new Size(49, 21);
             lbl_lista.TabIndex = 24;
@@ -143,7 +143,7 @@
             // 
             lbl_almacen.AutoSize = true;
             lbl_almacen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_almacen.Location = new Point(400, 219);
+            lbl_almacen.Location = new Point(385, 219);
             lbl_almacen.Name = "lbl_almacen";
             lbl_almacen.Size = new Size(70, 21);
             lbl_almacen.TabIndex = 23;
@@ -151,7 +151,7 @@
             // 
             // txt_ubicacion
             // 
-            txt_ubicacion.Location = new Point(493, 307);
+            txt_ubicacion.Location = new Point(478, 307);
             txt_ubicacion.Name = "txt_ubicacion";
             txt_ubicacion.Size = new Size(225, 23);
             txt_ubicacion.TabIndex = 22;
@@ -159,7 +159,7 @@
             // lbl_ubicacion
             // 
             lbl_ubicacion.AutoSize = true;
-            lbl_ubicacion.Location = new Point(400, 315);
+            lbl_ubicacion.Location = new Point(385, 315);
             lbl_ubicacion.Name = "lbl_ubicacion";
             lbl_ubicacion.Size = new Size(60, 15);
             lbl_ubicacion.TabIndex = 21;
@@ -167,7 +167,7 @@
             // 
             // txt_cantidad
             // 
-            txt_cantidad.Location = new Point(493, 259);
+            txt_cantidad.Location = new Point(478, 259);
             txt_cantidad.Name = "txt_cantidad";
             txt_cantidad.Size = new Size(225, 23);
             txt_cantidad.TabIndex = 20;
@@ -175,7 +175,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(400, 267);
+            label9.Location = new Point(385, 267);
             label9.Name = "label9";
             label9.Size = new Size(48, 15);
             label9.TabIndex = 19;
@@ -211,7 +211,7 @@
             // 
             // btn_assign
             // 
-            btn_assign.Location = new Point(630, 124);
+            btn_assign.Location = new Point(615, 124);
             btn_assign.Name = "btn_assign";
             btn_assign.Size = new Size(88, 29);
             btn_assign.TabIndex = 14;
@@ -222,7 +222,7 @@
             // 
             lst_listas.FormattingEnabled = true;
             lst_listas.ItemHeight = 15;
-            lst_listas.Location = new Point(493, 54);
+            lst_listas.Location = new Point(478, 54);
             lst_listas.Name = "lst_listas";
             lst_listas.Size = new Size(225, 64);
             lst_listas.TabIndex = 13;
@@ -240,7 +240,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(400, 54);
+            label7.Location = new Point(385, 54);
             label7.Name = "label7";
             label7.Size = new Size(31, 15);
             label7.TabIndex = 11;
@@ -346,9 +346,9 @@
             lbl_fileName.AutoSize = true;
             lbl_fileName.Location = new Point(10, 249);
             lbl_fileName.Name = "lbl_fileName";
-            lbl_fileName.Size = new Size(55, 15);
+            lbl_fileName.Size = new Size(16, 15);
             lbl_fileName.TabIndex = 1;
-            lbl_fileName.Text = "fileName";
+            lbl_fileName.Text = "...";
             // 
             // pic_base
             // 
@@ -450,6 +450,7 @@
             MinimizeBox = false;
             Name = "EdicionArticulo";
             Text = "Edicion";
+            Load += EdicionArticulo_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

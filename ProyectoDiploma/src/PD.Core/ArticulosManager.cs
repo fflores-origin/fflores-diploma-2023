@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PD.Core.DTO;
+using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Core.Mappers.Interfaces;
 using PD.Repositories.Interfaces;
@@ -20,6 +21,11 @@ namespace PD.Core
             _configuration = configuration;
             _repository = repository;
             _articuloMapper = articuloMapper;
+        }
+
+        public void CrearArticulo(ArticuloDTO articulo)
+        {
+            throw new NotImplementedException();
         }
 
         public List<ArticuloListaDTO> GetList()

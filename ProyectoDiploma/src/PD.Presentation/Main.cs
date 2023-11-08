@@ -10,22 +10,26 @@ namespace PD.Presentation
         private readonly GestionArticulos _gestionArticulosForm;
         private readonly GestionarPermisos _gestionarPermisosFrom;
         private readonly GestionCategorias _gestionCategoriasForm;
+        private readonly GestionListas _gestionListasForm;
 
         public Main(
             IConfiguration configuration,
             GestionArticulos gestionArticulosForm,
             GestionarPermisos gestionarPermisosFrom,
-            GestionCategorias gestionCategoriasForm)
+            GestionCategorias gestionCategoriasForm,
+            GestionListas gestionListasForm)
         {
             InitializeComponent();
             _configuration = configuration;
             _gestionArticulosForm = gestionArticulosForm;
             _gestionarPermisosFrom = gestionarPermisosFrom;
             _gestionCategoriasForm = gestionCategoriasForm;
+            _gestionListasForm = gestionListasForm;
 
             _gestionArticulosForm.MdiParent = this;
             _gestionarPermisosFrom.MdiParent = this;
             _gestionCategoriasForm.MdiParent = this;
+            _gestionListasForm.MdiParent = this;
         }
 
         private void Btn_gestionarArticulos_Click(object sender, EventArgs e)
@@ -61,6 +65,11 @@ namespace PD.Presentation
         private void OpenCategoriasForm(object sender, EventArgs e)
         {
             _gestionCategoriasForm.Show();
+        }
+
+        private void listasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _gestionListasForm.Show();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace PD.Presentation.Forms.Articulos
             _articulos = _articuloManager.GetList();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             _edicionArticuloForm.Show();
         }

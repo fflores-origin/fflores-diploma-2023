@@ -42,7 +42,7 @@
             panel3.Controls.Add(label4);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(709, 51);
+            panel3.Size = new Size(741, 51);
             panel3.TabIndex = 5;
             // 
             // panel5
@@ -68,8 +68,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(733, 450);
+            BackColor = Color.FromArgb(230, 230, 230);
+            ClientSize = new Size(765, 474);
             Controls.Add(panel3);
             Name = "GestionarIdiomas";
             Text = "GestionarIdiomas";
