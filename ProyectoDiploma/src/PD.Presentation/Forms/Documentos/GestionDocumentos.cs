@@ -1,6 +1,6 @@
 ﻿namespace PD.Presentation.Forms.Documentos
 {
-    public partial class GestionDocumentos : Form
+    public partial class GestionDocumentos : FormBase
     {
         public GestionDocumentos()
         {

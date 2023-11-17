@@ -76,41 +76,6 @@ CREATE TABLE Cliente (
 	[TipoDocumentoId] uniqueidentifier
 )
 
--- #start USUARIOS PERMISOS
-GO
-CREATE TABLE Permiso (
-	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(100),
-	[TipoPermiso] varchar(100),
-)
-
-GO
-CREATE TABLE Usuario (
-	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(100) not null,
-	[Email] varchar (200),
-	[Password] varchar(100) not null,
-	[IdiomaId] uniqueidentifier
-)
---Pass : Novedad.01
-GO
-insert into Usuario (Id, Nombre, Email,Password,IdiomaId) values('8723672E-2A7D-49E9-9817-F4727DAD7CE3','admin','admin@admin.com','0g1hLWBXrrBM05D+kxmcTEhAtqzEhyFmc4oSzLE8fDQ=','948F36EC-1ADB-4437-AE83-F76C6AD4058F')
-
-GO
-CREATE TABLE UsuarioPermiso (
-	[UsuarioId] uniqueidentifier not null,
-	[PermisoId] uniqueidentifier not null,
-	CONSTRAINT PK_UsuarioPermiso PRIMARY KEY(UsuarioId,PermisoId)
-)
-
-GO
-CREATE TABLE PermisoComponente (
-	[PermisoPadreId] uniqueidentifier not null,
-	[PermisoHijoId] uniqueidentifier not null,
-	constraint PK_PermisoComponente primary key([PermisoPadreId], [PermisoHijoId]) 
-)
--- #end USUARIOS PERMISOS
-
 -- #start MULTI-IDIOMA
 GO
 CREATE TABLE Idioma (
@@ -130,6 +95,45 @@ CREATE TABLE Etiqueta (
 )
 
 -- #end MULTI-IDIOMA
+
+
+-- #start USUARIOS PERMISOS
+GO
+CREATE TABLE Permiso (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(100),
+	[TipoPermiso] varchar(100),
+)
+
+GO
+CREATE TABLE Usuario (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] varchar(100) not null,
+	[Email] varchar (200),
+	[Password] varchar(100) not null,
+	[IdiomaId] uniqueidentifier,
+	CONSTRAINT FK_UsuarioIdioma FOREIGN KEY(IdiomaId) REFERENCES Idioma(Id)
+)
+--Pass : Novedad.01
+GO
+INSERT INTO Usuario (Id, Nombre, Email, Password, IdiomaId) 
+VALUES('8723672E-2A7D-49E9-9817-F4727DAD7CE3','admin','admin@admin.com','0g1hLWBXrrBM05D+kxmcTEhAtqzEhyFmc4oSzLE8fDQ=','948F36EC-1ADB-4437-AE83-F76C6AD4058F')
+
+GO
+CREATE TABLE UsuarioPermiso (
+	[UsuarioId] uniqueidentifier not null,
+	[PermisoId] uniqueidentifier not null,
+	CONSTRAINT PK_UsuarioPermiso PRIMARY KEY(UsuarioId,PermisoId)
+)
+
+GO
+CREATE TABLE PermisoComponente (
+	[PermisoPadreId] uniqueidentifier not null,
+	[PermisoHijoId] uniqueidentifier not null,
+	constraint PK_PermisoComponente primary key([PermisoPadreId], [PermisoHijoId]) 
+)
+-- #end USUARIOS PERMISOS
+
 
 
 

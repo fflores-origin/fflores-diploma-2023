@@ -1,6 +1,7 @@
 ﻿using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Presentation.Helpers;
+using PD.Services;
 
 namespace PD.Presentation.Forms.Articulos
 {
@@ -18,10 +19,25 @@ namespace PD.Presentation.Forms.Articulos
             InitializeComponent();
             _categoriaManager = categoriaManager;
             _listasManager = listasManager;
+
+            txt_precio.KeyPress += ValidateDecimalInput;
+        }
+
+        private void ValidateDecimalInput(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                e.Handled = true;
+
+            if ((e.KeyChar == '.') && sender != null && (((TextBox)sender).Text.IndexOf('.') > -1))
+                e.Handled = true;
         }
 
         private void btn_qr_Click(object sender, EventArgs e)
         {
+            var image = QRCodeGeneratorService.GenerateQR("hola");
+            //pic_qr.Image = image;
+            pic_qr.BackgroundImage = image;
+
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -36,6 +52,8 @@ namespace PD.Presentation.Forms.Articulos
 
             if (txt_precio.IsTextInvalid())
             { ShowEmptyFieldMessage("Precio Unitario"); return true; }
+
+            //if ()
 
             return false;
         }
@@ -54,6 +72,13 @@ namespace PD.Presentation.Forms.Articulos
         }
 
         #region Utils
+
+        public void ClearAndOpen()
+        {
+            // limpiar variables
+            // mostrar
+            this.Show();
+        }
 
         private void FillListas()
         {

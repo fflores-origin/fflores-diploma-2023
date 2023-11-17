@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicionArticulo));
             label1 = new Label();
             panel1 = new Panel();
+            pic_qr = new PictureBox();
+            btn_qr = new Button();
             textBox1 = new TextBox();
             lbl_precio_lista = new Label();
             lbl_lista = new Label();
@@ -62,11 +64,11 @@
             panel3 = new Panel();
             panel5 = new Panel();
             panel4 = new Panel();
-            label8 = new Label();
-            btn_qr = new Button();
             lbl_save = new Label();
             btn_save = new Button();
+            btn_print = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_qr).BeginInit();
             panel2.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_base).BeginInit();
@@ -86,6 +88,9 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btn_print);
+            panel1.Controls.Add(pic_qr);
+            panel1.Controls.Add(btn_qr);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(lbl_precio_lista);
             panel1.Controls.Add(lbl_lista);
@@ -110,12 +115,35 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(756, 372);
+            panel1.Size = new Size(756, 446);
             panel1.TabIndex = 2;
+            // 
+            // pic_qr
+            // 
+            pic_qr.BackgroundImageLayout = ImageLayout.Stretch;
+            pic_qr.BorderStyle = BorderStyle.FixedSingle;
+            pic_qr.ErrorImage = Properties.Resources.no_available;
+            pic_qr.Location = new Point(26, 267);
+            pic_qr.Name = "pic_qr";
+            pic_qr.Size = new Size(100, 100);
+            pic_qr.TabIndex = 27;
+            pic_qr.TabStop = false;
+            // 
+            // btn_qr
+            // 
+            btn_qr.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_qr.FlatStyle = FlatStyle.Flat;
+            btn_qr.Location = new Point(26, 366);
+            btn_qr.Name = "btn_qr";
+            btn_qr.Size = new Size(100, 29);
+            btn_qr.TabIndex = 15;
+            btn_qr.Text = "Generar QR";
+            btn_qr.UseVisualStyleBackColor = true;
+            btn_qr.Click += btn_qr_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(478, 159);
+            textBox1.Location = new Point(478, 169);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(225, 23);
             textBox1.TabIndex = 26;
@@ -123,7 +151,7 @@
             // lbl_precio_lista
             // 
             lbl_precio_lista.AutoSize = true;
-            lbl_precio_lista.Location = new Point(385, 167);
+            lbl_precio_lista.Location = new Point(385, 172);
             lbl_precio_lista.Name = "lbl_precio_lista";
             lbl_precio_lista.Size = new Size(67, 15);
             lbl_precio_lista.TabIndex = 25;
@@ -308,7 +336,7 @@
             panel2.Controls.Add(panel6);
             panel2.Location = new Point(774, 69);
             panel2.Name = "panel2";
-            panel2.Size = new Size(321, 372);
+            panel2.Size = new Size(321, 446);
             panel2.TabIndex = 3;
             // 
             // btn_image_change
@@ -382,36 +410,12 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
-            panel4.Controls.Add(label8);
-            panel4.Controls.Add(btn_qr);
             panel4.Controls.Add(lbl_save);
             panel4.Controls.Add(btn_save);
-            panel4.Location = new Point(12, 447);
+            panel4.Location = new Point(12, 521);
             panel4.Name = "panel4";
             panel4.Size = new Size(1083, 122);
             panel4.TabIndex = 7;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(915, 89);
-            label8.Name = "label8";
-            label8.Size = new Size(23, 15);
-            label8.TabIndex = 16;
-            label8.Text = "QR";
-            // 
-            // btn_qr
-            // 
-            btn_qr.BackgroundImage = (Image)resources.GetObject("btn_qr.BackgroundImage");
-            btn_qr.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_qr.FlatAppearance.BorderSize = 0;
-            btn_qr.FlatStyle = FlatStyle.Flat;
-            btn_qr.Location = new Point(899, 34);
-            btn_qr.Name = "btn_qr";
-            btn_qr.Size = new Size(60, 52);
-            btn_qr.TabIndex = 15;
-            btn_qr.UseVisualStyleBackColor = true;
-            btn_qr.Click += btn_qr_Click;
             // 
             // lbl_save
             // 
@@ -435,12 +439,24 @@
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
+            // btn_print
+            // 
+            btn_print.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_print.FlatStyle = FlatStyle.Flat;
+            btn_print.Location = new Point(26, 394);
+            btn_print.Margin = new Padding(0);
+            btn_print.Name = "btn_print";
+            btn_print.Size = new Size(100, 29);
+            btn_print.TabIndex = 28;
+            btn_print.Text = "Imprimir QR";
+            btn_print.UseVisualStyleBackColor = true;
+            // 
             // EdicionArticulo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 230, 230);
-            ClientSize = new Size(1104, 581);
+            ClientSize = new Size(1104, 764);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -453,6 +469,7 @@
             Load += EdicionArticulo_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_qr).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel6.ResumeLayout(false);
@@ -488,7 +505,6 @@
         private Label lbl_fileName;
         private Label lbl_save;
         private Button btn_qr;
-        private Label label8;
         private Button btn_assign;
         private Label lbl_image;
         private Button btn_image_change;
@@ -504,5 +520,7 @@
         private Label lbl_almacen;
         private TextBox textBox1;
         private Label lbl_precio_lista;
+        private PictureBox pic_qr;
+        private Button btn_print;
     }
 }

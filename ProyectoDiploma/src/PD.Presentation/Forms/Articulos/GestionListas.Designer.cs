@@ -53,7 +53,7 @@
             panel3.Controls.Add(label4);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(399, 51);
+            panel3.Size = new Size(763, 51);
             panel3.TabIndex = 5;
             // 
             // panel5
