@@ -23,6 +23,25 @@ namespace PD.Presentation.Forms.Articulos
             txt_precio.KeyPress += ValidateDecimalInput;
         }
 
+        private void EdicionArticulo_Load(object sender, EventArgs e)
+        {
+            FillListas();
+            FillCategorias();
+
+            InitializeValues();
+        }
+
+        private void InitializeValues()
+        {
+            txt_cantidad.Text = "0";
+            txt_ubicacion.Text = "";
+            txt_precio.Text = "0.00";
+            txt_nombre.Text = "";
+            txt_descripcion.Text = "";
+            txt_marca.Text = "";
+            //cbx_categoria.SelectedIndex = 1;
+        }
+
         private void ValidateDecimalInput(object? sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -35,14 +54,23 @@ namespace PD.Presentation.Forms.Articulos
         private void btn_qr_Click(object sender, EventArgs e)
         {
             var image = QRCodeGeneratorService.GenerateQR("hola");
-            //pic_qr.Image = image;
             pic_qr.BackgroundImage = image;
-
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             if (HasInvalidInputs()) return;
+
+            var dto = new ArticuloDTO
+            {
+                Nombre = txt_nombre.Text,
+                PrecioUnitario = Convert.ToDecimal(txt_precio.Text),
+                Descripcion = txt_descripcion.Text,
+                Cantidad = Convert.ToInt32(txt_cantidad.Text),
+                CategoriaId = cbx_categoria.GetSelectedValueGuid(),
+                Marca = txt_marca.Text,
+                Ubicacion = txt_ubicacion.Text,
+            };
         }
 
         private bool HasInvalidInputs()
@@ -53,7 +81,7 @@ namespace PD.Presentation.Forms.Articulos
             if (txt_precio.IsTextInvalid())
             { ShowEmptyFieldMessage("Precio Unitario"); return true; }
 
-            //if ()
+            if (string.IsNullOrEmpty(txt_cantidad.Text)) txt_cantidad.Text = "0";
 
             return false;
         }
@@ -63,12 +91,20 @@ namespace PD.Presentation.Forms.Articulos
 
         private void btn_image_change_Click(object sender, EventArgs e)
         {
-        }
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif;*.bmp|Todos los archivos|*.*",
+                Title = "Seleccionar imagen"
+            };
 
-        private void EdicionArticulo_Load(object sender, EventArgs e)
-        {
-            FillListas();
-            FillCategorias();
+            DialogResult result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                pic_base.BackgroundImage = new Bitmap(filePath);
+            }
         }
 
         #region Utils
@@ -76,6 +112,8 @@ namespace PD.Presentation.Forms.Articulos
         public void ClearAndOpen()
         {
             // limpiar variables
+            InitializeValues();
+
             // mostrar
             this.Show();
         }
