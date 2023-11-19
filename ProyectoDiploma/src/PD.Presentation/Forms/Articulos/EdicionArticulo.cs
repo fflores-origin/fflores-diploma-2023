@@ -9,16 +9,20 @@ namespace PD.Presentation.Forms.Articulos
     {
         private readonly ICategoriaManager _categoriaManager;
         private readonly IListasManager _listasManager;
+        private readonly IArticulosManager _articulosManager;
         private ArticuloDTO _articulo;
+        private string _filePath = "";
 
         public EdicionArticulo(
             ICategoriaManager categoriaManager,
-            IListasManager listasManager)
+            IListasManager listasManager,
+            IArticulosManager articulosManager)
             : base()
         {
             InitializeComponent();
             _categoriaManager = categoriaManager;
             _listasManager = listasManager;
+            _articulosManager = articulosManager;
 
             txt_precio.KeyPress += ValidateDecimalInput;
         }
@@ -70,7 +74,10 @@ namespace PD.Presentation.Forms.Articulos
                 CategoriaId = cbx_categoria.GetSelectedValueGuid(),
                 Marca = txt_marca.Text,
                 Ubicacion = txt_ubicacion.Text,
+                ImagePath = _filePath
             };
+
+            _articulosManager.CrearArticulo(dto);
         }
 
         private bool HasInvalidInputs()
@@ -101,9 +108,9 @@ namespace PD.Presentation.Forms.Articulos
 
             if (result == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName;
+                _filePath = openFileDialog.FileName;
 
-                pic_base.BackgroundImage = new Bitmap(filePath);
+                pic_base.BackgroundImage = new Bitmap(_filePath);
             }
         }
 
