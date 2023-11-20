@@ -19,7 +19,33 @@ namespace PD.Repositories
 
         public void Create(string username, string password)
         {
-            throw new NotImplementedException();
+            using var connection = _connection.CreateConnection();
+            connection.Open();
+
+            var list = new List<Usuario>();
+            SqlTransaction tran;
+            tran = connection.BeginTransaction();
+            try
+            {
+                var query = "INSERT INTO Usuario(Nombre,Password) values(@nombre,@password)";
+
+                using (var cmd = new SqlCommand(query, connection, tran))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", username);
+                    cmd.Parameters.AddWithValue("@password", password);
+                    var reader = cmd.ExecuteNonQuery();
+                    tran.Commit();
+                }
+            }
+            catch (SqlException ex)
+            {
+                tran.Rollback();
+                throw (ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public List<Usuario> GetAll()
@@ -45,7 +71,7 @@ namespace PD.Repositories
                             Id = Guid.Parse(reader["Id"].ToString()),
                             Email = reader["Email"].ToString(),
                             IdiomaId = Guid.Parse(reader["IdiomaId"].ToString()),
-                            NombreUsuario = reader["NombreUsuario"].ToString(),
+                            Nombre = reader["Nombre"].ToString(),
                             Password = reader["Password"].ToString(),
                         }
                         );
@@ -66,7 +92,44 @@ namespace PD.Repositories
 
         public Usuario GetByUserame(string username)
         {
-            throw new NotImplementedException();
+            using var connection = _connection.CreateConnection();
+            connection.Open();
+
+            Usuario user = null;
+
+            try
+            {
+                var query = "SELECT top(1) * FROM Usuario WHERE Nombre = @username";
+
+                using (var cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        user = new Usuario()
+                        {
+                            Id = Guid.Parse(reader["Id"].ToString()),
+                            Email = reader["Email"].ToString(),
+                            IdiomaId = Guid.Parse(reader["IdiomaId"].ToString()),
+                            Nombre = reader["Nombre"].ToString(),
+                            Password = reader["Password"].ToString(),
+                        };
+                    };
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return user;
         }
 
         public void GetByUsername(string username)

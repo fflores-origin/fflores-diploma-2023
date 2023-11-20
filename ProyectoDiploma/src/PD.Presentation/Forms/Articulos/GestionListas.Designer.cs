@@ -33,12 +33,12 @@
             panel5 = new Panel();
             label4 = new Label();
             panel1 = new Panel();
+            lbl_listas = new Label();
+            btn_add = new Button();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
-            dataGridView2 = new DataGridView();
-            btn_add = new Button();
             lbl_producto = new Label();
-            lbl_listas = new Label();
+            dataGridView2 = new DataGridView();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -53,7 +53,7 @@
             panel3.Controls.Add(label4);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(399, 51);
+            panel3.Size = new Size(763, 51);
             panel3.TabIndex = 5;
             // 
             // panel5
@@ -86,6 +86,26 @@
             panel1.Size = new Size(399, 208);
             panel1.TabIndex = 6;
             // 
+            // lbl_listas
+            // 
+            lbl_listas.AutoSize = true;
+            lbl_listas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_listas.Location = new Point(22, 11);
+            lbl_listas.Name = "lbl_listas";
+            lbl_listas.Size = new Size(49, 21);
+            lbl_listas.TabIndex = 14;
+            lbl_listas.Text = "Listas";
+            // 
+            // btn_add
+            // 
+            btn_add.Location = new Point(253, 155);
+            btn_add.Name = "btn_add";
+            btn_add.Size = new Size(120, 31);
+            btn_add.TabIndex = 1;
+            btn_add.Text = "Agregar";
+            btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -105,24 +125,6 @@
             panel2.Size = new Size(399, 378);
             panel2.TabIndex = 7;
             // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(22, 44);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowTemplate.Height = 25;
-            dataGridView2.Size = new Size(351, 281);
-            dataGridView2.TabIndex = 0;
-            // 
-            // btn_add
-            // 
-            btn_add.Location = new Point(307, 157);
-            btn_add.Name = "btn_add";
-            btn_add.Size = new Size(67, 31);
-            btn_add.TabIndex = 1;
-            btn_add.Text = "Agregar";
-            btn_add.UseVisualStyleBackColor = true;
-            // 
             // lbl_producto
             // 
             lbl_producto.AutoSize = true;
@@ -133,27 +135,29 @@
             lbl_producto.TabIndex = 13;
             lbl_producto.Text = "Productos";
             // 
-            // lbl_listas
+            // dataGridView2
             // 
-            lbl_listas.AutoSize = true;
-            lbl_listas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_listas.Location = new Point(22, 11);
-            lbl_listas.Name = "lbl_listas";
-            lbl_listas.Size = new Size(49, 21);
-            lbl_listas.TabIndex = 14;
-            lbl_listas.Text = "Listas";
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(22, 44);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.Size = new Size(351, 281);
+            dataGridView2.TabIndex = 0;
             // 
             // GestionListas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(427, 695);
+            BackColor = Color.Gainsboro;
+            ClientSize = new Size(787, 675);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionListas";
             Text = "GestionListas";
+            Load += GestionListas_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel1.ResumeLayout(false);

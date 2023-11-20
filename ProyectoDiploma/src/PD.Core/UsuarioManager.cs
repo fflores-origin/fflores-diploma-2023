@@ -12,6 +12,7 @@ namespace PD.Core
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IUsuariosMapper _usuariosMapper;
+        private readonly Sesion _sesion;
 
         public UsuarioManager(
             IUsuarioRepository usuarioRepository,
@@ -19,6 +20,7 @@ namespace PD.Core
         {
             _usuarioRepository = usuarioRepository;
             _usuariosMapper = usuariosMapper;
+            _sesion = UserSesion.Session;
         }
 
         public void CrearUsuario(string username, string password)
@@ -38,7 +40,13 @@ namespace PD.Core
 
             if (usuario == null) { return LoginResult.InvalidUsername; }
 
-            return LoginResult.InvalidUsername;
+            var encripted = Encryption.Encrypt(password);
+
+            if (usuario.Password != encripted) { return LoginResult.InvalidPassword; }
+
+            _sesion.Login(usuario);
+
+            return LoginResult.ValidUser;
         }
 
         public void LogOut()

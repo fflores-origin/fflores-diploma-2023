@@ -88,12 +88,62 @@ namespace PD.Repositories
 
         public T Save(T entity)
         {
-            throw new NotImplementedException();
+            using var connection = _connection.CreateConnection();
+            connection.Open();
+
+            Type type = typeof(T);
+            PropertyInfo[] propiedadesAll = GetProperties<T>();
+
+            //obtengo solo las simples
+            var propiedades = propiedadesAll.Where(x => !IsPropertyComplex(x));
+
+            string nombreTabla = type.Name;
+            string nombresColumnas = string.Join(", ", propiedades.Select(p => p.Name));
+            string valoresParametros = string.Join(", ", propiedades.Select(p => "@" + p.Name));
+
+            string consulta = $"INSERT INTO {nombreTabla} ({nombresColumnas}) VALUES ({valoresParametros})";
+
+            using (SqlCommand comando = new SqlCommand(consulta, connection))
+            {
+                foreach (PropertyInfo propiedad in propiedades)
+                {
+                    comando.Parameters.AddWithValue("@" + propiedad.Name, propiedad.GetValue(entity));
+                }
+
+                comando.ExecuteNonQuery();
+
+                return entity;
+            }
         }
 
         public T Update(T entity)
         {
-            throw new NotImplementedException();
+            using var connection = _connection.CreateConnection();
+            connection.Open();
+
+            Type type = typeof(T);
+            PropertyInfo[] propiedadesAll = GetProperties<T>();
+
+            //obtengo solo las simples
+            var propiedades = propiedadesAll.Where(x => !IsPropertyComplex(x));
+
+            string nombreTabla = type.Name;
+            string setClause = string.Join(", ", propiedades.Select(p => $"{p.Name} = @{p.Name}"));
+            string whereClause = $"WHERE Id = @Id";
+
+            string consulta = $"UPDATE {nombreTabla} SET {setClause} {whereClause}";
+
+            using (SqlCommand comando = new SqlCommand(consulta, connection))
+            {
+                foreach (PropertyInfo propiedad in propiedades)
+                {
+                    comando.Parameters.AddWithValue("@" + propiedad.Name, propiedad.GetValue(entity));
+                }
+
+                comando.ExecuteNonQuery();
+
+                return entity;
+            }
         }
 
         private T GetObject(SqlDataReader reader)
@@ -170,9 +220,13 @@ namespace PD.Repositories
             => property.PropertyType.BaseType?.Name == _configuration["Initial:DefaultEntity"];
 
         private string GetPluralTableName<T>()
-            => typeof(T).Name + "s";
+            => typeof(T).Name;
+
+        //=> typeof(T).Name + "s";
 
         private string GetPluralTableName(string value)
-            => $"{value}s";
+            => $"{value}";
+
+        //=> $"{value}s";
     }
 }

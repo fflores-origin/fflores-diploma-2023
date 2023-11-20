@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PD.Presentation.Forms.Documentos
+﻿namespace PD.Presentation.Forms.Documentos
 {
-    public partial class GestionOrdenesCompra : Form
+    public partial class GestionOrdenesCompra : FormBase
     {
+
+
+
         public GestionOrdenesCompra()
         {
             InitializeComponent();

@@ -4,9 +4,9 @@
     {
         public static bool IsTextInvalid(this TextBox txt)
         {
-            if (txt == null) return false;
-            if (txt.Text == null || string.IsNullOrEmpty(txt.Text)) return false;
-            return true;
+            if (txt == null) return true;
+            if (txt.Text == null || string.IsNullOrEmpty(txt.Text)) return true;
+            return false;
         }
     }
 }

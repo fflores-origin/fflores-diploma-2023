@@ -11,7 +11,8 @@ namespace PD.Presentation.Bootstrap
             services
                 .AddTransient<IUsuarioManager, UsuarioManager>()
                 .AddTransient<IArticulosManager, ArticulosManager>()
-                .AddTransient<ICategoriaManager, CategoriaManager>();
+                .AddTransient<ICategoriaManager, CategoriaManager>()
+                .AddTransient<IListasManager, ListasManager>();
         }
     }
 }

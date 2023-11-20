@@ -6,7 +6,7 @@ namespace PD.Entities
     {
         private IList<PermisoBase> _permisos;
 
-        public string NombreUsuario { get; set; }
+        public string Nombre { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public Guid IdiomaId { get; set; }
@@ -20,6 +20,6 @@ namespace PD.Entities
         public IList<PermisoBase> Permisos
         { get { return _permisos; } }
 
-        public override string ToString() => NombreUsuario;
+        public override string ToString() => Nombre;
     }
 }
