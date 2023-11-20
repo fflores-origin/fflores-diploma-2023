@@ -25,7 +25,30 @@ namespace PD.Core
 
         public void CrearArticulo(ArticuloDTO articulo)
         {
-            throw new NotImplementedException();
+            var id = Guid.NewGuid();
+            articulo.Id = id;
+            var art = _articuloMapper.GetArticulo(articulo);
+            art.Imagen = CopyImange(articulo.ImagePath, id);
+
+            _repository.Save(art);
+        }
+
+        private string CopyImange(string imagePath, Guid id)
+        {
+            if (string.IsNullOrEmpty(imagePath))
+                return "";
+
+            var baseConfigPath = _configuration["InitalConfig:BaseImagePath"];
+            var baseConfigImagesPath = _configuration["InitalConfig:ImagesPaths"];
+
+            var baseImagePath = string.IsNullOrEmpty(baseConfigImagesPath) ? baseConfigImagesPath : "";
+            var basePath = string.IsNullOrEmpty(baseConfigPath) ? AppContext.BaseDirectory : baseConfigPath;
+
+            var destinyPath = Path.Combine(basePath, baseImagePath, id.ToString());
+
+            File.Copy(imagePath, destinyPath);
+
+            return destinyPath;
         }
 
         public List<ArticuloListaDTO> GetList()
