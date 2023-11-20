@@ -27,6 +27,8 @@ GO
 INSERT INTO Categoria(Id, Nombre) VALUES('AA174E45-E3C1-4F4A-A961-10671FE79761','Articulo')
 INSERT INTO Categoria(Id, Nombre) VALUES('882F8085-B15A-41DE-A905-124893068B8E','Libros')
 
+
+
 GO
 CREATE TABLE Articulo (
 	[Id] uniqueidentifier not null primary key default(newid()),
@@ -34,6 +36,8 @@ CREATE TABLE Articulo (
 	[Codigo] VARCHAR(100),
 	[Descripcion] VARCHAR(200),
 	[Imagen] VARCHAR(200) default(''),
+	[Marca] VARCHAR(100) default(''),
+	[PrecioUnitario] money default(0),
 	[CategoriaId] uniqueidentifier
 )
 

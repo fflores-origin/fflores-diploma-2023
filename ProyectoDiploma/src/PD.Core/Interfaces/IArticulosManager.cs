@@ -1,5 +1,6 @@
 ﻿using PD.Core.DTO;
 using PD.Core.DTOs.Articulo;
+using PD.Entities;
 
 namespace PD.Core.Interfaces
 {
@@ -7,6 +8,6 @@ namespace PD.Core.Interfaces
     {
         List<ArticuloListaDTO> GetList();
 
-        void CrearArticulo(ArticuloDTO articulo);
+        Articulo CrearArticulo(ArticuloDTO dto);
     }
 }

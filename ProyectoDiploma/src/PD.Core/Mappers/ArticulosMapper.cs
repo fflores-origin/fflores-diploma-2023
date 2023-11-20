@@ -11,7 +11,7 @@ namespace PD.Core.Mappers
         {
             return new Articulo()
             {
-                Id = dto.Id ?? Guid.NewGuid(),
+                Id = dto.Id.HasValue && dto.Id == Guid.Empty ? Guid.NewGuid() : dto.Id.Value,
                 Codigo = "",
                 CategoriaId = dto.CategoriaId,
                 Imagen = dto.ImagePath,

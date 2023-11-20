@@ -1,5 +1,6 @@
 ﻿using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
+using PD.Entities;
 using PD.Presentation.Helpers;
 using PD.Services;
 
@@ -10,8 +11,10 @@ namespace PD.Presentation.Forms.Articulos
         private readonly ICategoriaManager _categoriaManager;
         private readonly IListasManager _listasManager;
         private readonly IArticulosManager _articulosManager;
-        private ArticuloDTO _articulo;
+        private ArticuloDTO _articuloDto;
         private string _filePath = "";
+        private Guid _productoId = Guid.Empty;
+        private Articulo _articulo = null;
 
         public EdicionArticulo(
             ICategoriaManager categoriaManager,
@@ -63,21 +66,30 @@ namespace PD.Presentation.Forms.Articulos
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (HasInvalidInputs()) return;
-
-            var dto = new ArticuloDTO
+            try
             {
-                Nombre = txt_nombre.Text,
-                PrecioUnitario = Convert.ToDecimal(txt_precio.Text),
-                Descripcion = txt_descripcion.Text,
-                Cantidad = Convert.ToInt32(txt_cantidad.Text),
-                CategoriaId = cbx_categoria.GetSelectedValueGuid(),
-                Marca = txt_marca.Text,
-                Ubicacion = txt_ubicacion.Text,
-                ImagePath = _filePath
-            };
+                if (HasInvalidInputs()) return;
 
-            _articulosManager.CrearArticulo(dto);
+                var dto = new ArticuloDTO
+                {
+                    Id = _productoId,
+                    Nombre = txt_nombre.Text,
+                    PrecioUnitario = Convert.ToDecimal(txt_precio.Text.Replace('.', ',')),
+                    Descripcion = txt_descripcion.Text,
+                    Cantidad = Convert.ToInt32(txt_cantidad.Text),
+                    CategoriaId = cbx_categoria.GetSelectedValueGuid(),
+                    Marca = txt_marca.Text,
+                    Ubicacion = txt_ubicacion.Text,
+                    ImagePath = _filePath
+                };
+
+                _articulo = _articulosManager.CrearArticulo(dto);
+                _productoId = _articulo.Id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR: \n{ex.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool HasInvalidInputs()

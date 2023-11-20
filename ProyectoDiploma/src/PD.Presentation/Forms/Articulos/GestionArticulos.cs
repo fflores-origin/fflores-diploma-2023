@@ -26,6 +26,7 @@ namespace PD.Presentation.Forms.Articulos
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
             _edicionArticuloForm.ClearAndOpen();
+            _edicionArticuloForm.MdiParent = this.MdiParent;
         }
     }
 }

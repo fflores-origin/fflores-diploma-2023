@@ -3,6 +3,7 @@ using PD.Core.DTO;
 using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Core.Mappers.Interfaces;
+using PD.Entities;
 using PD.Repositories.Interfaces;
 
 namespace PD.Core
@@ -23,14 +24,18 @@ namespace PD.Core
             _articuloMapper = articuloMapper;
         }
 
-        public void CrearArticulo(ArticuloDTO articulo)
+        public Articulo CrearArticulo(ArticuloDTO dto)
         {
-            var id = Guid.NewGuid();
-            articulo.Id = id;
-            var art = _articuloMapper.GetArticulo(articulo);
-            art.Imagen = CopyImange(articulo.ImagePath, id);
+            var articulo = _articuloMapper.GetArticulo(dto);
+            articulo.Imagen = CopyImange(dto.ImagePath, articulo.Id);
 
-            _repository.Save(art);
+            if (dto.Id.HasValue && dto.Id != Guid.Empty)
+            {
+                return _repository.Update(articulo);
+            }
+
+            dto.Id = articulo.Id;
+            return _repository.Save(articulo);
         }
 
         private string CopyImange(string imagePath, Guid id)
@@ -38,15 +43,21 @@ namespace PD.Core
             if (string.IsNullOrEmpty(imagePath))
                 return "";
 
-            var baseConfigPath = _configuration["InitalConfig:BaseImagePath"];
-            var baseConfigImagesPath = _configuration["InitalConfig:ImagesPaths"];
+            var baseConfigPath = _configuration["InitialConfig:BaseImagePath"];
+            var baseConfigImagesPath = _configuration["InitialConfig:ImagesPaths"];
 
-            var baseImagePath = string.IsNullOrEmpty(baseConfigImagesPath) ? baseConfigImagesPath : "";
+            var baseImagePath = !string.IsNullOrEmpty(baseConfigImagesPath) ? baseConfigImagesPath : "";
             var basePath = string.IsNullOrEmpty(baseConfigPath) ? AppContext.BaseDirectory : baseConfigPath;
 
-            var destinyPath = Path.Combine(basePath, baseImagePath, id.ToString());
+            var fileInfo = new FileInfo(imagePath);
 
-            File.Copy(imagePath, destinyPath);
+            var path = Path.Combine(basePath, baseImagePath);
+
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+            var destinyPath = Path.Combine(path, $"{id}{fileInfo.Extension}");
+
+            File.Copy(imagePath, destinyPath, true);
 
             return destinyPath;
         }
