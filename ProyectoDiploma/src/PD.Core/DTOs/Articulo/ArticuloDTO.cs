@@ -10,7 +10,7 @@
         public Guid CategoriaId { get; set; }
         public int Cantidad { get; set; }
         public string Ubicacion { get; set; }
-
+        public string Codigo { get; set; }
         public string ImagePath { get; set; }
 
         public List<ListaArticuloDTO> Listas { get; set; }

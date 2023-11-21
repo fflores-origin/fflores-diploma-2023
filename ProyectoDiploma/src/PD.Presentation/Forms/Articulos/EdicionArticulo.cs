@@ -77,6 +77,7 @@ namespace PD.Presentation.Forms.Articulos
                     PrecioUnitario = Convert.ToDecimal(txt_precio.Text.Replace('.', ',')),
                     Descripcion = txt_descripcion.Text,
                     Cantidad = Convert.ToInt32(txt_cantidad.Text),
+                    Codigo = txt_codigo.Text,
                     CategoriaId = cbx_categoria.GetSelectedValueGuid(),
                     Marca = txt_marca.Text,
                     Ubicacion = txt_ubicacion.Text,

@@ -31,10 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicionArticulo));
             label1 = new Label();
             panel1 = new Panel();
+            txt_codigo = new TextBox();
+            lbl_codigo = new Label();
             dgv_listas = new DataGridView();
             btn_print = new Button();
             pic_qr = new PictureBox();
-            btn_qr = new Button();
             textBox1 = new TextBox();
             lbl_precio_lista = new Label();
             lbl_lista = new Label();
@@ -57,10 +58,9 @@
             label2 = new Label();
             label4 = new Label();
             panel2 = new Panel();
-            btn_image_change = new Button();
             lbl_image = new Label();
             panel6 = new Panel();
-            lbl_fileName = new Label();
+            btn_image_change = new Button();
             pic_base = new PictureBox();
             panel3 = new Panel();
             panel5 = new Panel();
@@ -89,10 +89,9 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(txt_codigo);
+            panel1.Controls.Add(lbl_codigo);
             panel1.Controls.Add(dgv_listas);
-            panel1.Controls.Add(btn_print);
-            panel1.Controls.Add(pic_qr);
-            panel1.Controls.Add(btn_qr);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(lbl_precio_lista);
             panel1.Controls.Add(lbl_lista);
@@ -119,6 +118,22 @@
             panel1.Size = new Size(756, 446);
             panel1.TabIndex = 2;
             // 
+            // txt_codigo
+            // 
+            txt_codigo.Location = new Point(119, 212);
+            txt_codigo.Name = "txt_codigo";
+            txt_codigo.Size = new Size(225, 23);
+            txt_codigo.TabIndex = 31;
+            // 
+            // lbl_codigo
+            // 
+            lbl_codigo.AutoSize = true;
+            lbl_codigo.Location = new Point(26, 215);
+            lbl_codigo.Name = "lbl_codigo";
+            lbl_codigo.Size = new Size(46, 15);
+            lbl_codigo.TabIndex = 30;
+            lbl_codigo.Text = "Codigo";
+            // 
             // dgv_listas
             // 
             dgv_listas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -127,17 +142,17 @@
             dgv_listas.Margin = new Padding(10);
             dgv_listas.Name = "dgv_listas";
             dgv_listas.RowTemplate.Height = 25;
-            dgv_listas.Size = new Size(225, 65);
+            dgv_listas.Size = new Size(225, 99);
             dgv_listas.TabIndex = 29;
             // 
             // btn_print
             // 
             btn_print.BackgroundImageLayout = ImageLayout.Stretch;
             btn_print.FlatStyle = FlatStyle.Flat;
-            btn_print.Location = new Point(173, 295);
+            btn_print.Location = new Point(185, 309);
             btn_print.Margin = new Padding(0);
             btn_print.Name = "btn_print";
-            btn_print.Size = new Size(100, 29);
+            btn_print.Size = new Size(72, 117);
             btn_print.TabIndex = 28;
             btn_print.Text = "Imprimir QR";
             btn_print.UseVisualStyleBackColor = true;
@@ -147,27 +162,15 @@
             pic_qr.BackgroundImageLayout = ImageLayout.Stretch;
             pic_qr.BorderStyle = BorderStyle.FixedSingle;
             pic_qr.ErrorImage = Properties.Resources.no_available;
-            pic_qr.Location = new Point(26, 267);
+            pic_qr.Location = new Point(65, 309);
             pic_qr.Name = "pic_qr";
-            pic_qr.Size = new Size(130, 130);
+            pic_qr.Size = new Size(117, 117);
             pic_qr.TabIndex = 27;
             pic_qr.TabStop = false;
             // 
-            // btn_qr
-            // 
-            btn_qr.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_qr.FlatStyle = FlatStyle.Flat;
-            btn_qr.Location = new Point(173, 267);
-            btn_qr.Name = "btn_qr";
-            btn_qr.Size = new Size(100, 29);
-            btn_qr.TabIndex = 15;
-            btn_qr.Text = "Generar QR";
-            btn_qr.UseVisualStyleBackColor = true;
-            btn_qr.Click += btn_qr_Click;
-            // 
             // textBox1
             // 
-            textBox1.Location = new Point(478, 169);
+            textBox1.Location = new Point(478, 212);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(225, 23);
             textBox1.TabIndex = 26;
@@ -175,7 +178,7 @@
             // lbl_precio_lista
             // 
             lbl_precio_lista.AutoSize = true;
-            lbl_precio_lista.Location = new Point(388, 172);
+            lbl_precio_lista.Location = new Point(388, 215);
             lbl_precio_lista.Name = "lbl_precio_lista";
             lbl_precio_lista.Size = new Size(67, 15);
             lbl_precio_lista.TabIndex = 25;
@@ -195,7 +198,7 @@
             // 
             lbl_almacen.AutoSize = true;
             lbl_almacen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_almacen.Location = new Point(385, 267);
+            lbl_almacen.Location = new Point(26, 299);
             lbl_almacen.Name = "lbl_almacen";
             lbl_almacen.Size = new Size(70, 21);
             lbl_almacen.TabIndex = 23;
@@ -203,7 +206,7 @@
             // 
             // txt_ubicacion
             // 
-            txt_ubicacion.Location = new Point(478, 360);
+            txt_ubicacion.Location = new Point(119, 383);
             txt_ubicacion.Name = "txt_ubicacion";
             txt_ubicacion.Size = new Size(225, 23);
             txt_ubicacion.TabIndex = 22;
@@ -211,7 +214,7 @@
             // lbl_ubicacion
             // 
             lbl_ubicacion.AutoSize = true;
-            lbl_ubicacion.Location = new Point(385, 363);
+            lbl_ubicacion.Location = new Point(26, 386);
             lbl_ubicacion.Name = "lbl_ubicacion";
             lbl_ubicacion.Size = new Size(60, 15);
             lbl_ubicacion.TabIndex = 21;
@@ -219,7 +222,7 @@
             // 
             // txt_cantidad
             // 
-            txt_cantidad.Location = new Point(478, 312);
+            txt_cantidad.Location = new Point(119, 344);
             txt_cantidad.Name = "txt_cantidad";
             txt_cantidad.Size = new Size(225, 23);
             txt_cantidad.TabIndex = 20;
@@ -227,7 +230,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(385, 315);
+            label9.Location = new Point(26, 347);
             label9.Name = "label9";
             label9.Size = new Size(48, 15);
             label9.TabIndex = 19;
@@ -263,7 +266,7 @@
             // 
             // btn_assign
             // 
-            btn_assign.Location = new Point(615, 124);
+            btn_assign.Location = new Point(615, 163);
             btn_assign.Name = "btn_assign";
             btn_assign.Size = new Size(88, 29);
             btn_assign.TabIndex = 14;
@@ -292,7 +295,7 @@
             // cbx_categoria
             // 
             cbx_categoria.FormattingEnabled = true;
-            cbx_categoria.Location = new Point(119, 216);
+            cbx_categoria.Location = new Point(119, 251);
             cbx_categoria.Name = "cbx_categoria";
             cbx_categoria.Size = new Size(225, 23);
             cbx_categoria.TabIndex = 10;
@@ -300,7 +303,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(26, 219);
+            label6.Location = new Point(26, 254);
             label6.Name = "label6";
             label6.Size = new Size(58, 15);
             label6.TabIndex = 9;
@@ -346,23 +349,14 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(btn_image_change);
             panel2.Controls.Add(lbl_image);
             panel2.Controls.Add(panel6);
+            panel2.Controls.Add(pic_qr);
+            panel2.Controls.Add(btn_print);
             panel2.Location = new Point(774, 69);
             panel2.Name = "panel2";
             panel2.Size = new Size(321, 446);
             panel2.TabIndex = 3;
-            // 
-            // btn_image_change
-            // 
-            btn_image_change.Location = new Point(184, 339);
-            btn_image_change.Name = "btn_image_change";
-            btn_image_change.Size = new Size(112, 29);
-            btn_image_change.TabIndex = 15;
-            btn_image_change.Text = "Cambiar Imagen";
-            btn_image_change.UseVisualStyleBackColor = true;
-            btn_image_change.Click += btn_image_change_Click;
             // 
             // lbl_image
             // 
@@ -377,29 +371,33 @@
             // panel6
             // 
             panel6.BorderStyle = BorderStyle.FixedSingle;
-            panel6.Controls.Add(lbl_fileName);
+            panel6.Controls.Add(btn_image_change);
             panel6.Controls.Add(pic_base);
             panel6.Location = new Point(25, 54);
             panel6.Name = "panel6";
-            panel6.Size = new Size(271, 279);
+            panel6.Size = new Size(271, 239);
             panel6.TabIndex = 2;
             // 
-            // lbl_fileName
+            // btn_image_change
             // 
-            lbl_fileName.AutoSize = true;
-            lbl_fileName.Location = new Point(10, 247);
-            lbl_fileName.Name = "lbl_fileName";
-            lbl_fileName.Size = new Size(16, 15);
-            lbl_fileName.TabIndex = 1;
-            lbl_fileName.Text = "...";
+            btn_image_change.BackColor = Color.White;
+            btn_image_change.FlatAppearance.BorderColor = Color.Black;
+            btn_image_change.FlatStyle = FlatStyle.Flat;
+            btn_image_change.Location = new Point(39, 198);
+            btn_image_change.Name = "btn_image_change";
+            btn_image_change.Size = new Size(192, 29);
+            btn_image_change.TabIndex = 15;
+            btn_image_change.Text = "Cambiar Imagen";
+            btn_image_change.UseVisualStyleBackColor = false;
+            btn_image_change.Click += btn_image_change_Click;
             // 
             // pic_base
             // 
             pic_base.BackgroundImage = (Image)resources.GetObject("pic_base.BackgroundImage");
             pic_base.BackgroundImageLayout = ImageLayout.Stretch;
-            pic_base.Location = new Point(10, 11);
+            pic_base.Location = new Point(39, 5);
             pic_base.Name = "pic_base";
-            pic_base.Size = new Size(250, 230);
+            pic_base.Size = new Size(192, 187);
             pic_base.TabIndex = 0;
             pic_base.TabStop = false;
             // 
@@ -477,7 +475,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pic_base).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -505,9 +502,7 @@
         private Button btn_save;
         private Panel panel5;
         private Panel panel6;
-        private Label lbl_fileName;
         private Label lbl_save;
-        private Button btn_qr;
         private Button btn_assign;
         private Label lbl_image;
         private Button btn_image_change;
@@ -526,5 +521,7 @@
         private PictureBox pic_qr;
         private Button btn_print;
         private DataGridView dgv_listas;
+        private TextBox txt_codigo;
+        private Label lbl_codigo;
     }
 }
