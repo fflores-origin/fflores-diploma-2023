@@ -84,8 +84,10 @@
             dgv_articulos.Margin = new Padding(10);
             dgv_articulos.Name = "dgv_articulos";
             dgv_articulos.RowTemplate.Height = 25;
-            dgv_articulos.Size = new Size(1024, 355);
+            dgv_articulos.ScrollBars = ScrollBars.Vertical;
+            dgv_articulos.Size = new Size(1024, 351);
             dgv_articulos.TabIndex = 0;
+            dgv_articulos.SelectionChanged += OnSelectionChanged;
             // 
             // pnl_seachbar
             // 

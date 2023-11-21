@@ -1,8 +1,10 @@
-﻿using PD.Core.DTOs.Articulo;
+﻿using Newtonsoft.Json;
+using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
 using PD.Services;
+using System.Text.Json.Serialization;
 
 namespace PD.Presentation.Forms.Articulos
 {
@@ -15,6 +17,8 @@ namespace PD.Presentation.Forms.Articulos
         private string _filePath = "";
         private Guid _productoId = Guid.Empty;
         private Articulo _articulo = null;
+
+        private GestionArticulos _parentForm;
 
         public EdicionArticulo(
             ICategoriaManager categoriaManager,
@@ -46,6 +50,7 @@ namespace PD.Presentation.Forms.Articulos
             txt_nombre.Text = "";
             txt_descripcion.Text = "";
             txt_marca.Text = "";
+            pic_base.BackgroundImage = null;
             //cbx_categoria.SelectedIndex = 1;
         }
 
@@ -58,9 +63,9 @@ namespace PD.Presentation.Forms.Articulos
                 e.Handled = true;
         }
 
-        private void btn_qr_Click(object sender, EventArgs e)
+        private void GenerateQR()
         {
-            var image = QRCodeGeneratorService.GenerateQR("hola");
+            var image = QRCodeGeneratorService.GenerateQR(JsonConvert.SerializeObject(_articulo));
             pic_qr.BackgroundImage = image;
         }
 
@@ -86,6 +91,14 @@ namespace PD.Presentation.Forms.Articulos
 
                 _articulo = _articulosManager.CrearArticulo(dto);
                 _productoId = _articulo.Id;
+
+                GenerateQR();
+
+                _parentForm.LoadGrid();
+
+                MessageBox.Show("Articulo Creado");
+
+                //((GestionArticulos)this.Parent).LoadGrid();
             }
             catch (Exception ex)
             {
@@ -129,10 +142,12 @@ namespace PD.Presentation.Forms.Articulos
 
         #region Utils
 
-        public void ClearAndOpen()
+        public void ClearAndOpen(GestionArticulos parentForm = null)
         {
             // limpiar variables
             InitializeValues();
+
+            _parentForm = parentForm;
 
             // mostrar
             this.Show();
