@@ -78,7 +78,12 @@
             // 
             // dgv_articulos
             // 
+            dgv_articulos.AllowUserToAddRows = false;
+            dgv_articulos.AllowUserToDeleteRows = false;
+            dgv_articulos.AllowUserToResizeColumns = false;
+            dgv_articulos.AllowUserToResizeRows = false;
             dgv_articulos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_articulos.BorderStyle = BorderStyle.None;
             dgv_articulos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_articulos.Location = new Point(22, 64);
             dgv_articulos.Margin = new Padding(10);
@@ -175,6 +180,8 @@
             Controls.Add(pnl_buttons);
             Controls.Add(pnl_list);
             Controls.Add(pnl_head);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionArticulos";
             Text = "Articulos";
             Load += GestionArticulos_Load_1;

@@ -50,8 +50,7 @@ namespace PD.Presentation.Forms.Articulos
             txt_nombre.Text = "";
             txt_descripcion.Text = "";
             txt_marca.Text = "";
-            pic_base.BackgroundImage = null;
-            //cbx_categoria.SelectedIndex = 1;
+            pic_base.BackgroundImage = Properties.Resources.no_image;
         }
 
         private void ValidateDecimalInput(object? sender, KeyPressEventArgs e)
@@ -91,6 +90,7 @@ namespace PD.Presentation.Forms.Articulos
 
                 _articulo = _articulosManager.CrearArticulo(dto);
                 _productoId = _articulo.Id;
+                txt_id.Text = _articulo.Id.ToString();
 
                 GenerateQR();
 

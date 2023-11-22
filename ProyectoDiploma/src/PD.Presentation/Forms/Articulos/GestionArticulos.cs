@@ -1,5 +1,6 @@
 ﻿using PD.Core.DTO;
 using PD.Core.Interfaces;
+using System.Windows.Forms;
 
 namespace PD.Presentation.Forms.Articulos
 {
@@ -41,6 +42,7 @@ namespace PD.Presentation.Forms.Articulos
 
             dgv_articulos.CellPainting += DGV_CellPainting;
             dgv_articulos.CellFormatting += DGV_CellFormatting;
+            dgv_articulos.CellContentClick += DGV_CellClick;
         }
 
         private void FormatGrid()
@@ -71,7 +73,16 @@ namespace PD.Presentation.Forms.Articulos
                 Name = "Imagen",
                 DataPropertyName = "Imagen",
                 Width = 100,
-                //AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            });
+
+            dgv_articulos.Columns.Add(new DataGridViewButtonColumn()
+            {
+                Name = "Acciones",
+                UseColumnTextForButtonValue = true,
+                Text = "Editar",
+                DataPropertyName = "Id",
+                FlatStyle = FlatStyle.Flat,
+                
             });
         }
 
@@ -106,7 +117,7 @@ namespace PD.Presentation.Forms.Articulos
                 }
                 else
                 {
-                    e.Value = Properties.Resources.no_available;
+                    e.Value = Properties.Resources.no_image;
                 }
             }
         }
@@ -124,7 +135,7 @@ namespace PD.Presentation.Forms.Articulos
 
                 if (string.IsNullOrEmpty(producto.Imagen))
                 {
-                    img = Properties.Resources.no_available;
+                    img = Properties.Resources.no_image;
                 }
                 else
                 {
@@ -138,6 +149,21 @@ namespace PD.Presentation.Forms.Articulos
 
                 e.Graphics.DrawImage(img, new Rectangle(x, y, width, height));
                 e.Handled = true;
+            }
+        }
+
+        private void DGV_CellClick(object? sender, DataGridViewCellEventArgs e)
+        {
+
+            // Verifica si la celda clicada pertenece a la columna de botones
+            if (dgv_articulos.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+
+                ArticuloListaDTO producto = (ArticuloListaDTO)dgv_articulos.Rows[e.RowIndex].DataBoundItem;
+                // Aquí puedes realizar la acción deseada
+                // Por ejemplo, obtener el valor de la celda en la misma fila
+                //object valorCelda = dgv_articulos.Rows[e.RowIndex].Cells["Editar"].Value;
+                //MessageBox.Show($"Botón clicado en la fila {e.RowIndex + 1}, valor de la celda: {producto.Id}");
             }
         }
     }
