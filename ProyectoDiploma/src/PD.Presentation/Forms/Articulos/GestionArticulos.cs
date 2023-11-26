@@ -82,7 +82,7 @@ namespace PD.Presentation.Forms.Articulos
                 Text = "Editar",
                 DataPropertyName = "Id",
                 FlatStyle = FlatStyle.Flat,
-                
+
             });
         }
 
@@ -160,11 +160,19 @@ namespace PD.Presentation.Forms.Articulos
             {
 
                 ArticuloListaDTO producto = (ArticuloListaDTO)dgv_articulos.Rows[e.RowIndex].DataBoundItem;
+
+                _edicionArticuloForm.ClearAndOpen(id: producto.Id);
                 // Aquí puedes realizar la acción deseada
                 // Por ejemplo, obtener el valor de la celda en la misma fila
                 //object valorCelda = dgv_articulos.Rows[e.RowIndex].Cells["Editar"].Value;
                 //MessageBox.Show($"Botón clicado en la fila {e.RowIndex + 1}, valor de la celda: {producto.Id}");
             }
+        }
+
+        private void GestionArticulos_Load(object sender, EventArgs e)
+        {
+            LoadGrid();
+            FormatGrid();
         }
     }
 }

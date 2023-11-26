@@ -142,7 +142,7 @@ namespace PD.Presentation.Forms.Articulos
 
         #region Utils
 
-        public void ClearAndOpen(GestionArticulos parentForm = null)
+        public void ClearAndOpen(GestionArticulos parentForm = null, Guid? id = null)
         {
             // limpiar variables
             InitializeValues();

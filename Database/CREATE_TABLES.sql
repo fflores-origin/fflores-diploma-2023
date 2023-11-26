@@ -44,7 +44,8 @@ CREATE TABLE Articulo (
 GO
 CREATE TABLE Lista (
 	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(100)
+	[Nombre] varchar(100),
+	[Porcentaje] money
 )
 
 GO
@@ -57,7 +58,7 @@ CREATE TABLE ListaArticulo (
 )
 
 go
-insert into Lista (Nombre) values('Publico')
+insert into Lista (Nombre, Porcentaje) values('Publico', 10.0)
 
 
 GO
@@ -138,9 +139,20 @@ CREATE TABLE PermisoComponente (
 )
 -- #end USUARIOS PERMISOS
 
-
+GO
+CREATE TABLE Logs (
+	[Id] uniqueidentifier not null,
+	[UsuarioId] uniqueidentifier not null,
+	[ValorPrevio] varchar(100),
+	[NuevoValor] varchar(100),
+	[Formulario] varchar(200),
+	[Excepcion] varchar(max)
+	
+)
 
 
 
 ----
 --SPs
+
+

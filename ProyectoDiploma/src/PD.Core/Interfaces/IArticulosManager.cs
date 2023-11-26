@@ -9,5 +9,7 @@ namespace PD.Core.Interfaces
         List<ArticuloListaDTO> GetList();
 
         Articulo CrearArticulo(ArticuloDTO dto);
+
+      
     }
 }

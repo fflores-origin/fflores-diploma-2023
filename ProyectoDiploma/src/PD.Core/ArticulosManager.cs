@@ -13,15 +13,18 @@ namespace PD.Core
         private readonly IConfiguration _configuration;
         private readonly IArticuloRepository _repository;
         private readonly IArticulosMapper _articuloMapper;
+        private readonly IListaRepository _listaRepository;
 
         public ArticulosManager(
             IConfiguration configuration,
             IArticuloRepository repository,
-            IArticulosMapper articuloMapper)
+            IArticulosMapper articuloMapper,
+            IListaRepository listaRepository)
         {
             _configuration = configuration;
             _repository = repository;
             _articuloMapper = articuloMapper;
+            _listaRepository = listaRepository;
         }
 
         public Articulo CrearArticulo(ArticuloDTO dto)
@@ -35,7 +38,12 @@ namespace PD.Core
             }
 
             dto.Id = articulo.Id;
-            return _repository.Save(articulo);
+            articulo =_repository.Save(articulo);
+
+
+            _listaRepository.UpdateArticuloLista(articulo);
+
+            return articulo;
         }
 
         private string CopyImange(string imagePath, Guid id)

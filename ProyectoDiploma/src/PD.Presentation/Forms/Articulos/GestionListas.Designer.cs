@@ -28,143 +28,202 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_listas = new System.Windows.Forms.Label();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_producto = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.SuspendLayout();
+            panel3 = new Panel();
+            panel5 = new Panel();
+            label4 = new Label();
+            panel1 = new Panel();
+            panel4 = new Panel();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            txt_nombre = new TextBox();
+            lbl_nombre = new Label();
+            btn_add = new Button();
+            lbl_listas = new Label();
+            dgv_listas = new DataGridView();
+            panel2 = new Panel();
+            lbl_producto = new Label();
+            dgv_precios = new DataGridView();
+            panel3.SuspendLayout();
+            panel1.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_listas).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_precios).BeginInit();
+            SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(763, 51);
-            this.panel3.TabIndex = 5;
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(panel5);
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(12, 12);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(763, 51);
+            panel3.TabIndex = 5;
             // 
             // panel5
             // 
-            this.panel5.BackgroundImage = global::PD.Presentation.Properties.Resources.list;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(45, 45);
-            this.panel5.TabIndex = 7;
+            panel5.BackgroundImage = Properties.Resources.list;
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(54, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 32);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "LISTAS";
+            label4.AutoSize = true;
+            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(54, 11);
+            label4.Name = "label4";
+            label4.Size = new Size(98, 32);
+            label4.TabIndex = 6;
+            label4.Text = "LISTAS";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lbl_listas);
-            this.panel1.Controls.Add(this.btn_add);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(12, 69);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(399, 208);
-            this.panel1.TabIndex = 6;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(lbl_listas);
+            panel1.Controls.Add(dgv_listas);
+            panel1.Location = new Point(12, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(763, 208);
+            panel1.TabIndex = 6;
             // 
-            // lbl_listas
+            // panel4
             // 
-            this.lbl_listas.AutoSize = true;
-            this.lbl_listas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_listas.Location = new System.Drawing.Point(22, 11);
-            this.lbl_listas.Name = "lbl_listas";
-            this.lbl_listas.Size = new System.Drawing.Size(49, 21);
-            this.lbl_listas.TabIndex = 14;
-            this.lbl_listas.Text = "Listas";
+            panel4.BackColor = Color.White;
+            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(label1);
+            panel4.Controls.Add(txt_nombre);
+            panel4.Controls.Add(lbl_nombre);
+            panel4.Controls.Add(btn_add);
+            panel4.Location = new Point(406, 45);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(333, 140);
+            panel4.TabIndex = 15;
+            // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(91, 59);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(225, 23);
+            textBox1.TabIndex = 35;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 62);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 15);
+            label1.TabIndex = 36;
+            label1.Text = "Ganancia %";
+            // 
+            // txt_nombre
+            // 
+            txt_nombre.Enabled = false;
+            txt_nombre.Location = new Point(90, 22);
+            txt_nombre.Name = "txt_nombre";
+            txt_nombre.Size = new Size(225, 23);
+            txt_nombre.TabIndex = 33;
+            // 
+            // lbl_nombre
+            // 
+            lbl_nombre.AutoSize = true;
+            lbl_nombre.Location = new Point(12, 25);
+            lbl_nombre.Name = "lbl_nombre";
+            lbl_nombre.Size = new Size(51, 15);
+            lbl_nombre.TabIndex = 34;
+            lbl_nombre.Text = "Nombre";
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(253, 155);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(120, 31);
-            this.btn_add.TabIndex = 1;
-            this.btn_add.Text = "Agregar";
-            this.btn_add.UseVisualStyleBackColor = true;
+            btn_add.Location = new Point(195, 96);
+            btn_add.Name = "btn_add";
+            btn_add.Size = new Size(120, 31);
+            btn_add.TabIndex = 1;
+            btn_add.Text = "Agregar";
+            btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click_1;
             // 
-            // dataGridView1
+            // lbl_listas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(351, 104);
-            this.dataGridView1.TabIndex = 0;
+            lbl_listas.AutoSize = true;
+            lbl_listas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_listas.Location = new Point(22, 11);
+            lbl_listas.Name = "lbl_listas";
+            lbl_listas.Size = new Size(49, 21);
+            lbl_listas.TabIndex = 14;
+            lbl_listas.Text = "Listas";
+            // 
+            // dgv_listas
+            // 
+            dgv_listas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_listas.Location = new Point(23, 45);
+            dgv_listas.Name = "dgv_listas";
+            dgv_listas.RowHeadersWidth = 62;
+            dgv_listas.RowTemplate.Height = 25;
+            dgv_listas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_listas.Size = new Size(351, 137);
+            dgv_listas.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.lbl_producto);
-            this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Location = new System.Drawing.Point(12, 283);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(399, 378);
-            this.panel2.TabIndex = 7;
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(lbl_producto);
+            panel2.Controls.Add(dgv_precios);
+            panel2.Location = new Point(12, 283);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(763, 371);
+            panel2.TabIndex = 7;
             // 
             // lbl_producto
             // 
-            this.lbl_producto.AutoSize = true;
-            this.lbl_producto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_producto.Location = new System.Drawing.Point(23, 11);
-            this.lbl_producto.Name = "lbl_producto";
-            this.lbl_producto.Size = new System.Drawing.Size(80, 21);
-            this.lbl_producto.TabIndex = 13;
-            this.lbl_producto.Text = "Productos";
+            lbl_producto.AutoSize = true;
+            lbl_producto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_producto.Location = new Point(23, 11);
+            lbl_producto.Name = "lbl_producto";
+            lbl_producto.Size = new Size(80, 21);
+            lbl_producto.TabIndex = 13;
+            lbl_producto.Text = "Productos";
             // 
-            // dataGridView2
+            // dgv_precios
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(22, 44);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(351, 281);
-            this.dataGridView2.TabIndex = 0;
+            dgv_precios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_precios.Location = new Point(22, 44);
+            dgv_precios.Name = "dgv_precios";
+            dgv_precios.RowHeadersWidth = 62;
+            dgv_precios.RowTemplate.Height = 25;
+            dgv_precios.Size = new Size(717, 303);
+            dgv_precios.TabIndex = 0;
             // 
             // GestionListas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(787, 675);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "GestionListas";
-            this.Text = "GestionListas";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Gainsboro;
+            ClientSize = new Size(787, 670);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(panel3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "GestionListas";
+            Text = "GestionListas";
+            Load += GestionListas_Load;
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_listas).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_precios).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -173,11 +232,16 @@
         private Panel panel5;
         private Label label4;
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_listas;
         private Panel panel2;
-        private DataGridView dataGridView2;
+        private DataGridView dgv_precios;
         private Button btn_add;
         private Label lbl_producto;
         private Label lbl_listas;
+        private Panel panel4;
+        private TextBox txt_nombre;
+        private Label lbl_nombre;
+        private TextBox textBox1;
+        private Label label1;
     }
 }

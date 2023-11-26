@@ -6,5 +6,6 @@
         public Guid ArticuloId { get; set; }
         public decimal Precio { get; set; }
         public Articulo Articulo { get; set; }
+        public Lista? Lista { get; set; }
     }
 }
