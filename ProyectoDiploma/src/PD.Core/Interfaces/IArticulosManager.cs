@@ -10,6 +10,6 @@ namespace PD.Core.Interfaces
 
         Articulo CrearArticulo(ArticuloDTO dto);
 
-      
+        Articulo GetById(Guid value);
     }
 }

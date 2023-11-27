@@ -2,6 +2,7 @@
 using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Text;
@@ -37,12 +38,26 @@ namespace PD.Repositories
 
             try
             {
+                var list = new List<T>();
                 // TODO: agregar join con complejos
                 var joins = "";
-                var query = $"SELECT * FROM {GetPluralTableName<T>()} as base WHERE Id = '{id}'";
+                //var query = $"SELECT * FROM {GetPluralTableName<T>()} as base WHERE Id = '{id}'";
+                var queryWhere = $" WHERE orig.Id = '{id}'";
+                var queryBase = CreateQuery();
+
+                var query = $"{queryBase} {queryWhere}";
+
                 var command = new SqlCommand(query, connection);
                 var reader = command.ExecuteReader();
-                if (reader.HasRows) { result = GetObject(reader); };
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                         list.Add(GetObject(reader)); 
+                    }
+
+                    result = list.FirstOrDefault();
+                };
             }
             catch (Exception ex)
             {

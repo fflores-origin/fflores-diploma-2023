@@ -11,7 +11,7 @@ namespace PD.Core
     public class ArticulosManager : IArticulosManager
     {
         private readonly IConfiguration _configuration;
-        private readonly IArticuloRepository _repository;
+        private readonly IArticuloRepository _articuloRepository;
         private readonly IArticulosMapper _articuloMapper;
         private readonly IListaRepository _listaRepository;
 
@@ -22,7 +22,7 @@ namespace PD.Core
             IListaRepository listaRepository)
         {
             _configuration = configuration;
-            _repository = repository;
+            _articuloRepository = repository;
             _articuloMapper = articuloMapper;
             _listaRepository = listaRepository;
         }
@@ -34,11 +34,11 @@ namespace PD.Core
 
             if (dto.Id.HasValue && dto.Id != Guid.Empty)
             {
-                return _repository.Update(articulo);
+                return _articuloRepository.Update(articulo);
             }
 
             dto.Id = articulo.Id;
-            articulo =_repository.Save(articulo);
+            articulo =_articuloRepository.Save(articulo);
 
 
             _listaRepository.UpdateArticuloLista(articulo);
@@ -71,6 +71,13 @@ namespace PD.Core
         }
 
         public List<ArticuloListaDTO> GetList()
-            => _articuloMapper.GetArticuloListas(_repository.GetAll().ToList());
+            => _articuloMapper.GetArticuloListas(_articuloRepository.GetAll().ToList());
+
+        public Articulo GetById(Guid id)
+        {
+            var art = _articuloRepository.Get(id);
+
+            return art;
+        }
     }
 }

@@ -4,7 +4,6 @@ using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
 using PD.Services;
-using System.Text.Json.Serialization;
 
 namespace PD.Presentation.Forms.Articulos
 {
@@ -149,8 +148,33 @@ namespace PD.Presentation.Forms.Articulos
 
             _parentForm = parentForm;
 
+            if (id != null)
+            {
+                SetObjectInitial(id.Value);
+            }
+
             // mostrar
             this.Show();
+        }
+
+        private void SetObjectInitial(Guid id)
+        {
+            var articulo = _articulosManager.GetById(id);
+
+            if (articulo != null)
+            {
+                txt_codigo.Text = articulo.Codigo;
+                txt_descripcion.Text = articulo.Descripcion;
+                txt_marca.Text = articulo.Marca;
+                txt_id.Text = articulo.Id.ToString();
+                txt_precio.Text = articulo.PrecioUnitario.ToString().Replace(',', '.');
+                txt_nombre.Text = articulo.Nombre;
+
+                if (articulo.Imagen != null && !string.IsNullOrEmpty(articulo.Imagen))
+                {
+                    pic_base.BackgroundImage = new Bitmap(articulo.Imagen);
+                }
+            }
         }
 
         private void FillListas()

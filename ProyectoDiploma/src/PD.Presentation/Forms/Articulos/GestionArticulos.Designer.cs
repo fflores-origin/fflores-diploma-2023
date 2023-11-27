@@ -194,6 +194,7 @@
             btn_add.Size = new Size(60, 60);
             btn_add.TabIndex = 0;
             btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
             // GestionArticulos
             // 

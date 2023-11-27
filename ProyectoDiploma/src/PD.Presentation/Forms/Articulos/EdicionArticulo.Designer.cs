@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicionArticulo));
             label1 = new Label();
             panel1 = new Panel();
+            txt_id = new TextBox();
+            lbl_id = new Label();
             txt_codigo = new TextBox();
             lbl_codigo = new Label();
             dgv_listas = new DataGridView();
@@ -67,8 +69,6 @@
             panel4 = new Panel();
             lbl_save = new Label();
             btn_save = new Button();
-            txt_id = new TextBox();
-            lbl_id = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_listas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_qr).BeginInit();
@@ -121,6 +121,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(756, 446);
             panel1.TabIndex = 2;
+            // 
+            // txt_id
+            // 
+            txt_id.Enabled = false;
+            txt_id.Location = new Point(121, 52);
+            txt_id.Name = "txt_id";
+            txt_id.Size = new Size(225, 23);
+            txt_id.TabIndex = 0;
+            // 
+            // lbl_id
+            // 
+            lbl_id.AutoSize = true;
+            lbl_id.Location = new Point(28, 55);
+            lbl_id.Name = "lbl_id";
+            lbl_id.Size = new Size(18, 15);
+            lbl_id.TabIndex = 32;
+            lbl_id.Text = "ID";
             // 
             // txt_codigo
             // 
@@ -419,7 +436,7 @@
             // 
             // panel5
             // 
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImage = Properties.Resources.newspaper;
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
             panel5.Location = new Point(3, 3);
             panel5.Name = "panel5";
@@ -457,23 +474,6 @@
             btn_save.TabIndex = 40;
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
-            // 
-            // txt_id
-            // 
-            txt_id.Enabled = false;
-            txt_id.Location = new Point(121, 52);
-            txt_id.Name = "txt_id";
-            txt_id.Size = new Size(225, 23);
-            txt_id.TabIndex = 0;
-            // 
-            // lbl_id
-            // 
-            lbl_id.AutoSize = true;
-            lbl_id.Location = new Point(28, 55);
-            lbl_id.Name = "lbl_id";
-            lbl_id.Size = new Size(18, 15);
-            lbl_id.TabIndex = 32;
-            lbl_id.Text = "ID";
             // 
             // EdicionArticulo
             // 

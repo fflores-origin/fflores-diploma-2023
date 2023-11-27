@@ -21,13 +21,13 @@ namespace PD.Presentation.Forms.Articulos
             dgv_articulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void btnAdd_Click_1(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e)
         {
             _edicionArticuloForm.ClearAndOpen(this);
             _edicionArticuloForm.MdiParent = this.MdiParent;
         }
 
-        private void GestionArticulos_Load_1(object sender, EventArgs e)
+        private void GestionArticulos_Load(object sender, EventArgs e)
         {
             LoadGrid();
             FormatGrid();
@@ -169,7 +169,7 @@ namespace PD.Presentation.Forms.Articulos
             }
         }
 
-        private void GestionArticulos_Load(object sender, EventArgs e)
+        private void GestionArticulos_Load_1(object sender, EventArgs e)
         {
             LoadGrid();
             FormatGrid();

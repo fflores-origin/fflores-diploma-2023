@@ -136,7 +136,6 @@ namespace PD.Repositories
                               JOIN Articulo A ON LA.ArticuloId = A.Id
                               JOIN Lista L ON LA.ListaId = L.Id
                               WHERE A.Lista;";
-                   
                 }
                 else
                 {
@@ -144,7 +143,7 @@ namespace PD.Repositories
                     foreach (var li in listas)
                     {
                         var precioLista = articulo.PrecioUnitario * (li.Porcentaje / 100) + articulo.PrecioUnitario;
-                        query += $"(NEWID(),'{articulo.Id}','{li.Id}', {precioLista}),";
+                        query += $"(NEWID(),'{articulo.Id}','{li.Id}', {precioLista.ToString().Replace(',', '.')}),";
                     }
 
                     query = query.Substring(0, query.Length - 1); // remuevo ultima coma
