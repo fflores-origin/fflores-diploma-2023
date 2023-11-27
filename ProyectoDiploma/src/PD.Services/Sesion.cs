@@ -72,11 +72,17 @@ namespace PD.Services
         public static void UnsubscribeObserver(ILanguageObserver languageObserver)
             => _observers.Remove(languageObserver);
 
-        //TODO: pasar a un servicio
-        public static void NotifyChange(string isoCode)
-            => _observers.ToList().ForEach(x => x.OnLanguageChanged(isoCode));
+        public static void NotifyChange(Idioma idioma)
+            => _observers.ToList().ForEach(x => x.OnLanguageChanged(idioma));
 
-        //TODO: ChangeLanguage en Sesion con un factory
+        public static void ChangeLanguage(Idioma idioma)
+        {
+            if (UserSesion.Session != null)
+            {
+                UserSesion.Session.Usuario.Idioma = idioma;
+                NotifyChange(idioma);
+            }
+        }
 
         #endregion Language
     }

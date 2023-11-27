@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             toolStrip1 = new ToolStrip();
-            tsb_articulos = new ToolStripDropDownButton();
+            tsc_articulos = new ToolStripDropDownButton();
             btn_gestionarArticulos = new ToolStripMenuItem();
             listasToolStripMenuItem = new ToolStripMenuItem();
             ordenesDeCompraToolStripMenuItem = new ToolStripMenuItem();
-            toolStripDropDownButton3 = new ToolStripDropDownButton();
+            tsc_documentos = new ToolStripDropDownButton();
             informesToolStripMenuItem = new ToolStripMenuItem();
             generarListadosToolStripMenuItem = new ToolStripMenuItem();
             ventasToolStripMenuItem = new ToolStripMenuItem();
-            toolStripDropDownButton2 = new ToolStripDropDownButton();
+            tsc_configuracion = new ToolStripDropDownButton();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             idiomasToolStripMenuItem = new ToolStripMenuItem();
-            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            tsc_seguridad = new ToolStripDropDownButton();
             gestionarPermisosToolStripMenuItem = new ToolStripMenuItem();
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
-            toolStripDropDownButton4 = new ToolStripDropDownButton();
+            tsc_clientes = new ToolStripDropDownButton();
             gestionarClientesToolStripMenuItem = new ToolStripMenuItem();
             tsc_idioma = new ToolStripDropDownButton();
             toolStrip1.SuspendLayout();
@@ -52,22 +52,22 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos, toolStripDropDownButton3, toolStripDropDownButton2, toolStripDropDownButton1, toolStripDropDownButton4, tsc_idioma });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsc_articulos, tsc_documentos, tsc_configuracion, tsc_seguridad, tsc_clientes, tsc_idioma });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1183, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
-            // tsb_articulos
+            // tsc_articulos
             // 
-            tsb_articulos.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            tsb_articulos.DropDownItems.AddRange(new ToolStripItem[] { btn_gestionarArticulos, listasToolStripMenuItem, ordenesDeCompraToolStripMenuItem });
-            tsb_articulos.Image = (Image)resources.GetObject("tsb_articulos.Image");
-            tsb_articulos.ImageTransparentColor = Color.Magenta;
-            tsb_articulos.Name = "tsb_articulos";
-            tsb_articulos.Size = new Size(67, 22);
-            tsb_articulos.Text = "Articulos";
+            tsc_articulos.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            tsc_articulos.DropDownItems.AddRange(new ToolStripItem[] { btn_gestionarArticulos, listasToolStripMenuItem, ordenesDeCompraToolStripMenuItem });
+            tsc_articulos.Image = (Image)resources.GetObject("tsc_articulos.Image");
+            tsc_articulos.ImageTransparentColor = Color.Magenta;
+            tsc_articulos.Name = "tsc_articulos";
+            tsc_articulos.Size = new Size(67, 22);
+            tsc_articulos.Text = "Articulos";
             // 
             // btn_gestionarArticulos
             // 
@@ -89,89 +89,89 @@
             ordenesDeCompraToolStripMenuItem.Size = new Size(180, 22);
             ordenesDeCompraToolStripMenuItem.Text = "Ordenes de Compra";
             // 
-            // toolStripDropDownButton3
+            // tsc_documentos
             // 
-            toolStripDropDownButton3.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton3.DropDownItems.AddRange(new ToolStripItem[] { informesToolStripMenuItem, generarListadosToolStripMenuItem, ventasToolStripMenuItem });
-            toolStripDropDownButton3.Image = (Image)resources.GetObject("toolStripDropDownButton3.Image");
-            toolStripDropDownButton3.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            toolStripDropDownButton3.Size = new Size(88, 22);
-            toolStripDropDownButton3.Text = "Documentos";
+            tsc_documentos.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            tsc_documentos.DropDownItems.AddRange(new ToolStripItem[] { informesToolStripMenuItem, generarListadosToolStripMenuItem, ventasToolStripMenuItem });
+            tsc_documentos.Image = (Image)resources.GetObject("tsc_documentos.Image");
+            tsc_documentos.ImageTransparentColor = Color.Magenta;
+            tsc_documentos.Name = "tsc_documentos";
+            tsc_documentos.Size = new Size(88, 22);
+            tsc_documentos.Text = "Documentos";
             // 
             // informesToolStripMenuItem
             // 
             informesToolStripMenuItem.Name = "informesToolStripMenuItem";
-            informesToolStripMenuItem.Size = new Size(161, 22);
+            informesToolStripMenuItem.Size = new Size(180, 22);
             informesToolStripMenuItem.Text = "Informes";
             // 
             // generarListadosToolStripMenuItem
             // 
             generarListadosToolStripMenuItem.Name = "generarListadosToolStripMenuItem";
-            generarListadosToolStripMenuItem.Size = new Size(161, 22);
+            generarListadosToolStripMenuItem.Size = new Size(180, 22);
             generarListadosToolStripMenuItem.Text = "Generar Listados";
             // 
             // ventasToolStripMenuItem
             // 
             ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            ventasToolStripMenuItem.Size = new Size(161, 22);
+            ventasToolStripMenuItem.Size = new Size(180, 22);
             ventasToolStripMenuItem.Text = "Ventas";
             // 
-            // toolStripDropDownButton2
+            // tsc_configuracion
             // 
-            toolStripDropDownButton2.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton2.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem, idiomasToolStripMenuItem });
-            toolStripDropDownButton2.Image = (Image)resources.GetObject("toolStripDropDownButton2.Image");
-            toolStripDropDownButton2.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            toolStripDropDownButton2.Size = new Size(96, 22);
-            toolStripDropDownButton2.Text = "Configuracion";
+            tsc_configuracion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            tsc_configuracion.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem, idiomasToolStripMenuItem });
+            tsc_configuracion.Image = (Image)resources.GetObject("tsc_configuracion.Image");
+            tsc_configuracion.ImageTransparentColor = Color.Magenta;
+            tsc_configuracion.Name = "tsc_configuracion";
+            tsc_configuracion.Size = new Size(96, 22);
+            tsc_configuracion.Text = "Configuracion";
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(130, 22);
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += OpenCategoriasForm;
             // 
             // idiomasToolStripMenuItem
             // 
             idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
-            idiomasToolStripMenuItem.Size = new Size(130, 22);
+            idiomasToolStripMenuItem.Size = new Size(180, 22);
             idiomasToolStripMenuItem.Text = "Idiomas";
             // 
-            // toolStripDropDownButton1
+            // tsc_seguridad
             // 
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { gestionarPermisosToolStripMenuItem, gestionarUsuariosToolStripMenuItem });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
-            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(73, 22);
-            toolStripDropDownButton1.Text = "Seguridad";
+            tsc_seguridad.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            tsc_seguridad.DropDownItems.AddRange(new ToolStripItem[] { gestionarPermisosToolStripMenuItem, gestionarUsuariosToolStripMenuItem });
+            tsc_seguridad.Image = (Image)resources.GetObject("tsc_seguridad.Image");
+            tsc_seguridad.ImageTransparentColor = Color.Magenta;
+            tsc_seguridad.Name = "tsc_seguridad";
+            tsc_seguridad.Size = new Size(73, 22);
+            tsc_seguridad.Text = "Seguridad";
             // 
             // gestionarPermisosToolStripMenuItem
             // 
             gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
-            gestionarPermisosToolStripMenuItem.Size = new Size(175, 22);
+            gestionarPermisosToolStripMenuItem.Size = new Size(180, 22);
             gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
             gestionarPermisosToolStripMenuItem.Click += gestionarPermisosToolStripMenuItem_Click;
             // 
             // gestionarUsuariosToolStripMenuItem
             // 
             gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
-            gestionarUsuariosToolStripMenuItem.Size = new Size(175, 22);
+            gestionarUsuariosToolStripMenuItem.Size = new Size(180, 22);
             gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
             // 
-            // toolStripDropDownButton4
+            // tsc_clientes
             // 
-            toolStripDropDownButton4.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton4.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem });
-            toolStripDropDownButton4.Image = (Image)resources.GetObject("toolStripDropDownButton4.Image");
-            toolStripDropDownButton4.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton4.Name = "toolStripDropDownButton4";
-            toolStripDropDownButton4.Size = new Size(62, 22);
-            toolStripDropDownButton4.Text = "Clientes";
+            tsc_clientes.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            tsc_clientes.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem });
+            tsc_clientes.Image = (Image)resources.GetObject("tsc_clientes.Image");
+            tsc_clientes.ImageTransparentColor = Color.Magenta;
+            tsc_clientes.Name = "tsc_clientes";
+            tsc_clientes.Size = new Size(62, 22);
+            tsc_clientes.Text = "Clientes";
             // 
             // gestionarClientesToolStripMenuItem
             // 
@@ -206,20 +206,20 @@
         #endregion
 
         private ToolStrip toolStrip1;
-        private ToolStripDropDownButton tsb_articulos;
+        private ToolStripDropDownButton tsc_articulos;
         private ToolStripMenuItem btn_gestionarArticulos;
-        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripDropDownButton tsc_seguridad;
         private ToolStripMenuItem gestionarPermisosToolStripMenuItem;
-        private ToolStripDropDownButton toolStripDropDownButton2;
+        private ToolStripDropDownButton tsc_configuracion;
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem listasToolStripMenuItem;
         private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
         private ToolStripMenuItem ordenesDeCompraToolStripMenuItem;
-        private ToolStripDropDownButton toolStripDropDownButton3;
+        private ToolStripDropDownButton tsc_documentos;
         private ToolStripMenuItem informesToolStripMenuItem;
         private ToolStripMenuItem idiomasToolStripMenuItem;
         private ToolStripMenuItem generarListadosToolStripMenuItem;
-        private ToolStripDropDownButton toolStripDropDownButton4;
+        private ToolStripDropDownButton tsc_clientes;
         private ToolStripMenuItem gestionarClientesToolStripMenuItem;
         private ToolStripMenuItem ventasToolStripMenuItem;
         private ToolStripDropDownButton tsc_idioma;

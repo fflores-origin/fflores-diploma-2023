@@ -99,7 +99,14 @@ namespace PD.Repositories
 
             try
             {
-                var query = "SELECT top(1) * FROM Usuario WHERE Nombre = @username";
+                var query = @"SELECT top(1)
+                                u.*,
+                                i.Nombre as IdiomaNombre,
+                                i.IsoCode ,
+                                i.IsDefault
+                              FROM Usuario u
+                              join Idioma i on u.IdiomaId = i.Id
+                              WHERE u.Nombre = @username";
 
                 using (var cmd = new SqlCommand(query, connection))
                 {
@@ -116,6 +123,13 @@ namespace PD.Repositories
                             IdiomaId = Guid.Parse(reader["IdiomaId"].ToString()),
                             Nombre = reader["Nombre"].ToString(),
                             Password = reader["Password"].ToString(),
+                            Idioma = new Idioma()
+                            {
+                                Id = Guid.Parse(reader["IdiomaId"].ToString()),
+                                Nombre = reader["IdiomaNombre"].ToString(),
+                                IsoCode = reader["IsoCode"].ToString(),
+                                IsDefault = Convert.ToBoolean(reader["IsDefault"])
+                            }
                         };
                     };
                 }

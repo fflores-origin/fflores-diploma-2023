@@ -1,24 +1,27 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PD.Core.Interfaces;
+using PD.Entities;
 using PD.Presentation.Helpers;
 using PD.Services;
+using PD.Services.Interfaces;
 using System.Runtime.InteropServices;
 
 namespace PD.Presentation.Forms.Login
 {
-    public partial class Login : Form
+    public partial class Login : Form, ILanguageObserver
     {
         private readonly Main _main;
         private readonly Recover _recover;
         private readonly IConfiguration _configuration;
         private readonly IUsuarioManager _usuarioManager;
         private readonly Sesion _sesion;
+        private readonly IIdiomaManager _idiomaManager;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private static extern void ReleaseCapture();
 
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
 
         private void ClickMouseDown(object sender, MouseEventArgs e)
         {
@@ -30,9 +33,11 @@ namespace PD.Presentation.Forms.Login
             Main main,
             Recover recover,
             IConfiguration configuration,
-            IUsuarioManager usuarioManager)
+            IUsuarioManager usuarioManager,
+            IIdiomaManager idiomaManager)
         {
             InitializeComponent();
+            this.Load += Login_Load;
             _main = main;
             _recover = recover;
             _configuration = configuration;
@@ -40,6 +45,17 @@ namespace PD.Presentation.Forms.Login
 
             lbl_versionValue.Text = !string.IsNullOrEmpty(_configuration["Initial:Version"]) ? _configuration["Initial:Version"] : "1.0.0.0";
             _usuarioManager = usuarioManager;
+            _idiomaManager = idiomaManager;
+        }
+
+        private void Login_OnFormClosing(FormClosingEventArgs args)
+        {
+            Sesion.UnsubscribeObserver(this);
+        }
+
+        private void Login_Load(object? sender, EventArgs e)
+        {
+            Sesion.SubscribeObserver(this);
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -104,6 +120,20 @@ namespace PD.Presentation.Forms.Login
         private void btn_registro_Click(object sender, EventArgs e)
         {
             _usuarioManager.CrearUsuario("admin", "Novedad.01");
+        }
+
+        private void Translate(Idioma? idioma = null)
+        {
+            var traducciones = _idiomaManager.GetTraducciones(idioma);
+
+            this.TranslateForm(traducciones);
+
+            this.Controls.TranslateAll(traducciones);
+        }
+
+        public void OnLanguageChanged(Idioma idioma)
+        {
+            Translate(idioma);
         }
     }
 }

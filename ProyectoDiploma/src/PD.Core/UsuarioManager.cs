@@ -57,9 +57,6 @@ namespace PD.Core
             throw new NotImplementedException();
         }
 
-        public List<Idioma> GetIdiomas()
-        {
-            return _languageRepository.GetAllIdiomas().ToList();
-        }
+        
     }
 }

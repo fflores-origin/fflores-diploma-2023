@@ -91,12 +91,21 @@ CREATE TABLE Idioma (
 )
 
 GO
-INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES('948F36EC-1ADB-4437-AE83-F76C6AD4058F','Español','es',1 )
+INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES('948F36EC-1ADB-4437-AE83-F76C6AD4058F','Espanol','es',1 )
+INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES('AD4B2622-1857-4BDB-8822-4851A6D6BDB8','Inlges','en',0 )
 
 GO
 CREATE TABLE Etiqueta (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] varchar(50) not null
+)
+
+
+CREATE TABLE Traduccion (
+	[IdiomaId] uniqueidentifier not null default(newid()),
+	[EtiquetaId] uniqueidentifier not null default(newid()),
+	[Valor] varchar(200),
+	CONSTRAINT PK_Traduccion PRIMARY KEY(IdiomaId,EtiquetaId)
 )
 
 -- #end MULTI-IDIOMA
@@ -155,4 +164,17 @@ CREATE TABLE Logs (
 ----
 --SPs
 
+CREATE procedure TraduccionGetAllByIdioma
+@id uniqueidentifier
+as
+begin
+	select 
+		t.IdiomaId,
+		t.Valor, 
+		t.EtiquetaId, 
+		e.Nombre 
+	from Traduccion t 
+		inner join Etiqueta e on t.EtiquetaId = e.Id
+	where t.IdiomaId = @id
+end
 

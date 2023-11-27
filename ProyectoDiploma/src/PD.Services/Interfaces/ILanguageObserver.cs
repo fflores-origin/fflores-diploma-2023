@@ -1,7 +1,9 @@
-﻿namespace PD.Services.Interfaces
+﻿using PD.Entities;
+
+namespace PD.Services.Interfaces
 {
     public interface ILanguageObserver
     {
-        void OnLanguageChanged(string isoCode);
+        void OnLanguageChanged(Idioma idioma);
     }
 }

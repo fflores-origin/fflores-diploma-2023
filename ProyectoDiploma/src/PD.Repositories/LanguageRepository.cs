@@ -59,7 +59,49 @@ namespace PD.Repositories
 
         public IDictionary<string, Traduccion> GetAllTraduccionByIdioma(Idioma? idioma)
         {
-            throw new NotImplementedException();
+            var traducciones = new Dictionary<string, Traduccion>();
+
+            //TraduccionGetAllByIdioma
+
+            using (SqlConnection conn = _connection.CreateConnection())
+            {
+                conn.Open();
+                var query = "TraduccionGetAllByIdioma";
+                using SqlCommand cmd = new(query, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                using SqlDataAdapter da = new(cmd);
+                using DataSet ds = new();
+
+                cmd.Parameters.AddWithValue("@id", idioma.Id);
+
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var key = row["Nombre"].ToString();
+
+                        var value = new Traduccion()
+                        {
+                            IdiomaId = Guid.Parse(row["IdiomaId"].ToString()),
+                            EtiquetaId = Guid.Parse(row["EtiquetaId"].ToString()),
+                            Valor = row["Valor"].ToString(), //tradu
+                            Etiqueta = new Etiqueta()
+                            {
+                                Id = Guid.Parse(row["EtiquetaId"].ToString()),
+                                Nombre = row["Nombre"].ToString()
+                            },
+                            Idioma = idioma
+
+                        };
+
+                        traducciones.Add(key, value);
+                    }
+                }
+            }
+
+            return traducciones;
         }
 
         public IList<Traduccion> GetAllTraducciones()

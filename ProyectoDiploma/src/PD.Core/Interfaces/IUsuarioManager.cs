@@ -14,6 +14,5 @@ namespace PD.Core.Interfaces
 
         List<UsuarioDto> GetUsuarios();
 
-        List<Idioma> GetIdiomas();
     }
 }
