@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using PD.Core.Interfaces;
 using PD.Presentation.Forms.Articulos;
 using PD.Presentation.Forms.Configuracion;
 
@@ -6,18 +7,26 @@ namespace PD.Presentation
 {
     public partial class Main : Form
     {
+        #region Fields
+
         private readonly IConfiguration _configuration;
+        private readonly IUsuarioManager _usuarioManager;
         private readonly GestionArticulos _gestionArticulosForm;
         private readonly GestionarPermisos _gestionarPermisosFrom;
         private readonly GestionCategorias _gestionCategoriasForm;
         private readonly GestionListas _gestionListasForm;
+
+        #endregion Fields
+
+        #region CTOR
 
         public Main(
             IConfiguration configuration,
             GestionArticulos gestionArticulosForm,
             GestionarPermisos gestionarPermisosFrom,
             GestionCategorias gestionCategoriasForm,
-            GestionListas gestionListasForm)
+            GestionListas gestionListasForm,
+            IUsuarioManager usuarioManager)
         {
             InitializeComponent();
             _configuration = configuration;
@@ -30,7 +39,10 @@ namespace PD.Presentation
             _gestionarPermisosFrom.MdiParent = this;
             _gestionCategoriasForm.MdiParent = this;
             _gestionListasForm.MdiParent = this;
+            _usuarioManager = usuarioManager;
         }
+
+        #endregion CTOR
 
         private void Btn_gestionarArticulos_Click(object sender, EventArgs e)
         {
@@ -39,9 +51,7 @@ namespace PD.Presentation
 
         private void Main_Load(object sender, EventArgs e)
         {
-
-            // todo idiomas
-
+            
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -70,6 +80,23 @@ namespace PD.Presentation
         private void listasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _gestionListasForm.Show();
+        }
+
+        private void tsc_idioma_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void LoadLanguages()
+        {
+
+            var languages = _usuarioManager.GetIdiomas();
+
+            foreach (var language in languages) { 
+            
+                
+            }
+
+
         }
     }
 }

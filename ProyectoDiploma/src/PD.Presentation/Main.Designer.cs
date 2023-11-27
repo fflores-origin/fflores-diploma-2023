@@ -46,12 +46,13 @@
             gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
             toolStripDropDownButton4 = new ToolStripDropDownButton();
             gestionarClientesToolStripMenuItem = new ToolStripMenuItem();
+            tsc_idioma = new ToolStripDropDownButton();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos, toolStripDropDownButton3, toolStripDropDownButton2, toolStripDropDownButton1, toolStripDropDownButton4 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsb_articulos, toolStripDropDownButton3, toolStripDropDownButton2, toolStripDropDownButton1, toolStripDropDownButton4, tsc_idioma });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1183, 25);
@@ -175,8 +176,15 @@
             // gestionarClientesToolStripMenuItem
             // 
             gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(169, 22);
+            gestionarClientesToolStripMenuItem.Size = new Size(180, 22);
             gestionarClientesToolStripMenuItem.Text = "Gestionar Clientes";
+            // 
+            // tsc_idioma
+            // 
+            tsc_idioma.Name = "tsc_idioma";
+            tsc_idioma.Size = new Size(57, 22);
+            tsc_idioma.Text = "Idioma";
+            tsc_idioma.Click += tsc_idioma_Click;
             // 
             // Main
             // 
@@ -214,5 +222,6 @@
         private ToolStripDropDownButton toolStripDropDownButton4;
         private ToolStripMenuItem gestionarClientesToolStripMenuItem;
         private ToolStripMenuItem ventasToolStripMenuItem;
+        private ToolStripDropDownButton tsc_idioma;
     }
 }

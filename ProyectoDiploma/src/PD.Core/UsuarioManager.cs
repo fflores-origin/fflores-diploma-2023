@@ -11,16 +11,19 @@ namespace PD.Core
     public class UsuarioManager : IUsuarioManager
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly ILanguageRepository _languageRepository;
         private readonly IUsuariosMapper _usuariosMapper;
         private readonly Sesion _sesion;
 
         public UsuarioManager(
             IUsuarioRepository usuarioRepository,
-            IUsuariosMapper usuariosMapper)
+            IUsuariosMapper usuariosMapper,
+            ILanguageRepository languageRepository)
         {
             _usuarioRepository = usuarioRepository;
             _usuariosMapper = usuariosMapper;
             _sesion = UserSesion.Session;
+            _languageRepository = languageRepository;
         }
 
         public void CrearUsuario(string username, string password)
@@ -52,6 +55,11 @@ namespace PD.Core
         public void LogOut()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Idioma> GetIdiomas()
+        {
+            return _languageRepository.GetAllIdiomas().ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PD.Core.DTOs;
+using PD.Entities;
 using PD.Services.Enums;
 
 namespace PD.Core.Interfaces
@@ -12,5 +13,7 @@ namespace PD.Core.Interfaces
         void CrearUsuario(string username, string password);
 
         List<UsuarioDto> GetUsuarios();
+
+        List<Idioma> GetIdiomas();
     }
 }

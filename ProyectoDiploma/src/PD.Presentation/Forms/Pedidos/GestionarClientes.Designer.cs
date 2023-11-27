@@ -32,7 +32,13 @@
             panel5 = new Panel();
             label4 = new Label();
             panel1 = new Panel();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            button1 = new Button();
             panel3.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel3
@@ -67,23 +73,64 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(textBox1);
             panel1.Location = new Point(15, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(773, 369);
+            panel1.Size = new Size(773, 494);
             panel1.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(118, 310);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(169, 23);
+            textBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(34, 313);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(21, 18);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(730, 213);
+            dataGridView1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(644, 439);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // GestionarClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 230, 230);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 599);
             Controls.Add(panel1);
             Controls.Add(panel3);
             Name = "GestionarClientes";
             Text = "GestionarClientes";
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -93,5 +140,9 @@
         private Panel panel5;
         private Label label4;
         private Panel panel1;
+        private Button button1;
+        private DataGridView dataGridView1;
+        private Label label1;
+        private TextBox textBox1;
     }
 }
