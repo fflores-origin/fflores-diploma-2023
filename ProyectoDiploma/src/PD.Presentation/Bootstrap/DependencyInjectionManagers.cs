@@ -13,6 +13,7 @@ namespace PD.Presentation.Bootstrap
                 .AddTransient<IIdiomaManager, IdiomaManager>()
                 .AddTransient<IArticulosManager, ArticulosManager>()
                 .AddTransient<ICategoriaManager, CategoriaManager>()
+                .AddTransient<IClienteManager, ClienteManager>()
                 .AddTransient<IListasManager, ListasManager>();
         }
     }
