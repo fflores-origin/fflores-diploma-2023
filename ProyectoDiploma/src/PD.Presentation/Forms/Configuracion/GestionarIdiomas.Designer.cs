@@ -32,6 +32,7 @@
             panel3 = new Panel();
             panel5 = new Panel();
             label4 = new Label();
+            panel1 = new Panel();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,12 +65,21 @@
             label4.TabIndex = 6;
             label4.Text = "IDIOMAS";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Location = new Point(15, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(738, 393);
+            panel1.TabIndex = 6;
+            // 
             // GestionarIdiomas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 230, 230);
             ClientSize = new Size(765, 474);
+            Controls.Add(panel1);
             Controls.Add(panel3);
             Name = "GestionarIdiomas";
             Text = "GestionarIdiomas";
@@ -84,5 +94,6 @@
         private Panel panel3;
         private Panel panel5;
         private Label label4;
+        private Panel panel1;
     }
 }
