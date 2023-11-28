@@ -58,6 +58,7 @@ namespace PD.Presentation
 
         private void Main_Load(object sender, EventArgs e)
         {
+            Sesion.SubscribeObserver(this);
             LoadLanguages();
             SetLanguage();
             Translate();
@@ -104,7 +105,8 @@ namespace PD.Presentation
                 var item = new ToolStripMenuItem()
                 {
                     Text = language.Nombre.ToString(),
-                    Tag = language
+                    Tag = language,
+                    Name = $"btn_menu_{language.IsoCode}"
                 };
 
                 tsc_idioma.DropDownItems.Add(item);

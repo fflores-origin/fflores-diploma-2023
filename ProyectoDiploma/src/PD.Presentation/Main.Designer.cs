@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            toolStrip1 = new ToolStrip();
+            ts_main = new MenuStrip();
             tsc_articulos = new ToolStripDropDownButton();
             btn_gestionarArticulos = new ToolStripMenuItem();
             listasToolStripMenuItem = new ToolStripMenuItem();
@@ -47,17 +47,17 @@
             tsc_clientes = new ToolStripDropDownButton();
             gestionarClientesToolStripMenuItem = new ToolStripMenuItem();
             tsc_idioma = new ToolStripDropDownButton();
-            toolStrip1.SuspendLayout();
+            ts_main.SuspendLayout();
             SuspendLayout();
             // 
-            // toolStrip1
+            // ts_main
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsc_articulos, tsc_documentos, tsc_configuracion, tsc_seguridad, tsc_clientes, tsc_idioma });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1183, 25);
-            toolStrip1.TabIndex = 1;
-            toolStrip1.Text = "toolStrip1";
+            ts_main.Items.AddRange(new ToolStripItem[] { tsc_articulos, tsc_documentos, tsc_configuracion, tsc_seguridad, tsc_clientes, tsc_idioma });
+            ts_main.Location = new Point(0, 0);
+            ts_main.Name = "ts_main";
+            ts_main.Size = new Size(1183, 26);
+            ts_main.TabIndex = 1;
+            ts_main.Text = "toolStrip1";
             // 
             // tsc_articulos
             // 
@@ -66,7 +66,8 @@
             tsc_articulos.Image = (Image)resources.GetObject("tsc_articulos.Image");
             tsc_articulos.ImageTransparentColor = Color.Magenta;
             tsc_articulos.Name = "tsc_articulos";
-            tsc_articulos.Size = new Size(67, 22);
+            tsc_articulos.Size = new Size(67, 19);
+            tsc_articulos.Tag = "tsc_articulos";
             tsc_articulos.Text = "Articulos";
             // 
             // btn_gestionarArticulos
@@ -96,25 +97,25 @@
             tsc_documentos.Image = (Image)resources.GetObject("tsc_documentos.Image");
             tsc_documentos.ImageTransparentColor = Color.Magenta;
             tsc_documentos.Name = "tsc_documentos";
-            tsc_documentos.Size = new Size(88, 22);
+            tsc_documentos.Size = new Size(88, 19);
             tsc_documentos.Text = "Documentos";
             // 
             // informesToolStripMenuItem
             // 
             informesToolStripMenuItem.Name = "informesToolStripMenuItem";
-            informesToolStripMenuItem.Size = new Size(180, 22);
+            informesToolStripMenuItem.Size = new Size(161, 22);
             informesToolStripMenuItem.Text = "Informes";
             // 
             // generarListadosToolStripMenuItem
             // 
             generarListadosToolStripMenuItem.Name = "generarListadosToolStripMenuItem";
-            generarListadosToolStripMenuItem.Size = new Size(180, 22);
+            generarListadosToolStripMenuItem.Size = new Size(161, 22);
             generarListadosToolStripMenuItem.Text = "Generar Listados";
             // 
             // ventasToolStripMenuItem
             // 
             ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            ventasToolStripMenuItem.Size = new Size(180, 22);
+            ventasToolStripMenuItem.Size = new Size(161, 22);
             ventasToolStripMenuItem.Text = "Ventas";
             // 
             // tsc_configuracion
@@ -124,20 +125,20 @@
             tsc_configuracion.Image = (Image)resources.GetObject("tsc_configuracion.Image");
             tsc_configuracion.ImageTransparentColor = Color.Magenta;
             tsc_configuracion.Name = "tsc_configuracion";
-            tsc_configuracion.Size = new Size(96, 22);
+            tsc_configuracion.Size = new Size(96, 19);
             tsc_configuracion.Text = "Configuracion";
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(130, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += OpenCategoriasForm;
             // 
             // idiomasToolStripMenuItem
             // 
             idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
-            idiomasToolStripMenuItem.Size = new Size(180, 22);
+            idiomasToolStripMenuItem.Size = new Size(130, 22);
             idiomasToolStripMenuItem.Text = "Idiomas";
             // 
             // tsc_seguridad
@@ -147,20 +148,20 @@
             tsc_seguridad.Image = (Image)resources.GetObject("tsc_seguridad.Image");
             tsc_seguridad.ImageTransparentColor = Color.Magenta;
             tsc_seguridad.Name = "tsc_seguridad";
-            tsc_seguridad.Size = new Size(73, 22);
+            tsc_seguridad.Size = new Size(73, 19);
             tsc_seguridad.Text = "Seguridad";
             // 
             // gestionarPermisosToolStripMenuItem
             // 
             gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
-            gestionarPermisosToolStripMenuItem.Size = new Size(180, 22);
+            gestionarPermisosToolStripMenuItem.Size = new Size(175, 22);
             gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
             gestionarPermisosToolStripMenuItem.Click += gestionarPermisosToolStripMenuItem_Click;
             // 
             // gestionarUsuariosToolStripMenuItem
             // 
             gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
-            gestionarUsuariosToolStripMenuItem.Size = new Size(180, 22);
+            gestionarUsuariosToolStripMenuItem.Size = new Size(175, 22);
             gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
             // 
             // tsc_clientes
@@ -170,19 +171,19 @@
             tsc_clientes.Image = (Image)resources.GetObject("tsc_clientes.Image");
             tsc_clientes.ImageTransparentColor = Color.Magenta;
             tsc_clientes.Name = "tsc_clientes";
-            tsc_clientes.Size = new Size(62, 22);
+            tsc_clientes.Size = new Size(62, 19);
             tsc_clientes.Text = "Clientes";
             // 
             // gestionarClientesToolStripMenuItem
             // 
             gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(180, 22);
+            gestionarClientesToolStripMenuItem.Size = new Size(169, 22);
             gestionarClientesToolStripMenuItem.Text = "Gestionar Clientes";
             // 
             // tsc_idioma
             // 
             tsc_idioma.Name = "tsc_idioma";
-            tsc_idioma.Size = new Size(57, 22);
+            tsc_idioma.Size = new Size(57, 19);
             tsc_idioma.Text = "Idioma";
             tsc_idioma.Click += tsc_idioma_Click;
             // 
@@ -192,20 +193,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
             ClientSize = new Size(1183, 813);
-            Controls.Add(toolStrip1);
+            Controls.Add(ts_main);
             IsMdiContainer = true;
             Name = "Main";
             Text = "Main";
             Load += Main_Load;
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
+            ts_main.ResumeLayout(false);
+            ts_main.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ToolStrip toolStrip1;
+        private MenuStrip ts_main;
         private ToolStripDropDownButton tsc_articulos;
         private ToolStripMenuItem btn_gestionarArticulos;
         private ToolStripDropDownButton tsc_seguridad;
