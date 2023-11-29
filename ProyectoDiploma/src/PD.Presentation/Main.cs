@@ -3,6 +3,7 @@ using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Forms.Articulos;
 using PD.Presentation.Forms.Configuracion;
+using PD.Presentation.Forms.Pedidos;
 using PD.Presentation.Helpers;
 using PD.Services;
 using PD.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace PD.Presentation
         private readonly GestionarPermisos _gestionarPermisosFrom;
         private readonly GestionCategorias _gestionCategoriasForm;
         private readonly GestionListas _gestionListasForm;
+        private readonly GestionarClientes _gestionarClientesForm;
 
         #endregion Fields
 
@@ -32,21 +34,26 @@ namespace PD.Presentation
             GestionCategorias gestionCategoriasForm,
             GestionListas gestionListasForm,
             IUsuarioManager usuarioManager,
-            IIdiomaManager idiomaManager)
+            IIdiomaManager idiomaManager,
+            GestionarClientes gestionarClientesForm)
         {
             InitializeComponent();
             _configuration = configuration;
+            _usuarioManager = usuarioManager;
+            _idiomaManager = idiomaManager;
+
             _gestionArticulosForm = gestionArticulosForm;
             _gestionarPermisosFrom = gestionarPermisosFrom;
             _gestionCategoriasForm = gestionCategoriasForm;
             _gestionListasForm = gestionListasForm;
+            _gestionarClientesForm = gestionarClientesForm;
 
             _gestionArticulosForm.MdiParent = this;
             _gestionarPermisosFrom.MdiParent = this;
             _gestionCategoriasForm.MdiParent = this;
             _gestionListasForm.MdiParent = this;
-            _usuarioManager = usuarioManager;
-            _idiomaManager = idiomaManager;
+            _gestionarClientesForm.MdiParent = this;
+
         }
 
         #endregion CTOR
@@ -161,6 +168,11 @@ namespace PD.Presentation
             var traducciones = _idiomaManager.GetTraducciones(idioma);
 
             this.Controls.TranslateAll(traducciones);
+        }
+
+        private void gestionarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _gestionarClientesForm.ShowAndLoad();
         }
     }
 }

@@ -43,7 +43,7 @@
             panel3.Controls.Add(label4);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
-            panel3.Size = new Size(776, 51);
+            panel3.Size = new Size(1023, 51);
             panel3.TabIndex = 5;
             // 
             // panel5
@@ -70,7 +70,7 @@
             panel1.BackColor = Color.White;
             panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(776, 369);
+            panel1.Size = new Size(1023, 369);
             panel1.TabIndex = 8;
             // 
             // GestionarPedidos
@@ -78,7 +78,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 230, 230);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1047, 698);
             Controls.Add(panel1);
             Controls.Add(panel3);
             Name = "GestionarPedidos";

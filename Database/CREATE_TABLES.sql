@@ -74,18 +74,37 @@ INSERT INTO TipoDocumento(Id, Nombre) VALUES('BBA8F733-3C22-4D3F-8165-69D875A493
 
 
 GO
-CREATE TABLE Cliente (
+CREATE TABLE TipoCliente (
 	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(100),
-	[Documento] varchar(12),
-	[TipoDocumentoId] uniqueidentifier
+	[Tipo] nvarchar(3),
+	[Nombre] nvarchar(100)
 )
 
+GO
+INSERT INTO TipoCliente(Id,Tipo,Nombre) values 
+('181D2E10-5D4C-42D4-AC92-9E3D3ED1823D', 'CF' ,'Consumidor Final')
+,('190C4F9B-F250-44A9-85E1-B40F75150BC1', 'RI' ,'Responsable Inscripto')
+
+GO
+CREATE TABLE Cliente (
+	[Id] uniqueidentifier not null primary key default(newid()),
+	[Nombre] nvarchar(100),
+	[Documento] varchar(12),
+	[Direccion] varchar(300),
+	[Email] nvarchar(200),
+	[Telefono] nvarchar(30),
+	[TipoDocumentoId] uniqueidentifier not null,
+	[TipoClienteId] uniqueidentifier not null,
+)
+
+
+
 -- #start MULTI-IDIOMA
+
 GO
 CREATE TABLE Idioma (
 	[Id] uniqueidentifier not null primary key default(newid()),
-	[Nombre] varchar(50) not null,
+	[Nombre] nvarchar(50) not null,
 	[IsoCode] varchar(50) not null,
 	[IsDefault] bit not null default(0)
 )
@@ -128,6 +147,7 @@ CREATE TABLE Usuario (
 	[IdiomaId] uniqueidentifier,
 	CONSTRAINT FK_UsuarioIdioma FOREIGN KEY(IdiomaId) REFERENCES Idioma(Id)
 )
+
 --Pass : Novedad.01
 GO
 INSERT INTO Usuario (Id, Nombre, Email, Password, IdiomaId) 
@@ -164,17 +184,76 @@ CREATE TABLE Logs (
 ----
 --SPs
 
-CREATE procedure TraduccionGetAllByIdioma
-@id uniqueidentifier
-as
-begin
-	select 
+GO
+CREATE OR ALTER PROCEDURE TraduccionGetAllByIdioma
+@id UNIQUEIDENTIFIER
+AS
+BEGIN
+	SELECT 
 		t.IdiomaId,
 		t.Valor, 
 		t.EtiquetaId, 
 		e.Nombre 
-	from Traduccion t 
-		inner join Etiqueta e on t.EtiquetaId = e.Id
-	where t.IdiomaId = @id
-end
+	FROM Traduccion t 
+		INNER JOIN Etiqueta e ON t.EtiquetaId = e.Id
+	WHERE t.IdiomaId = @id
+END
+
+GO
+CREATE OR ALTER PROCEDURE ClienteGetAll
+AS
+BEGIN
+	SELECT 
+		c.*, 
+		tc.Tipo TipoCliente, 
+		tc.Nombre TipoClienteNombre,
+		td.Nombre TipoDocumentoNombre
+	FROM Cliente c 
+	JOIN TipoCliente tc on tc.Id = c.TipoClienteId 
+	JOIN TipoDocumento td on td.Id = c.TipoDocumentoId 
+END
+
+
+GO
+CREATE OR ALTER PROCEDURE ClienteCreate(
+	@Id uniqueidentifier,
+	@Nombre nvarchar(100),
+	@Documento varchar(12),
+	@Direccion varchar(300),
+	@Email nvarchar(200),
+	@Telefono nvarchar(30),
+	@TipoDocumentoId uniqueidentifier,
+	@TipoClienteId uniqueidentifier
+)
+AS
+BEGIN
+	INSERT INTO DomainDB.dbo.Cliente
+	(Id, Nombre, Documento, Direccion, Email, Telefono, TipoDocumentoId, TipoClienteId)
+    VALUES(@Id, @Nombre, @Documento, @Direccion, @Email, @Telefono, @TipoDocumentoId, @TipoClienteId)
+END
+
+GO
+CREATE OR ALTER PROCEDURE ClienteUpdate(
+	@Id uniqueidentifier,
+	@Nombre nvarchar(100),
+	@Documento varchar(12),
+	@Direccion varchar(300),
+	@Email nvarchar(200),
+	@Telefono nvarchar(30),
+	@TipoDocumentoId uniqueidentifier,
+	@TipoClienteId uniqueidentifier)
+AS
+BEGIN
+	UPDATE Cliente
+	SET 
+		Nombre=@Nombre, 
+		Documento=@Documento, 
+		Direccion=@Direccion, 
+		Email=@Email, 
+		Telefono=@Telefono, 
+		TipoDocumentoId=@TipoDocumentoId, 
+		TipoClienteId=@TipoClienteId
+    WHERE Id=@Id;
+END
+
 

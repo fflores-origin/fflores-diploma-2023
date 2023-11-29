@@ -177,8 +177,9 @@
             // gestionarClientesToolStripMenuItem
             // 
             gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(169, 22);
+            gestionarClientesToolStripMenuItem.Size = new Size(180, 22);
             gestionarClientesToolStripMenuItem.Text = "Gestionar Clientes";
+            gestionarClientesToolStripMenuItem.Click += gestionarClientesToolStripMenuItem_Click;
             // 
             // tsc_idioma
             // 

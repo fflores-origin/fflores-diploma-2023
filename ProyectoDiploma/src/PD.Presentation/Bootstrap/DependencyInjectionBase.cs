@@ -2,6 +2,7 @@
 using PD.Presentation.Forms.Articulos;
 using PD.Presentation.Forms.Configuracion;
 using PD.Presentation.Forms.Login;
+using PD.Presentation.Forms.Pedidos;
 
 namespace PD.Presentation.Bootstrap
 {
@@ -16,6 +17,7 @@ namespace PD.Presentation.Bootstrap
 
             services.AddDependencyInjectionConfiguracion();
             services.AddDependencyInjectionArticulos();
+            services.AddDependencyInjectionClientes();
         }
 
         private static void AddDependencyInjectionArticulos(this IServiceCollection services)
@@ -32,6 +34,12 @@ namespace PD.Presentation.Bootstrap
                 .AddSingleton<GestionarPermisos>()
                 .AddSingleton<GestionarIdiomas>()
                 .AddSingleton<GestionCategorias>();
+        }
+
+        private static void AddDependencyInjectionClientes(this IServiceCollection services)
+        {
+            services
+                .AddSingleton<GestionarClientes>();
         }
     }
 }
