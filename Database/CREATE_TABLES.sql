@@ -178,7 +178,7 @@ CREATE TABLE Logs (
 	
 )
 
-
+GO
 CREATE TABLE Pedido(
 	[Id] uniqueidentifier not null,
 	[ClienteId] uniqueidentifier not null,
@@ -187,6 +187,7 @@ CREATE TABLE Pedido(
 	CONSTRAINT PK_Pedido PRIMARY KEY ([Id])
 )
 
+GO
 CREATE TABLE PedidoDetalle(
 	[PedidoId] uniqueidentifier not null,
 	[ArticuloId] uniqueidentifier not null,
@@ -197,18 +198,29 @@ CREATE TABLE PedidoDetalle(
 
 CREATE TABLE Factura(
 	[Id] uniqueidentifier not null,
+	[ClienteId] uniqueidentifier not null,
+	
 )
 
 
 ----
 --SPs
+GO
 CREATE OR ALTER PROCEDURE PedidosGetAll
+AS
+BEGIN
+	SELECT * from Pedidos
+	SELECT * from PedidosDetalle
+END
+
+GO
+CREATE OR ALTER PROCEDURE PedidosGet(
+@Id UNIQUEIDENTIFIER
+)
 AS
 BEGIN
 	
 END
-
-
 
 GO
 CREATE OR ALTER PROCEDURE TraduccionGetAllByIdioma

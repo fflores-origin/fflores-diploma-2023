@@ -30,9 +30,9 @@ namespace PD.Presentation
                 {
                     MessageBox.Show(
                         $"ERROR : \t {ex.Message} \n\n" +
-                        $"TRACE --------------- \n {ex.StackTrace}", 
-                        "ERROR EN LA EJECUCIÓN", 
-                        MessageBoxButtons.OK, 
+                        $"TRACE --------------- \n {ex.StackTrace}",
+                        "ERROR EN LA EJECUCIÓN",
+                        MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
             }
@@ -48,6 +48,7 @@ namespace PD.Presentation
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((ctx, services) =>
                 {
+                    services.AddDependencyInjectionServices();
                     services.AddDependencyInjectionMappers();
                     services.AddDependencyInjectionRepositories();
                     services.AddDependencyInjectionManagers();

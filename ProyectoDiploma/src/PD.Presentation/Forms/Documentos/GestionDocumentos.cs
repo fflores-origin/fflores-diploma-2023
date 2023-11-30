@@ -6,5 +6,11 @@
         {
             InitializeComponent();
         }
+
+
+        private void GetBillNumber()
+        {
+            
+        }
     }
 }
