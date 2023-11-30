@@ -240,7 +240,7 @@ namespace PD.Presentation.Forms.Pedidos
 
         private bool IsValid()
         {
-           //TODO : agregar validaciones faltantes
+            //TODO : agregar validaciones faltantes
 
             var errores = new List<string>();
 

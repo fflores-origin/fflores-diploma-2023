@@ -33,11 +33,17 @@
             panel5 = new Panel();
             lbl_title_categoria = new Label();
             panel1 = new Panel();
-            panel2 = new Panel();
             dataGridView1 = new DataGridView();
+            panel2 = new Panel();
+            button1 = new Button();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            comboBox1 = new ComboBox();
+            label2 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -78,39 +84,88 @@
             panel1.Size = new Size(773, 329);
             panel1.TabIndex = 7;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Location = new Point(15, 404);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(773, 92);
-            panel2.TabIndex = 8;
-            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(24, 31);
+            dataGridView1.Location = new Point(23, 18);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(727, 279);
             dataGridView1.TabIndex = 0;
             // 
-            // GestionarDocumentos
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(button1);
+            panel2.Location = new Point(15, 404);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(773, 323);
+            panel2.TabIndex = 8;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(557, 175);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(66, 75);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Numero";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(131, 72);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(293, 23);
+            textBox1.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(131, 29);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(293, 23);
+            comboBox1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(66, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Cliente";
+            // 
+            // GestionDocumentos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 242, 242);
-            ClientSize = new Size(800, 515);
+            ClientSize = new Size(800, 739);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "GestionarDocumentos";
+            Name = "GestionDocumentos";
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -122,5 +177,10 @@
         private Panel panel1;
         private Panel panel2;
         private DataGridView dataGridView1;
+        private TextBox textBox1;
+        private Label label1;
+        private Button button1;
+        private Label label2;
+        private ComboBox comboBox1;
     }
 }

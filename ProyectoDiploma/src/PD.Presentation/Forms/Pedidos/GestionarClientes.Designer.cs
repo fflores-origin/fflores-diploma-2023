@@ -70,6 +70,9 @@
             // 
             // btn_help
             // 
+            btn_help.BackgroundImage = Properties.Resources.light_bulb;
+            btn_help.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_help.FlatAppearance.BorderSize = 0;
             btn_help.FlatStyle = FlatStyle.Flat;
             btn_help.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_help.Location = new Point(729, 11);
@@ -77,7 +80,6 @@
             btn_help.Name = "btn_help";
             btn_help.Size = new Size(34, 32);
             btn_help.TabIndex = 18;
-            btn_help.Text = "?";
             btn_help.UseVisualStyleBackColor = true;
             // 
             // panel5
@@ -106,16 +108,19 @@
             panel1.Controls.Add(dgv_clientes);
             panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(776, 315);
+            panel1.Size = new Size(776, 331);
             panel1.TabIndex = 7;
             // 
             // btn_nuevo
             // 
-            btn_nuevo.Location = new Point(665, 265);
+            btn_nuevo.BackgroundImage = Properties.Resources.plus1;
+            btn_nuevo.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_nuevo.FlatAppearance.BorderSize = 0;
+            btn_nuevo.FlatStyle = FlatStyle.Flat;
+            btn_nuevo.Location = new Point(705, 265);
             btn_nuevo.Name = "btn_nuevo";
-            btn_nuevo.Size = new Size(86, 37);
+            btn_nuevo.Size = new Size(46, 46);
             btn_nuevo.TabIndex = 17;
-            btn_nuevo.Text = "Nuevo";
             btn_nuevo.UseVisualStyleBackColor = true;
             btn_nuevo.Click += btn_nuevo_Click;
             // 
@@ -130,11 +135,14 @@
             // 
             // btn_save
             // 
-            btn_save.Location = new Point(665, 110);
+            btn_save.BackgroundImage = Properties.Resources.save;
+            btn_save.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_save.FlatAppearance.BorderSize = 0;
+            btn_save.FlatStyle = FlatStyle.Flat;
+            btn_save.Location = new Point(697, 110);
             btn_save.Name = "btn_save";
-            btn_save.Size = new Size(78, 39);
+            btn_save.Size = new Size(46, 46);
             btn_save.TabIndex = 3;
-            btn_save.Text = "Guardar";
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
@@ -253,7 +261,7 @@
             panel2.Controls.Add(txt_direccion);
             panel2.Controls.Add(txt_email);
             panel2.Controls.Add(lbl_direccion);
-            panel2.Location = new Point(12, 390);
+            panel2.Location = new Point(15, 406);
             panel2.Name = "panel2";
             panel2.Size = new Size(776, 169);
             panel2.TabIndex = 8;
@@ -280,7 +288,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 230, 230);
-            ClientSize = new Size(800, 571);
+            ClientSize = new Size(800, 587);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);

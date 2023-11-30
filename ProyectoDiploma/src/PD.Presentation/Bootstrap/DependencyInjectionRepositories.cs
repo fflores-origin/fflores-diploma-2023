@@ -17,7 +17,8 @@ namespace PD.Presentation.Bootstrap
                 .AddTransient<IUsuarioRepository, UsuarioRepository>()
                 .AddTransient<IArticuloRepository, ArticuloRepository>()
                 .AddTransient<ICategoriaRepository, CategoriaRepository>()
-                .AddTransient<IListaRepository, ListaRepository>();
+                .AddTransient<IListaRepository, ListaRepository>()
+                .AddTransient<IPedidoRepository, PedidoRepository>();
         }
     }
 }

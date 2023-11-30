@@ -184,7 +184,7 @@
             // 
             // btn_add
             // 
-            btn_add.BackgroundImage = (Image)resources.GetObject("btn_add.BackgroundImage");
+            btn_add.BackgroundImage = Properties.Resources.plus1;
             btn_add.BackgroundImageLayout = ImageLayout.Stretch;
             btn_add.FlatAppearance.BorderSize = 0;
             btn_add.FlatStyle = FlatStyle.Flat;

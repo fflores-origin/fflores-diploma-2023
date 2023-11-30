@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionOrdenesCompra));
             pnl_head = new Panel();
             panel5 = new Panel();
             label1 = new Label();
@@ -47,7 +46,7 @@
             // 
             // panel5
             // 
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImage = Properties.Resources.cargo;
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
             panel5.Location = new Point(4, 3);
             panel5.Name = "panel5";

@@ -24,10 +24,10 @@ CREATE TABLE Categoria (
 	[Nombre] VARCHAR(100),
 )
 GO
-INSERT INTO Categoria(Id, Nombre) VALUES('AA174E45-E3C1-4F4A-A961-10671FE79761','Articulo')
-INSERT INTO Categoria(Id, Nombre) VALUES('882F8085-B15A-41DE-A905-124893068B8E','Libros')
 
-
+INSERT INTO Categoria(Id, Nombre) VALUES
+('AA174E45-E3C1-4F4A-A961-10671FE79761','Articulo')
+,('882F8085-B15A-41DE-A905-124893068B8E','Libros')
 
 GO
 CREATE TABLE Articulo (
@@ -57,7 +57,6 @@ CREATE TABLE ListaArticulo (
 	CONSTRAINT PK_ListaArticulo PRIMARY KEY(Id, ArticuloId,ListaId)
 )
 
-go
 insert into Lista (Nombre, Porcentaje) values('Publico', 10.0)
 
 
@@ -67,10 +66,10 @@ CREATE TABLE TipoDocumento (
 	[Nombre] varchar(100)
 )
 
-GO
-INSERT INTO TipoDocumento(Id, Nombre) VALUES('F7269908-A6F5-470F-8260-0B6DBDED3DB7', 'DNI')
-INSERT INTO TipoDocumento(Id, Nombre) VALUES('F94AD59A-22C2-417A-A884-23421F649EE0', 'CUIL')
-INSERT INTO TipoDocumento(Id, Nombre) VALUES('BBA8F733-3C22-4D3F-8165-69D875A49343', 'LE')
+INSERT INTO TipoDocumento(Id, Nombre) VALUES
+('F7269908-A6F5-470F-8260-0B6DBDED3DB7', 'DNI')
+,('F94AD59A-22C2-417A-A884-23421F649EE0', 'CUIL')
+,('BBA8F733-3C22-4D3F-8165-69D875A49343', 'LE')
 
 
 GO
@@ -80,7 +79,6 @@ CREATE TABLE TipoCliente (
 	[Nombre] nvarchar(100)
 )
 
-GO
 INSERT INTO TipoCliente(Id,Tipo,Nombre) values 
 ('181D2E10-5D4C-42D4-AC92-9E3D3ED1823D', 'CF' ,'Consumidor Final')
 ,('190C4F9B-F250-44A9-85E1-B40F75150BC1', 'RI' ,'Responsable Inscripto')
@@ -99,7 +97,7 @@ CREATE TABLE Cliente (
 
 
 
--- #start MULTI-IDIOMA
+-- # start MULTI-IDIOMA
 
 GO
 CREATE TABLE Idioma (
@@ -109,9 +107,9 @@ CREATE TABLE Idioma (
 	[IsDefault] bit not null default(0)
 )
 
-GO
-INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES('948F36EC-1ADB-4437-AE83-F76C6AD4058F','Espanol','es',1 )
-INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES('AD4B2622-1857-4BDB-8822-4851A6D6BDB8','Inlges','en',0 )
+INSERT INTO Idioma(Id, Nombre, IsoCode, IsDefault) VALUES
+('948F36EC-1ADB-4437-AE83-F76C6AD4058F','Espanol','es',1 )
+,('AD4B2622-1857-4BDB-8822-4851A6D6BDB8','Inlges','en',0 )
 
 GO
 CREATE TABLE Etiqueta (
@@ -119,7 +117,7 @@ CREATE TABLE Etiqueta (
 	[Nombre] varchar(50) not null
 )
 
-
+GO
 CREATE TABLE Traduccion (
 	[IdiomaId] uniqueidentifier not null default(newid()),
 	[EtiquetaId] uniqueidentifier not null default(newid()),
@@ -127,7 +125,7 @@ CREATE TABLE Traduccion (
 	CONSTRAINT PK_Traduccion PRIMARY KEY(IdiomaId,EtiquetaId)
 )
 
--- #end MULTI-IDIOMA
+-- # end MULTI-IDIOMA
 
 
 -- #start USUARIOS PERMISOS
@@ -148,8 +146,7 @@ CREATE TABLE Usuario (
 	CONSTRAINT FK_UsuarioIdioma FOREIGN KEY(IdiomaId) REFERENCES Idioma(Id)
 )
 
---Pass : Novedad.01
-GO
+--INSERT User: admin Pass : Novedad.01
 INSERT INTO Usuario (Id, Nombre, Email, Password, IdiomaId) 
 VALUES('8723672E-2A7D-49E9-9817-F4727DAD7CE3','admin','admin@admin.com','0g1hLWBXrrBM05D+kxmcTEhAtqzEhyFmc4oSzLE8fDQ=','948F36EC-1ADB-4437-AE83-F76C6AD4058F')
 
@@ -168,6 +165,8 @@ CREATE TABLE PermisoComponente (
 )
 -- #end USUARIOS PERMISOS
 
+-- #end USUARIOS PERMISOS
+
 GO
 CREATE TABLE Logs (
 	[Id] uniqueidentifier not null,
@@ -180,9 +179,36 @@ CREATE TABLE Logs (
 )
 
 
+CREATE TABLE Pedido(
+	[Id] uniqueidentifier not null,
+	[ClienteId] uniqueidentifier not null,
+	[ListaId] uniqueidentifier not null,
+	
+	CONSTRAINT PK_Pedido PRIMARY KEY ([Id])
+)
+
+CREATE TABLE PedidoDetalle(
+	[PedidoId] uniqueidentifier not null,
+	[ArticuloId] uniqueidentifier not null,
+	[Precio] money not null
+	
+	CONSTRAINT PK_PedidoDetalle PRIMARY KEY ([PedidoId],[ArticuloId])
+)
+
+CREATE TABLE Factura(
+	[Id] uniqueidentifier not null,
+)
+
 
 ----
 --SPs
+CREATE OR ALTER PROCEDURE PedidosGetAll
+AS
+BEGIN
+	
+END
+
+
 
 GO
 CREATE OR ALTER PROCEDURE TraduccionGetAllByIdioma
