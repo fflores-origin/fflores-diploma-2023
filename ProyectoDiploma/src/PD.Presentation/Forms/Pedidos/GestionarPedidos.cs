@@ -41,6 +41,7 @@ namespace PD.Presentation.Forms.Pedidos
                 var listado = _pedidos.Select(x => new
                 {
                     NroPedido = x.Id,
+                    Fecha = x.Fecha,
                     CantidadItems = x.Detalles.Count(),
                     Cliente = x.Cliente.Nombre.ToString(),
                     Total = x.Detalles.Sum(x => x.Precio)
@@ -77,10 +78,16 @@ namespace PD.Presentation.Forms.Pedidos
         private void btn_new_Click(object sender, EventArgs e)
         {
             _pedido = new Pedido();
+            txt_fecha.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
         private void btn_bill_Click(object sender, EventArgs e)
         {
+        }
+
+        public void ShowAndLoad()
+        {
+            this.Show();
         }
     }
 }

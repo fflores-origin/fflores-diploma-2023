@@ -22,6 +22,7 @@ namespace PD.Presentation
         private readonly GestionCategorias _gestionCategoriasForm;
         private readonly GestionListas _gestionListasForm;
         private readonly GestionarClientes _gestionarClientesForm;
+        private readonly GestionarPedidos _gestionarPedidosForm;
 
         #endregion Fields
 
@@ -35,7 +36,8 @@ namespace PD.Presentation
             GestionListas gestionListasForm,
             IUsuarioManager usuarioManager,
             IIdiomaManager idiomaManager,
-            GestionarClientes gestionarClientesForm)
+            GestionarClientes gestionarClientesForm,
+            GestionarPedidos gestionarPedidosForm)
         {
             InitializeComponent();
             _configuration = configuration;
@@ -47,13 +49,14 @@ namespace PD.Presentation
             _gestionCategoriasForm = gestionCategoriasForm;
             _gestionListasForm = gestionListasForm;
             _gestionarClientesForm = gestionarClientesForm;
+            _gestionarPedidosForm = gestionarPedidosForm;
 
             _gestionArticulosForm.MdiParent = this;
             _gestionarPermisosFrom.MdiParent = this;
             _gestionCategoriasForm.MdiParent = this;
             _gestionListasForm.MdiParent = this;
             _gestionarClientesForm.MdiParent = this;
-
+            _gestionarPedidosForm.MdiParent = this;
         }
 
         #endregion CTOR
@@ -173,6 +176,16 @@ namespace PD.Presentation
         private void gestionarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _gestionarClientesForm.ShowAndLoad();
+        }
+
+        private void gestionarPedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _gestionarPedidosForm.ShowAndLoad();
+        }
+
+        private void tsb_ordenesDeCompra_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,9 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             ts_main = new MenuStrip();
             tsc_articulos = new ToolStripDropDownButton();
-            btn_gestionarArticulos = new ToolStripMenuItem();
-            listasToolStripMenuItem = new ToolStripMenuItem();
-            ordenesDeCompraToolStripMenuItem = new ToolStripMenuItem();
+            tsb_gestionarArticulos = new ToolStripMenuItem();
+            tsb_Listas = new ToolStripMenuItem();
+            tsb_ordenesDeCompra = new ToolStripMenuItem();
+            tsb_gestionarPedidos = new ToolStripMenuItem();
             tsc_documentos = new ToolStripDropDownButton();
             informesToolStripMenuItem = new ToolStripMenuItem();
             generarListadosToolStripMenuItem = new ToolStripMenuItem();
@@ -42,10 +43,10 @@
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             idiomasToolStripMenuItem = new ToolStripMenuItem();
             tsc_seguridad = new ToolStripDropDownButton();
-            gestionarPermisosToolStripMenuItem = new ToolStripMenuItem();
-            gestionarUsuariosToolStripMenuItem = new ToolStripMenuItem();
+            tsb_gestionarPermisos = new ToolStripMenuItem();
+            tsb_gestionarUsuarios = new ToolStripMenuItem();
             tsc_clientes = new ToolStripDropDownButton();
-            gestionarClientesToolStripMenuItem = new ToolStripMenuItem();
+            tsb_gestionarClientes = new ToolStripMenuItem();
             tsc_idioma = new ToolStripDropDownButton();
             ts_main.SuspendLayout();
             SuspendLayout();
@@ -62,7 +63,7 @@
             // tsc_articulos
             // 
             tsc_articulos.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            tsc_articulos.DropDownItems.AddRange(new ToolStripItem[] { btn_gestionarArticulos, listasToolStripMenuItem, ordenesDeCompraToolStripMenuItem });
+            tsc_articulos.DropDownItems.AddRange(new ToolStripItem[] { tsb_gestionarArticulos, tsb_Listas, tsb_gestionarPedidos, tsb_ordenesDeCompra });
             tsc_articulos.Image = (Image)resources.GetObject("tsc_articulos.Image");
             tsc_articulos.ImageTransparentColor = Color.Magenta;
             tsc_articulos.Name = "tsc_articulos";
@@ -70,25 +71,33 @@
             tsc_articulos.Tag = "tsc_articulos";
             tsc_articulos.Text = "Articulos";
             // 
-            // btn_gestionarArticulos
+            // tsb_gestionarArticulos
             // 
-            btn_gestionarArticulos.Name = "btn_gestionarArticulos";
-            btn_gestionarArticulos.Size = new Size(180, 22);
-            btn_gestionarArticulos.Text = "Gestionar Articulos";
-            btn_gestionarArticulos.Click += Btn_gestionarArticulos_Click;
+            tsb_gestionarArticulos.Name = "tsb_gestionarArticulos";
+            tsb_gestionarArticulos.Size = new Size(180, 22);
+            tsb_gestionarArticulos.Text = "Gestionar Articulos";
+            tsb_gestionarArticulos.Click += Btn_gestionarArticulos_Click;
             // 
-            // listasToolStripMenuItem
+            // tsb_Listas
             // 
-            listasToolStripMenuItem.Name = "listasToolStripMenuItem";
-            listasToolStripMenuItem.Size = new Size(180, 22);
-            listasToolStripMenuItem.Text = "Gestionar Listas";
-            listasToolStripMenuItem.Click += listasToolStripMenuItem_Click;
+            tsb_Listas.Name = "tsb_Listas";
+            tsb_Listas.Size = new Size(180, 22);
+            tsb_Listas.Text = "Gestionar Listas";
+            tsb_Listas.Click += listasToolStripMenuItem_Click;
             // 
-            // ordenesDeCompraToolStripMenuItem
+            // tsb_ordenesDeCompra
             // 
-            ordenesDeCompraToolStripMenuItem.Name = "ordenesDeCompraToolStripMenuItem";
-            ordenesDeCompraToolStripMenuItem.Size = new Size(180, 22);
-            ordenesDeCompraToolStripMenuItem.Text = "Ordenes de Compra";
+            tsb_ordenesDeCompra.Name = "tsb_ordenesDeCompra";
+            tsb_ordenesDeCompra.Size = new Size(180, 22);
+            tsb_ordenesDeCompra.Text = "Ordenes de Compra";
+            tsb_ordenesDeCompra.Click += tsb_ordenesDeCompra_Click;
+            // 
+            // tsb_gestionarPedidos
+            // 
+            tsb_gestionarPedidos.Name = "tsb_gestionarPedidos";
+            tsb_gestionarPedidos.Size = new Size(180, 22);
+            tsb_gestionarPedidos.Text = "Gestionar Pedidos";
+            tsb_gestionarPedidos.Click += gestionarPedidosToolStripMenuItem_Click;
             // 
             // tsc_documentos
             // 
@@ -144,42 +153,42 @@
             // tsc_seguridad
             // 
             tsc_seguridad.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            tsc_seguridad.DropDownItems.AddRange(new ToolStripItem[] { gestionarPermisosToolStripMenuItem, gestionarUsuariosToolStripMenuItem });
+            tsc_seguridad.DropDownItems.AddRange(new ToolStripItem[] { tsb_gestionarPermisos, tsb_gestionarUsuarios });
             tsc_seguridad.Image = (Image)resources.GetObject("tsc_seguridad.Image");
             tsc_seguridad.ImageTransparentColor = Color.Magenta;
             tsc_seguridad.Name = "tsc_seguridad";
             tsc_seguridad.Size = new Size(73, 19);
             tsc_seguridad.Text = "Seguridad";
             // 
-            // gestionarPermisosToolStripMenuItem
+            // tsb_gestionarPermisos
             // 
-            gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
-            gestionarPermisosToolStripMenuItem.Size = new Size(175, 22);
-            gestionarPermisosToolStripMenuItem.Text = "Gestionar Permisos";
-            gestionarPermisosToolStripMenuItem.Click += gestionarPermisosToolStripMenuItem_Click;
+            tsb_gestionarPermisos.Name = "tsb_gestionarPermisos";
+            tsb_gestionarPermisos.Size = new Size(175, 22);
+            tsb_gestionarPermisos.Text = "Gestionar Permisos";
+            tsb_gestionarPermisos.Click += gestionarPermisosToolStripMenuItem_Click;
             // 
-            // gestionarUsuariosToolStripMenuItem
+            // tsb_gestionarUsuarios
             // 
-            gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
-            gestionarUsuariosToolStripMenuItem.Size = new Size(175, 22);
-            gestionarUsuariosToolStripMenuItem.Text = "Gestionar Usuarios";
+            tsb_gestionarUsuarios.Name = "tsb_gestionarUsuarios";
+            tsb_gestionarUsuarios.Size = new Size(175, 22);
+            tsb_gestionarUsuarios.Text = "Gestionar Usuarios";
             // 
             // tsc_clientes
             // 
             tsc_clientes.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            tsc_clientes.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem });
+            tsc_clientes.DropDownItems.AddRange(new ToolStripItem[] { tsb_gestionarClientes });
             tsc_clientes.Image = (Image)resources.GetObject("tsc_clientes.Image");
             tsc_clientes.ImageTransparentColor = Color.Magenta;
             tsc_clientes.Name = "tsc_clientes";
             tsc_clientes.Size = new Size(62, 19);
             tsc_clientes.Text = "Clientes";
             // 
-            // gestionarClientesToolStripMenuItem
+            // tsb_gestionarClientes
             // 
-            gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(169, 22);
-            gestionarClientesToolStripMenuItem.Text = "Gestionar Clientes";
-            gestionarClientesToolStripMenuItem.Click += gestionarClientesToolStripMenuItem_Click;
+            tsb_gestionarClientes.Name = "tsb_gestionarClientes";
+            tsb_gestionarClientes.Size = new Size(169, 22);
+            tsb_gestionarClientes.Text = "Gestionar Clientes";
+            tsb_gestionarClientes.Click += gestionarClientesToolStripMenuItem_Click;
             // 
             // tsc_idioma
             // 
@@ -210,21 +219,22 @@
 
         private MenuStrip ts_main;
         private ToolStripDropDownButton tsc_articulos;
-        private ToolStripMenuItem btn_gestionarArticulos;
+        private ToolStripMenuItem tsb_gestionarArticulos;
         private ToolStripDropDownButton tsc_seguridad;
-        private ToolStripMenuItem gestionarPermisosToolStripMenuItem;
+        private ToolStripMenuItem tsb_gestionarPermisos;
         private ToolStripDropDownButton tsc_configuracion;
         private ToolStripMenuItem categoriasToolStripMenuItem;
-        private ToolStripMenuItem listasToolStripMenuItem;
-        private ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
-        private ToolStripMenuItem ordenesDeCompraToolStripMenuItem;
+        private ToolStripMenuItem tsb_Listas;
+        private ToolStripMenuItem tsb_gestionarUsuarios;
+        private ToolStripMenuItem tsb_ordenesDeCompra;
         private ToolStripDropDownButton tsc_documentos;
         private ToolStripMenuItem informesToolStripMenuItem;
         private ToolStripMenuItem idiomasToolStripMenuItem;
         private ToolStripMenuItem generarListadosToolStripMenuItem;
         private ToolStripDropDownButton tsc_clientes;
-        private ToolStripMenuItem gestionarClientesToolStripMenuItem;
+        private ToolStripMenuItem tsb_gestionarClientes;
         private ToolStripMenuItem ventasToolStripMenuItem;
         private ToolStripDropDownButton tsc_idioma;
+        private ToolStripMenuItem tsb_gestionarPedidos;
     }
 }

@@ -134,5 +134,10 @@ namespace PD.Presentation.Forms.Articulos
             FormatGridLista();
             FormatGridPrecios();
         }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

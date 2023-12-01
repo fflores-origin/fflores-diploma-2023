@@ -178,6 +178,7 @@ namespace PD.Repositories
                             Id = Guid.Parse(item["Id"].ToString()),
                             ClienteId = Guid.Parse(item["ClienteId"].ToString()),
                             ListaId = Guid.Parse(item["ListaId"].ToString()),
+                            Fecha = Convert.ToDateTime(item["Fecha"].ToString()),
                             Cliente = cliente,
                             Lista = lista
                         });
@@ -257,6 +258,7 @@ namespace PD.Repositories
                     cmd.Parameters.AddWithValue("@Id", pedido.Id);
                     cmd.Parameters.AddWithValue("@ClienteId", pedido.ClienteId);
                     cmd.Parameters.AddWithValue("@ListaId", pedido.ListaId);
+                    cmd.Parameters.AddWithValue("@Fecha", pedido.Fecha);
                     cmd.ExecuteNonQuery();
 
                     pedido.Detalles.ForEach(detalle =>

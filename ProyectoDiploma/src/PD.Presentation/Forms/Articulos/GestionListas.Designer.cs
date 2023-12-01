@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionListas));
             panel3 = new Panel();
             panel5 = new Panel();
             label4 = new Label();
@@ -37,12 +38,16 @@
             label1 = new Label();
             txt_nombre = new TextBox();
             lbl_nombre = new Label();
-            btn_add = new Button();
             lbl_listas = new Label();
             dgv_listas = new DataGridView();
             panel2 = new Panel();
             lbl_producto = new Label();
             dgv_precios = new DataGridView();
+            button1 = new Button();
+            btn_save = new Button();
+            btn_massive = new Button();
+            lbl_todos = new Label();
+            label2 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -83,31 +88,35 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(lbl_listas);
             panel1.Controls.Add(dgv_listas);
             panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(763, 208);
+            panel1.Size = new Size(763, 319);
             panel1.TabIndex = 6;
             // 
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(label2);
+            panel4.Controls.Add(lbl_todos);
+            panel4.Controls.Add(btn_massive);
+            panel4.Controls.Add(btn_save);
             panel4.Controls.Add(textBox1);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(txt_nombre);
             panel4.Controls.Add(lbl_nombre);
-            panel4.Controls.Add(btn_add);
             panel4.Location = new Point(406, 45);
             panel4.Name = "panel4";
-            panel4.Size = new Size(333, 140);
+            panel4.Size = new Size(333, 237);
             panel4.TabIndex = 15;
             // 
             // textBox1
             // 
             textBox1.Enabled = false;
-            textBox1.Location = new Point(91, 59);
+            textBox1.Location = new Point(91, 85);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(225, 23);
             textBox1.TabIndex = 35;
@@ -115,7 +124,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 62);
+            label1.Location = new Point(12, 88);
             label1.Name = "label1";
             label1.Size = new Size(69, 15);
             label1.TabIndex = 36;
@@ -124,7 +133,7 @@
             // txt_nombre
             // 
             txt_nombre.Enabled = false;
-            txt_nombre.Location = new Point(90, 22);
+            txt_nombre.Location = new Point(90, 48);
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(225, 23);
             txt_nombre.TabIndex = 33;
@@ -132,21 +141,11 @@
             // lbl_nombre
             // 
             lbl_nombre.AutoSize = true;
-            lbl_nombre.Location = new Point(12, 25);
+            lbl_nombre.Location = new Point(12, 51);
             lbl_nombre.Name = "lbl_nombre";
             lbl_nombre.Size = new Size(51, 15);
             lbl_nombre.TabIndex = 34;
             lbl_nombre.Text = "Nombre";
-            // 
-            // btn_add
-            // 
-            btn_add.Location = new Point(195, 96);
-            btn_add.Name = "btn_add";
-            btn_add.Size = new Size(120, 31);
-            btn_add.TabIndex = 1;
-            btn_add.Text = "Agregar";
-            btn_add.UseVisualStyleBackColor = true;
-            btn_add.Click += btn_add_Click_1;
             // 
             // lbl_listas
             // 
@@ -166,7 +165,7 @@
             dgv_listas.RowHeadersWidth = 62;
             dgv_listas.RowTemplate.Height = 25;
             dgv_listas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listas.Size = new Size(351, 137);
+            dgv_listas.Size = new Size(351, 185);
             dgv_listas.TabIndex = 0;
             // 
             // panel2
@@ -174,7 +173,7 @@
             panel2.BackColor = Color.White;
             panel2.Controls.Add(lbl_producto);
             panel2.Controls.Add(dgv_precios);
-            panel2.Location = new Point(12, 283);
+            panel2.Location = new Point(12, 394);
             panel2.Name = "panel2";
             panel2.Size = new Size(763, 371);
             panel2.TabIndex = 7;
@@ -199,12 +198,68 @@
             dgv_precios.Size = new Size(717, 303);
             dgv_precios.TabIndex = 0;
             // 
+            // button1
+            // 
+            button1.BackgroundImage = Properties.Resources.plus1;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(328, 236);
+            button1.Name = "button1";
+            button1.Size = new Size(46, 46);
+            button1.TabIndex = 16;
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // btn_save
+            // 
+            btn_save.BackgroundImage = (Image)resources.GetObject("btn_save.BackgroundImage");
+            btn_save.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_save.FlatAppearance.BorderSize = 0;
+            btn_save.FlatStyle = FlatStyle.Flat;
+            btn_save.Location = new Point(261, 151);
+            btn_save.Name = "btn_save";
+            btn_save.Size = new Size(46, 46);
+            btn_save.TabIndex = 41;
+            btn_save.UseVisualStyleBackColor = true;
+            btn_save.Click += btn_save_Click;
+            // 
+            // btn_massive
+            // 
+            btn_massive.BackgroundImage = Properties.Resources.update_all;
+            btn_massive.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_massive.FlatAppearance.BorderSize = 0;
+            btn_massive.FlatStyle = FlatStyle.Flat;
+            btn_massive.Location = new Point(180, 151);
+            btn_massive.Name = "btn_massive";
+            btn_massive.Size = new Size(46, 46);
+            btn_massive.TabIndex = 42;
+            btn_massive.UseVisualStyleBackColor = true;
+            // 
+            // lbl_todos
+            // 
+            lbl_todos.AutoSize = true;
+            lbl_todos.Location = new Point(174, 201);
+            lbl_todos.Name = "lbl_todos";
+            lbl_todos.Size = new Size(60, 15);
+            lbl_todos.TabIndex = 43;
+            lbl_todos.Text = "Regenerar";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(260, 201);
+            label2.Name = "label2";
+            label2.Size = new Size(49, 15);
+            label2.TabIndex = 44;
+            label2.Text = "Guardar";
+            // 
             // GestionListas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
-            ClientSize = new Size(787, 670);
+            ClientSize = new Size(787, 777);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel3);
@@ -235,7 +290,6 @@
         private DataGridView dgv_listas;
         private Panel panel2;
         private DataGridView dgv_precios;
-        private Button btn_add;
         private Label lbl_producto;
         private Label lbl_listas;
         private Panel panel4;
@@ -243,5 +297,10 @@
         private Label lbl_nombre;
         private TextBox textBox1;
         private Label label1;
+        private Button button1;
+        private Button btn_save;
+        private Button btn_massive;
+        private Label lbl_todos;
+        private Label label2;
     }
 }

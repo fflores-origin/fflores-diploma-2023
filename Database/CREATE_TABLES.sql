@@ -23,8 +23,8 @@ CREATE TABLE Categoria (
 	[Id] uniqueidentifier not null primary key default(newid()),
 	[Nombre] VARCHAR(100),
 )
-GO
 
+GO
 INSERT INTO Categoria(Id, Nombre) VALUES
 ('AA174E45-E3C1-4F4A-A961-10671FE79761','Articulo')
 ,('882F8085-B15A-41DE-A905-124893068B8E','Libros')
@@ -38,7 +38,9 @@ CREATE TABLE Articulo (
 	[Imagen] VARCHAR(200) default(''),
 	[Marca] VARCHAR(100) default(''),
 	[PrecioUnitario] money default(0),
-	[CategoriaId] uniqueidentifier
+	[CategoriaId] uniqueidentifier,
+	
+	CONSTRAINT  FK_Articulo_Categoria FOREIGN KEY (CategoriaId) REFERENCES Categoria([Id]),
 )
 
 GO
@@ -54,7 +56,10 @@ CREATE TABLE ListaArticulo (
 	[ArticuloId] uniqueidentifier not null default(newid()),
 	[ListaId] uniqueidentifier not null default(newid()),
 	[Precio] money not null
-	CONSTRAINT PK_ListaArticulo PRIMARY KEY(Id, ArticuloId,ListaId)
+	
+	CONSTRAINT PK_ListaArticulo PRIMARY KEY(Id, ArticuloId, ListaId),
+	CONSTRAINT FK_ListaArticulo_Articulo FOREIGN KEY (ArticuloId) REFERENCES Articulo([Id]),
+	CONSTRAINT FK_ListaArticulo_Lista FOREIGN KEY (ListaId) REFERENCES Lista([Id]),
 )
 
 insert into Lista (Nombre, Porcentaje) values('Publico', 10.0)
@@ -93,9 +98,10 @@ CREATE TABLE Cliente (
 	[Telefono] nvarchar(30),
 	[TipoDocumentoId] uniqueidentifier not null,
 	[TipoClienteId] uniqueidentifier not null,
+	
+	CONSTRAINT FK_ClienteTipoCliente FOREIGN KEY (TipoClienteId) REFERENCES TipoCliente([Id]),
+	CONSTRAINT FK_ClienteTipoDocumento FOREIGN KEY (TipoDocumentoId) REFERENCES TipoDocumento([Id]),
 )
-
-
 
 -- # start MULTI-IDIOMA
 
@@ -122,7 +128,10 @@ CREATE TABLE Traduccion (
 	[IdiomaId] uniqueidentifier not null default(newid()),
 	[EtiquetaId] uniqueidentifier not null default(newid()),
 	[Valor] varchar(200),
-	CONSTRAINT PK_Traduccion PRIMARY KEY(IdiomaId,EtiquetaId)
+	
+	CONSTRAINT PK_Traduccion PRIMARY KEY(IdiomaId,EtiquetaId),
+	CONSTRAINT FK_Traduccion_Idioma FOREIGN KEY (IdiomaId) REFERENCES Idioma([Id]),
+	CONSTRAINT FK_Traduccion_Etiqueta FOREIGN KEY (EtiquetaId) REFERENCES Etiqueta([Id]),
 )
 
 -- # end MULTI-IDIOMA
@@ -143,7 +152,8 @@ CREATE TABLE Usuario (
 	[Email] varchar (200),
 	[Password] varchar(100) not null,
 	[IdiomaId] uniqueidentifier,
-	CONSTRAINT FK_UsuarioIdioma FOREIGN KEY(IdiomaId) REFERENCES Idioma(Id)
+	
+	CONSTRAINT FK_UsuarioIdioma FOREIGN KEY(IdiomaId) REFERENCES Idioma([Id])
 )
 
 --INSERT User: admin Pass : Novedad.01
@@ -154,7 +164,10 @@ GO
 CREATE TABLE UsuarioPermiso (
 	[UsuarioId] uniqueidentifier not null,
 	[PermisoId] uniqueidentifier not null,
-	CONSTRAINT PK_UsuarioPermiso PRIMARY KEY(UsuarioId,PermisoId)
+	
+	CONSTRAINT PK_UsuarioPermiso PRIMARY KEY(UsuarioId,PermisoId),
+	CONSTRAINT FK_UsuarioPermiso_Usuario FOREIGN KEY (UsuarioId) REFERENCES Usuario([Id]),
+	CONSTRAINT FK_UsuarioPermiso_Permiso FOREIGN KEY (PermisoId) REFERENCES Permiso([Id]),
 )
 
 GO
@@ -168,24 +181,41 @@ CREATE TABLE PermisoComponente (
 -- #end USUARIOS PERMISOS
 
 GO
+IF OBJECT_ID('Logs', 'U') IS NOT NULL
+    DROP TABLE Logs;
+
+GO
 CREATE TABLE Logs (
 	[Id] uniqueidentifier not null,
 	[UsuarioId] uniqueidentifier not null,
 	[ValorPrevio] varchar(100),
 	[NuevoValor] varchar(100),
 	[Formulario] varchar(200),
-	[Excepcion] varchar(max)
+	[Excepcion] varchar(max),
 	
+	CONSTRAINT PK_Logs PRIMARY KEY ([Id]),
+	CONSTRAINT FK_Logs_Usuario FOREIGN KEY ([UsuarioId]) REFERENCES Usuario([Id]),
 )
 
 GO
+IF OBJECT_ID('Pedido', 'U') IS NOT NULL
+    DROP TABLE Pedido;
+
+GO
 CREATE TABLE Pedido(
-	[Id] uniqueidentifier not null,
-	[ClienteId] uniqueidentifier not null,
-	[ListaId] uniqueidentifier not null,
-	
-	CONSTRAINT PK_Pedido PRIMARY KEY ([Id])
-)
+    [Id] uniqueidentifier not null,
+    [ClienteId] uniqueidentifier not null,
+    [ListaId] uniqueidentifier not null,
+    [Fecha] datetime not null,
+
+    CONSTRAINT PK_Pedido PRIMARY KEY ([Id]),
+    CONSTRAINT FK_PedidoLista FOREIGN KEY ([ListaId]) REFERENCES Lista([Id]),
+    CONSTRAINT FK_PedidoCliente FOREIGN KEY ([ClienteId]) REFERENCES Cliente([Id])
+);
+
+GO
+IF OBJECT_ID('PedidoDetalle', 'U') IS NOT NULL
+    DROP TABLE PedidoDetalle;
 
 GO
 CREATE TABLE PedidoDetalle(
@@ -193,28 +223,62 @@ CREATE TABLE PedidoDetalle(
 	[ArticuloId] uniqueidentifier not null,
 	[Precio] money not null
 	
-	CONSTRAINT PK_PedidoDetalle PRIMARY KEY ([PedidoId],[ArticuloId])
-)
+	CONSTRAINT PK_PedidoDetalle PRIMARY KEY ([PedidoId],[ArticuloId]),
+	CONSTRAINT FK_PedidoDetallePedido FOREIGN KEY ([PedidoId]) REFERENCES Pedido([Id]),
+	CONSTRAINT FK_PedidoDetalleArticulo FOREIGN KEY ([ArticuloId]) REFERENCES Articulo([Id]),
+);
 
+
+GO
+IF OBJECT_ID('Factura', 'U') IS NOT NULL
+    DROP TABLE Factura;
+   
+GO
 CREATE TABLE Factura(
 	[Id] uniqueidentifier not null,
 	[ClienteId] uniqueidentifier not null,
+	[PedidoId] uniqueidentifier null,
+	[ClienteNombre] varchar(200),
+	[ClienteCuit] varchar(100),
+	[IngresosBrutos] money,
+	[Iva] money,
+	[Total] money not null,
 	
+	CONSTRAINT PK_Factura PRIMARY KEY ([Id]),
+	CONSTRAINT FK_FacturaCliente FOREIGN KEY ([ClienteId]) REFERENCES Cliente([Id]),
 )
 
-----
---SPs
+GO
+IF OBJECT_ID('FacturaDetalle', 'U') IS NOT NULL
+    DROP TABLE FacturaDetalle;
+
+create table FacturaDetalle(
+	[FacturaId] uniqueidentifier not null,
+	[ArticuloId] uniqueidentifier not null,
+	[ArticuloNombre] varchar(500),
+	[Cantidad] int not null,
+	[Precio] money not null,
+	
+	CONSTRAINT PK_FacturaDetalle PRIMARY KEY ([FacturaId],[ArticuloId]),
+	CONSTRAINT FK_FacturaDetalleFactura FOREIGN KEY ([FacturaId]) REFERENCES Factura([Id]),
+	CONSTRAINT FK_FacturaDetalleArticulo FOREIGN KEY ([ArticuloId]) REFERENCES Articulo([Id]),
+)
+
+--------------------------------------------------------------------
+-- SPs
+--------------------------------------------------------------------
 
 GO
 CREATE OR ALTER PROCEDURE PedidoSave(
 @Id UNIQUEIDENTIFIER,
 @ClienteId UNIQUEIDENTIFIER,
-@ListaId UNIQUEIDENTIFIER)
+@ListaId UNIQUEIDENTIFIER,
+@Fecha datetime)
 AS
 BEGIN 
-	INSERT INTO DomainDB.dbo.Pedido
-	(Id, ClienteId, ListaId)
-	VALUES(@Id, @ClienteId, @ListaId);
+	INSERT INTO Pedido
+	(Id, ClienteId, ListaId, Fecha)
+	VALUES(@Id, @ClienteId, @ListaId, @Fecha);
 END
 
 GO
