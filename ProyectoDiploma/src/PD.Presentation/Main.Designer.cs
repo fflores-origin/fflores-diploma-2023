@@ -177,7 +177,7 @@
             // gestionarClientesToolStripMenuItem
             // 
             gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(180, 22);
+            gestionarClientesToolStripMenuItem.Size = new Size(169, 22);
             gestionarClientesToolStripMenuItem.Text = "Gestionar Clientes";
             gestionarClientesToolStripMenuItem.Click += gestionarClientesToolStripMenuItem_Click;
             // 
@@ -197,6 +197,7 @@
             Controls.Add(ts_main);
             IsMdiContainer = true;
             Name = "Main";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
             Load += Main_Load;
             ts_main.ResumeLayout(false);

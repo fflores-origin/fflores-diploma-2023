@@ -202,15 +202,99 @@ CREATE TABLE Factura(
 	
 )
 
-
 ----
 --SPs
+
+GO
+CREATE OR ALTER PROCEDURE PedidoSave(
+@Id UNIQUEIDENTIFIER,
+@ClienteId UNIQUEIDENTIFIER,
+@ListaId UNIQUEIDENTIFIER)
+AS
+BEGIN 
+	INSERT INTO DomainDB.dbo.Pedido
+	(Id, ClienteId, ListaId)
+	VALUES(@Id, @ClienteId, @ListaId);
+END
+
+GO
+CREATE OR ALTER PROCEDURE PedidoDetalleSave(
+@PedidoId UNIQUEIDENTIFIER,
+@ArticuloId UNIQUEIDENTIFIER,
+@Precio DECIMAL)
+AS
+BEGIN 
+	INSERT INTO PedidoDetalle
+	(PedidoId, ArticuloId, Precio)
+	VALUES(@PedidoId, @ArticuloId, @Precio);
+END
+
+GO
+CREATE OR ALTER PROCEDURE PedidoUpdate(
+@Id UNIQUEIDENTIFIER,
+@ClienteId UNIQUEIDENTIFIER,
+@ListaId UNIQUEIDENTIFIER)
+AS
+BEGIN 
+	UPDATE Pedido
+	SET ClienteId=@ClienteId, ListaId=@ListaId
+	WHERE Id=@Id;
+END
+
+GO
+CREATE OR ALTER PROCEDURE PedidoDetalleUpdate(
+@PedidoId UNIQUEIDENTIFIER,
+@ArticuloId UNIQUEIDENTIFIER,
+@Precio DECIMAL)
+AS
+BEGIN 
+	UPDATE PedidoDetalle
+	SET Precio=@Precio
+	WHERE PedidoId=@PedidoId AND ArticuloId=@ArticuloId;
+END
+
+
 GO
 CREATE OR ALTER PROCEDURE PedidosGetAll
 AS
 BEGIN
-	SELECT * from Pedidos
-	SELECT * from PedidosDetalle
+	SELECT 
+		p.Id,
+		p.ClienteId,
+		p.ListaId,
+		c.Nombre,
+		c.Documento,
+		c.Direccion,
+		c.Email,
+		c.Telefono,
+		c.TipoDocumentoId,
+		td.Nombre as TipoDocumentoNombre,
+		c.TipoClienteId,
+		tc.Nombre as TipoClienteNombre,
+		l.Nombre NombreLista, 
+		l.Porcentaje  
+	from Pedido p
+	join Cliente c on c.Id = p.ClienteId
+	join TipoCliente tc on tc.Id = c.TipoClienteId
+	join TipoDocumento td on td.Id = c.TipoDocumentoId
+	join Lista l on l.Id = p.ListaId
+	
+	SELECT 
+		pd.PedidoId,
+		pd.Precio,
+		a.Id as ArticuloId,
+		a.Nombre,
+		a.Codigo,
+		a.Descripcion , 
+		a.Imagen ,
+		a.Marca ,
+		a.PrecioUnitario ,
+		a.CategoriaId ,
+		c.Nombre as CategoriaNombre
+	from PedidoDetalle pd
+	join Articulo a on a.Id = pd.ArticuloId
+	join Categoria c on c.Id = a.CategoriaId 
+	
 END
 
 GO
@@ -219,6 +303,45 @@ CREATE OR ALTER PROCEDURE PedidosGet(
 )
 AS
 BEGIN
+	
+	SELECT 
+		p.Id,
+		p.ClienteId,
+		p.ListaId,
+		c.Nombre,
+		c.Documento,
+		c.Direccion,
+		c.Email,
+		c.Telefono,
+		c.TipoDocumentoId,
+		td.Nombre as TipoDocumentoNombre,
+		c.TipoClienteId,
+		tc.Nombre as TipoClienteNombre,
+		l.Nombre NombreLista, 
+		l.Porcentaje  
+	from Pedido p
+	join Cliente c on c.Id = p.ClienteId
+	join TipoCliente tc on tc.Id = c.TipoClienteId
+	join TipoDocumento td on td.Id = c.TipoDocumentoId
+	join Lista l on l.Id = p.ListaId
+	WHERE p.Id = @id
+	
+	SELECT 
+		pd.PedidoId,
+		pd.Precio,
+		a.Id as ArticuloId,
+		a.Nombre,
+		a.Codigo,
+		a.Descripcion , 
+		a.Imagen ,
+		a.Marca ,
+		a.PrecioUnitario ,
+		a.CategoriaId ,
+		c.Nombre as CategoriaNombre
+	from PedidoDetalle pd
+	join Articulo a on a.Id = pd.ArticuloId
+	join Categoria c on c.Id = a.CategoriaId 
+	WHERE pd.PedidoId = @id
 	
 END
 

@@ -33,24 +33,24 @@
             panel5 = new Panel();
             label4 = new Label();
             panel1 = new Panel();
+            label1 = new Label();
+            btn_bill = new Button();
+            lbl_save = new Label();
             btn_save = new Button();
             btn_remove = new Button();
             btn_add = new Button();
             lbl_lista = new Label();
-            comboBox2 = new ComboBox();
+            cbx_lista = new ComboBox();
             dgv_productos = new DataGridView();
             lbl_cantidad = new Label();
-            textBox1 = new TextBox();
+            txt_cantidad = new TextBox();
             lbl_pedido = new Label();
             dgv_pedido = new DataGridView();
-            comboBox1 = new ComboBox();
+            cbx_clientes = new ComboBox();
             lbl_cliente = new Label();
             panel2 = new Panel();
             btn_new = new Button();
             dgv_lista_pedidos = new DataGridView();
-            lbl_save = new Label();
-            btn_bill = new Button();
-            label1 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_productos).BeginInit();
@@ -98,18 +98,49 @@
             panel1.Controls.Add(btn_remove);
             panel1.Controls.Add(btn_add);
             panel1.Controls.Add(lbl_lista);
-            panel1.Controls.Add(comboBox2);
+            panel1.Controls.Add(cbx_lista);
             panel1.Controls.Add(dgv_productos);
             panel1.Controls.Add(lbl_cantidad);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txt_cantidad);
             panel1.Controls.Add(lbl_pedido);
             panel1.Controls.Add(dgv_pedido);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(cbx_clientes);
             panel1.Controls.Add(lbl_cliente);
             panel1.Location = new Point(15, 346);
             panel1.Name = "panel1";
             panel1.Size = new Size(882, 418);
             panel1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(743, 387);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 15);
+            label1.TabIndex = 18;
+            label1.Text = "Facturar";
+            // 
+            // btn_bill
+            // 
+            btn_bill.BackgroundImage = Properties.Resources.bill;
+            btn_bill.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_bill.FlatAppearance.BorderSize = 0;
+            btn_bill.FlatStyle = FlatStyle.Flat;
+            btn_bill.Location = new Point(747, 337);
+            btn_bill.Name = "btn_bill";
+            btn_bill.Size = new Size(46, 46);
+            btn_bill.TabIndex = 17;
+            btn_bill.UseVisualStyleBackColor = true;
+            btn_bill.Click += btn_bill_Click;
+            // 
+            // lbl_save
+            // 
+            lbl_save.AutoSize = true;
+            lbl_save.Location = new Point(809, 387);
+            lbl_save.Name = "lbl_save";
+            lbl_save.Size = new Size(49, 15);
+            lbl_save.TabIndex = 16;
+            lbl_save.Text = "Guardar";
             // 
             // btn_save
             // 
@@ -156,13 +187,13 @@
             lbl_lista.TabIndex = 10;
             lbl_lista.Text = "Lista";
             // 
-            // comboBox2
+            // cbx_lista
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(114, 87);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(315, 23);
-            comboBox2.TabIndex = 9;
+            cbx_lista.FormattingEnabled = true;
+            cbx_lista.Location = new Point(114, 87);
+            cbx_lista.Name = "cbx_lista";
+            cbx_lista.Size = new Size(315, 23);
+            cbx_lista.TabIndex = 9;
             // 
             // dgv_productos
             // 
@@ -183,12 +214,12 @@
             lbl_cantidad.TabIndex = 7;
             lbl_cantidad.Text = "Cantidad";
             // 
-            // textBox1
+            // txt_cantidad
             // 
-            textBox1.Location = new Point(266, 284);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(163, 23);
-            textBox1.TabIndex = 6;
+            txt_cantidad.Location = new Point(266, 284);
+            txt_cantidad.Name = "txt_cantidad";
+            txt_cantidad.Size = new Size(163, 23);
+            txt_cantidad.TabIndex = 6;
             // 
             // lbl_pedido
             // 
@@ -209,13 +240,13 @@
             dgv_pedido.Size = new Size(396, 241);
             dgv_pedido.TabIndex = 4;
             // 
-            // comboBox1
+            // cbx_clientes
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(114, 58);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(315, 23);
-            comboBox1.TabIndex = 2;
+            cbx_clientes.FormattingEnabled = true;
+            cbx_clientes.Location = new Point(114, 58);
+            cbx_clientes.Name = "cbx_clientes";
+            cbx_clientes.Size = new Size(315, 23);
+            cbx_clientes.TabIndex = 2;
             // 
             // lbl_cliente
             // 
@@ -258,37 +289,6 @@
             dgv_lista_pedidos.Size = new Size(840, 189);
             dgv_lista_pedidos.TabIndex = 11;
             // 
-            // lbl_save
-            // 
-            lbl_save.AutoSize = true;
-            lbl_save.Location = new Point(809, 387);
-            lbl_save.Name = "lbl_save";
-            lbl_save.Size = new Size(49, 15);
-            lbl_save.TabIndex = 16;
-            lbl_save.Text = "Guardar";
-            // 
-            // btn_bill
-            // 
-            btn_bill.BackgroundImage = Properties.Resources.bill;
-            btn_bill.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_bill.FlatAppearance.BorderSize = 0;
-            btn_bill.FlatStyle = FlatStyle.Flat;
-            btn_bill.Location = new Point(747, 337);
-            btn_bill.Name = "btn_bill";
-            btn_bill.Size = new Size(46, 46);
-            btn_bill.TabIndex = 17;
-            btn_bill.UseVisualStyleBackColor = true;
-            btn_bill.Click += btn_bill_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(743, 387);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 15);
-            label1.TabIndex = 18;
-            label1.Text = "Facturar";
-            // 
             // GestionarPedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -319,13 +319,13 @@
         private Label label4;
         private Panel panel1;
         private Label lbl_cliente;
-        private ComboBox comboBox1;
+        private ComboBox cbx_clientes;
         private DataGridView dgv_pedido;
         private Label lbl_pedido;
         private Label lbl_cantidad;
-        private TextBox textBox1;
+        private TextBox txt_cantidad;
         private Label lbl_lista;
-        private ComboBox comboBox2;
+        private ComboBox cbx_lista;
         private DataGridView dgv_productos;
         private Panel panel2;
         private DataGridView dgv_lista_pedidos;
