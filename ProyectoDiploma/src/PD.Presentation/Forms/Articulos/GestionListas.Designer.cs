@@ -33,8 +33,13 @@
             panel5 = new Panel();
             label4 = new Label();
             panel1 = new Panel();
+            btn_new = new Button();
             panel4 = new Panel();
-            textBox1 = new TextBox();
+            label2 = new Label();
+            lbl_todos = new Label();
+            btn_massive = new Button();
+            btn_save = new Button();
+            txt_ganancia = new TextBox();
             label1 = new Label();
             txt_nombre = new TextBox();
             lbl_nombre = new Label();
@@ -43,11 +48,6 @@
             panel2 = new Panel();
             lbl_producto = new Label();
             dgv_precios = new DataGridView();
-            button1 = new Button();
-            btn_save = new Button();
-            btn_massive = new Button();
-            lbl_todos = new Label();
-            label2 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -88,7 +88,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btn_new);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(lbl_listas);
             panel1.Controls.Add(dgv_listas);
@@ -97,6 +97,20 @@
             panel1.Size = new Size(763, 319);
             panel1.TabIndex = 6;
             // 
+            // btn_new
+            // 
+            btn_new.BackgroundImage = Properties.Resources.plus1;
+            btn_new.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_new.FlatAppearance.BorderSize = 0;
+            btn_new.FlatStyle = FlatStyle.Flat;
+            btn_new.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_new.Location = new Point(328, 236);
+            btn_new.Name = "btn_new";
+            btn_new.Size = new Size(46, 46);
+            btn_new.TabIndex = 16;
+            btn_new.UseVisualStyleBackColor = true;
+            btn_new.Click += btn_new_Click;
+            // 
             // panel4
             // 
             panel4.BackColor = Color.White;
@@ -104,7 +118,7 @@
             panel4.Controls.Add(lbl_todos);
             panel4.Controls.Add(btn_massive);
             panel4.Controls.Add(btn_save);
-            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(txt_ganancia);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(txt_nombre);
             panel4.Controls.Add(lbl_nombre);
@@ -113,13 +127,55 @@
             panel4.Size = new Size(333, 237);
             panel4.TabIndex = 15;
             // 
-            // textBox1
+            // label2
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(91, 85);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(225, 23);
-            textBox1.TabIndex = 35;
+            label2.AutoSize = true;
+            label2.Location = new Point(260, 201);
+            label2.Name = "label2";
+            label2.Size = new Size(49, 15);
+            label2.TabIndex = 44;
+            label2.Text = "Guardar";
+            // 
+            // lbl_todos
+            // 
+            lbl_todos.AutoSize = true;
+            lbl_todos.Location = new Point(174, 201);
+            lbl_todos.Name = "lbl_todos";
+            lbl_todos.Size = new Size(60, 15);
+            lbl_todos.TabIndex = 43;
+            lbl_todos.Text = "Regenerar";
+            // 
+            // btn_massive
+            // 
+            btn_massive.BackgroundImage = Properties.Resources.update_all;
+            btn_massive.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_massive.FlatAppearance.BorderSize = 0;
+            btn_massive.FlatStyle = FlatStyle.Flat;
+            btn_massive.Location = new Point(180, 151);
+            btn_massive.Name = "btn_massive";
+            btn_massive.Size = new Size(46, 46);
+            btn_massive.TabIndex = 42;
+            btn_massive.UseVisualStyleBackColor = true;
+            // 
+            // btn_save
+            // 
+            btn_save.BackgroundImage = (Image)resources.GetObject("btn_save.BackgroundImage");
+            btn_save.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_save.FlatAppearance.BorderSize = 0;
+            btn_save.FlatStyle = FlatStyle.Flat;
+            btn_save.Location = new Point(261, 151);
+            btn_save.Name = "btn_save";
+            btn_save.Size = new Size(46, 46);
+            btn_save.TabIndex = 41;
+            btn_save.UseVisualStyleBackColor = true;
+            btn_save.Click += btn_save_Click;
+            // 
+            // txt_ganancia
+            // 
+            txt_ganancia.Location = new Point(91, 85);
+            txt_ganancia.Name = "txt_ganancia";
+            txt_ganancia.Size = new Size(225, 23);
+            txt_ganancia.TabIndex = 35;
             // 
             // label1
             // 
@@ -132,7 +188,6 @@
             // 
             // txt_nombre
             // 
-            txt_nombre.Enabled = false;
             txt_nombre.Location = new Point(90, 48);
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(225, 23);
@@ -198,62 +253,6 @@
             dgv_precios.Size = new Size(717, 303);
             dgv_precios.TabIndex = 0;
             // 
-            // button1
-            // 
-            button1.BackgroundImage = Properties.Resources.plus1;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(328, 236);
-            button1.Name = "button1";
-            button1.Size = new Size(46, 46);
-            button1.TabIndex = 16;
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // btn_save
-            // 
-            btn_save.BackgroundImage = (Image)resources.GetObject("btn_save.BackgroundImage");
-            btn_save.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_save.FlatAppearance.BorderSize = 0;
-            btn_save.FlatStyle = FlatStyle.Flat;
-            btn_save.Location = new Point(261, 151);
-            btn_save.Name = "btn_save";
-            btn_save.Size = new Size(46, 46);
-            btn_save.TabIndex = 41;
-            btn_save.UseVisualStyleBackColor = true;
-            btn_save.Click += btn_save_Click;
-            // 
-            // btn_massive
-            // 
-            btn_massive.BackgroundImage = Properties.Resources.update_all;
-            btn_massive.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_massive.FlatAppearance.BorderSize = 0;
-            btn_massive.FlatStyle = FlatStyle.Flat;
-            btn_massive.Location = new Point(180, 151);
-            btn_massive.Name = "btn_massive";
-            btn_massive.Size = new Size(46, 46);
-            btn_massive.TabIndex = 42;
-            btn_massive.UseVisualStyleBackColor = true;
-            // 
-            // lbl_todos
-            // 
-            lbl_todos.AutoSize = true;
-            lbl_todos.Location = new Point(174, 201);
-            lbl_todos.Name = "lbl_todos";
-            lbl_todos.Size = new Size(60, 15);
-            lbl_todos.TabIndex = 43;
-            lbl_todos.Text = "Regenerar";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(260, 201);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 15);
-            label2.TabIndex = 44;
-            label2.Text = "Guardar";
-            // 
             // GestionListas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -295,9 +294,9 @@
         private Panel panel4;
         private TextBox txt_nombre;
         private Label lbl_nombre;
-        private TextBox textBox1;
+        private TextBox txt_ganancia;
         private Label label1;
-        private Button button1;
+        private Button btn_new;
         private Button btn_save;
         private Button btn_massive;
         private Label lbl_todos;

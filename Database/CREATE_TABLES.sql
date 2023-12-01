@@ -269,6 +269,48 @@ create table FacturaDetalle(
 --------------------------------------------------------------------
 
 GO
+CREATE OR ALTER PROCEDURE ListaCreate(
+@Id UNIQUEIDENTIFIER,
+@Nombre varchar(100),
+@Porcentaje money)
+AS
+BEGIN 
+	INSERT INTO Lista
+	(Id, Nombre, Porcentaje)
+	VALUES(@Id, @Nombre, @Porcentaje);
+
+	INSERT INTO ListaArticulo (ArticuloId, ListaId, Precio)
+	SELECT 
+		Id as ArticuloId , 
+		@id as ListaId, 
+		((a.PrecioUnitario * (@Porcentaje /100)) + a.PrecioUnitario) as Precio 
+	from Articulo a
+
+END
+
+GO
+CREATE OR ALTER PROCEDURE ListaUpdate(
+@Id UNIQUEIDENTIFIER,
+@Nombre varchar(100),
+@Porcentaje money)
+AS
+BEGIN 
+	UPDATE Lista
+	SET Nombre=@Nombre, Porcentaje=@Porcentaje
+	WHERE Id=@Id;
+
+	UPDATE LA
+	SET LA.Precio = (A.PrecioUnitario * (L.Porcentaje /100)) + A.PrecioUnitario
+	FROM ListaArticulo LA
+	JOIN Articulo A ON LA.ArticuloId = A.Id
+	JOIN Lista L ON LA.ListaId = L.Id
+	WHERE L.Id = @Id
+
+END
+
+
+
+GO
 CREATE OR ALTER PROCEDURE PedidoSave(
 @Id UNIQUEIDENTIFIER,
 @ClienteId UNIQUEIDENTIFIER,

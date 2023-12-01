@@ -18,5 +18,10 @@ namespace PD.Core
         {
             return _listaRepository.GetAll();
         }
+
+        public Lista Save(Lista lista)
+        {
+            return _listaRepository.Save(lista);
+        }
     }
 }

@@ -130,12 +130,12 @@ namespace PD.Repositories
 
                 if (articuloLista.Any())
                 {
-                    query = @"UPDATE LA
+                    query = @$"UPDATE LA
                               SET LA.Precio = (A.PrecioUnitario * (L.Porcentaje /100)) + A.PrecioUnitario
                               FROM ListaArticulo LA
                               JOIN Articulo A ON LA.ArticuloId = A.Id
                               JOIN Lista L ON LA.ListaId = L.Id
-                              WHERE A.Lista;";
+                              WHERE A.Id == '{articulo.Id}';";
                 }
                 else
                 {
@@ -153,6 +153,48 @@ namespace PD.Repositories
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public Lista Save(Lista lista)
+        {
+            string? query;
+
+            if (lista.Id == Guid.Empty)
+            {
+                lista.Id = Guid.NewGuid();
+                query = "ListaCreate";
+            }
+            else
+            {
+                query = "ListaUpdate";
+            }
+
+            using (var conn = _connection.CreateConnection())
+            {
+                SqlTransaction tran = conn.BeginTransaction();
+                conn.Open();
+
+                try
+                {
+                    using SqlCommand cmd = new(query, conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id", lista.Id);
+                    cmd.Parameters.AddWithValue("@Nombre", lista.Nombre);
+                    cmd.Parameters.AddWithValue("@Porcentaje", lista.Porcentaje);
+
+                    cmd.ExecuteNonQuery();
+
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    throw ex;
+                }
+            }
+
+            return lista;
         }
     }
 }

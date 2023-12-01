@@ -25,7 +25,8 @@ namespace PD.Presentation.Bootstrap
             services
                 .AddSingleton<GestionListas>()
                 .AddSingleton<EdicionArticulo>()
-                .AddSingleton<GestionArticulos>();
+                .AddSingleton<GestionArticulos>()
+                .AddSingleton<GestionarPedidos>();
         }
 
         private static void AddDependencyInjectionConfiguracion(this IServiceCollection services)

@@ -68,7 +68,7 @@ namespace PD.Presentation.Forms.Pedidos
             _listas = _listasManager.GetAll().ToList();
             if (_listas.Any())
             {
-                var listado = _listas.Select(x => new { Value = x.Nombre, Key = x.Id });
+                var listado = _listas.Select(x => new { Value = x.Nombre, Key = x.Id }).ToList();
                 cbx_lista.DataSource = listado;
                 cbx_lista.DisplayMember = "Value";
                 cbx_lista.ValueMember = "Key";
