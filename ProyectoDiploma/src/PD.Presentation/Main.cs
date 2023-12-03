@@ -63,7 +63,7 @@ namespace PD.Presentation
 
         private void Btn_gestionarArticulos_Click(object sender, EventArgs e)
         {
-            _gestionArticulosForm.Show();
+            _gestionArticulosForm.ShowAndLoad();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -72,6 +72,7 @@ namespace PD.Presentation
             LoadLanguages();
             SetLanguage();
             Translate();
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

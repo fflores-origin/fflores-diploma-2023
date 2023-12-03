@@ -171,12 +171,12 @@ namespace PD.Repositories
 
             using (var conn = _connection.CreateConnection())
             {
-                SqlTransaction tran = conn.BeginTransaction();
                 conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
 
                 try
                 {
-                    using SqlCommand cmd = new(query, conn);
+                    using SqlCommand cmd = new(query, conn, tran);
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@Id", lista.Id);

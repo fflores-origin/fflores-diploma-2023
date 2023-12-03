@@ -3,7 +3,7 @@ using PD.Entities;
 
 namespace PD.Presentation.Forms.Pedidos
 {
-    public partial class GestionarPedidos : Form
+    public partial class GestionarPedidos : FormBase
     {
         private readonly IPedidosManager _pedidosManager;
         private readonly IClienteManager _clienteManager;
@@ -25,6 +25,11 @@ namespace PD.Presentation.Forms.Pedidos
         }
 
         private void GestionarPedidos_Load(object sender, EventArgs e)
+        {
+            FormLoad();
+        }
+
+        private void FormLoad()
         {
             FillComboCliente();
             FillComboLista();
@@ -81,12 +86,16 @@ namespace PD.Presentation.Forms.Pedidos
             txt_fecha.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
+        private void InitDate() => txt_fecha.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
         private void btn_bill_Click(object sender, EventArgs e)
         {
         }
 
         public void ShowAndLoad()
         {
+            FormLoad();
+            InitDate();
             this.Show();
         }
     }

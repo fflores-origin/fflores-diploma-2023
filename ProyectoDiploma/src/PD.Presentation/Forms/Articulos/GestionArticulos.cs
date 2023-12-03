@@ -1,6 +1,5 @@
 ﻿using PD.Core.DTO;
 using PD.Core.Interfaces;
-using System.Windows.Forms;
 
 namespace PD.Presentation.Forms.Articulos
 {
@@ -18,19 +17,25 @@ namespace PD.Presentation.Forms.Articulos
             _articuloManager = articuloManager;
             _edicionArticuloForm = edicionArticuloForm;
 
+            _edicionArticuloForm.MdiParent = this.MdiParent;
             dgv_articulos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            _edicionArticuloForm.ClearAndOpen(this);
-            _edicionArticuloForm.MdiParent = this.MdiParent;
+            _edicionArticuloForm.ClearAndOpen(this, null);
         }
 
         private void GestionArticulos_Load(object sender, EventArgs e)
         {
             LoadGrid();
             FormatGrid();
+        }
+
+        public void ShowAndLoad()
+        {
+            LoadGrid();
+            this.Show();
         }
 
         public void LoadGrid()
@@ -82,7 +87,6 @@ namespace PD.Presentation.Forms.Articulos
                 Text = "Editar",
                 DataPropertyName = "Id",
                 FlatStyle = FlatStyle.Flat,
-
             });
         }
 
@@ -92,7 +96,6 @@ namespace PD.Presentation.Forms.Articulos
             {
                 DataGridViewRow selectedRow = dgv_articulos.SelectedRows[0];
                 ArticuloListaDTO productoSeleccionado = (ArticuloListaDTO)selectedRow.DataBoundItem;
-                Console.WriteLine($"Producto seleccionado: {productoSeleccionado.Nombre}, ID: {productoSeleccionado.Id}");
             }
         }
 
@@ -154,14 +157,13 @@ namespace PD.Presentation.Forms.Articulos
 
         private void DGV_CellClick(object? sender, DataGridViewCellEventArgs e)
         {
-
             // Verifica si la celda clicada pertenece a la columna de botones
             if (dgv_articulos.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-
                 ArticuloListaDTO producto = (ArticuloListaDTO)dgv_articulos.Rows[e.RowIndex].DataBoundItem;
 
-                _edicionArticuloForm.ClearAndOpen(id: producto.Id);
+                _edicionArticuloForm.ClearAndOpen((GestionArticulos)this, id: producto.Id);
+                //_edicionArticuloForm.MdiParent = this.Parent.Parent;
                 // Aquí puedes realizar la acción deseada
                 // Por ejemplo, obtener el valor de la celda en la misma fila
                 //object valorCelda = dgv_articulos.Rows[e.RowIndex].Cells["Editar"].Value;

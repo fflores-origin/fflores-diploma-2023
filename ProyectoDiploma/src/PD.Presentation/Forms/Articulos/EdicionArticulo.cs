@@ -43,12 +43,14 @@ namespace PD.Presentation.Forms.Articulos
 
         private void InitializeValues()
         {
+            txt_id.Text = "";
             txt_cantidad.Text = "0";
             txt_ubicacion.Text = "";
             txt_precio.Text = "0.00";
             txt_nombre.Text = "";
             txt_descripcion.Text = "";
             txt_marca.Text = "";
+            txt_codigo.Text = "";
             pic_base.BackgroundImage = Properties.Resources.no_image;
         }
 
@@ -93,7 +95,10 @@ namespace PD.Presentation.Forms.Articulos
 
                 GenerateQR();
 
-                _parentForm.LoadGrid();
+                if(_parentForm != null)
+                {
+                    _parentForm.LoadGrid();
+                }
 
                 MessageBox.Show("Articulo Creado");
 

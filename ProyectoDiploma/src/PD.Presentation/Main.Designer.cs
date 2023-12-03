@@ -33,8 +33,8 @@
             tsc_articulos = new ToolStripDropDownButton();
             tsb_gestionarArticulos = new ToolStripMenuItem();
             tsb_Listas = new ToolStripMenuItem();
-            tsb_ordenesDeCompra = new ToolStripMenuItem();
             tsb_gestionarPedidos = new ToolStripMenuItem();
+            tsb_ordenesDeCompra = new ToolStripMenuItem();
             tsc_documentos = new ToolStripDropDownButton();
             informesToolStripMenuItem = new ToolStripMenuItem();
             generarListadosToolStripMenuItem = new ToolStripMenuItem();
@@ -85,19 +85,19 @@
             tsb_Listas.Text = "Gestionar Listas";
             tsb_Listas.Click += listasToolStripMenuItem_Click;
             // 
-            // tsb_ordenesDeCompra
-            // 
-            tsb_ordenesDeCompra.Name = "tsb_ordenesDeCompra";
-            tsb_ordenesDeCompra.Size = new Size(180, 22);
-            tsb_ordenesDeCompra.Text = "Ordenes de Compra";
-            tsb_ordenesDeCompra.Click += tsb_ordenesDeCompra_Click;
-            // 
             // tsb_gestionarPedidos
             // 
             tsb_gestionarPedidos.Name = "tsb_gestionarPedidos";
             tsb_gestionarPedidos.Size = new Size(180, 22);
             tsb_gestionarPedidos.Text = "Gestionar Pedidos";
             tsb_gestionarPedidos.Click += gestionarPedidosToolStripMenuItem_Click;
+            // 
+            // tsb_ordenesDeCompra
+            // 
+            tsb_ordenesDeCompra.Name = "tsb_ordenesDeCompra";
+            tsb_ordenesDeCompra.Size = new Size(180, 22);
+            tsb_ordenesDeCompra.Text = "Ordenes de Compra";
+            tsb_ordenesDeCompra.Click += tsb_ordenesDeCompra_Click;
             // 
             // tsc_documentos
             // 
@@ -208,6 +208,7 @@
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Main";
+            WindowState = FormWindowState.Maximized;
             Load += Main_Load;
             ts_main.ResumeLayout(false);
             ts_main.PerformLayout();

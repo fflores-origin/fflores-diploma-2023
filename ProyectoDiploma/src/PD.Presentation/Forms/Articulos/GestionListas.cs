@@ -69,7 +69,8 @@ namespace PD.Presentation.Forms.Articulos
 
             dic.TryGetValue(listaId, out var data);
 
-            dgv_precios.DataSource = data;
+            if (data != null)
+                dgv_precios.DataSource = data.ToList();
         }
 
         #endregion Fill Grids
@@ -96,7 +97,7 @@ namespace PD.Presentation.Forms.Articulos
 
         private void FormatGridPrecios()
         {
-            dgv_precios.RowTemplate.Height = 50;
+            dgv_precios.RowTemplate.Height = 30;
             dgv_precios.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Nombre",
@@ -127,7 +128,15 @@ namespace PD.Presentation.Forms.Articulos
 
         private void OnCellContentClickLista(object? sender, DataGridViewCellEventArgs e)
         {
-            throw new NotImplementedException();
+            if (dgv_listas.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgv_listas.SelectedRows[0];
+                var select = (ListaDTO)selectedRow.DataBoundItem;
+
+                MsgBoxHelpers.ShowError($"seleccionado {select.Id}");
+                //_selected = _clientes.Where(x => x.Id == select.Id).FirstOrDefault();
+                //FillInputs();
+            }
         }
 
         private void OnSelectionChangedLista(object sender, EventArgs e)
@@ -154,6 +163,15 @@ namespace PD.Presentation.Forms.Articulos
 
         private void GestionListas_Load(object sender, EventArgs e)
         {
+            LoadForm();
+
+            FormatGridLista();
+            FormatGridPrecios();
+            AddGridEvents();
+        }
+
+        private void LoadForm()
+        {
             _listas = _manager.GetAll().ToList();
 
             FillLista();
@@ -161,10 +179,6 @@ namespace PD.Presentation.Forms.Articulos
             {
                 FillPrecios(_listas[0].Id);
             }
-
-            FormatGridLista();
-            FormatGridPrecios();
-            AddGridEvents();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -193,8 +207,9 @@ namespace PD.Presentation.Forms.Articulos
                     _lista.Porcentaje = decimal.Parse(txt_ganancia.Text);
                 }
 
-
                 _manager.Save(_lista);
+
+                FillLista();
             }
             catch (Exception ex)
             {
