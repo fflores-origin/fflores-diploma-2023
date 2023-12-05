@@ -128,31 +128,29 @@ namespace PD.Presentation.Forms.Articulos
 
         private void OnCellContentClickLista(object? sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_listas.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgv_listas.SelectedRows[0];
-                var select = (ListaDTO)selectedRow.DataBoundItem;
-
-                MsgBoxHelpers.ShowError($"seleccionado {select.Id}");
-                //_selected = _clientes.Where(x => x.Id == select.Id).FirstOrDefault();
-                //FillInputs();
-            }
+            GetSelected();
         }
 
         private void OnSelectionChangedLista(object sender, EventArgs e)
         {
+            GetSelected();
+        }
+
+        private void GetSelected()
+        {
             if (dgv_listas.SelectedRows.Count > 0)
             {
-                DataGridViewRow selectedRow = dgv_listas.SelectedRows[0];
-                ListaDTO selected = (ListaDTO)selectedRow.DataBoundItem;
-
-                if (_listas.Any())
-                {
-                    _lista = _listas.Where(x => selected.Id == x.Id).FirstOrDefault();
-                    txt_ganancia.Text = _lista?.Porcentaje.ToString();
-                    txt_nombre.Text = _lista?.Nombre.ToString();
-                }
+                var select = (ListaDTO)dgv_listas.SelectedRows[0].DataBoundItem;
+                _lista = _listas.Where(x => x.Id == select.Id).FirstOrDefault();
+                FillInputs();
             }
+        }
+
+        private void FillInputs()
+        {
+            FillPrecios(_lista.Id);
+            txt_ganancia.Text = _lista?.Porcentaje.ToString();
+            txt_nombre.Text = _lista?.Nombre.ToString();
         }
 
         #endregion Grids
