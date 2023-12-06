@@ -31,28 +31,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionListas));
             panel3 = new Panel();
             panel5 = new Panel();
-            label4 = new Label();
-            panel1 = new Panel();
+            lbl_title_lista = new Label();
+            pnl_lista = new Panel();
             btn_new = new Button();
-            panel4 = new Panel();
-            label2 = new Label();
+            pnl_edicion = new Panel();
+            lbl_save = new Label();
             lbl_todos = new Label();
             btn_massive = new Button();
             btn_save = new Button();
             txt_ganancia = new TextBox();
-            label1 = new Label();
+            lbl_ganancia = new Label();
             txt_nombre = new TextBox();
             lbl_nombre = new Label();
             lbl_listas = new Label();
             dgv_listas = new DataGridView();
-            panel2 = new Panel();
+            pnl_productos = new Panel();
             lbl_producto = new Label();
             dgv_precios = new DataGridView();
             panel3.SuspendLayout();
-            panel1.SuspendLayout();
-            panel4.SuspendLayout();
+            pnl_lista.SuspendLayout();
+            pnl_edicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_listas).BeginInit();
-            panel2.SuspendLayout();
+            pnl_productos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_precios).BeginInit();
             SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(panel5);
-            panel3.Controls.Add(label4);
+            panel3.Controls.Add(lbl_title_lista);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(763, 51);
@@ -75,27 +75,28 @@
             panel5.Size = new Size(45, 45);
             panel5.TabIndex = 7;
             // 
-            // label4
+            // lbl_title_lista
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(98, 32);
-            label4.TabIndex = 6;
-            label4.Text = "LISTAS";
+            lbl_title_lista.AutoSize = true;
+            lbl_title_lista.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_title_lista.Location = new Point(54, 11);
+            lbl_title_lista.Name = "lbl_title_lista";
+            lbl_title_lista.Size = new Size(98, 32);
+            lbl_title_lista.TabIndex = 6;
+            lbl_title_lista.Tag = "lbl_title_lista";
+            lbl_title_lista.Text = "LISTAS";
             // 
-            // panel1
+            // pnl_lista
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(btn_new);
-            panel1.Controls.Add(panel4);
-            panel1.Controls.Add(lbl_listas);
-            panel1.Controls.Add(dgv_listas);
-            panel1.Location = new Point(12, 69);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(763, 319);
-            panel1.TabIndex = 6;
+            pnl_lista.BackColor = Color.White;
+            pnl_lista.Controls.Add(btn_new);
+            pnl_lista.Controls.Add(pnl_edicion);
+            pnl_lista.Controls.Add(lbl_listas);
+            pnl_lista.Controls.Add(dgv_listas);
+            pnl_lista.Location = new Point(12, 69);
+            pnl_lista.Name = "pnl_lista";
+            pnl_lista.Size = new Size(763, 319);
+            pnl_lista.TabIndex = 6;
             // 
             // btn_new
             // 
@@ -111,30 +112,30 @@
             btn_new.UseVisualStyleBackColor = true;
             btn_new.Click += btn_new_Click;
             // 
-            // panel4
+            // pnl_edicion
             // 
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(label2);
-            panel4.Controls.Add(lbl_todos);
-            panel4.Controls.Add(btn_massive);
-            panel4.Controls.Add(btn_save);
-            panel4.Controls.Add(txt_ganancia);
-            panel4.Controls.Add(label1);
-            panel4.Controls.Add(txt_nombre);
-            panel4.Controls.Add(lbl_nombre);
-            panel4.Location = new Point(406, 45);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(333, 237);
-            panel4.TabIndex = 15;
+            pnl_edicion.BackColor = Color.White;
+            pnl_edicion.Controls.Add(lbl_save);
+            pnl_edicion.Controls.Add(lbl_todos);
+            pnl_edicion.Controls.Add(btn_massive);
+            pnl_edicion.Controls.Add(btn_save);
+            pnl_edicion.Controls.Add(txt_ganancia);
+            pnl_edicion.Controls.Add(lbl_ganancia);
+            pnl_edicion.Controls.Add(txt_nombre);
+            pnl_edicion.Controls.Add(lbl_nombre);
+            pnl_edicion.Location = new Point(406, 45);
+            pnl_edicion.Name = "pnl_edicion";
+            pnl_edicion.Size = new Size(333, 237);
+            pnl_edicion.TabIndex = 15;
             // 
-            // label2
+            // lbl_save
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(260, 201);
-            label2.Name = "label2";
-            label2.Size = new Size(49, 15);
-            label2.TabIndex = 44;
-            label2.Text = "Guardar";
+            lbl_save.AutoSize = true;
+            lbl_save.Location = new Point(260, 201);
+            lbl_save.Name = "lbl_save";
+            lbl_save.Size = new Size(49, 15);
+            lbl_save.TabIndex = 44;
+            lbl_save.Text = "Guardar";
             // 
             // lbl_todos
             // 
@@ -177,14 +178,14 @@
             txt_ganancia.Size = new Size(225, 23);
             txt_ganancia.TabIndex = 35;
             // 
-            // label1
+            // lbl_ganancia
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 88);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 15);
-            label1.TabIndex = 36;
-            label1.Text = "Ganancia %";
+            lbl_ganancia.AutoSize = true;
+            lbl_ganancia.Location = new Point(12, 88);
+            lbl_ganancia.Name = "lbl_ganancia";
+            lbl_ganancia.Size = new Size(69, 15);
+            lbl_ganancia.TabIndex = 36;
+            lbl_ganancia.Text = "Ganancia %";
             // 
             // txt_nombre
             // 
@@ -223,15 +224,15 @@
             dgv_listas.Size = new Size(351, 185);
             dgv_listas.TabIndex = 0;
             // 
-            // panel2
+            // pnl_productos
             // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(lbl_producto);
-            panel2.Controls.Add(dgv_precios);
-            panel2.Location = new Point(12, 394);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(763, 371);
-            panel2.TabIndex = 7;
+            pnl_productos.BackColor = Color.White;
+            pnl_productos.Controls.Add(lbl_producto);
+            pnl_productos.Controls.Add(dgv_precios);
+            pnl_productos.Location = new Point(12, 394);
+            pnl_productos.Name = "pnl_productos";
+            pnl_productos.Size = new Size(763, 371);
+            pnl_productos.TabIndex = 7;
             // 
             // lbl_producto
             // 
@@ -259,8 +260,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(787, 777);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(pnl_productos);
+            Controls.Add(pnl_lista);
             Controls.Add(panel3);
             MaximizeBox = false;
             MinimizeBox = false;
@@ -269,13 +270,13 @@
             Load += GestionListas_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            pnl_lista.ResumeLayout(false);
+            pnl_lista.PerformLayout();
+            pnl_edicion.ResumeLayout(false);
+            pnl_edicion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_listas).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            pnl_productos.ResumeLayout(false);
+            pnl_productos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_precios).EndInit();
             ResumeLayout(false);
         }
@@ -284,22 +285,22 @@
 
         private Panel panel3;
         private Panel panel5;
-        private Label label4;
-        private Panel panel1;
+        private Label lbl_title_lista;
+        private Panel pnl_lista;
         private DataGridView dgv_listas;
-        private Panel panel2;
+        private Panel pnl_productos;
         private DataGridView dgv_precios;
         private Label lbl_producto;
         private Label lbl_listas;
-        private Panel panel4;
+        private Panel pnl_edicion;
         private TextBox txt_nombre;
         private Label lbl_nombre;
         private TextBox txt_ganancia;
-        private Label label1;
+        private Label lbl_ganancia;
         private Button btn_new;
         private Button btn_save;
         private Button btn_massive;
         private Label lbl_todos;
-        private Label label2;
+        private Label lbl_save;
     }
 }

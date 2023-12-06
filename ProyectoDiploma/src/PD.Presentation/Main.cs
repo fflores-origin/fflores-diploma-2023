@@ -72,7 +72,6 @@ namespace PD.Presentation
             LoadLanguages();
             SetLanguage();
             Translate();
-
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -81,16 +80,17 @@ namespace PD.Presentation
             _gestionArticulosForm.Dispose();
             _gestionCategoriasForm.Dispose();
             _gestionarPermisosFrom.Dispose();
+            _gestionarClientesForm.Dispose();
+            _gestionarPedidosForm.Dispose();
+            _gestionListasForm.Dispose();
+            _gestionArticulosForm.Dispose();
+
             Application.Exit();
         }
 
         private void gestionarPermisosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _gestionarPermisosFrom.Show();
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
         }
 
         private void OpenCategoriasForm(object sender, EventArgs e)
@@ -186,7 +186,6 @@ namespace PD.Presentation
 
         private void tsb_ordenesDeCompra_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -30,6 +30,11 @@ namespace PD.Presentation.Helpers
                 return;
             }
 
+            if (control.GetType() == typeof(Panel))
+            {
+                ((Panel)control).Controls.TranslateAll(dic);
+            }
+
             if (control.Name != null && dic.ContainsKey(control.Name.ToString()))
             {
                 control.Text = dic[control.Name.ToString()].Valor;

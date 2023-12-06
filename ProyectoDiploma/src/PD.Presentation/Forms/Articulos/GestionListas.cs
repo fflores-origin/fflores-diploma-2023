@@ -3,18 +3,20 @@ using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
+using PD.Services;
+using PD.Services.Interfaces;
 
 namespace PD.Presentation.Forms.Articulos
 {
-    public partial class GestionListas : FormBase
+    public partial class GestionListas : FormBase, ILanguageObserver
     {
         #region Fields
 
         private readonly IListasManager _manager;
         private readonly IArticulosManager _managerArticulosManager;
+        private readonly IIdiomaManager _idiomaManager;
 
         private List<Lista> _listas;
-
         private Lista _lista;
 
         #endregion Fields
@@ -23,11 +25,13 @@ namespace PD.Presentation.Forms.Articulos
 
         public GestionListas(
             IListasManager manager,
-            IArticulosManager managerArticulosManager)
+            IArticulosManager managerArticulosManager,
+            IIdiomaManager idiomaManager)
         {
             InitializeComponent();
             _manager = manager;
             _managerArticulosManager = managerArticulosManager;
+            _idiomaManager = idiomaManager;
 
             //this.Load += GestionListas_Load;
         }
@@ -79,7 +83,7 @@ namespace PD.Presentation.Forms.Articulos
 
         private void FormatGridLista()
         {
-            dgv_listas.RowTemplate.Height = 50;
+            dgv_listas.RowTemplate.Height = 35;
             dgv_listas.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Nombre",
@@ -97,7 +101,7 @@ namespace PD.Presentation.Forms.Articulos
 
         private void FormatGridPrecios()
         {
-            dgv_precios.RowTemplate.Height = 30;
+            dgv_precios.RowTemplate.Height = 35;
             dgv_precios.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Nombre",
@@ -117,6 +121,17 @@ namespace PD.Presentation.Forms.Articulos
                 Name = "Precio Lista",
                 DataPropertyName = "PrecioLista",
                 Width = 200,
+            });
+
+            dgv_precios.Columns.Add(new DataGridViewButtonColumn()
+            {
+                Name = "Editar",
+                UseColumnTextForButtonValue = true,
+                Text = "Editar",
+                HeaderText = "",
+                DataPropertyName = "Id",
+                Width = 50,
+                FlatStyle = FlatStyle.Flat
             });
         }
 
@@ -155,12 +170,10 @@ namespace PD.Presentation.Forms.Articulos
 
         #endregion Grids
 
-        private void btn_add_Click_1(object sender, EventArgs e)
-        {
-        }
-
         private void GestionListas_Load(object sender, EventArgs e)
         {
+            Sesion.SubscribeObserver(this);
+
             LoadForm();
 
             FormatGridLista();
@@ -259,6 +272,19 @@ namespace PD.Presentation.Forms.Articulos
             _lista = new Lista();
             txt_nombre.Text = string.Empty;
             txt_ganancia.Text = string.Empty;
+        }
+
+        public void OnLanguageChanged(Idioma idioma)
+        {
+            Translate();
+        }
+
+        private void Translate()
+        {
+            Idioma? idioma = null;
+            if (UserSesion.Session.IsLogged()) { idioma = UserSesion.Session.Usuario.Idioma; }
+            var traducciones = _idiomaManager.GetTraducciones(idioma);
+            this.Controls.TranslateAll(traducciones);
         }
     }
 }
