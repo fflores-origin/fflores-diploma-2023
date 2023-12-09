@@ -16,5 +16,7 @@
         public Categoria Categoria { get; set; }
 
         //public Marca Marca { get; set; }
+
+        public bool HasImage() => !string.IsNullOrEmpty(Imagen);
     }
 }

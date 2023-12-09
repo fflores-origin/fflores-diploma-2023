@@ -232,39 +232,22 @@ namespace PD.Presentation.Forms.Articulos
         {
             var errores = new List<string>();
 
-            if (txt_nombre.IsTextInvalid())
-            {
-                errores.Add(GetMessageFieldEmptyError("Nombre"));
-            }
+            if (txt_nombre.IsTextInvalid()) { errores.Add(StringExtensions.GetMessageFieldEmptyError("Nombre")); }
 
-            if (txt_ganancia.IsTextInvalid())
-            {
-                errores.Add(GetMessageFieldEmptyError("Ganancia"));
-            }
+            if (txt_ganancia.IsTextInvalid()) { errores.Add(StringExtensions.GetMessageFieldEmptyError("Ganancia")); }
             else
             {
                 decimal.TryParse(txt_ganancia.Text, out var parsed);
 
                 if (parsed == 0)
                 {
-                    errores.Add("Valor invalido para Ganancias");
+                    errores.Add(StringExtensions.GetMessageFieldInvalidValueError("Ganancias"));
                 }
             }
 
-            if (errores.Any()) { ShowMessageFieldsEmptyError(errores); }
+            if (errores.Any()) { StringExtensions.ShowMessageFieldsEmptyError(errores); }
 
             return errores.Any();
-        }
-
-        private void ShowMessageFieldsEmptyError(List<string> fields)
-        {
-            var messages = string.Join("\n", fields);
-            MessageBox.Show(messages, "Error en los datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private string GetMessageFieldEmptyError(string value)
-        {
-            return $"{value} no puede estar vacio";
         }
 
         private void btn_new_Click(object sender, EventArgs e)

@@ -33,6 +33,19 @@ namespace PD.Presentation.Helpers
             if (control.GetType() == typeof(Panel))
             {
                 ((Panel)control).Controls.TranslateAll(dic);
+                return;
+            }
+
+            if ((control.GetType() == typeof(DataGridView)))
+            {
+                foreach (var item in ((DataGridView)control).Columns.OfType<DataGridViewColumn>().ToList())
+                    if (!string.IsNullOrEmpty(item.Name) && dic.ContainsKey(item.Name))
+                    {
+                        item.HeaderText = dic[item.Name].Valor;
+                        TranslateDataGridButton(item);
+                    }
+
+                return;
             }
 
             if (control.Name != null && dic.ContainsKey(control.Name.ToString()))
@@ -41,9 +54,15 @@ namespace PD.Presentation.Helpers
             }
         }
 
+        private static void TranslateDataGridButton(DataGridViewColumn column)
+        {
+            if (column.GetType() == typeof(DataGridViewButtonColumn) && dic.ContainsKey(column.Tag?.ToString()))
+                ((DataGridViewButtonColumn)column).Text = dic[column.Tag?.ToString()].Valor;
+        }
+
         private static void TranslateGroupBox(this GroupBox groupbox)
         {
-            if (groupbox.Name != null && dic.ContainsKey(groupbox.Name.ToString())) { groupbox.Text = dic[groupbox.Name.ToString()].Valor; };
+            if (groupbox.Name != null && dic.ContainsKey(groupbox.Name)) { groupbox.Text = dic[groupbox.Name].Valor; };
             if (groupbox.Controls.Count > 0) { groupbox.Controls.TranslateAll(dic); }
         }
 

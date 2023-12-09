@@ -166,11 +166,8 @@ namespace PD.Presentation
         private void Translate()
         {
             Idioma? idioma = null;
-
             if (UserSesion.Session.IsLogged()) { idioma = UserSesion.Session.Usuario.Idioma; }
-
             var traducciones = _idiomaManager.GetTraducciones(idioma);
-
             this.Controls.TranslateAll(traducciones);
         }
 

@@ -28,10 +28,32 @@ insert into @values values
 ('lbl_todos', 'Regenerar', 'es', @idEs),
 ('lbl_todos', 'ReProcess', 'en', @idEn),
 ('lbl_save', 'Guardar', 'es', @idEs),
-('lbl_save', 'Save', 'en', @idEn)
+('lbl_save', 'Save', 'en', @idEn),
+('lbl_articulos_title', 'ARTICULOS', 'es', @idEs),
+('lbl_articulos_title', 'ARTICLES', 'en', @idEn),
+('lbl_imprimir_qr', 'Imprimir QRs', 'es', @idEs),
+('lbl_imprimir_qr', 'Print QRs', 'en', @idEn),
+('lbl_agregar', 'Agregar', 'es', @idEs),
+('lbl_agregar', 'Add', 'en', @idEn),
+('created', 'Creado', 'es', @idEs),
+('created', 'Created', 'en', @idEn),
+('btn_search', 'Buscar', 'es', @idEs),
+('btn_search', 'Search', 'en', @idEn),
+('updated', 'Actualizado', 'es', @idEs),
+('updated', 'Updated', 'en', @idEn),
 
-
-
+('h_name', 'NOMBRE', 'es', @idEs),
+('h_name', 'NAME', 'en', @idEn),
+('h_code', 'CODIGO', 'es', @idEs),
+('h_code', 'CODE', 'en', @idEn),
+('h_description', 'DESCRIPCIÓN', 'es', @idEs),
+('h_description', 'DESCRIPTION', 'en', @idEn),
+('h_image', 'IMAGEN', 'es', @idEs),
+('h_image', 'IMAGE', 'en', @idEn),
+('h_actions', 'ACCION', 'es', @idEs),
+('h_actions', 'ACTION', 'en', @idEn)
+('dgb_edit', 'EDITAR', 'es', @idEs),
+('dgv_edit', 'EDIT', 'en', @idEn)
 
 
 
@@ -51,17 +73,7 @@ select j.idiomaID ,j.etiquetaID, v.valor  from @joined j
 inner join @values v on v.etiqueta = j.etiqueta and v.isoCode = j.isoCode
 
 
---DECLARE @value varchar(100) = 'btn_menu_en'
--- insert into Etiqueta(Nombre) values(@value)
--- declare @idEtiquetaIdioma uniqueidentifier =  (select Id from Etiqueta e where e.Nombre = @value)
--- insert into Traduccion(IdiomaId, EtiquetaId, Valor) VALUES(@idIdiomaEs, @idEtiquetaIdioma, 'Ingles')
--- insert into Traduccion(IdiomaId, EtiquetaId, Valor) VALUES(@idIdiomaEn, @idEtiquetaIdioma, 'English')
---insert into Traduccion(IdiomaId, EtiquetaId, Valor) VALUES(@idIdiomaEs, 'btn_menu_es', 'Español')
---insert into Traduccion(IdiomaId, EtiquetaId, Valor) VALUES(@idIdiomaEn, 'btn_menu_es', 'Spanish')
-
-
 select * from Etiqueta e 
-
 select 
 		t.idiomaId,
 		t.Valor, 

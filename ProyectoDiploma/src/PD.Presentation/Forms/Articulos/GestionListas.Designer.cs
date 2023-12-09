@@ -48,6 +48,8 @@
             pnl_productos = new Panel();
             lbl_producto = new Label();
             dgv_precios = new DataGridView();
+            textBox1 = new TextBox();
+            lbl_id = new Label();
             panel3.SuspendLayout();
             pnl_lista.SuspendLayout();
             pnl_edicion.SuspendLayout();
@@ -105,7 +107,7 @@
             btn_new.FlatAppearance.BorderSize = 0;
             btn_new.FlatStyle = FlatStyle.Flat;
             btn_new.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_new.Location = new Point(328, 236);
+            btn_new.Location = new Point(328, 256);
             btn_new.Name = "btn_new";
             btn_new.Size = new Size(46, 46);
             btn_new.TabIndex = 16;
@@ -115,6 +117,8 @@
             // pnl_edicion
             // 
             pnl_edicion.BackColor = Color.White;
+            pnl_edicion.Controls.Add(textBox1);
+            pnl_edicion.Controls.Add(lbl_id);
             pnl_edicion.Controls.Add(lbl_save);
             pnl_edicion.Controls.Add(lbl_todos);
             pnl_edicion.Controls.Add(btn_massive);
@@ -125,13 +129,13 @@
             pnl_edicion.Controls.Add(lbl_nombre);
             pnl_edicion.Location = new Point(406, 45);
             pnl_edicion.Name = "pnl_edicion";
-            pnl_edicion.Size = new Size(333, 237);
+            pnl_edicion.Size = new Size(333, 257);
             pnl_edicion.TabIndex = 15;
             // 
             // lbl_save
             // 
             lbl_save.AutoSize = true;
-            lbl_save.Location = new Point(260, 201);
+            lbl_save.Location = new Point(260, 216);
             lbl_save.Name = "lbl_save";
             lbl_save.Size = new Size(49, 15);
             lbl_save.TabIndex = 44;
@@ -140,7 +144,7 @@
             // lbl_todos
             // 
             lbl_todos.AutoSize = true;
-            lbl_todos.Location = new Point(174, 201);
+            lbl_todos.Location = new Point(174, 216);
             lbl_todos.Name = "lbl_todos";
             lbl_todos.Size = new Size(60, 15);
             lbl_todos.TabIndex = 43;
@@ -152,7 +156,7 @@
             btn_massive.BackgroundImageLayout = ImageLayout.Stretch;
             btn_massive.FlatAppearance.BorderSize = 0;
             btn_massive.FlatStyle = FlatStyle.Flat;
-            btn_massive.Location = new Point(180, 151);
+            btn_massive.Location = new Point(180, 166);
             btn_massive.Name = "btn_massive";
             btn_massive.Size = new Size(46, 46);
             btn_massive.TabIndex = 42;
@@ -164,7 +168,7 @@
             btn_save.BackgroundImageLayout = ImageLayout.Stretch;
             btn_save.FlatAppearance.BorderSize = 0;
             btn_save.FlatStyle = FlatStyle.Flat;
-            btn_save.Location = new Point(261, 151);
+            btn_save.Location = new Point(261, 166);
             btn_save.Name = "btn_save";
             btn_save.Size = new Size(46, 46);
             btn_save.TabIndex = 41;
@@ -173,7 +177,7 @@
             // 
             // txt_ganancia
             // 
-            txt_ganancia.Location = new Point(91, 85);
+            txt_ganancia.Location = new Point(91, 100);
             txt_ganancia.Name = "txt_ganancia";
             txt_ganancia.Size = new Size(225, 23);
             txt_ganancia.TabIndex = 35;
@@ -181,7 +185,7 @@
             // lbl_ganancia
             // 
             lbl_ganancia.AutoSize = true;
-            lbl_ganancia.Location = new Point(12, 88);
+            lbl_ganancia.Location = new Point(12, 105);
             lbl_ganancia.Name = "lbl_ganancia";
             lbl_ganancia.Size = new Size(69, 15);
             lbl_ganancia.TabIndex = 36;
@@ -189,7 +193,7 @@
             // 
             // txt_nombre
             // 
-            txt_nombre.Location = new Point(90, 48);
+            txt_nombre.Location = new Point(90, 63);
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(225, 23);
             txt_nombre.TabIndex = 33;
@@ -197,7 +201,7 @@
             // lbl_nombre
             // 
             lbl_nombre.AutoSize = true;
-            lbl_nombre.Location = new Point(12, 51);
+            lbl_nombre.Location = new Point(12, 68);
             lbl_nombre.Name = "lbl_nombre";
             lbl_nombre.Size = new Size(51, 15);
             lbl_nombre.TabIndex = 34;
@@ -221,7 +225,7 @@
             dgv_listas.RowHeadersWidth = 62;
             dgv_listas.RowTemplate.Height = 25;
             dgv_listas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listas.Size = new Size(351, 185);
+            dgv_listas.Size = new Size(351, 205);
             dgv_listas.TabIndex = 0;
             // 
             // pnl_productos
@@ -253,6 +257,22 @@
             dgv_precios.RowTemplate.Height = 25;
             dgv_precios.Size = new Size(717, 303);
             dgv_precios.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(90, 23);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(225, 23);
+            textBox1.TabIndex = 45;
+            // 
+            // lbl_id
+            // 
+            lbl_id.AutoSize = true;
+            lbl_id.Location = new Point(14, 28);
+            lbl_id.Name = "lbl_id";
+            lbl_id.Size = new Size(18, 15);
+            lbl_id.TabIndex = 46;
+            lbl_id.Text = "ID";
             // 
             // GestionListas
             // 
@@ -302,5 +322,7 @@
         private Button btn_massive;
         private Label lbl_todos;
         private Label lbl_save;
+        private TextBox textBox1;
+        private Label lbl_id;
     }
 }

@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionArticulos));
             pnl_head = new Panel();
             panel5 = new Panel();
-            label1 = new Label();
+            lbl_articulos_title = new Label();
             dgv_articulos = new DataGridView();
             pnl_seachbar = new Panel();
             btn_search = new Button();
             txt_search = new TextBox();
             pnl_list = new Panel();
             pnl_buttons = new Panel();
-            label2 = new Label();
+            lbl_imprimir_qr = new Label();
             btn_print_qrs = new Button();
-            lbl_add = new Label();
+            lbl_agregar = new Label();
             btn_add = new Button();
             pnl_head.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_articulos).BeginInit();
@@ -53,7 +53,7 @@
             // 
             pnl_head.BackColor = Color.White;
             pnl_head.Controls.Add(panel5);
-            pnl_head.Controls.Add(label1);
+            pnl_head.Controls.Add(lbl_articulos_title);
             pnl_head.Location = new Point(12, 12);
             pnl_head.Name = "pnl_head";
             pnl_head.Size = new Size(1065, 54);
@@ -68,15 +68,15 @@
             panel5.Size = new Size(45, 45);
             panel5.TabIndex = 8;
             // 
-            // label1
+            // lbl_articulos_title
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(57, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(140, 32);
-            label1.TabIndex = 1;
-            label1.Text = "ARTICULOS";
+            lbl_articulos_title.AutoSize = true;
+            lbl_articulos_title.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_articulos_title.Location = new Point(57, 10);
+            lbl_articulos_title.Name = "lbl_articulos_title";
+            lbl_articulos_title.Size = new Size(140, 32);
+            lbl_articulos_title.TabIndex = 1;
+            lbl_articulos_title.Text = "ARTICULOS";
             // 
             // dgv_articulos
             // 
@@ -142,23 +142,23 @@
             // pnl_buttons
             // 
             pnl_buttons.BackColor = Color.White;
-            pnl_buttons.Controls.Add(label2);
+            pnl_buttons.Controls.Add(lbl_imprimir_qr);
             pnl_buttons.Controls.Add(btn_print_qrs);
-            pnl_buttons.Controls.Add(lbl_add);
+            pnl_buttons.Controls.Add(lbl_agregar);
             pnl_buttons.Controls.Add(btn_add);
             pnl_buttons.Location = new Point(12, 516);
             pnl_buttons.Name = "pnl_buttons";
             pnl_buttons.Size = new Size(1065, 100);
             pnl_buttons.TabIndex = 4;
             // 
-            // label2
+            // lbl_imprimir_qr
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(889, 76);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Imprimir QRs";
+            lbl_imprimir_qr.AutoSize = true;
+            lbl_imprimir_qr.Location = new Point(889, 76);
+            lbl_imprimir_qr.Name = "lbl_imprimir_qr";
+            lbl_imprimir_qr.Size = new Size(77, 15);
+            lbl_imprimir_qr.TabIndex = 3;
+            lbl_imprimir_qr.Text = "Imprimir QRs";
             // 
             // btn_print_qrs
             // 
@@ -172,15 +172,16 @@
             btn_print_qrs.Size = new Size(60, 60);
             btn_print_qrs.TabIndex = 2;
             btn_print_qrs.UseVisualStyleBackColor = true;
+            btn_print_qrs.Click += btn_print_qrs_Click;
             // 
-            // lbl_add
+            // lbl_agregar
             // 
-            lbl_add.AutoSize = true;
-            lbl_add.Location = new Point(991, 76);
-            lbl_add.Name = "lbl_add";
-            lbl_add.Size = new Size(49, 15);
-            lbl_add.TabIndex = 1;
-            lbl_add.Text = "Agregar";
+            lbl_agregar.AutoSize = true;
+            lbl_agregar.Location = new Point(991, 76);
+            lbl_agregar.Name = "lbl_agregar";
+            lbl_agregar.Size = new Size(49, 15);
+            lbl_agregar.TabIndex = 1;
+            lbl_agregar.Text = "Agregar";
             // 
             // btn_add
             // 
@@ -224,7 +225,7 @@
         #endregion
 
         private Panel pnl_head;
-        private Label label1;
+        private Label lbl_articulos_title;
         private DataGridView dgv_articulos;
         private Panel pnl_seachbar;
         private Panel pnl_list;
@@ -233,8 +234,8 @@
         private TextBox txt_search;
         private Button btn_add;
         private Panel panel5;
-        private Label lbl_add;
-        private Label label2;
+        private Label lbl_agregar;
+        private Label lbl_imprimir_qr;
         private Button btn_print_qrs;
     }
 }

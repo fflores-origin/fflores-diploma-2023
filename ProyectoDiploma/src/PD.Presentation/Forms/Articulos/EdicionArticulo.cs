@@ -4,25 +4,29 @@ using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
 using PD.Services;
+using PD.Services.Interfaces;
 
 namespace PD.Presentation.Forms.Articulos
 {
-    public partial class EdicionArticulo : FormBase
+    public partial class EdicionArticulo : FormBase, ILanguageObserver
     {
         private readonly ICategoriaManager _categoriaManager;
         private readonly IListasManager _listasManager;
         private readonly IArticulosManager _articulosManager;
-        private ArticuloDTO _articuloDto;
+        private readonly IIdiomaManager _idiomaManager;
         private string _filePath = "";
         private Guid _productoId = Guid.Empty;
         private Articulo _articulo = null;
 
         private GestionArticulos _parentForm;
 
+        #region CTOR
+
         public EdicionArticulo(
             ICategoriaManager categoriaManager,
             IListasManager listasManager,
-            IArticulosManager articulosManager)
+            IArticulosManager articulosManager,
+            IIdiomaManager idiomaManager)
             : base()
         {
             InitializeComponent();
@@ -31,6 +35,24 @@ namespace PD.Presentation.Forms.Articulos
             _articulosManager = articulosManager;
 
             txt_precio.KeyPress += ValidateDecimalInput;
+            _idiomaManager = idiomaManager;
+        }
+
+        #endregion CTOR
+
+        public void SetParentForm(GestionArticulos form)
+        {
+            _parentForm = form;
+            this.MdiParent = form.MdiParent;
+        }
+
+        public void ClearAndOpen(Guid? id = null)
+        {
+            InitializeValues();
+
+            if (id != null) SetObjectInitial(id.Value);
+
+            this.Show();
         }
 
         private void EdicionArticulo_Load(object sender, EventArgs e)
@@ -51,6 +73,7 @@ namespace PD.Presentation.Forms.Articulos
             txt_descripcion.Text = "";
             txt_marca.Text = "";
             txt_codigo.Text = "";
+            pic_qr.BackgroundImage = null;
             pic_base.BackgroundImage = Properties.Resources.no_image;
         }
 
@@ -89,20 +112,16 @@ namespace PD.Presentation.Forms.Articulos
                     ImagePath = _filePath
                 };
 
+                var action = _productoId == Guid.Empty ? "Creado" : "Actualizado";
                 _articulo = _articulosManager.CrearArticulo(dto);
                 _productoId = _articulo.Id;
                 txt_id.Text = _articulo.Id.ToString();
 
                 GenerateQR();
 
-                if(_parentForm != null)
-                {
-                    _parentForm.LoadGrid();
-                }
+                _parentForm?.LoadGrid();
 
-                MessageBox.Show("Articulo Creado");
-
-                //((GestionArticulos)this.Parent).LoadGrid();
+                MessageBox.Show("Articulo ");
             }
             catch (Exception ex)
             {
@@ -146,39 +165,20 @@ namespace PD.Presentation.Forms.Articulos
 
         #region Utils
 
-        public void ClearAndOpen(GestionArticulos parentForm = null, Guid? id = null)
-        {
-            // limpiar variables
-            InitializeValues();
-
-            _parentForm = parentForm;
-
-            if (id != null)
-            {
-                SetObjectInitial(id.Value);
-            }
-
-            // mostrar
-            this.Show();
-        }
-
         private void SetObjectInitial(Guid id)
         {
-            var articulo = _articulosManager.GetById(id);
+            _articulo = _articulosManager.GetById(id);
 
-            if (articulo != null)
+            if (_articulo != null)
             {
-                txt_codigo.Text = articulo.Codigo;
-                txt_descripcion.Text = articulo.Descripcion;
-                txt_marca.Text = articulo.Marca;
-                txt_id.Text = articulo.Id.ToString();
-                txt_precio.Text = articulo.PrecioUnitario.ToString().Replace(',', '.');
-                txt_nombre.Text = articulo.Nombre;
-
-                if (articulo.Imagen != null && !string.IsNullOrEmpty(articulo.Imagen))
-                {
-                    pic_base.BackgroundImage = new Bitmap(articulo.Imagen);
-                }
+                txt_codigo.Text = _articulo.Codigo;
+                txt_descripcion.Text = _articulo.Descripcion;
+                txt_marca.Text = _articulo.Marca;
+                txt_id.Text = _articulo.Id.ToString();
+                txt_precio.Text = _articulo.PrecioUnitario.ToString().Replace(',', '.');
+                txt_nombre.Text = _articulo.Nombre;
+                if (_articulo.HasImage()) { pic_base.BackgroundImage = new Bitmap(_articulo.Imagen); }
+                GenerateQR();
             }
         }
 
@@ -193,6 +193,19 @@ namespace PD.Presentation.Forms.Articulos
             cbx_categoria.DataSource = categorias;
             cbx_categoria.DisplayMember = "Nombre";
             cbx_categoria.ValueMember = "Id";
+        }
+
+        public void OnLanguageChanged(Idioma idioma)
+        {
+            Translate();
+        }
+
+        private void Translate()
+        {
+            Idioma? idioma = null;
+            if (UserSesion.Session.IsLogged()) { idioma = UserSesion.Session.Usuario.Idioma; }
+            var traducciones = _idiomaManager.GetTraducciones(idioma);
+            this.Controls.TranslateAll(traducciones);
         }
 
         #endregion Utils
