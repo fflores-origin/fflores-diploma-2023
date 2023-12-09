@@ -2,7 +2,7 @@
 
 namespace PD.Presentation.Forms.Configuracion
 {
-    public partial class GestionarPermisos : Form
+    public partial class GestionarPermisos : FormBase
     {
         private readonly IUsuarioManager _usuarioManager;
 
@@ -18,10 +18,9 @@ namespace PD.Presentation.Forms.Configuracion
             dgv_usuarios.DataSource = list;
         }
 
-        private void FormHide(object sender, FormClosingEventArgs e)
+        private void GestionarPermisos_Load(object sender, EventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+            ListarUsuario();
         }
     }
 }

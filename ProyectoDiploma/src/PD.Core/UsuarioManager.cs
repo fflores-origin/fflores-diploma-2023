@@ -33,8 +33,9 @@ namespace PD.Core
 
         public List<UsuarioDto> GetUsuarios()
         {
-            var usuarios = _usuariosMapper.Map(_usuarioRepository.GetAll());
-            return usuarios;
+            var usuarios = _usuarioRepository.GetAll();
+            var usuariosDto = _usuariosMapper.Map(usuarios);
+            return usuariosDto;
         }
 
         public LoginResult Login(string username, string password)
@@ -56,7 +57,5 @@ namespace PD.Core
         {
             throw new NotImplementedException();
         }
-
-        
     }
 }

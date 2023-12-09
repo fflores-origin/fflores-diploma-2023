@@ -225,7 +225,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "GestionarPermisos";
             Text = "Gestion Permisos";
-            FormClosing += FormHide;
+            Load += GestionarPermisos_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_usuarios).EndInit();
