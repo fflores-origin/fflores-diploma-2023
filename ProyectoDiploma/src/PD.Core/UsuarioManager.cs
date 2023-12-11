@@ -2,6 +2,7 @@
 using PD.Core.Interfaces;
 using PD.Core.Mappers.Interfaces;
 using PD.Entities;
+using PD.Entities.Permisos;
 using PD.Repositories.Interfaces;
 using PD.Services;
 using PD.Services.Enums;
@@ -31,6 +32,11 @@ namespace PD.Core
             _usuarioRepository.Create(username, Encryption.Encrypt(password));
         }
 
+        public List<Patente> GetPatentes()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<UsuarioDto> GetUsuarios()
         {
             var usuarios = _usuarioRepository.GetAll();
@@ -55,7 +61,9 @@ namespace PD.Core
 
         public void LogOut()
         {
-            throw new NotImplementedException();
+            var user = _sesion.Usuario;
+
+            _sesion.Logout();
         }
     }
 }

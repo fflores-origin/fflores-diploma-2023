@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicionArticulo));
             label1 = new Label();
             panel1 = new Panel();
+            txt_isbn = new TextBox();
+            lbl_isbn = new Label();
             txt_id = new TextBox();
             lbl_id = new Label();
             txt_codigo = new TextBox();
@@ -58,17 +60,19 @@
             label2 = new Label();
             btn_print = new Button();
             pic_qr = new PictureBox();
-            label4 = new Label();
+            lbl_article_title = new Label();
             panel2 = new Panel();
             lbl_image = new Label();
             panel6 = new Panel();
             btn_image_change = new Button();
             pic_base = new PictureBox();
             panel3 = new Panel();
+            btn_help = new Button();
             panel5 = new Panel();
             panel4 = new Panel();
             lbl_save = new Label();
             btn_save = new Button();
+            help_provider_articulo = new HelpProvider();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_listas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_qr).BeginInit();
@@ -91,6 +95,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(txt_isbn);
+            panel1.Controls.Add(lbl_isbn);
             panel1.Controls.Add(txt_id);
             panel1.Controls.Add(lbl_id);
             panel1.Controls.Add(txt_codigo);
@@ -121,6 +127,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(756, 446);
             panel1.TabIndex = 2;
+            // 
+            // txt_isbn
+            // 
+            txt_isbn.Location = new Point(121, 356);
+            txt_isbn.Name = "txt_isbn";
+            txt_isbn.Size = new Size(225, 23);
+            txt_isbn.TabIndex = 33;
+            // 
+            // lbl_isbn
+            // 
+            lbl_isbn.AutoSize = true;
+            lbl_isbn.Location = new Point(28, 359);
+            lbl_isbn.Name = "lbl_isbn";
+            lbl_isbn.Size = new Size(32, 15);
+            lbl_isbn.TabIndex = 34;
+            lbl_isbn.Text = "ISBN";
             // 
             // txt_id
             // 
@@ -359,15 +381,15 @@
             pic_qr.TabIndex = 27;
             pic_qr.TabStop = false;
             // 
-            // label4
+            // lbl_article_title
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(126, 32);
-            label4.TabIndex = 6;
-            label4.Text = "ARTICULO";
+            lbl_article_title.AutoSize = true;
+            lbl_article_title.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_article_title.Location = new Point(54, 9);
+            lbl_article_title.Name = "lbl_article_title";
+            lbl_article_title.Size = new Size(126, 32);
+            lbl_article_title.TabIndex = 6;
+            lbl_article_title.Text = "ARTICULO";
             // 
             // panel2
             // 
@@ -427,12 +449,31 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(btn_help);
             panel3.Controls.Add(panel5);
-            panel3.Controls.Add(label4);
+            panel3.Controls.Add(lbl_article_title);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(1024, 51);
             panel3.TabIndex = 4;
+            // 
+            // btn_help
+            // 
+            btn_help.BackgroundImage = Properties.Resources.light_bulb;
+            btn_help.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_help.FlatAppearance.BorderSize = 0;
+            btn_help.FlatStyle = FlatStyle.Flat;
+            btn_help.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            help_provider_articulo.SetHelpKeyword(btn_help, "CreacionArticulo");
+            help_provider_articulo.SetHelpNavigator(btn_help, HelpNavigator.TopicId);
+            btn_help.Location = new Point(985, 9);
+            btn_help.Margin = new Padding(5);
+            btn_help.Name = "btn_help";
+            help_provider_articulo.SetShowHelp(btn_help, true);
+            btn_help.Size = new Size(34, 32);
+            btn_help.TabIndex = 19;
+            btn_help.UseVisualStyleBackColor = true;
+            btn_help.Click += btn_help_Click;
             // 
             // panel5
             // 
@@ -475,6 +516,10 @@
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
+            // help_provider_articulo
+            // 
+            help_provider_articulo.HelpNamespace = "J:\\PROJECTS\\UAI\\fflores-diploma-2023\\ProyectoDiploma\\src\\HelpProviderChm\\diploma.chm";
+            // 
             // EdicionArticulo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -512,7 +557,7 @@
         private Panel panel1;
         private Label label2;
         private Label label3;
-        private Label label4;
+        private Label lbl_article_title;
         private Label label5;
         private Panel panel2;
         private PictureBox pic_base;
@@ -548,5 +593,9 @@
         private Label lbl_codigo;
         private TextBox txt_id;
         private Label lbl_id;
+        private TextBox txt_isbn;
+        private Label lbl_isbn;
+        private Button btn_help;
+        private HelpProvider help_provider_articulo;
     }
 }

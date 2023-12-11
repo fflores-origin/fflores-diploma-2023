@@ -51,7 +51,7 @@ insert into @values values
 ('h_image', 'IMAGEN', 'es', @idEs),
 ('h_image', 'IMAGE', 'en', @idEn),
 ('h_actions', 'ACCION', 'es', @idEs),
-('h_actions', 'ACTION', 'en', @idEn)
+('h_actions', 'ACTION', 'en', @idEn),
 ('dgb_edit', 'EDITAR', 'es', @idEs),
 ('dgv_edit', 'EDIT', 'en', @idEn)
 

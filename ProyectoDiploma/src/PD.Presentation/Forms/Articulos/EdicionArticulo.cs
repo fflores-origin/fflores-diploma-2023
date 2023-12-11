@@ -209,5 +209,10 @@ namespace PD.Presentation.Forms.Articulos
         }
 
         #endregion Utils
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this.btn_help, help_provider_articulo.HelpNamespace, HelpNavigator.TopicId);
+        }
     }
 }

@@ -48,15 +48,17 @@
             tsc_clientes = new ToolStripDropDownButton();
             tsb_gestionarClientes = new ToolStripMenuItem();
             tsc_idioma = new ToolStripDropDownButton();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            help_provider_main = new HelpProvider();
             ts_main.SuspendLayout();
             SuspendLayout();
             // 
             // ts_main
             // 
-            ts_main.Items.AddRange(new ToolStripItem[] { tsc_articulos, tsc_documentos, tsc_configuracion, tsc_seguridad, tsc_clientes, tsc_idioma });
+            ts_main.Items.AddRange(new ToolStripItem[] { tsc_articulos, tsc_documentos, tsc_configuracion, tsc_seguridad, tsc_clientes, tsc_idioma, toolStripMenuItem1 });
             ts_main.Location = new Point(0, 0);
             ts_main.Name = "ts_main";
-            ts_main.Size = new Size(1183, 26);
+            ts_main.Size = new Size(1183, 29);
             ts_main.TabIndex = 1;
             ts_main.Text = "toolStrip1";
             // 
@@ -67,7 +69,7 @@
             tsc_articulos.Image = (Image)resources.GetObject("tsc_articulos.Image");
             tsc_articulos.ImageTransparentColor = Color.Magenta;
             tsc_articulos.Name = "tsc_articulos";
-            tsc_articulos.Size = new Size(67, 19);
+            tsc_articulos.Size = new Size(67, 22);
             tsc_articulos.Tag = "tsc_articulos";
             tsc_articulos.Text = "Articulos";
             // 
@@ -106,7 +108,7 @@
             tsc_documentos.Image = (Image)resources.GetObject("tsc_documentos.Image");
             tsc_documentos.ImageTransparentColor = Color.Magenta;
             tsc_documentos.Name = "tsc_documentos";
-            tsc_documentos.Size = new Size(88, 19);
+            tsc_documentos.Size = new Size(88, 22);
             tsc_documentos.Text = "Documentos";
             // 
             // informesToolStripMenuItem
@@ -134,7 +136,7 @@
             tsc_configuracion.Image = (Image)resources.GetObject("tsc_configuracion.Image");
             tsc_configuracion.ImageTransparentColor = Color.Magenta;
             tsc_configuracion.Name = "tsc_configuracion";
-            tsc_configuracion.Size = new Size(96, 19);
+            tsc_configuracion.Size = new Size(96, 22);
             tsc_configuracion.Text = "Configuracion";
             // 
             // categoriasToolStripMenuItem
@@ -157,7 +159,7 @@
             tsc_seguridad.Image = (Image)resources.GetObject("tsc_seguridad.Image");
             tsc_seguridad.ImageTransparentColor = Color.Magenta;
             tsc_seguridad.Name = "tsc_seguridad";
-            tsc_seguridad.Size = new Size(73, 19);
+            tsc_seguridad.Size = new Size(73, 22);
             tsc_seguridad.Text = "Seguridad";
             // 
             // tsb_gestionarPermisos
@@ -180,7 +182,7 @@
             tsc_clientes.Image = (Image)resources.GetObject("tsc_clientes.Image");
             tsc_clientes.ImageTransparentColor = Color.Magenta;
             tsc_clientes.Name = "tsc_clientes";
-            tsc_clientes.Size = new Size(62, 19);
+            tsc_clientes.Size = new Size(62, 22);
             tsc_clientes.Text = "Clientes";
             // 
             // tsb_gestionarClientes
@@ -193,9 +195,16 @@
             // tsc_idioma
             // 
             tsc_idioma.Name = "tsc_idioma";
-            tsc_idioma.Size = new Size(57, 19);
+            tsc_idioma.Size = new Size(57, 22);
             tsc_idioma.Text = "Idioma";
             tsc_idioma.Click += tsc_idioma_Click;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(29, 25);
+            toolStripMenuItem1.Text = "?";
             // 
             // Main
             // 
@@ -204,6 +213,7 @@
             BackColor = Color.FromArgb(242, 242, 242);
             ClientSize = new Size(1183, 813);
             Controls.Add(ts_main);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
@@ -237,5 +247,7 @@
         private ToolStripMenuItem ventasToolStripMenuItem;
         private ToolStripDropDownButton tsc_idioma;
         private ToolStripMenuItem tsb_gestionarPedidos;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private HelpProvider help_provider_main;
     }
 }
