@@ -18,7 +18,7 @@ namespace PD.Presentation
         private readonly IUsuarioManager _usuarioManager;
         private readonly IIdiomaManager _idiomaManager;
         private readonly GestionArticulos _gestionArticulosForm;
-        private readonly GestionarPermisos _gestionarPermisosFrom;
+        private readonly GestionarUsuariosPermisos _gestionarPermisosFrom;
         private readonly GestionCategorias _gestionCategoriasForm;
         private readonly GestionListas _gestionListasForm;
         private readonly GestionarClientes _gestionarClientesForm;
@@ -31,7 +31,7 @@ namespace PD.Presentation
         public Main(
             IConfiguration configuration,
             GestionArticulos gestionArticulosForm,
-            GestionarPermisos gestionarPermisosFrom,
+            GestionarUsuariosPermisos gestionarPermisosFrom,
             GestionCategorias gestionCategoriasForm,
             GestionListas gestionListasForm,
             IUsuarioManager usuarioManager,

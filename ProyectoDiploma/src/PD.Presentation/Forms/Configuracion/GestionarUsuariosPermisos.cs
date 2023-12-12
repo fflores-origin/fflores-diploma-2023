@@ -2,11 +2,11 @@
 
 namespace PD.Presentation.Forms.Configuracion
 {
-    public partial class GestionarPermisos : FormBase
+    public partial class GestionarUsuariosPermisos : FormBase
     {
         private readonly IUsuarioManager _usuarioManager;
 
-        public GestionarPermisos(IUsuarioManager usuarioManager)
+        public GestionarUsuariosPermisos(IUsuarioManager usuarioManager)
         {
             InitializeComponent();
             _usuarioManager = usuarioManager;
@@ -24,5 +24,14 @@ namespace PD.Presentation.Forms.Configuracion
         {
             ListarUsuario();
         }
+
+        #region Grid
+
+        private void FormatGrid()
+        {
+
+        }
+
+        #endregion
     }
 }

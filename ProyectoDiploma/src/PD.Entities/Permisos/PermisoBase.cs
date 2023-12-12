@@ -1,6 +1,6 @@
 ﻿namespace PD.Entities.Permisos
 {
-    public abstract class PermisoBase : BaseEntity
+    public abstract class PermisoBase : BaseEntity //permisoBase
     {
         public string Nombre { get; set; }
 

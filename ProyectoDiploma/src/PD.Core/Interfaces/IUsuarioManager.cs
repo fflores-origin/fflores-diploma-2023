@@ -1,5 +1,4 @@
 ﻿using PD.Core.DTOs;
-using PD.Entities;
 using PD.Entities.Permisos;
 using PD.Services.Enums;
 
@@ -17,5 +16,8 @@ namespace PD.Core.Interfaces
 
         List<Patente> GetPatentes();
 
+        List<Patente> GetAllPatentes();
+
+        List<Familia> GetAllFamilias();
     }
 }

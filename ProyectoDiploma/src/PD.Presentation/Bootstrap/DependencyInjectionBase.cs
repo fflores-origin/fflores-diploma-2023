@@ -33,7 +33,7 @@ namespace PD.Presentation.Bootstrap
         private static void AddDependencyInjectionConfiguracion(this IServiceCollection services)
         {
             services
-                .AddSingleton<GestionarPermisos>()
+                .AddSingleton<GestionarUsuariosPermisos>()
                 .AddSingleton<GestionarIdiomas>()
                 .AddSingleton<GestionCategorias>();
         }

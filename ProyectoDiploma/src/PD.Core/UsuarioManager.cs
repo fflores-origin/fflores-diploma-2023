@@ -32,6 +32,16 @@ namespace PD.Core
             _usuarioRepository.Create(username, Encryption.Encrypt(password));
         }
 
+        public List<Familia> GetAllFamilias()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Patente> GetAllPatentes()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Patente> GetPatentes()
         {
             List<Patente> pantentes = _usuarioRepository.GetAllPantente();

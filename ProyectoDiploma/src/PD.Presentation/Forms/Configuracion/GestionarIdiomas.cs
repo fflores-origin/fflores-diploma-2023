@@ -1,16 +1,31 @@
-﻿namespace PD.Presentation.Forms.Configuracion
+﻿using PD.Core.Interfaces;
+
+namespace PD.Presentation.Forms.Configuracion
 {
-    public partial class GestionarIdiomas : Form
+    public partial class GestionarIdiomas : FormBase
     {
-        public GestionarIdiomas()
+        private readonly IIdiomaManager _idiomaManager;
+
+        public GestionarIdiomas(
+            IIdiomaManager idiomaManager)
         {
             InitializeComponent();
+            _idiomaManager = idiomaManager;
         }
 
-        private void FormHide(object sender, FormClosingEventArgs e)
+        private void GestionarIdiomas_Load(object sender, EventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+            FillGrid();
+        }
+
+        private void FillGrid()
+        {
+
+        }
+
+        private void btn_new_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
