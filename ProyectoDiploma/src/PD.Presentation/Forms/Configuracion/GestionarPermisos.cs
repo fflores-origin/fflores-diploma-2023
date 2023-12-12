@@ -16,6 +16,8 @@ namespace PD.Presentation.Forms.Configuracion
         {
             var list = _usuarioManager.GetUsuarios();
             dgv_usuarios.DataSource = list;
+
+            var patentes = _usuarioManager.GetPatentes();
         }
 
         private void GestionarPermisos_Load(object sender, EventArgs e)

@@ -34,7 +34,8 @@ namespace PD.Core
 
         public List<Patente> GetPatentes()
         {
-            throw new NotImplementedException();
+            List<Patente> pantentes = _usuarioRepository.GetAllPantente();
+            return pantentes;
         }
 
         public List<UsuarioDto> GetUsuarios()

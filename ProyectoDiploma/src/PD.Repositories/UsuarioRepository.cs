@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PD.DataAccess.Interfaces;
 using PD.Entities;
+using PD.Entities.Permisos;
 using PD.Repositories.Interfaces;
 using System.Data.SqlClient;
 
@@ -88,6 +89,32 @@ namespace PD.Repositories
             }
 
             return list;
+        }
+
+        public List<Patente> GetAllPantente()
+        {
+            var list = new List<Patente>();
+            using var connection = _connection.CreateConnection();
+            connection.Open();
+
+            try
+            {
+                var query = @"SELECT top(1)
+                                u.*,
+                                i.Nombre as IdiomaNombre,
+                                i.IsoCode ,
+                                i.IsDefault
+                              FROM Usuario u
+                              join Idioma i on u.IdiomaId = i.Id
+                              WHERE u.Nombre = @username";
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally { connection.Close(); }
+
+            return (list);
         }
 
         public Usuario GetByUserame(string username)
