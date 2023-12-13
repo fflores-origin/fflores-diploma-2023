@@ -29,98 +29,121 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPatentes));
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            label4 = new Label();
+            panel1 = new Panel();
+            lbl_todas_patentes = new Label();
+            cbx_patentes = new ComboBox();
+            panel2 = new Panel();
+            lbl_todas_familias = new Label();
+            cbx_familias = new ComboBox();
+            panel4.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            SuspendLayout();
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(12, 12);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 51);
-            this.panel4.TabIndex = 6;
+            panel4.BackColor = Color.White;
+            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(label4);
+            panel4.Location = new Point(12, 12);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(800, 51);
+            panel4.TabIndex = 6;
             // 
             // panel5
             // 
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(45, 45);
-            this.panel5.TabIndex = 7;
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(54, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 32);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "PERMISOS";
+            label4.AutoSize = true;
+            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(54, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(126, 32);
+            label4.TabIndex = 6;
+            label4.Text = "PERMISOS";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 69);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(397, 343);
-            this.panel1.TabIndex = 8;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(lbl_todas_patentes);
+            panel1.Controls.Add(cbx_patentes);
+            panel1.Location = new Point(12, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(397, 343);
+            panel1.TabIndex = 8;
+            // 
+            // lbl_todas_patentes
+            // 
+            lbl_todas_patentes.AutoSize = true;
+            lbl_todas_patentes.Location = new Point(29, 29);
+            lbl_todas_patentes.Name = "lbl_todas_patentes";
+            lbl_todas_patentes.Size = new Size(52, 15);
+            lbl_todas_patentes.TabIndex = 1;
+            lbl_todas_patentes.Text = "Patentes";
+            // 
+            // cbx_patentes
+            // 
+            cbx_patentes.FormattingEnabled = true;
+            cbx_patentes.Location = new Point(29, 47);
+            cbx_patentes.Name = "cbx_patentes";
+            cbx_patentes.Size = new Size(263, 23);
+            cbx_patentes.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(415, 69);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(397, 343);
-            this.panel2.TabIndex = 9;
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(lbl_todas_familias);
+            panel2.Controls.Add(cbx_familias);
+            panel2.Location = new Point(415, 69);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(397, 343);
+            panel2.TabIndex = 9;
             // 
-            // comboBox1
+            // lbl_todas_familias
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(29, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(263, 23);
-            this.comboBox1.TabIndex = 0;
+            lbl_todas_familias.AutoSize = true;
+            lbl_todas_familias.Location = new Point(67, 29);
+            lbl_todas_familias.Name = "lbl_todas_familias";
+            lbl_todas_familias.Size = new Size(50, 15);
+            lbl_todas_familias.TabIndex = 3;
+            lbl_todas_familias.Text = "Familias";
             // 
-            // label1
+            // cbx_familias
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            cbx_familias.FormattingEnabled = true;
+            cbx_familias.Location = new Point(67, 47);
+            cbx_familias.Name = "cbx_familias";
+            cbx_familias.Size = new Size(263, 23);
+            cbx_familias.TabIndex = 2;
             // 
             // GestionarPatentes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 544);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
-            this.Name = "GestionarPatentes";
-            this.Text = "GestionarPatentes";
-            this.Load += new System.EventHandler(this.GestionarPatentes_Load);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(826, 544);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Controls.Add(panel4);
+            Name = "GestionarPatentes";
+            Text = "GestionarPatentes";
+            Load += GestionarPatentes_Load;
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -130,7 +153,9 @@
         private Label label4;
         private Panel panel1;
         private Panel panel2;
-        private Label label1;
-        private ComboBox comboBox1;
+        private Label lbl_todas_patentes;
+        private ComboBox cbx_patentes;
+        private Label lbl_todas_familias;
+        private ComboBox cbx_familias;
     }
 }

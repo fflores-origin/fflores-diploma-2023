@@ -34,15 +34,11 @@ namespace PD.Core
 
         public List<Familia> GetAllFamilias()
         {
-            throw new NotImplementedException();
+            List<Familia> familias = _usuarioRepository.GetAllFamilias();
+            return familias;
         }
 
         public List<Patente> GetAllPatentes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Patente> GetPatentes()
         {
             List<Patente> pantentes = _usuarioRepository.GetAllPantente();
             return pantentes;

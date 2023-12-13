@@ -4,10 +4,14 @@
     {
 
 
-
         public GestionOrdenesCompra()
         {
             InitializeComponent();
+        }
+
+        internal void ShowAndLoad()
+        {
+            this.Show();
         }
     }
 }

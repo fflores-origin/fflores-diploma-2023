@@ -142,15 +142,16 @@
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(130, 22);
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += OpenCategoriasForm;
             // 
             // idiomasToolStripMenuItem
             // 
             idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
-            idiomasToolStripMenuItem.Size = new Size(130, 22);
+            idiomasToolStripMenuItem.Size = new Size(180, 22);
             idiomasToolStripMenuItem.Text = "Idiomas";
+            idiomasToolStripMenuItem.Click += idiomasToolStripMenuItem_Click;
             // 
             // tsc_seguridad
             // 
@@ -174,6 +175,7 @@
             tsb_gestionarUsuarios.Name = "tsb_gestionarUsuarios";
             tsb_gestionarUsuarios.Size = new Size(175, 22);
             tsb_gestionarUsuarios.Text = "Gestionar Usuarios";
+            tsb_gestionarUsuarios.Click += tsb_gestionarUsuarios_Click;
             // 
             // tsc_clientes
             // 

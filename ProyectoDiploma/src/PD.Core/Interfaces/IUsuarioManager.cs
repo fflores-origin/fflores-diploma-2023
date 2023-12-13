@@ -14,8 +14,6 @@ namespace PD.Core.Interfaces
 
         List<UsuarioDto> GetUsuarios();
 
-        List<Patente> GetPatentes();
-
         List<Patente> GetAllPatentes();
 
         List<Familia> GetAllFamilias();

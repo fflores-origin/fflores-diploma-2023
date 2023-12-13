@@ -9,6 +9,8 @@ namespace PD.Repositories.Interfaces
 
         List<Usuario> GetAll();
 
+        List<Familia> GetAllFamilias();
+
         List<Patente> GetAllPantente();
 
         Usuario GetByUserame(string username);

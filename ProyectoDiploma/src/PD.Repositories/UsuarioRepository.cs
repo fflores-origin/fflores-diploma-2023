@@ -1,8 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PD.DataAccess.Interfaces;
 using PD.Entities;
+using PD.Entities.Enums;
 using PD.Entities.Permisos;
 using PD.Repositories.Interfaces;
+using PD.Repositories.Utils;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace PD.Repositories
@@ -91,6 +94,43 @@ namespace PD.Repositories
             return list;
         }
 
+        public List<Familia> GetAllFamilias()
+        {
+            var list = new List<Familia>();
+            using var connection = _connection.CreateConnection();
+            connection.Open();
+
+            try
+            {
+                var query = "FamiliaGetAll";
+                using var cmd = _connection.CreateStoreCommand(query, connection);
+
+                using SqlDataAdapter da = new(cmd);
+
+                using DataSet ds = new();
+                da.Fill(ds);
+
+                if (ds.HasRows())
+                {
+                    foreach (DataRow item in ds.Rows())
+                    {
+                        list.Add(new Familia()
+                        {
+                            Id = item["Id"].AsGuid(),
+                            Nombre = item["Nombre"].ToString(),
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { connection.Close(); }
+
+            return list;
+        }
+
         public List<Patente> GetAllPantente()
         {
             var list = new List<Patente>();
@@ -99,18 +139,30 @@ namespace PD.Repositories
 
             try
             {
-                var query = @"SELECT top(1)
-                                u.*,
-                                i.Nombre as IdiomaNombre,
-                                i.IsoCode ,
-                                i.IsDefault
-                              FROM Usuario u
-                              join Idioma i on u.IdiomaId = i.Id
-                              WHERE u.Nombre = @username";
+                var query = "PatenteGetAll";
+                using var cmd = _connection.CreateStoreCommand(query, connection);
+
+                using SqlDataAdapter da = new(cmd);
+
+                using DataSet ds = new();
+                da.Fill(ds);
+
+                if (ds.HasRows())
+                {
+                    foreach (DataRow item in ds.Rows())
+                    {
+                        list.Add(new Patente()
+                        {
+                            Id = item["Id"].AsGuid(),
+                            Nombre = item["Nombre"].ToString(),
+                            Tipo = item["Tipo"].AsEnum<TipoPermiso>()
+                        });
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally { connection.Close(); }
 

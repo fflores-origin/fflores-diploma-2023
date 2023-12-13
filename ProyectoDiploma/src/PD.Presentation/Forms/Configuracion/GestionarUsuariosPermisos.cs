@@ -17,7 +17,7 @@ namespace PD.Presentation.Forms.Configuracion
             var list = _usuarioManager.GetUsuarios();
             dgv_usuarios.DataSource = list;
 
-            var patentes = _usuarioManager.GetPatentes();
+            var patentes = _usuarioManager.GetAllPatentes();
         }
 
         private void GestionarPermisos_Load(object sender, EventArgs e)
@@ -29,9 +29,13 @@ namespace PD.Presentation.Forms.Configuracion
 
         private void FormatGrid()
         {
-
         }
 
-        #endregion
+        internal void ShowAndLoad()
+        {
+            this.Show();
+        }
+
+        #endregion Grid
     }
 }

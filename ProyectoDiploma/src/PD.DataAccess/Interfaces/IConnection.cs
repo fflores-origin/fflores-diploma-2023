@@ -5,5 +5,7 @@ namespace PD.DataAccess.Interfaces
     public interface IConnection
     {
         SqlConnection CreateConnection();
+
+        SqlCommand CreateStoreCommand(string query, SqlConnection connection, SqlTransaction? transaction = null);
     }
 }

@@ -27,6 +27,21 @@ namespace PD.Presentation.Forms.Configuracion
         {
             List<Patente> permisos = _usuarioManager.GetAllPatentes();
             List<Familia> familas = _usuarioManager.GetAllFamilias();
+
+            cbx_familias.DataSource = familas;
+
+            cbx_familias.DisplayMember = "Nombre";
+            cbx_familias.ValueMember = "Id";
+
+            cbx_patentes.DataSource = permisos;
+
+            cbx_patentes.DisplayMember = "Nombre";
+            cbx_patentes.ValueMember = "Id";
+        }
+
+        internal void ShowAndLoad()
+        {
+            this.Show();
         }
     }
 }
