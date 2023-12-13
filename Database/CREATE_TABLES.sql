@@ -523,4 +523,16 @@ BEGIN
     WHERE Id=@Id;
 END
 
+GO
+CREATE OR ALTER PROCEDURE PatenteGetAll
+AS 
+BEGIN 
+	SELECT * FROM Permiso p where p.TipoPermiso is not null
+END
 
+GO
+CREATE OR ALTER PROCEDURE FamiliaGetAll
+AS 
+BEGIN 
+	SELECT * FROM Permiso p where p.TipoPermiso is null
+END
