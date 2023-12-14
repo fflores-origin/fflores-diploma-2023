@@ -31,9 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPedidos));
             panel3 = new Panel();
             panel5 = new Panel();
-            label4 = new Label();
+            lbl_title_pedidos = new Label();
             panel1 = new Panel();
-            label1 = new Label();
+            lbl_fecha = new Label();
+            txt_fecha = new TextBox();
+            lbl_facturar = new Label();
             btn_bill = new Button();
             lbl_save = new Label();
             btn_save = new Button();
@@ -51,8 +53,6 @@
             panel2 = new Panel();
             btn_new = new Button();
             dgv_lista_pedidos = new DataGridView();
-            label2 = new Label();
-            txt_fecha = new TextBox();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_productos).BeginInit();
@@ -65,7 +65,7 @@
             // 
             panel3.BackColor = Color.White;
             panel3.Controls.Add(panel5);
-            panel3.Controls.Add(label4);
+            panel3.Controls.Add(lbl_title_pedidos);
             panel3.Location = new Point(12, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(885, 51);
@@ -80,22 +80,22 @@
             panel5.Size = new Size(45, 45);
             panel5.TabIndex = 7;
             // 
-            // label4
+            // lbl_title_pedidos
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 11);
-            label4.Name = "label4";
-            label4.Size = new Size(112, 32);
-            label4.TabIndex = 6;
-            label4.Text = "PEDIDOS";
+            lbl_title_pedidos.AutoSize = true;
+            lbl_title_pedidos.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_title_pedidos.Location = new Point(54, 11);
+            lbl_title_pedidos.Name = "lbl_title_pedidos";
+            lbl_title_pedidos.Size = new Size(112, 32);
+            lbl_title_pedidos.TabIndex = 6;
+            lbl_title_pedidos.Text = "PEDIDOS";
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lbl_fecha);
             panel1.Controls.Add(txt_fecha);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lbl_facturar);
             panel1.Controls.Add(btn_bill);
             panel1.Controls.Add(lbl_save);
             panel1.Controls.Add(btn_save);
@@ -115,14 +115,31 @@
             panel1.Size = new Size(882, 418);
             panel1.TabIndex = 8;
             // 
-            // label1
+            // lbl_fecha
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(743, 387);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 15);
-            label1.TabIndex = 18;
-            label1.Text = "Facturar";
+            lbl_fecha.AutoSize = true;
+            lbl_fecha.Location = new Point(14, 48);
+            lbl_fecha.Name = "lbl_fecha";
+            lbl_fecha.Size = new Size(38, 15);
+            lbl_fecha.TabIndex = 20;
+            lbl_fecha.Text = "Fecha";
+            // 
+            // txt_fecha
+            // 
+            txt_fecha.Enabled = false;
+            txt_fecha.Location = new Point(111, 45);
+            txt_fecha.Name = "txt_fecha";
+            txt_fecha.Size = new Size(315, 23);
+            txt_fecha.TabIndex = 19;
+            // 
+            // lbl_facturar
+            // 
+            lbl_facturar.AutoSize = true;
+            lbl_facturar.Location = new Point(743, 387);
+            lbl_facturar.Name = "lbl_facturar";
+            lbl_facturar.Size = new Size(50, 15);
+            lbl_facturar.TabIndex = 18;
+            lbl_facturar.Text = "Facturar";
             // 
             // btn_bill
             // 
@@ -164,7 +181,7 @@
             btn_remove.BackgroundImageLayout = ImageLayout.Stretch;
             btn_remove.FlatAppearance.BorderSize = 0;
             btn_remove.FlatStyle = FlatStyle.Flat;
-            btn_remove.Location = new Point(461, 313);
+            btn_remove.Location = new Point(458, 313);
             btn_remove.Name = "btn_remove";
             btn_remove.Size = new Size(46, 46);
             btn_remove.TabIndex = 14;
@@ -176,16 +193,17 @@
             btn_add.BackgroundImageLayout = ImageLayout.Stretch;
             btn_add.FlatAppearance.BorderSize = 0;
             btn_add.FlatStyle = FlatStyle.Flat;
-            btn_add.Location = new Point(383, 313);
+            btn_add.Location = new Point(380, 313);
             btn_add.Name = "btn_add";
             btn_add.Size = new Size(46, 46);
             btn_add.TabIndex = 13;
             btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
             // lbl_lista
             // 
             lbl_lista.AutoSize = true;
-            lbl_lista.Location = new Point(33, 106);
+            lbl_lista.Location = new Point(14, 106);
             lbl_lista.Name = "lbl_lista";
             lbl_lista.Size = new Size(31, 15);
             lbl_lista.TabIndex = 10;
@@ -194,25 +212,27 @@
             // cbx_lista
             // 
             cbx_lista.FormattingEnabled = true;
-            cbx_lista.Location = new Point(114, 103);
+            cbx_lista.Location = new Point(111, 103);
             cbx_lista.Name = "cbx_lista";
             cbx_lista.Size = new Size(315, 23);
             cbx_lista.TabIndex = 9;
+            cbx_lista.SelectedIndexChanged += OnSelectionListaChange;
             // 
             // dgv_productos
             // 
             dgv_productos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_productos.Location = new Point(33, 136);
+            dgv_productos.Location = new Point(14, 136);
             dgv_productos.Name = "dgv_productos";
+            dgv_productos.RowHeadersVisible = false;
             dgv_productos.RowTemplate.Height = 25;
             dgv_productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_productos.Size = new Size(396, 142);
+            dgv_productos.Size = new Size(412, 142);
             dgv_productos.TabIndex = 8;
             // 
             // lbl_cantidad
             // 
             lbl_cantidad.AutoSize = true;
-            lbl_cantidad.Location = new Point(198, 287);
+            lbl_cantidad.Location = new Point(195, 287);
             lbl_cantidad.Name = "lbl_cantidad";
             lbl_cantidad.Size = new Size(55, 15);
             lbl_cantidad.TabIndex = 7;
@@ -220,7 +240,7 @@
             // 
             // txt_cantidad
             // 
-            txt_cantidad.Location = new Point(266, 284);
+            txt_cantidad.Location = new Point(263, 284);
             txt_cantidad.Name = "txt_cantidad";
             txt_cantidad.Size = new Size(163, 23);
             txt_cantidad.TabIndex = 6;
@@ -229,7 +249,7 @@
             // 
             lbl_pedido.AutoSize = true;
             lbl_pedido.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_pedido.Location = new Point(461, 15);
+            lbl_pedido.Location = new Point(432, 15);
             lbl_pedido.Name = "lbl_pedido";
             lbl_pedido.Size = new Size(67, 25);
             lbl_pedido.TabIndex = 5;
@@ -238,16 +258,17 @@
             // dgv_pedido
             // 
             dgv_pedido.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_pedido.Location = new Point(461, 43);
+            dgv_pedido.Location = new Point(432, 43);
             dgv_pedido.Name = "dgv_pedido";
+            dgv_pedido.RowHeadersVisible = false;
             dgv_pedido.RowTemplate.Height = 25;
-            dgv_pedido.Size = new Size(396, 264);
+            dgv_pedido.Size = new Size(433, 235);
             dgv_pedido.TabIndex = 4;
             // 
             // cbx_clientes
             // 
             cbx_clientes.FormattingEnabled = true;
-            cbx_clientes.Location = new Point(114, 74);
+            cbx_clientes.Location = new Point(111, 74);
             cbx_clientes.Name = "cbx_clientes";
             cbx_clientes.Size = new Size(315, 23);
             cbx_clientes.TabIndex = 2;
@@ -255,7 +276,7 @@
             // lbl_cliente
             // 
             lbl_cliente.AutoSize = true;
-            lbl_cliente.Location = new Point(33, 77);
+            lbl_cliente.Location = new Point(14, 77);
             lbl_cliente.Name = "lbl_cliente";
             lbl_cliente.Size = new Size(44, 15);
             lbl_cliente.TabIndex = 1;
@@ -277,7 +298,7 @@
             btn_new.BackgroundImageLayout = ImageLayout.Stretch;
             btn_new.FlatAppearance.BorderSize = 0;
             btn_new.FlatStyle = FlatStyle.Flat;
-            btn_new.Location = new Point(811, 210);
+            btn_new.Location = new Point(822, 210);
             btn_new.Name = "btn_new";
             btn_new.Size = new Size(46, 46);
             btn_new.TabIndex = 12;
@@ -289,26 +310,10 @@
             dgv_lista_pedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_lista_pedidos.Location = new Point(17, 15);
             dgv_lista_pedidos.Name = "dgv_lista_pedidos";
+            dgv_lista_pedidos.RowHeadersVisible = false;
             dgv_lista_pedidos.RowTemplate.Height = 25;
-            dgv_lista_pedidos.Size = new Size(840, 189);
+            dgv_lista_pedidos.Size = new Size(851, 189);
             dgv_lista_pedidos.TabIndex = 11;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(33, 45);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 20;
-            label2.Text = "Fecha";
-            // 
-            // txt_fecha
-            // 
-            txt_fecha.Enabled = false;
-            txt_fecha.Location = new Point(114, 45);
-            txt_fecha.Name = "txt_fecha";
-            txt_fecha.Size = new Size(315, 23);
-            txt_fecha.TabIndex = 19;
             // 
             // GestionarPedidos
             // 
@@ -337,7 +342,7 @@
 
         private Panel panel3;
         private Panel panel5;
-        private Label label4;
+        private Label lbl_title_pedidos;
         private Panel panel1;
         private Label lbl_cliente;
         private ComboBox cbx_clientes;
@@ -355,9 +360,9 @@
         private Button btn_remove;
         private Button btn_save;
         private Label lbl_save;
-        private Label label1;
+        private Label lbl_facturar;
         private Button btn_bill;
-        private Label label2;
+        private Label lbl_fecha;
         private TextBox txt_fecha;
     }
 }

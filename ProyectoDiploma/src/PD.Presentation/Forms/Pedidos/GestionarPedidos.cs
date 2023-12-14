@@ -1,6 +1,8 @@
-﻿using PD.Core.DTOs.Articulo;
+﻿using PD.Core.DTOs;
+using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Entities;
+using PD.Presentation.Helpers;
 
 namespace PD.Presentation.Forms.Pedidos
 {
@@ -14,6 +16,8 @@ namespace PD.Presentation.Forms.Pedidos
         private List<Pedido> _pedidos = new List<Pedido>();
         private Pedido _pedido;
         private Lista? _listaSeleccionada;
+        private ArticuloPrecioDTO? _productoSeleccionado = null;
+        private List<ArticuloPrecioDTO> _articulosPedido;
 
         public GestionarPedidos(
             IPedidosManager pedidosManager,
@@ -43,13 +47,14 @@ namespace PD.Presentation.Forms.Pedidos
         private void FillGridProductos()
         {
             dgv_productos.DataSource = null;
-            var productos = _listasManager.GetAll();
+            dgv_productos.AutoGenerateColumns = false;
 
-            var dic = new Dictionary<Guid, IEnumerable<ArticuloPrecioDTO>>();
-
-            foreach (var item in _listas)
+            if (_listaSeleccionada != null)
             {
-                var precios = item.Articulos.Select(x => new ArticuloPrecioDTO()
+                var listaId = _listaSeleccionada.Id;
+                var lista = _listas.Where(x => x.Id == listaId).FirstOrDefault();
+
+                var precios = lista?.Articulos.Select(x => new ArticuloPrecioDTO()
                 {
                     Id = x.Id,
                     ListaId = x.ListaId,
@@ -57,18 +62,10 @@ namespace PD.Presentation.Forms.Pedidos
                     Nombre = x.Articulo.Nombre,
                     PrecioLista = x.Precio,
                     PrecioUnitario = x.Articulo.PrecioUnitario
-                });
+                }).ToList();
 
-                dic.Add(item.Id, precios);
+                dgv_productos.DataSource = precios;
             }
-
-            dgv_productos.AutoGenerateColumns = false;
-
-            IEnumerable<ArticuloPrecioDTO>? data = null;
-
-            if (_listaSeleccionada != null) dic.TryGetValue(_listaSeleccionada.Id, out data);
-
-            if (data != null) dgv_productos.DataSource = data.ToList();
         }
 
         private void FillGridPedidos()
@@ -96,7 +93,7 @@ namespace PD.Presentation.Forms.Pedidos
             _clientes = _clienteManager.GetAll();
             if (_clientes.Any())
             {
-                var listado = _clientes.Select(x => new { Value = $"{x.Nombre} - {x.Documento}", Key = x.Id }).ToList();
+                var listado = _clientes.Select(x => new ComboItemDTO() { Value = $"{x.Nombre} - {x.Documento}", Key = x.Id }).ToList();
                 cbx_clientes.DataSource = listado;
                 cbx_clientes.DisplayMember = "Value";
                 cbx_clientes.ValueMember = "Key";
@@ -108,7 +105,7 @@ namespace PD.Presentation.Forms.Pedidos
             _listas = _listasManager.GetAll().ToList();
             if (_listas.Any())
             {
-                var listado = _listas.Select(x => new { Value = x.Nombre, Key = x.Id }).ToList();
+                var listado = _listas.Select(x => new ComboItemDTO() { Value = x.Nombre, Key = x.Id }).ToList();
                 cbx_lista.DataSource = listado;
                 cbx_lista.DisplayMember = "Value";
                 cbx_lista.ValueMember = "Key";
@@ -130,26 +127,26 @@ namespace PD.Presentation.Forms.Pedidos
             {
                 Name = "Precio unitario",
                 DataPropertyName = "PrecioUnitario",
-                Width = 200,
+                Width = 100,
             });
 
             dgv_productos.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Precio Lista",
                 DataPropertyName = "PrecioLista",
-                Width = 200,
+                Width = 100,
             });
 
-            dgv_productos.Columns.Add(new DataGridViewButtonColumn()
-            {
-                Name = "Editar",
-                UseColumnTextForButtonValue = true,
-                Text = "Editar",
-                HeaderText = "",
-                DataPropertyName = "Id",
-                Width = 50,
-                FlatStyle = FlatStyle.Flat
-            });
+            //dgv_productos.Columns.Add(new DataGridViewButtonColumn()
+            //{
+            //    Name = "Editar",
+            //    UseColumnTextForButtonValue = true,
+            //    Text = "Editar",
+            //    HeaderText = "",
+            //    DataPropertyName = "Id",
+            //    Width = 50,
+            //    FlatStyle = FlatStyle.Flat
+            //});
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -169,6 +166,45 @@ namespace PD.Presentation.Forms.Pedidos
             FormLoad();
             InitDate();
             this.Show();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            if (txt_cantidad.IsTextInvalid())
+            {
+                MsgBoxHelpers.ShowWarning("No se puede agregar al pedido \nsi no se especifica cantidad.");
+                return;
+            }
+
+            if (Convert.ToInt32(txt_cantidad.Text) <= 0)
+            {
+                MsgBoxHelpers.ShowWarning("La cantidad no puede ser 0 o menor a 0.");
+                return;
+            }
+
+            if (dgv_productos.SelectedRows.Count != 0)
+            {
+                ArticuloPrecioDTO selected = (ArticuloPrecioDTO)dgv_productos.SelectedRows[0].DataBoundItem;
+
+                var lista = _listas.Where(x => x.Id == selected.ListaId).First();
+                var articulo = lista.Articulos.Where(x => x.Id == selected.Id).First();
+
+                _pedido.Detalles.Add(new PedidoDetalle() { ArticuloId = articulo.Id, Articulo = articulo.Articulo });
+            }
+            else
+            {
+                MsgBoxHelpers.ShowWarning("No hay productos para seleccionar");
+            }
+        }
+
+        private void OnSelectionListaChange(object sender, EventArgs e)
+        {
+            ComboItemDTO selected = (ComboItemDTO)cbx_lista.SelectedItem;
+            if (selected != null)
+            {
+                _listaSeleccionada = _listas.Where(x => x.Id == selected.Key).FirstOrDefault();
+                FillGridProductos();
+            }
         }
     }
 }

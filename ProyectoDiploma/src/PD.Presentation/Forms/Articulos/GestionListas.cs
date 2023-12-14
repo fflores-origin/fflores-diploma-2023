@@ -182,9 +182,11 @@ namespace PD.Presentation.Forms.Articulos
             AddGridEvents();
         }
 
+        private void RecargarListas() => _listas = _manager.GetAll().ToList();
+
         private void LoadForm()
         {
-            _listas = _manager.GetAll().ToList();
+            RecargarListas();
 
             FillLista();
             if (_listas.Count > 0)
@@ -221,7 +223,7 @@ namespace PD.Presentation.Forms.Articulos
 
                 _manager.Save(_lista);
 
-                FillLista();
+                LoadForm();
             }
             catch (Exception ex)
             {
@@ -254,8 +256,9 @@ namespace PD.Presentation.Forms.Articulos
         private void btn_new_Click(object sender, EventArgs e)
         {
             _lista = new Lista();
-            txt_nombre.Text = string.Empty;
-            txt_ganancia.Text = string.Empty;
+            txt_id.Clear();
+            txt_nombre.Clear();
+            txt_ganancia.Clear();
         }
 
         public void OnLanguageChanged(Idioma idioma)
