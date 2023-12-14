@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EdicionArticulo));
             label1 = new Label();
             panel1 = new Panel();
+            txt_autor = new TextBox();
+            label4 = new Label();
             txt_isbn = new TextBox();
             lbl_isbn = new Label();
             txt_id = new TextBox();
@@ -95,6 +97,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(txt_autor);
+            panel1.Controls.Add(label4);
             panel1.Controls.Add(txt_isbn);
             panel1.Controls.Add(lbl_isbn);
             panel1.Controls.Add(txt_id);
@@ -125,15 +129,32 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 69);
             panel1.Name = "panel1";
-            panel1.Size = new Size(756, 446);
+            panel1.Size = new Size(756, 462);
             panel1.TabIndex = 2;
+            // 
+            // txt_autor
+            // 
+            txt_autor.BorderStyle = BorderStyle.FixedSingle;
+            txt_autor.Location = new Point(121, 385);
+            txt_autor.Name = "txt_autor";
+            txt_autor.Size = new Size(225, 23);
+            txt_autor.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(28, 388);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 15);
+            label4.TabIndex = 36;
+            label4.Text = "Autor";
             // 
             // txt_isbn
             // 
             txt_isbn.Location = new Point(121, 356);
             txt_isbn.Name = "txt_isbn";
             txt_isbn.Size = new Size(225, 23);
-            txt_isbn.TabIndex = 33;
+            txt_isbn.TabIndex = 7;
             // 
             // lbl_isbn
             // 
@@ -185,7 +206,7 @@
             dgv_listas.Margin = new Padding(10);
             dgv_listas.Name = "dgv_listas";
             dgv_listas.RowTemplate.Height = 25;
-            dgv_listas.Size = new Size(225, 99);
+            dgv_listas.Size = new Size(225, 98);
             dgv_listas.TabIndex = 29;
             // 
             // textBox1
@@ -193,7 +214,7 @@
             textBox1.Location = new Point(478, 165);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(225, 23);
-            textBox1.TabIndex = 26;
+            textBox1.TabIndex = 10;
             // 
             // lbl_precio_lista
             // 
@@ -229,7 +250,7 @@
             txt_ubicacion.Location = new Point(481, 356);
             txt_ubicacion.Name = "txt_ubicacion";
             txt_ubicacion.Size = new Size(225, 23);
-            txt_ubicacion.TabIndex = 11;
+            txt_ubicacion.TabIndex = 21;
             // 
             // lbl_ubicacion
             // 
@@ -245,7 +266,7 @@
             txt_cantidad.Location = new Point(481, 317);
             txt_cantidad.Name = "txt_cantidad";
             txt_cantidad.Size = new Size(225, 23);
-            txt_cantidad.TabIndex = 10;
+            txt_cantidad.TabIndex = 20;
             // 
             // label9
             // 
@@ -291,7 +312,7 @@
             btn_assign.Location = new Point(478, 198);
             btn_assign.Name = "btn_assign";
             btn_assign.Size = new Size(225, 29);
-            btn_assign.TabIndex = 14;
+            btn_assign.TabIndex = 11;
             btn_assign.Text = "Actualizar Precio";
             btn_assign.UseVisualStyleBackColor = false;
             // 
@@ -308,7 +329,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(385, 54);
+            label7.Location = new Point(388, 55);
             label7.Name = "label7";
             label7.Size = new Size(31, 15);
             label7.TabIndex = 11;
@@ -366,7 +387,7 @@
             btn_print.Margin = new Padding(0);
             btn_print.Name = "btn_print";
             btn_print.Size = new Size(72, 117);
-            btn_print.TabIndex = 21;
+            btn_print.TabIndex = 40;
             btn_print.Text = "Imprimir QR";
             btn_print.UseVisualStyleBackColor = true;
             // 
@@ -400,7 +421,7 @@
             panel2.Controls.Add(btn_print);
             panel2.Location = new Point(774, 69);
             panel2.Name = "panel2";
-            panel2.Size = new Size(262, 446);
+            panel2.Size = new Size(262, 462);
             panel2.TabIndex = 3;
             // 
             // lbl_image
@@ -431,7 +452,7 @@
             btn_image_change.Location = new Point(11, 202);
             btn_image_change.Name = "btn_image_change";
             btn_image_change.Size = new Size(192, 29);
-            btn_image_change.TabIndex = 20;
+            btn_image_change.TabIndex = 30;
             btn_image_change.Text = "Cambiar Imagen";
             btn_image_change.UseVisualStyleBackColor = false;
             btn_image_change.Click += btn_image_change_Click;
@@ -489,15 +510,15 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(lbl_save);
             panel4.Controls.Add(btn_save);
-            panel4.Location = new Point(12, 521);
+            panel4.Location = new Point(12, 537);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1024, 122);
+            panel4.Size = new Size(1024, 106);
             panel4.TabIndex = 7;
             // 
             // lbl_save
             // 
             lbl_save.AutoSize = true;
-            lbl_save.Location = new Point(930, 89);
+            lbl_save.Location = new Point(930, 81);
             lbl_save.Name = "lbl_save";
             lbl_save.Size = new Size(49, 15);
             lbl_save.TabIndex = 14;
@@ -509,10 +530,10 @@
             btn_save.BackgroundImageLayout = ImageLayout.Stretch;
             btn_save.FlatAppearance.BorderSize = 0;
             btn_save.FlatStyle = FlatStyle.Flat;
-            btn_save.Location = new Point(924, 26);
+            btn_save.Location = new Point(924, 14);
             btn_save.Name = "btn_save";
             btn_save.Size = new Size(60, 60);
-            btn_save.TabIndex = 40;
+            btn_save.TabIndex = 50;
             btn_save.UseVisualStyleBackColor = true;
             btn_save.Click += btn_save_Click;
             // 
@@ -598,5 +619,7 @@
         private Label lbl_isbn;
         private Button btn_help;
         private HelpProvider help_provider_articulo;
+        private TextBox txt_autor;
+        private Label label4;
     }
 }

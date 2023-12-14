@@ -164,6 +164,7 @@ namespace PD.Presentation.Forms.Articulos
         private void FillInputs()
         {
             FillPrecios(_lista.Id);
+            if (_lista != null) txt_id.Text = _lista?.Id.ToString();
             txt_ganancia.Text = _lista?.Porcentaje.ToString();
             txt_nombre.Text = _lista?.Nombre.ToString();
         }

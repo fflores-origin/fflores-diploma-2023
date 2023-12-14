@@ -35,6 +35,8 @@
             pnl_lista = new Panel();
             btn_new = new Button();
             pnl_edicion = new Panel();
+            txt_id = new TextBox();
+            lbl_id = new Label();
             lbl_save = new Label();
             lbl_todos = new Label();
             btn_massive = new Button();
@@ -48,8 +50,6 @@
             pnl_productos = new Panel();
             lbl_producto = new Label();
             dgv_precios = new DataGridView();
-            textBox1 = new TextBox();
-            lbl_id = new Label();
             panel3.SuspendLayout();
             pnl_lista.SuspendLayout();
             pnl_edicion.SuspendLayout();
@@ -117,7 +117,7 @@
             // pnl_edicion
             // 
             pnl_edicion.BackColor = Color.White;
-            pnl_edicion.Controls.Add(textBox1);
+            pnl_edicion.Controls.Add(txt_id);
             pnl_edicion.Controls.Add(lbl_id);
             pnl_edicion.Controls.Add(lbl_save);
             pnl_edicion.Controls.Add(lbl_todos);
@@ -131,6 +131,23 @@
             pnl_edicion.Name = "pnl_edicion";
             pnl_edicion.Size = new Size(333, 257);
             pnl_edicion.TabIndex = 15;
+            // 
+            // txt_id
+            // 
+            txt_id.Location = new Point(90, 23);
+            txt_id.Name = "txt_id";
+            txt_id.ReadOnly = true;
+            txt_id.Size = new Size(225, 23);
+            txt_id.TabIndex = 45;
+            // 
+            // lbl_id
+            // 
+            lbl_id.AutoSize = true;
+            lbl_id.Location = new Point(14, 28);
+            lbl_id.Name = "lbl_id";
+            lbl_id.Size = new Size(18, 15);
+            lbl_id.TabIndex = 46;
+            lbl_id.Text = "ID";
             // 
             // lbl_save
             // 
@@ -225,6 +242,7 @@
             dgv_listas.RowHeadersWidth = 62;
             dgv_listas.RowTemplate.Height = 25;
             dgv_listas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_listas.ShowEditingIcon = false;
             dgv_listas.Size = new Size(351, 205);
             dgv_listas.TabIndex = 0;
             // 
@@ -235,7 +253,7 @@
             pnl_productos.Controls.Add(dgv_precios);
             pnl_productos.Location = new Point(12, 394);
             pnl_productos.Name = "pnl_productos";
-            pnl_productos.Size = new Size(763, 371);
+            pnl_productos.Size = new Size(763, 281);
             pnl_productos.TabIndex = 7;
             // 
             // lbl_producto
@@ -255,38 +273,22 @@
             dgv_precios.Name = "dgv_precios";
             dgv_precios.RowHeadersWidth = 62;
             dgv_precios.RowTemplate.Height = 25;
-            dgv_precios.Size = new Size(717, 303);
+            dgv_precios.Size = new Size(717, 211);
             dgv_precios.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(90, 23);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(225, 23);
-            textBox1.TabIndex = 45;
-            // 
-            // lbl_id
-            // 
-            lbl_id.AutoSize = true;
-            lbl_id.Location = new Point(14, 28);
-            lbl_id.Name = "lbl_id";
-            lbl_id.Size = new Size(18, 15);
-            lbl_id.TabIndex = 46;
-            lbl_id.Text = "ID";
             // 
             // GestionListas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
-            ClientSize = new Size(787, 777);
+            BackColor = Color.FromArgb(230, 230, 230);
+            ClientSize = new Size(787, 684);
             Controls.Add(pnl_productos);
             Controls.Add(pnl_lista);
             Controls.Add(panel3);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "GestionListas";
-            Text = "GestionListas";
             Load += GestionListas_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -322,7 +324,7 @@
         private Button btn_massive;
         private Label lbl_todos;
         private Label lbl_save;
-        private TextBox textBox1;
+        private TextBox txt_id;
         private Label lbl_id;
     }
 }
