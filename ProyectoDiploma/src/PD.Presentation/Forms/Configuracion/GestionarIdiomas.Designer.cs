@@ -29,251 +29,250 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarIdiomas));
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_new = new System.Windows.Forms.Button();
-            this.lbl_save = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.lbl_idioma = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txt_valor = new System.Windows.Forms.TextBox();
-            this.lbl_valor = new System.Windows.Forms.Label();
-            this.txt_codigo = new System.Windows.Forms.TextBox();
-            this.lbl_codigo = new System.Windows.Forms.Label();
-            this.txt_id = new System.Windows.Forms.TextBox();
-            this.lbl_id = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbl_isoCode = new System.Windows.Forms.Label();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            panel3 = new Panel();
+            panel5 = new Panel();
+            label4 = new Label();
+            panel1 = new Panel();
+            txt_isoCode = new TextBox();
+            lbl_isoCode = new Label();
+            label3 = new Label();
+            btn_new = new Button();
+            lbl_save = new Label();
+            label2 = new Label();
+            btn_delete = new Button();
+            btn_save = new Button();
+            lbl_idioma = new Label();
+            dataGridView1 = new DataGridView();
+            txt_valor = new TextBox();
+            lbl_valor = new Label();
+            txt_codigo = new TextBox();
+            lbl_codigo = new Label();
+            txt_id = new TextBox();
+            lbl_id = new Label();
+            panel3.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(741, 51);
-            this.panel3.TabIndex = 5;
+            panel3.BackColor = Color.White;
+            panel3.Controls.Add(panel5);
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(12, 12);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(741, 51);
+            panel3.TabIndex = 5;
             // 
             // panel5
             // 
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(45, 45);
-            this.panel5.TabIndex = 7;
+            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
+            panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Location = new Point(3, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(45, 45);
+            panel5.TabIndex = 7;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(54, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 32);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "IDIOMAS";
+            label4.AutoSize = true;
+            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(54, 11);
+            label4.Name = "label4";
+            label4.Size = new Size(112, 32);
+            label4.TabIndex = 6;
+            label4.Text = "IDIOMAS";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.lbl_isoCode);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btn_new);
-            this.panel1.Controls.Add(this.lbl_save);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btn_delete);
-            this.panel1.Controls.Add(this.btn_save);
-            this.panel1.Controls.Add(this.lbl_idioma);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.txt_valor);
-            this.panel1.Controls.Add(this.lbl_valor);
-            this.panel1.Controls.Add(this.txt_codigo);
-            this.panel1.Controls.Add(this.lbl_codigo);
-            this.panel1.Controls.Add(this.txt_id);
-            this.panel1.Controls.Add(this.lbl_id);
-            this.panel1.Location = new System.Drawing.Point(12, 69);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(738, 393);
-            this.panel1.TabIndex = 6;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(txt_isoCode);
+            panel1.Controls.Add(lbl_isoCode);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(btn_new);
+            panel1.Controls.Add(lbl_save);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(btn_delete);
+            panel1.Controls.Add(btn_save);
+            panel1.Controls.Add(lbl_idioma);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(txt_valor);
+            panel1.Controls.Add(lbl_valor);
+            panel1.Controls.Add(txt_codigo);
+            panel1.Controls.Add(lbl_codigo);
+            panel1.Controls.Add(txt_id);
+            panel1.Controls.Add(lbl_id);
+            panel1.Location = new Point(12, 69);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(738, 393);
+            panel1.TabIndex = 6;
             // 
-            // label3
+            // txt_isoCode
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(208, 265);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 15);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Nuevo";
-            // 
-            // btn_new
-            // 
-            this.btn_new.BackgroundImage = global::PD.Presentation.Properties.Resources.plus1;
-            this.btn_new.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_new.FlatAppearance.BorderSize = 0;
-            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_new.Location = new System.Drawing.Point(204, 216);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(46, 46);
-            this.btn_new.TabIndex = 15;
-            this.btn_new.UseVisualStyleBackColor = true;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
-            // 
-            // lbl_save
-            // 
-            this.lbl_save.AutoSize = true;
-            this.lbl_save.Location = new System.Drawing.Point(32, 265);
-            this.lbl_save.Name = "lbl_save";
-            this.lbl_save.Size = new System.Drawing.Size(49, 15);
-            this.lbl_save.TabIndex = 14;
-            this.lbl_save.Text = "Guardar";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(117, 265);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 15);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Eliminar";
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.BackgroundImage = global::PD.Presentation.Properties.Resources.cancel;
-            this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_delete.FlatAppearance.BorderSize = 0;
-            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete.Location = new System.Drawing.Point(118, 216);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(46, 46);
-            this.btn_delete.TabIndex = 12;
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_save
-            // 
-            this.btn_save.BackgroundImage = global::PD.Presentation.Properties.Resources.save;
-            this.btn_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_save.FlatAppearance.BorderSize = 0;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.Location = new System.Drawing.Point(32, 216);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(46, 46);
-            this.btn_save.TabIndex = 10;
-            this.btn_save.UseVisualStyleBackColor = true;
-            // 
-            // lbl_idioma
-            // 
-            this.lbl_idioma.AutoSize = true;
-            this.lbl_idioma.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_idioma.Location = new System.Drawing.Point(289, 18);
-            this.lbl_idioma.Name = "lbl_idioma";
-            this.lbl_idioma.Size = new System.Drawing.Size(65, 21);
-            this.lbl_idioma.TabIndex = 9;
-            this.lbl_idioma.Text = "Idiomas";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(289, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(434, 327);
-            this.dataGridView1.TabIndex = 8;
-            // 
-            // txt_valor
-            // 
-            this.txt_valor.Location = new System.Drawing.Point(88, 120);
-            this.txt_valor.Name = "txt_valor";
-            this.txt_valor.Size = new System.Drawing.Size(163, 23);
-            this.txt_valor.TabIndex = 4;
-            // 
-            // lbl_valor
-            // 
-            this.lbl_valor.AutoSize = true;
-            this.lbl_valor.Location = new System.Drawing.Point(23, 123);
-            this.lbl_valor.Name = "lbl_valor";
-            this.lbl_valor.Size = new System.Drawing.Size(33, 15);
-            this.lbl_valor.TabIndex = 4;
-            this.lbl_valor.Text = "Valor";
-            // 
-            // txt_codigo
-            // 
-            this.txt_codigo.Location = new System.Drawing.Point(88, 91);
-            this.txt_codigo.Name = "txt_codigo";
-            this.txt_codigo.Size = new System.Drawing.Size(163, 23);
-            this.txt_codigo.TabIndex = 3;
-            // 
-            // lbl_codigo
-            // 
-            this.lbl_codigo.AutoSize = true;
-            this.lbl_codigo.Location = new System.Drawing.Point(23, 94);
-            this.lbl_codigo.Name = "lbl_codigo";
-            this.lbl_codigo.Size = new System.Drawing.Size(46, 15);
-            this.lbl_codigo.TabIndex = 2;
-            this.lbl_codigo.Text = "Codigo";
-            // 
-            // txt_id
-            // 
-            this.txt_id.Location = new System.Drawing.Point(88, 62);
-            this.txt_id.Name = "txt_id";
-            this.txt_id.ReadOnly = true;
-            this.txt_id.Size = new System.Drawing.Size(163, 23);
-            this.txt_id.TabIndex = 0;
-            this.txt_id.TabStop = false;
-            // 
-            // lbl_id
-            // 
-            this.lbl_id.AutoSize = true;
-            this.lbl_id.Location = new System.Drawing.Point(23, 65);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(18, 15);
-            this.lbl_id.TabIndex = 0;
-            this.lbl_id.Text = "ID";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(87, 149);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 23);
-            this.textBox1.TabIndex = 17;
+            txt_isoCode.Location = new Point(87, 149);
+            txt_isoCode.Name = "txt_isoCode";
+            txt_isoCode.Size = new Size(163, 23);
+            txt_isoCode.TabIndex = 17;
             // 
             // lbl_isoCode
             // 
-            this.lbl_isoCode.AutoSize = true;
-            this.lbl_isoCode.Location = new System.Drawing.Point(22, 152);
-            this.lbl_isoCode.Name = "lbl_isoCode";
-            this.lbl_isoCode.Size = new System.Drawing.Size(50, 15);
-            this.lbl_isoCode.TabIndex = 18;
-            this.lbl_isoCode.Text = "IsoCode";
+            lbl_isoCode.AutoSize = true;
+            lbl_isoCode.Location = new Point(22, 152);
+            lbl_isoCode.Name = "lbl_isoCode";
+            lbl_isoCode.Size = new Size(50, 15);
+            lbl_isoCode.TabIndex = 18;
+            lbl_isoCode.Text = "IsoCode";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(208, 265);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 15);
+            label3.TabIndex = 16;
+            label3.Text = "Nuevo";
+            // 
+            // btn_new
+            // 
+            btn_new.BackgroundImage = Properties.Resources.plus1;
+            btn_new.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_new.FlatAppearance.BorderSize = 0;
+            btn_new.FlatStyle = FlatStyle.Flat;
+            btn_new.Location = new Point(204, 216);
+            btn_new.Name = "btn_new";
+            btn_new.Size = new Size(46, 46);
+            btn_new.TabIndex = 15;
+            btn_new.UseVisualStyleBackColor = true;
+            btn_new.Click += btn_new_Click;
+            // 
+            // lbl_save
+            // 
+            lbl_save.AutoSize = true;
+            lbl_save.Location = new Point(32, 265);
+            lbl_save.Name = "lbl_save";
+            lbl_save.Size = new Size(49, 15);
+            lbl_save.TabIndex = 14;
+            lbl_save.Text = "Guardar";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(117, 265);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 15);
+            label2.TabIndex = 13;
+            label2.Text = "Eliminar";
+            // 
+            // btn_delete
+            // 
+            btn_delete.BackgroundImage = Properties.Resources.cancel;
+            btn_delete.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_delete.FlatAppearance.BorderSize = 0;
+            btn_delete.FlatStyle = FlatStyle.Flat;
+            btn_delete.Location = new Point(118, 216);
+            btn_delete.Name = "btn_delete";
+            btn_delete.Size = new Size(46, 46);
+            btn_delete.TabIndex = 12;
+            btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_save
+            // 
+            btn_save.BackgroundImage = Properties.Resources.save;
+            btn_save.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_save.FlatAppearance.BorderSize = 0;
+            btn_save.FlatStyle = FlatStyle.Flat;
+            btn_save.Location = new Point(32, 216);
+            btn_save.Name = "btn_save";
+            btn_save.Size = new Size(46, 46);
+            btn_save.TabIndex = 10;
+            btn_save.UseVisualStyleBackColor = true;
+            // 
+            // lbl_idioma
+            // 
+            lbl_idioma.AutoSize = true;
+            lbl_idioma.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_idioma.Location = new Point(289, 18);
+            lbl_idioma.Name = "lbl_idioma";
+            lbl_idioma.Size = new Size(65, 21);
+            lbl_idioma.TabIndex = 9;
+            lbl_idioma.Text = "Idiomas";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(289, 44);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(434, 327);
+            dataGridView1.TabIndex = 8;
+            // 
+            // txt_valor
+            // 
+            txt_valor.Location = new Point(88, 120);
+            txt_valor.Name = "txt_valor";
+            txt_valor.Size = new Size(163, 23);
+            txt_valor.TabIndex = 4;
+            // 
+            // lbl_valor
+            // 
+            lbl_valor.AutoSize = true;
+            lbl_valor.Location = new Point(23, 123);
+            lbl_valor.Name = "lbl_valor";
+            lbl_valor.Size = new Size(33, 15);
+            lbl_valor.TabIndex = 4;
+            lbl_valor.Text = "Valor";
+            // 
+            // txt_codigo
+            // 
+            txt_codigo.Location = new Point(88, 91);
+            txt_codigo.Name = "txt_codigo";
+            txt_codigo.Size = new Size(163, 23);
+            txt_codigo.TabIndex = 3;
+            // 
+            // lbl_codigo
+            // 
+            lbl_codigo.AutoSize = true;
+            lbl_codigo.Location = new Point(23, 94);
+            lbl_codigo.Name = "lbl_codigo";
+            lbl_codigo.Size = new Size(46, 15);
+            lbl_codigo.TabIndex = 2;
+            lbl_codigo.Text = "Codigo";
+            // 
+            // txt_id
+            // 
+            txt_id.Location = new Point(88, 62);
+            txt_id.Name = "txt_id";
+            txt_id.ReadOnly = true;
+            txt_id.Size = new Size(163, 23);
+            txt_id.TabIndex = 0;
+            txt_id.TabStop = false;
+            // 
+            // lbl_id
+            // 
+            lbl_id.AutoSize = true;
+            lbl_id.Location = new Point(23, 65);
+            lbl_id.Name = "lbl_id";
+            lbl_id.Size = new Size(18, 15);
+            lbl_id.TabIndex = 0;
+            lbl_id.Text = "ID";
             // 
             // GestionarIdiomas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(765, 474);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
-            this.Name = "GestionarIdiomas";
-            this.Text = "GestionarIdiomas";
-            this.Load += new System.EventHandler(this.GestionarIdiomas_Load);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(230, 230, 230);
+            ClientSize = new Size(765, 474);
+            Controls.Add(panel1);
+            Controls.Add(panel3);
+            Name = "GestionarIdiomas";
+            Text = "GestionarIdiomas";
+            Load += GestionarIdiomas_Load;
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -296,7 +295,7 @@
         private Label label2;
         private Label label3;
         private Button btn_new;
-        private TextBox textBox1;
+        private TextBox txt_isoCode;
         private Label lbl_isoCode;
     }
 }

@@ -9,5 +9,7 @@ namespace PD.Core.Interfaces
         List<Idioma> GetIdiomas();
 
         IDictionary<string, Traduccion> GetTraducciones(Idioma idioma);
+
+        Idioma Save(Idioma selected);
     }
 }

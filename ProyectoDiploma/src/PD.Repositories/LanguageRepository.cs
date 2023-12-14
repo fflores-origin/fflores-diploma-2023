@@ -93,7 +93,6 @@ namespace PD.Repositories
                                 Nombre = row["Nombre"].ToString()
                             },
                             Idioma = idioma
-
                         };
 
                         traducciones.Add(key, value);
@@ -119,9 +118,42 @@ namespace PD.Repositories
             throw new NotImplementedException();
         }
 
-        public bool SaveOrUpdateIdioma(Idioma idioma)
+        public Idioma SaveOrUpdateIdioma(Idioma idioma)
         {
-            throw new NotImplementedException();
+            string query;
+
+            if (idioma.Id == Guid.Empty)
+            {
+                idioma.Id = Guid.NewGuid();
+                query = "IdiomaCreate";
+            }
+            else
+            {
+                query = "IdiomaUpdate";
+            }
+
+            using SqlConnection conn = _connection.CreateConnection();
+            conn.Open();
+            SqlTransaction tran = conn.BeginTransaction();
+            try
+            {
+                using SqlCommand cmd = _connection.CreateTextCommand(query, conn, tran);
+
+                cmd.Parameters.AddWithValue("@Id", idioma.Id);
+                cmd.Parameters.AddWithValue("@Valor", idioma.Nombre);
+                cmd.Parameters.AddWithValue("@IsoCode", idioma.IsoCode);
+                cmd.Parameters.AddWithValue("@IsDefault", idioma.IsDefault);
+
+                cmd.ExecuteNonQuery();
+                tran.Commit();
+            }
+            catch (Exception)
+            {
+                tran.Rollback();
+                throw;
+            }
+
+            return idioma;
         }
 
         public bool SaveOrUpdateTraduccion(Traduccion idioma)

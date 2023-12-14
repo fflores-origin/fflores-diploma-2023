@@ -14,7 +14,7 @@ namespace PD.Repositories.Interfaces
 
         IList<Traduccion> GetAllTraducciones();
 
-        bool SaveOrUpdateIdioma(Idioma idioma);
+        Idioma SaveOrUpdateIdioma(Idioma idioma);
 
         bool SaveOrUpdateTraduccion(Traduccion idioma);
 

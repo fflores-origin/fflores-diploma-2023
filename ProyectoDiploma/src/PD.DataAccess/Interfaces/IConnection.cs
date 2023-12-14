@@ -7,5 +7,7 @@ namespace PD.DataAccess.Interfaces
         SqlConnection CreateConnection();
 
         SqlCommand CreateStoreCommand(string query, SqlConnection connection, SqlTransaction? transaction = null);
+
+        SqlCommand CreateTextCommand(string query, SqlConnection connection, SqlTransaction? transaction = null);
     }
 }

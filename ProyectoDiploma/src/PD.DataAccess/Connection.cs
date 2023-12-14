@@ -17,5 +17,8 @@ namespace PD.DataAccess
 
         public SqlCommand CreateStoreCommand(string query, SqlConnection connection, SqlTransaction? transaction = null)
             => new(query, connection, transaction) { CommandType = System.Data.CommandType.StoredProcedure };
+
+        public SqlCommand CreateTextCommand(string query, SqlConnection connection, SqlTransaction? transaction = null)
+            => new(query, connection, transaction) { CommandType = System.Data.CommandType.Text };
     }
 }

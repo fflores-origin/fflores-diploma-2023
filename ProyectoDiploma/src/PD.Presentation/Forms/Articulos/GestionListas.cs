@@ -245,7 +245,7 @@ namespace PD.Presentation.Forms.Articulos
                 }
             }
 
-            if (errores.Any()) { StringExtensions.ShowMessageFieldsEmptyError(errores); }
+            if (errores.Any()) { StringExtensions.ValidateAndShowMessageFieldsError(errores); }
 
             return errores.Any();
         }

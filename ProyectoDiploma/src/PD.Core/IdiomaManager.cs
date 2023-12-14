@@ -39,5 +39,10 @@ namespace PD.Core
 
             return _languageRepository.GetAllTraduccionByIdioma(idioma);
         }
+
+        public Idioma Save(Idioma selected)
+        {
+            return _languageRepository.SaveOrUpdateIdioma(selected);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PD.Core.Interfaces;
+﻿using PD.Core.DTOs.Articulo;
+using PD.Core.Interfaces;
 using PD.Entities;
 
 namespace PD.Presentation.Forms.Pedidos
@@ -12,6 +13,7 @@ namespace PD.Presentation.Forms.Pedidos
         private List<Lista> _listas;
         private List<Pedido> _pedidos = new List<Pedido>();
         private Pedido _pedido;
+        private Lista? _listaSeleccionada;
 
         public GestionarPedidos(
             IPedidosManager pedidosManager,
@@ -26,6 +28,7 @@ namespace PD.Presentation.Forms.Pedidos
 
         private void GestionarPedidos_Load(object sender, EventArgs e)
         {
+            FormatGridPrecios();
             FormLoad();
         }
 
@@ -33,10 +36,42 @@ namespace PD.Presentation.Forms.Pedidos
         {
             FillComboCliente();
             FillComboLista();
-            FillGrid();
+            FillGridPedidos();
+            FillGridProductos();
         }
 
-        private void FillGrid()
+        private void FillGridProductos()
+        {
+            dgv_productos.DataSource = null;
+            var productos = _listasManager.GetAll();
+
+            var dic = new Dictionary<Guid, IEnumerable<ArticuloPrecioDTO>>();
+
+            foreach (var item in _listas)
+            {
+                var precios = item.Articulos.Select(x => new ArticuloPrecioDTO()
+                {
+                    Id = x.Id,
+                    ListaId = x.ListaId,
+                    ArticuloId = x.ArticuloId,
+                    Nombre = x.Articulo.Nombre,
+                    PrecioLista = x.Precio,
+                    PrecioUnitario = x.Articulo.PrecioUnitario
+                });
+
+                dic.Add(item.Id, precios);
+            }
+
+            dgv_productos.AutoGenerateColumns = false;
+
+            IEnumerable<ArticuloPrecioDTO>? data = null;
+
+            if (_listaSeleccionada != null) dic.TryGetValue(_listaSeleccionada.Id, out data);
+
+            if (data != null) dgv_productos.DataSource = data.ToList();
+        }
+
+        private void FillGridPedidos()
         {
             dgv_lista_pedidos.DataSource = null;
             _pedidos = _pedidosManager.GetAll();
@@ -77,7 +112,44 @@ namespace PD.Presentation.Forms.Pedidos
                 cbx_lista.DataSource = listado;
                 cbx_lista.DisplayMember = "Value";
                 cbx_lista.ValueMember = "Key";
+                _listaSeleccionada = _listas.FirstOrDefault();
             }
+        }
+
+        private void FormatGridPrecios()
+        {
+            dgv_productos.RowTemplate.Height = 35;
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Nombre",
+                DataPropertyName = "Nombre",
+                Width = 200,
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Precio unitario",
+                DataPropertyName = "PrecioUnitario",
+                Width = 200,
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Precio Lista",
+                DataPropertyName = "PrecioLista",
+                Width = 200,
+            });
+
+            dgv_productos.Columns.Add(new DataGridViewButtonColumn()
+            {
+                Name = "Editar",
+                UseColumnTextForButtonValue = true,
+                Text = "Editar",
+                HeaderText = "",
+                DataPropertyName = "Id",
+                Width = 50,
+                FlatStyle = FlatStyle.Flat
+            });
         }
 
         private void btn_new_Click(object sender, EventArgs e)

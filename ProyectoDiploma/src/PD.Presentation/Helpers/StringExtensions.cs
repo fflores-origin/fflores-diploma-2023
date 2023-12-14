@@ -12,14 +12,21 @@
         public static string GetMessageFieldInvalidValueError(string value)
             => $"{value} {MESSAGE_FIELD_INVALID_ERROR}";
 
-        public static void ShowMessageFieldsEmptyError(List<string> errors)
+        public static bool ValidateAndShowMessageFieldsError(List<string> errors)
         {
-            var messages = string.Join("\n", errors);
-            MessageBox.Show(
-                messages,
-                MESSAGE_ERROR_DATA_TITLE,
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
+            if (errors.Any())
+            {
+                var messages = string.Join("\n", errors);
+                MessageBox.Show(
+                    messages,
+                    MESSAGE_ERROR_DATA_TITLE,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

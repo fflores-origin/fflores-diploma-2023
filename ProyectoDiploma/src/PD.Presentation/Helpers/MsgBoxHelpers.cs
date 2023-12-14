@@ -31,5 +31,11 @@
         {
             MessageBox.Show(message, title, MessageBoxButtons.OK, icon);
         }
+
+        private static void ShowErrors(List<string> errors)
+        {
+            var message = string.Join('\n', errors);
+            ShowError(message);
+        }
     }
 }
