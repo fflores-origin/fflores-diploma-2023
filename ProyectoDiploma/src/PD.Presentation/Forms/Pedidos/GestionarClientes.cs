@@ -2,10 +2,11 @@
 using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
+using PD.Services.Interfaces;
 
 namespace PD.Presentation.Forms.Pedidos
 {
-    public partial class GestionarClientes : FormBase
+    public partial class GestionarClientes : FormBase, ILanguageObserver
     {
         private readonly IClienteManager _clientesManager;
 
@@ -283,6 +284,11 @@ namespace PD.Presentation.Forms.Pedidos
         private string GetMessageFieldEmptyError(string value)
         {
             return $"{value} no puede estar vacio";
+        }
+
+        public void OnLanguageChanged(Idioma idioma)
+        {
+            throw new NotImplementedException();
         }
     }
 }

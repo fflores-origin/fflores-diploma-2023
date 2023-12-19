@@ -2,6 +2,11 @@
 {
     public class Pedido : BaseEntity
     {
+        public Pedido()
+        {
+            Detalles = new List<PedidoDetalle>();
+        }
+
         public Guid ClienteId { get; set; }
         public Guid ListaId { get; set; }
         public DateTime Fecha { get; set; }

@@ -1,12 +1,14 @@
 ﻿using PD.Core.DTOs;
 using PD.Core.DTOs.Articulo;
+using PD.Core.DTOs.Pedido;
 using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
+using PD.Services.Interfaces;
 
 namespace PD.Presentation.Forms.Pedidos
 {
-    public partial class GestionarPedidos : FormBase
+    public partial class GestionarPedidos : FormBase, ILanguageObserver
     {
         private readonly IPedidosManager _pedidosManager;
         private readonly IClienteManager _clienteManager;
@@ -18,6 +20,7 @@ namespace PD.Presentation.Forms.Pedidos
         private Lista? _listaSeleccionada;
         private ArticuloPrecioDTO? _productoSeleccionado = null;
         private List<ArticuloPrecioDTO> _articulosPedido;
+        private bool _shouldShow = true;
 
         public GestionarPedidos(
             IPedidosManager pedidosManager,
@@ -32,7 +35,9 @@ namespace PD.Presentation.Forms.Pedidos
 
         private void GestionarPedidos_Load(object sender, EventArgs e)
         {
+            FormatGridPedido();
             FormatGridPrecios();
+            //InitPedido();
             FormLoad();
         }
 
@@ -40,8 +45,9 @@ namespace PD.Presentation.Forms.Pedidos
         {
             FillComboCliente();
             FillComboLista();
-            FillGridPedidos();
+            FillGridListaPedidos();
             FillGridProductos();
+            FillGridPedido();
         }
 
         private void FillGridProductos()
@@ -68,14 +74,14 @@ namespace PD.Presentation.Forms.Pedidos
             }
         }
 
-        private void FillGridPedidos()
+        private void FillGridListaPedidos()
         {
             dgv_lista_pedidos.DataSource = null;
             _pedidos = _pedidosManager.GetAll();
 
             if (_pedidos != null && _pedidos.Any())
             {
-                var listado = _pedidos.Select(x => new
+                var listado = _pedidos.Select(x => new PedidoDTO()
                 {
                     NroPedido = x.Id,
                     Fecha = x.Fecha,
@@ -88,6 +94,30 @@ namespace PD.Presentation.Forms.Pedidos
             }
         }
 
+        private void FillGridPedido()
+        {
+            dgv_pedido.DataSource = null;
+            dgv_pedido.AutoGenerateColumns = false;
+
+            if (_pedido != null && _pedido.Detalles.Any())
+            {
+                var source = _pedido.Detalles
+                   .Select(x => new PedidoItemDTO()
+                   {
+                       Id = x.ArticuloId,
+                       Nombre = x.Articulo.Nombre,
+                       Cantidad = x.Cantidad,
+                       PrecioLista = x.Precio,
+                       Total = x.Precio * x.Cantidad
+                   })
+                   .ToList();
+
+                txt_total.Text = source.Sum(x => x.Total).ToString();
+
+                dgv_pedido.DataSource = source;
+            }
+        }
+
         private void FillComboCliente()
         {
             _clientes = _clienteManager.GetAll();
@@ -97,6 +127,10 @@ namespace PD.Presentation.Forms.Pedidos
                 cbx_clientes.DataSource = listado;
                 cbx_clientes.DisplayMember = "Value";
                 cbx_clientes.ValueMember = "Key";
+            }
+            else
+            {
+                _shouldShow = false;
             }
         }
 
@@ -115,7 +149,7 @@ namespace PD.Presentation.Forms.Pedidos
 
         private void FormatGridPrecios()
         {
-            dgv_productos.RowTemplate.Height = 35;
+            dgv_productos.RowTemplate.Height = 30;
             dgv_productos.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 Name = "Nombre",
@@ -136,26 +170,62 @@ namespace PD.Presentation.Forms.Pedidos
                 DataPropertyName = "PrecioLista",
                 Width = 100,
             });
+        }
 
-            //dgv_productos.Columns.Add(new DataGridViewButtonColumn()
-            //{
-            //    Name = "Editar",
-            //    UseColumnTextForButtonValue = true,
-            //    Text = "Editar",
-            //    HeaderText = "",
-            //    DataPropertyName = "Id",
-            //    Width = 50,
-            //    FlatStyle = FlatStyle.Flat
-            //});
+        private void FormatGridPedido()
+        {
+            dgv_pedido.RowTemplate.Height = 30;
+            dgv_pedido.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Nombre",
+                DataPropertyName = "Nombre",
+                Width = 150,
+            });
+
+            dgv_pedido.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Cantidad",
+                DataPropertyName = "Cantidad",
+                Width = 80,
+            });
+
+            dgv_pedido.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "PrecioLista",
+                DataPropertyName = "PrecioLista",
+                Width = 80,
+            });
+
+            dgv_pedido.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "Total",
+                DataPropertyName = "Total",
+                Width = 80,
+            });
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
-            _pedido = new Pedido();
-            txt_fecha.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            InitPedido();
+            cbx_clientes.Enabled = true;
+            cbx_lista.Enabled = true;
         }
 
-        private void InitDate() => txt_fecha.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        private void InitPedido()
+        {
+            dgv_pedido.DataSource = null;
+
+            _pedido = new Pedido()
+            {
+                Id = Guid.NewGuid(),
+                Fecha = DateTime.Now
+            };
+
+            txt_pedido_id.Text = _pedido.Id.ToString();
+            txt_fecha.Text = _pedido.Fecha.ToString("yyyy-MM-dd HH:mm:ss");
+            txt_total.Clear();
+            txt_cantidad.Clear();
+        }
 
         private void btn_bill_Click(object sender, EventArgs e)
         {
@@ -164,8 +234,9 @@ namespace PD.Presentation.Forms.Pedidos
         public void ShowAndLoad()
         {
             FormLoad();
-            InitDate();
-            this.Show();
+            InitPedido();
+            if (_shouldShow) this.Show();
+            else MsgBoxHelpers.ShowWarning("No hay clientes disponibles para generar pedidos.");
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -189,7 +260,26 @@ namespace PD.Presentation.Forms.Pedidos
                 var lista = _listas.Where(x => x.Id == selected.ListaId).First();
                 var articulo = lista.Articulos.Where(x => x.Id == selected.Id).First();
 
-                _pedido.Detalles.Add(new PedidoDetalle() { ArticuloId = articulo.Id, Articulo = articulo.Articulo });
+                cbx_clientes.Enabled = false;
+                cbx_lista.Enabled = false;
+
+                if (_pedido == null) { InitPedido(); }
+
+                if (_pedido != null)
+                {
+                    var detalle = new PedidoDetalle()
+                    {
+                        Cantidad = Convert.ToInt32(txt_cantidad.Text),
+                        ArticuloId = articulo.Id,
+                        Articulo = articulo.Articulo,
+                        PedidoId = _pedido.Id,
+                        Precio = selected.PrecioLista
+                    };
+
+                    _pedido.Detalles.Add(detalle);
+                }
+
+                FillGridPedido();
             }
             else
             {
@@ -205,6 +295,11 @@ namespace PD.Presentation.Forms.Pedidos
                 _listaSeleccionada = _listas.Where(x => x.Id == selected.Key).FirstOrDefault();
                 FillGridProductos();
             }
+        }
+
+        public void OnLanguageChanged(Idioma idioma)
+        {
+            throw new NotImplementedException();
         }
     }
 }
