@@ -265,6 +265,8 @@ namespace PD.Presentation.Forms.Pedidos
 
                 if (_pedido == null) { InitPedido(); }
 
+                // TODO: validar cantidad
+
                 if (_pedido != null)
                 {
                     var detalle = new PedidoDetalle()
