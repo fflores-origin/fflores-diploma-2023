@@ -9,5 +9,6 @@ namespace PD.Repositories.Interfaces
         List<Familia> GetGrupos();
 
         PermisoBase SaveComponent(PermisoBase patente, bool esFamilia);
+        IList<PermisoBase> GetAllComponentes(Guid? id);
     }
 }

@@ -36,6 +36,21 @@ namespace PD.Core
             _usuarioRepository.Create(username, Encryption.Encrypt(password));
         }
 
+        public List<PermisoBase> GetAllComponentes(Familia familia = null)
+        {
+            if (familia != null)
+            {
+                var permisosPorFamilia = _permisosRepository.GetAllComponentes(id).ToList();
+                foreach (var permiso in permisosPorFamilia)
+                {
+                    familia.AddPermiso(permiso);
+                }
+                return familia.ObtenerHijos().ToList();
+            }
+
+            return new List<PermisoBase>();
+        }
+
         public List<Familia> GetAllFamilias()
         {
             List<Familia> familias = _usuarioRepository.GetAllFamilias();
@@ -80,6 +95,25 @@ namespace PD.Core
             var user = _sesion.Usuario;
 
             _sesion.Logout();
+        }
+
+        public bool PatenteExiste(PermisoBase permiso, Patente patente)
+        {
+            bool existe = false;
+
+            if (permiso.Id.Equals(patente.Id))
+            {
+                existe = true;
+            }
+            else
+            {
+                foreach (var item in permiso.ObtenerHijos().ToList())
+                {
+                    if (PatenteExiste(item, patente)) return true;
+                }
+            }
+
+            return existe;
         }
 
         public PermisoBase SaveComponent(PermisoBase patente, bool esFamilia)

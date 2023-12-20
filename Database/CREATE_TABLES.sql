@@ -182,8 +182,6 @@ CREATE TABLE PermisoComponente (
 )
 -- #end USUARIOS PERMISOS
 
--- #end USUARIOS PERMISOS
-
 GO
 IF OBJECT_ID('Logs', 'U') IS NOT NULL
     DROP TABLE Logs;
@@ -527,6 +525,8 @@ BEGIN
     WHERE Id=@Id;
 END
 
+--- PERMISOS
+
 GO
 CREATE OR ALTER PROCEDURE PatenteGetAll
 AS 
@@ -540,3 +540,65 @@ AS
 BEGIN 
 	SELECT * FROM Permiso p where p.TipoPermiso is null
 END
+
+GO
+CREATE OR ALTER PROCEDURE [PermisosGetAll]
+@familiaId varchar(100)
+AS
+BEGIN
+	
+	IF @familiaId is null
+	BEGIN
+		WITH recursivo AS (
+			SELECT 
+				sp2.PermisoPadreId, 
+				sp2.PermisoHijoId
+			FROM PermisoComponente SP2
+			WHERE sp2.PermisoPadreId is null
+		UNION ALL 
+			SELECT 
+				sp.PermisoPadreId, 
+				sp.PermisoHijoId 
+			from PermisoComponente sp 
+			INNER JOIN recursivo r 
+				ON r.PermisoHijoId = sp.PermisoPadreId
+		)
+		SELECT 
+			r.PermisoPadreId,
+			r.PermisoHijoId,
+			p.Id as PermisoId,
+			p.Nombre PermisoNombre, 
+			p.TipoPermiso 
+		FROM recursivo r 
+		INNER join Permiso p on r.PermisoHijoId = p.Id
+			
+	END
+	ELSE
+	BEGIN	
+		WITH recursivo AS (
+			SELECT 
+				sp2.PermisoPadreId, 
+				sp2.PermisoHijoId
+			FROM PermisoComponente SP2
+			WHERE sp2.PermisoPadreId = @familiaId
+		UNION ALL 
+			SELECT 
+				sp.PermisoPadreId, 
+				sp.PermisoHijoId 
+			from PermisoComponente sp 
+			INNER JOIN recursivo r 
+				ON r.PermisoHijoId = sp.PermisoPadreId
+		)
+		SELECT 
+			r.PermisoPadreId,
+			r.PermisoHijoId,
+			p.Id as PermisoId,
+			p.Nombre PermisoNombre, 
+			p.TipoPermiso 
+		FROM recursivo r 
+		INNER join Permiso p on r.PermisoHijoId = p.Id
+		
+	END
+	
+END
+

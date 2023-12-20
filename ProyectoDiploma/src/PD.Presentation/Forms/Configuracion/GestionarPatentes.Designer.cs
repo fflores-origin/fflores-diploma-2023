@@ -175,6 +175,7 @@
             btn_agregar_patente.Size = new Size(35, 35);
             btn_agregar_patente.TabIndex = 17;
             btn_agregar_patente.UseVisualStyleBackColor = true;
+            btn_agregar_patente.Click += btn_agregar_patente_Click;
             // 
             // lbl_todas_patentes
             // 
@@ -259,6 +260,7 @@
             btn_configurar.Size = new Size(35, 35);
             btn_configurar.TabIndex = 16;
             btn_configurar.UseVisualStyleBackColor = true;
+            btn_configurar.Click += btn_configurar_Click;
             // 
             // btn_agregar_familia
             // 
