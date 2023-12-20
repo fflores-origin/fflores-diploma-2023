@@ -39,6 +39,10 @@ CREATE TABLE Articulo (
 	[Marca] VARCHAR(100) default(''),
 	[PrecioUnitario] money default(0),
 	[CategoriaId] uniqueidentifier,
+	[Cantidad] int default(0),
+	[Ubicacion] varchar(max),
+	[ISBN] varchar(100),
+	[Autor] varchar(100),
 	
 	CONSTRAINT  FK_Articulo_Categoria FOREIGN KEY (CategoriaId) REFERENCES Categoria([Id]),
 )

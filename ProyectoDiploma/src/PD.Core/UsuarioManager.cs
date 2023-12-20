@@ -2,6 +2,7 @@
 using PD.Core.Interfaces;
 using PD.Core.Mappers.Interfaces;
 using PD.Entities;
+using PD.Entities.Enums;
 using PD.Entities.Permisos;
 using PD.Repositories.Interfaces;
 using PD.Services;
@@ -12,6 +13,7 @@ namespace PD.Core
     public class UsuarioManager : IUsuarioManager
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IPermisosRepository _permisosRepository;
         private readonly ILanguageRepository _languageRepository;
         private readonly IUsuariosMapper _usuariosMapper;
         private readonly Sesion _sesion;
@@ -19,12 +21,14 @@ namespace PD.Core
         public UsuarioManager(
             IUsuarioRepository usuarioRepository,
             IUsuariosMapper usuariosMapper,
-            ILanguageRepository languageRepository)
+            ILanguageRepository languageRepository,
+            IPermisosRepository permisosRepository)
         {
             _usuarioRepository = usuarioRepository;
             _usuariosMapper = usuariosMapper;
             _sesion = UserSesion.Session;
             _languageRepository = languageRepository;
+            _permisosRepository = permisosRepository;
         }
 
         public void CrearUsuario(string username, string password)
@@ -42,6 +46,11 @@ namespace PD.Core
         {
             List<Patente> pantentes = _usuarioRepository.GetAllPantente();
             return pantentes;
+        }
+
+        public Array GetAllPermisos()
+        {
+            return Enum.GetValues(typeof(TipoPermiso));
         }
 
         public List<UsuarioDto> GetUsuarios()
@@ -71,6 +80,11 @@ namespace PD.Core
             var user = _sesion.Usuario;
 
             _sesion.Logout();
+        }
+
+        public PermisoBase SaveComponent(PermisoBase patente, bool esFamilia)
+        {
+            return _permisosRepository.SaveComponent(patente, esFamilia);
         }
     }
 }

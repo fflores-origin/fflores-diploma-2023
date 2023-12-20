@@ -35,5 +35,10 @@ namespace PD.Repositories
         {
             return new List<Patente>();
         }
+
+        public PermisoBase SaveComponent(PermisoBase patente, bool esFamilia)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

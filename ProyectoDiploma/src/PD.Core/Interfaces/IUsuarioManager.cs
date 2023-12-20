@@ -17,5 +17,9 @@ namespace PD.Core.Interfaces
         List<Patente> GetAllPatentes();
 
         List<Familia> GetAllFamilias();
+
+        Array GetAllPermisos();
+
+        PermisoBase SaveComponent(PermisoBase patente, bool esFamilia);
     }
 }

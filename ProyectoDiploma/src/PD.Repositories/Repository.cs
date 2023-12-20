@@ -2,7 +2,6 @@
 using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Text;
@@ -53,7 +52,7 @@ namespace PD.Repositories
                 {
                     while (reader.Read())
                     {
-                         list.Add(GetObject(reader)); 
+                        list.Add(GetObject(reader));
                     }
 
                     result = list.FirstOrDefault();
@@ -118,17 +117,15 @@ namespace PD.Repositories
 
             string consulta = $"INSERT INTO {nombreTabla} ({nombresColumnas}) VALUES ({valoresParametros})";
 
-            using (SqlCommand comando = new SqlCommand(consulta, connection))
+            using SqlCommand comando = _connection.CreateTextCommand(consulta, connection);
+            foreach (PropertyInfo propiedad in propiedades)
             {
-                foreach (PropertyInfo propiedad in propiedades)
-                {
-                    comando.Parameters.AddWithValue("@" + propiedad.Name, propiedad.GetValue(entity));
-                }
-
-                comando.ExecuteNonQuery();
-
-                return entity;
+                comando.Parameters.AddWithValue("@" + propiedad.Name, propiedad.GetValue(entity));
             }
+
+            comando.ExecuteNonQuery();
+
+            return entity;
         }
 
         public T Update(T entity)

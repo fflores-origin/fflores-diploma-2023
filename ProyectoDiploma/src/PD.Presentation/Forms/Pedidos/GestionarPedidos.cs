@@ -4,6 +4,7 @@ using PD.Core.DTOs.Pedido;
 using PD.Core.Interfaces;
 using PD.Entities;
 using PD.Presentation.Helpers;
+using PD.Services;
 using PD.Services.Interfaces;
 
 namespace PD.Presentation.Forms.Pedidos
@@ -13,6 +14,7 @@ namespace PD.Presentation.Forms.Pedidos
         private readonly IPedidosManager _pedidosManager;
         private readonly IClienteManager _clienteManager;
         private readonly IListasManager _listasManager;
+        private readonly IIdiomaManager _idiomaManager;
         private List<Cliente> _clientes;
         private List<Lista> _listas;
         private List<Pedido> _pedidos = new List<Pedido>();
@@ -25,16 +27,20 @@ namespace PD.Presentation.Forms.Pedidos
         public GestionarPedidos(
             IPedidosManager pedidosManager,
             IClienteManager clienteManager,
-            IListasManager listasManager)
+            IListasManager listasManager,
+            IIdiomaManager idiomaManager)
         {
             InitializeComponent();
             _pedidosManager = pedidosManager;
             _clienteManager = clienteManager;
             _listasManager = listasManager;
+            _idiomaManager = idiomaManager;
         }
 
         private void GestionarPedidos_Load(object sender, EventArgs e)
         {
+            Sesion.SubscribeObserver(this);
+
             FormatGridPedido();
             FormatGridPrecios();
             //InitPedido();
@@ -267,6 +273,8 @@ namespace PD.Presentation.Forms.Pedidos
 
                 // TODO: validar cantidad
 
+                
+
                 if (_pedido != null)
                 {
                     var detalle = new PedidoDetalle()
@@ -301,7 +309,15 @@ namespace PD.Presentation.Forms.Pedidos
 
         public void OnLanguageChanged(Idioma idioma)
         {
-            throw new NotImplementedException();
+            Translate();
+        }
+
+        private void Translate()
+        {
+            Idioma? idioma = null;
+            if (UserSesion.Session.IsLogged()) { idioma = UserSesion.Session.Usuario.Idioma; }
+            var traducciones = _idiomaManager.GetTraducciones(idioma);
+            this.Controls.TranslateAll(traducciones);
         }
     }
 }

@@ -7,5 +7,7 @@ namespace PD.Repositories.Interfaces
         List<Patente> GetPermisos();
 
         List<Familia> GetGrupos();
+
+        PermisoBase SaveComponent(PermisoBase patente, bool esFamilia);
     }
 }

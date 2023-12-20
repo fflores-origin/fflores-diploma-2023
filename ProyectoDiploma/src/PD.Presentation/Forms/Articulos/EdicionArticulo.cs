@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PD.Core.DTOs;
 using PD.Core.DTOs.Articulo;
 using PD.Core.Interfaces;
 using PD.Entities;
@@ -10,15 +11,17 @@ namespace PD.Presentation.Forms.Articulos
 {
     public partial class EdicionArticulo : FormBase, ILanguageObserver
     {
+        private const string LIBRO_ID = "882F8085-B15A-41DE-A905-124893068B8E";
+
         private readonly ICategoriaManager _categoriaManager;
         private readonly IListasManager _listasManager;
         private readonly IArticulosManager _articulosManager;
         private readonly IIdiomaManager _idiomaManager;
+        private GestionArticulos _parentForm;
+
         private string _filePath = "";
         private Guid _productoId = Guid.Empty;
         private Articulo _articulo = null;
-
-        private GestionArticulos _parentForm;
 
         #region CTOR
 
@@ -59,20 +62,29 @@ namespace PD.Presentation.Forms.Articulos
         {
             FillListas();
             FillCategorias();
-
             InitializeValues();
+        }
+
+        private void HideTextboxConditionals(bool shouldHide = true)
+        {
+            lbl_title_libros.Visible = !shouldHide;
+            txt_autor.Visible = txt_isbn.Visible = !shouldHide;
+            lbl_isbn.Visible = lbl_autor.Visible = !shouldHide;
         }
 
         private void InitializeValues()
         {
-            txt_id.Text = "";
+            txt_id.Clear();
             txt_cantidad.Text = "0";
-            txt_ubicacion.Text = "";
+            txt_ubicacion.Clear();
             txt_precio.Text = "0.00";
-            txt_nombre.Text = "";
-            txt_descripcion.Text = "";
-            txt_marca.Text = "";
-            txt_codigo.Text = "";
+            txt_nombre.Clear();
+            txt_descripcion.Clear();
+            txt_marca.Clear();
+            txt_codigo.Clear();
+            txt_isbn.Clear();
+            txt_autor.Clear();
+
             pic_qr.BackgroundImage = null;
             pic_base.BackgroundImage = Properties.Resources.no_image;
         }
@@ -98,6 +110,7 @@ namespace PD.Presentation.Forms.Articulos
             {
                 if (HasInvalidInputs()) return;
 
+                var action = _productoId == Guid.Empty ? "Creado" : "Actualizado";
                 var dto = new ArticuloDTO
                 {
                     Id = _productoId,
@@ -108,11 +121,12 @@ namespace PD.Presentation.Forms.Articulos
                     Codigo = txt_codigo.Text,
                     CategoriaId = cbx_categoria.GetSelectedValueGuid(),
                     Marca = txt_marca.Text,
+                    ImagePath = _filePath,
                     Ubicacion = txt_ubicacion.Text,
-                    ImagePath = _filePath
+                    ISBN = txt_isbn.Text,
+                    Autor = txt_autor.Text,
                 };
 
-                var action = _productoId == Guid.Empty ? "Creado" : "Actualizado";
                 _articulo = _articulosManager.CrearArticulo(dto);
                 _productoId = _articulo.Id;
                 txt_id.Text = _articulo.Id.ToString();
@@ -177,6 +191,11 @@ namespace PD.Presentation.Forms.Articulos
                 txt_id.Text = _articulo.Id.ToString();
                 txt_precio.Text = _articulo.PrecioUnitario.ToString().Replace(',', '.');
                 txt_nombre.Text = _articulo.Nombre;
+                txt_autor.Text = _articulo.Autor;
+                txt_isbn.Text = _articulo.ISBN;
+                txt_cantidad.Text = _articulo.Cantidad.ToString();
+                txt_ubicacion.Text = _articulo.Ubicacion;
+
                 if (_articulo.HasImage()) { pic_base.BackgroundImage = new Bitmap(_articulo.Imagen); }
                 GenerateQR();
             }
@@ -195,6 +214,38 @@ namespace PD.Presentation.Forms.Articulos
             cbx_categoria.ValueMember = "Id";
         }
 
+        #endregion Utils
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this.btn_help, help_provider_articulo.HelpNamespace, HelpNavigator.TopicId);
+        }
+
+        private void btn_assign_Click(object sender, EventArgs e)
+        {
+            if (dgv_listas.SelectedRows.Count != 0)
+            {
+                var selected = dgv_listas.SelectedRows[0].DataBoundItem;
+            }
+            else
+            {
+                MsgBoxHelpers.ShowWarning("No hay listas para actualizar");
+            }
+        }
+
+        private void OnCategoriaChange(object sender, EventArgs e)
+        {
+            var seleccionado = (CategoriaDto)cbx_categoria.SelectedItem;
+
+            if (seleccionado != null)
+            {
+                var shouldHide = seleccionado.Id != Guid.Parse(LIBRO_ID);
+                HideTextboxConditionals(shouldHide);
+            }
+        }
+
+        #region IDIOMA
+
         public void OnLanguageChanged(Idioma idioma)
         {
             Translate();
@@ -208,11 +259,6 @@ namespace PD.Presentation.Forms.Articulos
             this.Controls.TranslateAll(traducciones);
         }
 
-        #endregion Utils
-
-        private void btn_help_Click(object sender, EventArgs e)
-        {
-            Help.ShowHelp(this.btn_help, help_provider_articulo.HelpNamespace, HelpNavigator.TopicId);
-        }
+        #endregion IDIOMA
     }
 }

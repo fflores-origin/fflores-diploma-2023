@@ -19,6 +19,10 @@ namespace PD.Core.Mappers
                 Marca = dto.Marca,
                 Nombre = dto.Nombre,
                 PrecioUnitario = dto.PrecioUnitario,
+                Autor = dto.Autor,
+                Cantidad = dto.Cantidad,
+                ISBN = dto.ISBN,
+                Ubicacion = dto.Ubicacion
             };
         }
 

@@ -41,7 +41,6 @@ insert into @values values
 ('btn_search', 'Search', 'en', @idEn),
 ('updated', 'Actualizado', 'es', @idEs),
 ('updated', 'Updated', 'en', @idEn),
-
 ('h_name', 'NOMBRE', 'es', @idEs),
 ('h_name', 'NAME', 'en', @idEn),
 ('h_code', 'CODIGO', 'es', @idEs),
@@ -53,6 +52,8 @@ insert into @values values
 ('h_actions', 'ACCION', 'es', @idEs),
 ('h_actions', 'ACTION', 'en', @idEn),
 ('dgb_edit', 'EDITAR', 'es', @idEs),
+('dgv_edit', 'EDIT', 'en', @idEn),
+('lbl_edit', 'EDITAR', 'es', @idEs),
 ('dgv_edit', 'EDIT', 'en', @idEn)
 
 
