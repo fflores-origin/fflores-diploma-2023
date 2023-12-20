@@ -28,6 +28,13 @@ namespace PD.Presentation.Forms.Configuracion
             FillCombos();
         }
 
+        internal void ShowAndLoad()
+        {
+            Show();
+        }
+
+        #region Combos
+
         private void FillPermisos()
         {
             var permisos = _usuarioManager.GetAllPermisos();
@@ -47,37 +54,9 @@ namespace PD.Presentation.Forms.Configuracion
             cbx_patentes.ValueMember = "Id";
         }
 
-        internal void ShowAndLoad()
-        {
-            this.Show();
-        }
+        #endregion Combos
 
-        private void btn_guardar_patente_Click(object sender, EventArgs e)
-        {
-            Patente patente = new()
-            {
-                Id = Guid.NewGuid(),
-                Nombre = txt_nombre_patente.Text,
-                Tipo = (TipoPermiso)cbx_permisos.SelectedItem
-            };
-
-            _usuarioManager.SaveComponent(patente, false);
-            FillCombos();
-
-            MsgBoxHelpers.ShowInfo("Guardada Exitosamente");
-        }
-
-        private void btn_guardar_famila_Click(object sender, EventArgs e)
-        {
-            Familia familia = new()
-            {
-                Nombre = txt_nombre_familia.Text,
-            };
-
-            _usuarioManager.SaveComponent(familia, true);
-            FillCombos();
-            MsgBoxHelpers.ShowInfo("Guardada Exitosamente");
-        }
+        #region TreeView
 
         private void ShowFamilia(bool init)
         {
@@ -111,6 +90,37 @@ namespace PD.Presentation.Forms.Configuracion
                     .ForEach(x => { FillTreeView(node, x); });
         }
 
+        #endregion TreeView
+
+        #region Buttons
+
+        private void btn_guardar_patente_Click(object sender, EventArgs e)
+        {
+            Patente patente = new()
+            {
+                Id = Guid.NewGuid(),
+                Nombre = txt_nombre_patente.Text,
+                Tipo = (TipoPermiso)cbx_permisos.SelectedItem
+            };
+
+            _usuarioManager.SaveComponent(patente, false);
+            FillCombos();
+
+            MsgBoxHelpers.ShowInfo("Guardada Exitosamente");
+        }
+
+        private void btn_guardar_famila_Click(object sender, EventArgs e)
+        {
+            Familia familia = new()
+            {
+                Nombre = txt_nombre_familia.Text,
+            };
+
+            _usuarioManager.SaveComponent(familia, true);
+            FillCombos();
+            MsgBoxHelpers.ShowInfo("Guardada Exitosamente");
+        }
+
         private void btn_configurar_Click(object sender, EventArgs e)
         {
             var tmp = (Familia)cbx_familias.SelectedItem;
@@ -141,5 +151,17 @@ namespace PD.Presentation.Forms.Configuracion
                 }
             }
         }
+
+        private void btn_agregar_familia_Click(object sender, EventArgs e)
+        {
+            if (_familiaSeleccionada != null)
+            {
+                var familia = (Familia)cbx_familias.SelectedItem;
+                if (familia != null) { 
+                }
+            }
+        }
+
+        #endregion Buttons
     }
 }

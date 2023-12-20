@@ -40,7 +40,7 @@ namespace PD.Core
         {
             if (familia != null)
             {
-                var permisosPorFamilia = _permisosRepository.GetAllComponentes(id).ToList();
+                var permisosPorFamilia = _permisosRepository.GetAllComponentes(familia.Id).ToList();
                 foreach (var permiso in permisosPorFamilia)
                 {
                     familia.AddPermiso(permiso);
@@ -97,7 +97,7 @@ namespace PD.Core
             _sesion.Logout();
         }
 
-        public bool PatenteExiste(PermisoBase permiso, Patente patente)
+        public bool PatenteExiste(PermisoBase permiso, PermisoBase patente)
         {
             bool existe = false;
 

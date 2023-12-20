@@ -1,4 +1,5 @@
-﻿using PD.Entities.Permisos;
+﻿using PD.Entities;
+using PD.Entities.Permisos;
 
 namespace PD.Repositories.Interfaces
 {
@@ -9,6 +10,9 @@ namespace PD.Repositories.Interfaces
         List<Familia> GetGrupos();
 
         PermisoBase SaveComponent(PermisoBase patente, bool esFamilia);
+
         IList<PermisoBase> GetAllComponentes(Guid? id);
+
+        void FillPermisoUsuario(Usuario usuario);
     }
 }

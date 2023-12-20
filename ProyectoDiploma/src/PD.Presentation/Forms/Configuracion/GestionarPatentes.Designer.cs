@@ -273,6 +273,7 @@
             btn_agregar_familia.Size = new Size(35, 35);
             btn_agregar_familia.TabIndex = 15;
             btn_agregar_familia.UseVisualStyleBackColor = true;
+            btn_agregar_familia.Click += btn_agregar_familia_Click;
             // 
             // lbl_todas_familias
             // 
