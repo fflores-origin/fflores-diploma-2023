@@ -33,7 +33,7 @@
             panel5 = new Panel();
             label4 = new Label();
             panel1 = new Panel();
-            groupBox1 = new GroupBox();
+            gb_nueva_patente = new GroupBox();
             btn_guardar_patente = new Button();
             lbl_nombre = new Label();
             txt_nombre_patente = new TextBox();
@@ -43,7 +43,7 @@
             lbl_todas_patentes = new Label();
             cbx_patentes = new ComboBox();
             panel2 = new Panel();
-            groupBox2 = new GroupBox();
+            gb_nueva_familia = new GroupBox();
             btn_guardar_famila = new Button();
             label1 = new Label();
             txt_nombre_familia = new TextBox();
@@ -54,17 +54,20 @@
             panel3 = new Panel();
             btn_guardar_todo = new Button();
             tw_permisos = new TreeView();
+            lbl_title_permisos = new Label();
+            button1 = new Button();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
+            gb_nueva_patente.SuspendLayout();
             panel2.SuspendLayout();
-            groupBox2.SuspendLayout();
+            gb_nueva_familia.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(button1);
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(label4);
             panel4.Location = new Point(12, 12);
@@ -94,28 +97,28 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(groupBox1);
+            panel1.Controls.Add(gb_nueva_patente);
             panel1.Controls.Add(btn_agregar_patente);
             panel1.Controls.Add(lbl_todas_patentes);
             panel1.Controls.Add(cbx_patentes);
-            panel1.Location = new Point(12, 69);
+            panel1.Location = new Point(12, 358);
             panel1.Name = "panel1";
             panel1.Size = new Size(358, 343);
             panel1.TabIndex = 8;
             // 
-            // groupBox1
+            // gb_nueva_patente
             // 
-            groupBox1.Controls.Add(btn_guardar_patente);
-            groupBox1.Controls.Add(lbl_nombre);
-            groupBox1.Controls.Add(txt_nombre_patente);
-            groupBox1.Controls.Add(lbl_permisos);
-            groupBox1.Controls.Add(cbx_permisos);
-            groupBox1.Location = new Point(30, 129);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(306, 183);
-            groupBox1.TabIndex = 17;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Nueva";
+            gb_nueva_patente.Controls.Add(btn_guardar_patente);
+            gb_nueva_patente.Controls.Add(lbl_nombre);
+            gb_nueva_patente.Controls.Add(txt_nombre_patente);
+            gb_nueva_patente.Controls.Add(lbl_permisos);
+            gb_nueva_patente.Controls.Add(cbx_permisos);
+            gb_nueva_patente.Location = new Point(30, 129);
+            gb_nueva_patente.Name = "gb_nueva_patente";
+            gb_nueva_patente.Size = new Size(306, 176);
+            gb_nueva_patente.TabIndex = 17;
+            gb_nueva_patente.TabStop = false;
+            gb_nueva_patente.Text = "Nueva";
             // 
             // btn_guardar_patente
             // 
@@ -169,8 +172,8 @@
             btn_agregar_patente.BackgroundImageLayout = ImageLayout.Stretch;
             btn_agregar_patente.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btn_agregar_patente.FlatStyle = FlatStyle.Flat;
-            btn_agregar_patente.Image = Properties.Resources.angle_double_small_down;
-            btn_agregar_patente.Location = new Point(276, 76);
+            btn_agregar_patente.Image = Properties.Resources.angle_double_right;
+            btn_agregar_patente.Location = new Point(276, 78);
             btn_agregar_patente.Name = "btn_agregar_patente";
             btn_agregar_patente.Size = new Size(35, 35);
             btn_agregar_patente.TabIndex = 17;
@@ -197,27 +200,27 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(groupBox2);
+            panel2.Controls.Add(gb_nueva_familia);
             panel2.Controls.Add(btn_configurar);
             panel2.Controls.Add(btn_agregar_familia);
             panel2.Controls.Add(lbl_todas_familias);
             panel2.Controls.Add(cbx_familias);
-            panel2.Location = new Point(376, 69);
+            panel2.Location = new Point(12, 69);
             panel2.Name = "panel2";
-            panel2.Size = new Size(358, 343);
+            panel2.Size = new Size(358, 275);
             panel2.TabIndex = 9;
             // 
-            // groupBox2
+            // gb_nueva_familia
             // 
-            groupBox2.Controls.Add(btn_guardar_famila);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(txt_nombre_familia);
-            groupBox2.Location = new Point(26, 129);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(306, 183);
-            groupBox2.TabIndex = 21;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Nueva";
+            gb_nueva_familia.Controls.Add(btn_guardar_famila);
+            gb_nueva_familia.Controls.Add(label1);
+            gb_nueva_familia.Controls.Add(txt_nombre_familia);
+            gb_nueva_familia.Location = new Point(26, 122);
+            gb_nueva_familia.Name = "gb_nueva_familia";
+            gb_nueva_familia.Size = new Size(306, 128);
+            gb_nueva_familia.TabIndex = 21;
+            gb_nueva_familia.TabStop = false;
+            gb_nueva_familia.Text = "Nueva";
             // 
             // btn_guardar_famila
             // 
@@ -225,7 +228,7 @@
             btn_guardar_famila.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btn_guardar_famila.FlatStyle = FlatStyle.Flat;
             btn_guardar_famila.Image = Properties.Resources.save_icon;
-            btn_guardar_famila.Location = new Point(252, 103);
+            btn_guardar_famila.Location = new Point(252, 80);
             btn_guardar_famila.Name = "btn_guardar_famila";
             btn_guardar_famila.Size = new Size(35, 35);
             btn_guardar_famila.TabIndex = 19;
@@ -235,7 +238,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(24, 55);
+            label1.Location = new Point(24, 32);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 20;
@@ -244,7 +247,7 @@
             // txt_nombre_familia
             // 
             txt_nombre_familia.BorderStyle = BorderStyle.FixedSingle;
-            txt_nombre_familia.Location = new Point(24, 73);
+            txt_nombre_familia.Location = new Point(24, 50);
             txt_nombre_familia.Name = "txt_nombre_familia";
             txt_nombre_familia.Size = new Size(263, 23);
             txt_nombre_familia.TabIndex = 19;
@@ -255,7 +258,7 @@
             btn_configurar.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btn_configurar.FlatStyle = FlatStyle.Flat;
             btn_configurar.Image = Properties.Resources.settings2;
-            btn_configurar.Location = new Point(233, 76);
+            btn_configurar.Location = new Point(233, 78);
             btn_configurar.Name = "btn_configurar";
             btn_configurar.Size = new Size(35, 35);
             btn_configurar.TabIndex = 16;
@@ -267,8 +270,8 @@
             btn_agregar_familia.BackgroundImageLayout = ImageLayout.Stretch;
             btn_agregar_familia.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btn_agregar_familia.FlatStyle = FlatStyle.Flat;
-            btn_agregar_familia.Image = Properties.Resources.angle_double_small_down;
-            btn_agregar_familia.Location = new Point(274, 76);
+            btn_agregar_familia.Image = Properties.Resources.angle_double_right;
+            btn_agregar_familia.Location = new Point(274, 78);
             btn_agregar_familia.Name = "btn_agregar_familia";
             btn_agregar_familia.Size = new Size(35, 35);
             btn_agregar_familia.TabIndex = 15;
@@ -295,11 +298,12 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(lbl_title_permisos);
             panel3.Controls.Add(btn_guardar_todo);
             panel3.Controls.Add(tw_permisos);
-            panel3.Location = new Point(12, 418);
+            panel3.Location = new Point(376, 69);
             panel3.Name = "panel3";
-            panel3.Size = new Size(722, 323);
+            panel3.Size = new Size(358, 632);
             panel3.TabIndex = 18;
             // 
             // btn_guardar_todo
@@ -308,7 +312,7 @@
             btn_guardar_todo.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btn_guardar_todo.FlatStyle = FlatStyle.Flat;
             btn_guardar_todo.Image = Properties.Resources.save_icon;
-            btn_guardar_todo.Location = new Point(642, 272);
+            btn_guardar_todo.Location = new Point(298, 577);
             btn_guardar_todo.Name = "btn_guardar_todo";
             btn_guardar_todo.Size = new Size(35, 35);
             btn_guardar_todo.TabIndex = 21;
@@ -316,34 +320,56 @@
             // 
             // tw_permisos
             // 
-            tw_permisos.Location = new Point(48, 24);
+            tw_permisos.Location = new Point(21, 47);
             tw_permisos.Name = "tw_permisos";
-            tw_permisos.Size = new Size(629, 242);
+            tw_permisos.Size = new Size(312, 513);
             tw_permisos.TabIndex = 0;
+            // 
+            // lbl_title_permisos
+            // 
+            lbl_title_permisos.AutoSize = true;
+            lbl_title_permisos.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_title_permisos.Location = new Point(21, 20);
+            lbl_title_permisos.Name = "lbl_title_permisos";
+            lbl_title_permisos.Size = new Size(129, 20);
+            lbl_title_permisos.TabIndex = 22;
+            lbl_title_permisos.Text = "Permisos y Grupos";
+            // 
+            // button1
+            // 
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = Properties.Resources.interrogation;
+            button1.Location = new Point(674, 9);
+            button1.Name = "button1";
+            button1.Size = new Size(35, 35);
+            button1.TabIndex = 22;
+            button1.UseVisualStyleBackColor = true;
             // 
             // GestionarPatentes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(752, 750);
+            ClientSize = new Size(746, 716);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(panel4);
             Name = "GestionarPatentes";
-            Text = "GestionarPatentes";
             Load += GestionarPatentes_Load;
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            gb_nueva_patente.ResumeLayout(false);
+            gb_nueva_patente.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            gb_nueva_familia.ResumeLayout(false);
+            gb_nueva_familia.PerformLayout();
             panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -362,17 +388,19 @@
         private Button btn_agregar_patente;
         private Button btn_configurar;
         private Panel panel3;
-        private GroupBox groupBox1;
+        private GroupBox gb_nueva_patente;
         private Label lbl_permisos;
         private ComboBox cbx_permisos;
         private Label lbl_nombre;
         private TextBox txt_nombre_patente;
         private Button btn_guardar_patente;
-        private GroupBox groupBox2;
+        private GroupBox gb_nueva_familia;
         private Button btn_guardar_famila;
         private Label label1;
         private TextBox txt_nombre_familia;
         private Button btn_guardar_todo;
         private TreeView tw_permisos;
+        private Label lbl_title_permisos;
+        private Button button1;
     }
 }

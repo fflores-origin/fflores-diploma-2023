@@ -15,6 +15,11 @@
                 _permisos.Add(permiso);
         }
 
+        public void ClearPermisos()
+        {
+            _permisos = new List<PermisoBase>();
+        }
+
         public override IList<PermisoBase> ObtenerHijos()
         {
             return _permisos.ToList();

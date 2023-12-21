@@ -37,6 +37,7 @@ namespace PD.Presentation.Forms.Configuracion
 
         private void FillPermisos()
         {
+            //todo: trasnformar en tabla
             var permisos = _usuarioManager.GetAllPermisos();
             cbx_permisos.DataSource = permisos;
         }
@@ -58,13 +59,12 @@ namespace PD.Presentation.Forms.Configuracion
 
         #region TreeView
 
-        private void ShowFamilia(bool init)
+        private void FillTreeView(bool shouldInitialize = false)
         {
             if (_familiaSeleccionada == null) return;
-            //pasar esto al manager
-            List<PermisoBase> familia = new();
+            List<PermisoBase> familia;
 
-            if (init)
+            if (shouldInitialize)
                 familia = _usuarioManager.GetAllComponentes(_familiaSeleccionada);
             else
                 familia = _familiaSeleccionada.ObtenerHijos().ToList();
@@ -74,12 +74,12 @@ namespace PD.Presentation.Forms.Configuracion
 
             tw_permisos.Nodes.Add(root);
             foreach (var item in familia)
-                FillTreeView(root, item);
+                FillTreeViewNodes(root, item);
 
             tw_permisos.ExpandAll();
         }
 
-        private void FillTreeView(TreeNode tree, PermisoBase component)
+        private void FillTreeViewNodes(TreeNode tree, PermisoBase component)
         {
             TreeNode node = new(component.Nombre);
             tree.Tag = component;
@@ -87,7 +87,7 @@ namespace PD.Presentation.Forms.Configuracion
             component
                     .ObtenerHijos()?
                     .ToList()
-                    .ForEach(x => { FillTreeView(node, x); });
+                    .ForEach(x => { FillTreeViewNodes(node, x); });
         }
 
         #endregion TreeView
@@ -130,7 +130,7 @@ namespace PD.Presentation.Forms.Configuracion
                 Nombre = tmp.Nombre
             };
 
-            ShowFamilia(true);
+            FillTreeView(true);
         }
 
         private void btn_agregar_patente_Click(object sender, EventArgs e)
@@ -147,7 +147,7 @@ namespace PD.Presentation.Forms.Configuracion
                     }
 
                     _familiaSeleccionada.AddPermiso(patente);
-                    ShowFamilia(false);
+                    FillTreeView();
                 }
             }
         }
@@ -157,7 +157,17 @@ namespace PD.Presentation.Forms.Configuracion
             if (_familiaSeleccionada != null)
             {
                 var familia = (Familia)cbx_familias.SelectedItem;
-                if (familia != null) { 
+                if (familia != null)
+                {
+                    if (_usuarioManager.PatenteExiste(_familiaSeleccionada, familia))
+                    {
+                        MsgBoxHelpers.ShowWarning("Ya existe la familia indicada");
+                        return;
+                    }
+
+                    _usuarioManager.CompleteComponent(familia);
+                    _familiaSeleccionada.AddPermiso(familia);
+                    FillTreeView();
                 }
             }
         }

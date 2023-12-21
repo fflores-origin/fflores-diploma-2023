@@ -63,6 +63,16 @@ namespace PD.Presentation.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap angle_double_right {
+            get {
+                object obj = ResourceManager.GetObject("angle-double-right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap angle_double_small_down {
             get {
                 object obj = ResourceManager.GetObject("angle-double-small-down", resourceCulture);
@@ -126,6 +136,16 @@ namespace PD.Presentation.Properties {
         internal static System.Drawing.Bitmap client {
             get {
                 object obj = ResourceManager.GetObject("client", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap interrogation {
+            get {
+                object obj = ResourceManager.GetObject("interrogation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -42,7 +42,6 @@
             txt_user = new TextBox();
             txt_pass = new TextBox();
             label2 = new Label();
-            btn_registro = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -68,7 +67,7 @@
             btn_login.FlatStyle = FlatStyle.Flat;
             btn_login.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_login.ForeColor = Color.White;
-            btn_login.Location = new Point(427, 272);
+            btn_login.Location = new Point(427, 260);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(289, 50);
             btn_login.TabIndex = 3;
@@ -185,27 +184,12 @@
             label2.TabIndex = 15;
             label2.Text = "Contraseña";
             // 
-            // btn_registro
-            // 
-            btn_registro.FlatAppearance.BorderSize = 0;
-            btn_registro.FlatStyle = FlatStyle.Flat;
-            btn_registro.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            btn_registro.ForeColor = Color.Gray;
-            btn_registro.Location = new Point(427, 374);
-            btn_registro.Name = "btn_registro";
-            btn_registro.Size = new Size(289, 23);
-            btn_registro.TabIndex = 16;
-            btn_registro.Text = "Registrarse";
-            btn_registro.UseVisualStyleBackColor = true;
-            btn_registro.Click += btn_registro_Click;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(810, 447);
-            Controls.Add(btn_registro);
             Controls.Add(txt_pass);
             Controls.Add(label2);
             Controls.Add(txt_user);
@@ -221,7 +205,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            this.MouseDown += this.ClickMouseDown;
+            MouseDown += ClickMouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -243,6 +227,5 @@
         private TextBox txt_user;
         private TextBox txt_pass;
         private Label label2;
-        private Button btn_registro;
     }
 }

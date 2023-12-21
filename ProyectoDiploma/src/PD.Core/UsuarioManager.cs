@@ -31,6 +31,17 @@ namespace PD.Core
             _permisosRepository = permisosRepository;
         }
 
+        public void CompleteComponent(Familia familia)
+        {
+            familia.ClearPermisos();
+            var permisos = _permisosRepository.GetAllComponentes(familia.Id);
+
+            foreach (var p in permisos)
+            {
+                familia.AddPermiso(p);
+            }
+        }
+
         public void CrearUsuario(string username, string password)
         {
             _usuarioRepository.Create(username, Encryption.Encrypt(password));

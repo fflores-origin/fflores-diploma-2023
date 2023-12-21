@@ -25,5 +25,7 @@ namespace PD.Core.Interfaces
         PermisoBase SaveComponent(PermisoBase patente, bool esFamilia);
 
         bool PatenteExiste(PermisoBase permiso, PermisoBase patente);
+
+        void CompleteComponent(Familia familia);
     }
 }
