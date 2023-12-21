@@ -11,6 +11,9 @@ namespace PD.Repositories.Utils
         public static Guid AsGuid(this object value)
             => Guid.Parse(value.ToString());
 
+        public static decimal AsDecimal(this object value)
+            => decimal.Parse(value.ToString());
+
         public static bool HasRows(this DataSet set, int table = 0)
             => set.Tables[table].Rows.Count > 0;
 

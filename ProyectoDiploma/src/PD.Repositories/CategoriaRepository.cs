@@ -2,6 +2,7 @@
 using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
+using PD.Repositories.Utils;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,7 +32,7 @@ namespace PD.Repositories
                 using SqlCommand cmd = new(query, conn);
                 using SqlDataAdapter da = new(cmd);
                 using DataSet ds = new();
-                
+
                 da.Fill(ds);
 
                 if (ds.Tables[0].Rows.Count > 0)
@@ -40,7 +41,7 @@ namespace PD.Repositories
                     {
                         list.Add(new Categoria()
                         {
-                            Id = Guid.Parse(item["id"].ToString()),
+                            Id = item["id"].AsGuid(),
                             Nombre = item["Nombre"].ToString()
                         });
                     }

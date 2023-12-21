@@ -2,6 +2,7 @@
 using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
+using PD.Repositories.Utils;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -44,7 +45,7 @@ namespace PD.Repositories
                     {
                         list.Add(new Lista()
                         {
-                            Id = Guid.Parse(item["id"].ToString()),
+                            Id = item["id"].AsGuid(),
                             Nombre = item["Nombre"].ToString(),
                             Porcentaje = Convert.ToDecimal(item["Porcentaje"].ToString()),
                             Articulos = new List<ListaArticulo>()
@@ -58,10 +59,10 @@ namespace PD.Repositories
                     {
                         var listaArticulo = new ListaArticulo()
                         {
-                            Id = Guid.Parse(item["id"].ToString()),
-                            ArticuloId = Guid.Parse(item["ArticuloId"].ToString()),
-                            ListaId = Guid.Parse(item["ListaId"].ToString()),
-                            Precio = decimal.Parse(item["Precio"].ToString())
+                            Id = item["id"].AsGuid(),
+                            ArticuloId = item["ArticuloId"].AsGuid(),
+                            ListaId = item["ListaId"].AsGuid(),
+                            Precio = item["Precio"].AsDecimal()
                         };
 
                         listaArticulo.Articulo = new Articulo()

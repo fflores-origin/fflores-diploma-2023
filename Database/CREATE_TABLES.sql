@@ -602,4 +602,12 @@ BEGIN
 	
 END
 
+GO 
+CREATE OR ALTER PROCEDURE [PermisoSave] (
+	@nombre varchar(200)
+)
+AS 
+BEGIN 
+	
+END
 

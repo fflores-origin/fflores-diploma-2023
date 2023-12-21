@@ -29,348 +29,349 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarPatentes));
-            panel4 = new Panel();
-            panel5 = new Panel();
-            label4 = new Label();
-            panel1 = new Panel();
-            gb_nueva_patente = new GroupBox();
-            btn_guardar_patente = new Button();
-            lbl_nombre = new Label();
-            txt_nombre_patente = new TextBox();
-            lbl_permisos = new Label();
-            cbx_permisos = new ComboBox();
-            btn_agregar_patente = new Button();
-            lbl_todas_patentes = new Label();
-            cbx_patentes = new ComboBox();
-            panel2 = new Panel();
-            gb_nueva_familia = new GroupBox();
-            btn_guardar_famila = new Button();
-            label1 = new Label();
-            txt_nombre_familia = new TextBox();
-            btn_configurar = new Button();
-            btn_agregar_familia = new Button();
-            lbl_todas_familias = new Label();
-            cbx_familias = new ComboBox();
-            panel3 = new Panel();
-            btn_guardar_todo = new Button();
-            tw_permisos = new TreeView();
-            lbl_title_permisos = new Label();
-            button1 = new Button();
-            panel4.SuspendLayout();
-            panel1.SuspendLayout();
-            gb_nueva_patente.SuspendLayout();
-            panel2.SuspendLayout();
-            gb_nueva_familia.SuspendLayout();
-            panel3.SuspendLayout();
-            SuspendLayout();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.gb_nueva_patente = new System.Windows.Forms.GroupBox();
+            this.btn_guardar_patente = new System.Windows.Forms.Button();
+            this.lbl_nombre = new System.Windows.Forms.Label();
+            this.txt_nombre_patente = new System.Windows.Forms.TextBox();
+            this.lbl_permisos = new System.Windows.Forms.Label();
+            this.cbx_permisos = new System.Windows.Forms.ComboBox();
+            this.btn_agregar_patente = new System.Windows.Forms.Button();
+            this.lbl_todas_patentes = new System.Windows.Forms.Label();
+            this.cbx_patentes = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.gb_nueva_familia = new System.Windows.Forms.GroupBox();
+            this.btn_guardar_famila = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_nombre_familia = new System.Windows.Forms.TextBox();
+            this.btn_configurar = new System.Windows.Forms.Button();
+            this.btn_agregar_familia = new System.Windows.Forms.Button();
+            this.lbl_todas_familias = new System.Windows.Forms.Label();
+            this.cbx_familias = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_title_permisos = new System.Windows.Forms.Label();
+            this.btn_guardar_todo = new System.Windows.Forms.Button();
+            this.tw_permisos = new System.Windows.Forms.TreeView();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.gb_nueva_patente.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.gb_nueva_familia.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.SuspendLayout();
             // 
             // panel4
             // 
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(button1);
-            panel4.Controls.Add(panel5);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(12, 12);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(722, 51);
-            panel4.TabIndex = 6;
-            // 
-            // panel5
-            // 
-            panel5.BackgroundImage = (Image)resources.GetObject("panel5.BackgroundImage");
-            panel5.BackgroundImageLayout = ImageLayout.Stretch;
-            panel5.Location = new Point(3, 3);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(45, 45);
-            panel5.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cascadia Mono", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(126, 32);
-            label4.TabIndex = 6;
-            label4.Text = "PERMISOS";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(gb_nueva_patente);
-            panel1.Controls.Add(btn_agregar_patente);
-            panel1.Controls.Add(lbl_todas_patentes);
-            panel1.Controls.Add(cbx_patentes);
-            panel1.Location = new Point(12, 358);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(358, 343);
-            panel1.TabIndex = 8;
-            // 
-            // gb_nueva_patente
-            // 
-            gb_nueva_patente.Controls.Add(btn_guardar_patente);
-            gb_nueva_patente.Controls.Add(lbl_nombre);
-            gb_nueva_patente.Controls.Add(txt_nombre_patente);
-            gb_nueva_patente.Controls.Add(lbl_permisos);
-            gb_nueva_patente.Controls.Add(cbx_permisos);
-            gb_nueva_patente.Location = new Point(30, 129);
-            gb_nueva_patente.Name = "gb_nueva_patente";
-            gb_nueva_patente.Size = new Size(306, 176);
-            gb_nueva_patente.TabIndex = 17;
-            gb_nueva_patente.TabStop = false;
-            gb_nueva_patente.Text = "Nueva";
-            // 
-            // btn_guardar_patente
-            // 
-            btn_guardar_patente.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_guardar_patente.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btn_guardar_patente.FlatStyle = FlatStyle.Flat;
-            btn_guardar_patente.Image = Properties.Resources.save_icon;
-            btn_guardar_patente.Location = new Point(252, 129);
-            btn_guardar_patente.Name = "btn_guardar_patente";
-            btn_guardar_patente.Size = new Size(35, 35);
-            btn_guardar_patente.TabIndex = 19;
-            btn_guardar_patente.UseVisualStyleBackColor = true;
-            btn_guardar_patente.Click += btn_guardar_patente_Click;
-            // 
-            // lbl_nombre
-            // 
-            lbl_nombre.AutoSize = true;
-            lbl_nombre.Location = new Point(24, 81);
-            lbl_nombre.Name = "lbl_nombre";
-            lbl_nombre.Size = new Size(51, 15);
-            lbl_nombre.TabIndex = 20;
-            lbl_nombre.Text = "Nombre";
-            // 
-            // txt_nombre_patente
-            // 
-            txt_nombre_patente.BorderStyle = BorderStyle.FixedSingle;
-            txt_nombre_patente.Location = new Point(24, 99);
-            txt_nombre_patente.Name = "txt_nombre_patente";
-            txt_nombre_patente.Size = new Size(263, 23);
-            txt_nombre_patente.TabIndex = 19;
-            // 
-            // lbl_permisos
-            // 
-            lbl_permisos.AutoSize = true;
-            lbl_permisos.Location = new Point(24, 29);
-            lbl_permisos.Name = "lbl_permisos";
-            lbl_permisos.Size = new Size(55, 15);
-            lbl_permisos.TabIndex = 18;
-            lbl_permisos.Text = "Permisos";
-            // 
-            // cbx_permisos
-            // 
-            cbx_permisos.FormattingEnabled = true;
-            cbx_permisos.Location = new Point(24, 47);
-            cbx_permisos.Name = "cbx_permisos";
-            cbx_permisos.Size = new Size(263, 23);
-            cbx_permisos.TabIndex = 18;
-            // 
-            // btn_agregar_patente
-            // 
-            btn_agregar_patente.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_agregar_patente.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btn_agregar_patente.FlatStyle = FlatStyle.Flat;
-            btn_agregar_patente.Image = Properties.Resources.angle_double_right;
-            btn_agregar_patente.Location = new Point(276, 78);
-            btn_agregar_patente.Name = "btn_agregar_patente";
-            btn_agregar_patente.Size = new Size(35, 35);
-            btn_agregar_patente.TabIndex = 17;
-            btn_agregar_patente.UseVisualStyleBackColor = true;
-            btn_agregar_patente.Click += btn_agregar_patente_Click;
-            // 
-            // lbl_todas_patentes
-            // 
-            lbl_todas_patentes.AutoSize = true;
-            lbl_todas_patentes.Location = new Point(48, 29);
-            lbl_todas_patentes.Name = "lbl_todas_patentes";
-            lbl_todas_patentes.Size = new Size(52, 15);
-            lbl_todas_patentes.TabIndex = 1;
-            lbl_todas_patentes.Text = "Patentes";
-            // 
-            // cbx_patentes
-            // 
-            cbx_patentes.FormattingEnabled = true;
-            cbx_patentes.Location = new Point(48, 47);
-            cbx_patentes.Name = "cbx_patentes";
-            cbx_patentes.Size = new Size(263, 23);
-            cbx_patentes.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Controls.Add(gb_nueva_familia);
-            panel2.Controls.Add(btn_configurar);
-            panel2.Controls.Add(btn_agregar_familia);
-            panel2.Controls.Add(lbl_todas_familias);
-            panel2.Controls.Add(cbx_familias);
-            panel2.Location = new Point(12, 69);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(358, 275);
-            panel2.TabIndex = 9;
-            // 
-            // gb_nueva_familia
-            // 
-            gb_nueva_familia.Controls.Add(btn_guardar_famila);
-            gb_nueva_familia.Controls.Add(label1);
-            gb_nueva_familia.Controls.Add(txt_nombre_familia);
-            gb_nueva_familia.Location = new Point(26, 122);
-            gb_nueva_familia.Name = "gb_nueva_familia";
-            gb_nueva_familia.Size = new Size(306, 128);
-            gb_nueva_familia.TabIndex = 21;
-            gb_nueva_familia.TabStop = false;
-            gb_nueva_familia.Text = "Nueva";
-            // 
-            // btn_guardar_famila
-            // 
-            btn_guardar_famila.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_guardar_famila.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btn_guardar_famila.FlatStyle = FlatStyle.Flat;
-            btn_guardar_famila.Image = Properties.Resources.save_icon;
-            btn_guardar_famila.Location = new Point(252, 80);
-            btn_guardar_famila.Name = "btn_guardar_famila";
-            btn_guardar_famila.Size = new Size(35, 35);
-            btn_guardar_famila.TabIndex = 19;
-            btn_guardar_famila.UseVisualStyleBackColor = true;
-            btn_guardar_famila.Click += btn_guardar_famila_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(24, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 15);
-            label1.TabIndex = 20;
-            label1.Text = "Nombre";
-            // 
-            // txt_nombre_familia
-            // 
-            txt_nombre_familia.BorderStyle = BorderStyle.FixedSingle;
-            txt_nombre_familia.Location = new Point(24, 50);
-            txt_nombre_familia.Name = "txt_nombre_familia";
-            txt_nombre_familia.Size = new Size(263, 23);
-            txt_nombre_familia.TabIndex = 19;
-            // 
-            // btn_configurar
-            // 
-            btn_configurar.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_configurar.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btn_configurar.FlatStyle = FlatStyle.Flat;
-            btn_configurar.Image = Properties.Resources.settings2;
-            btn_configurar.Location = new Point(233, 78);
-            btn_configurar.Name = "btn_configurar";
-            btn_configurar.Size = new Size(35, 35);
-            btn_configurar.TabIndex = 16;
-            btn_configurar.UseVisualStyleBackColor = true;
-            btn_configurar.Click += btn_configurar_Click;
-            // 
-            // btn_agregar_familia
-            // 
-            btn_agregar_familia.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_agregar_familia.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btn_agregar_familia.FlatStyle = FlatStyle.Flat;
-            btn_agregar_familia.Image = Properties.Resources.angle_double_right;
-            btn_agregar_familia.Location = new Point(274, 78);
-            btn_agregar_familia.Name = "btn_agregar_familia";
-            btn_agregar_familia.Size = new Size(35, 35);
-            btn_agregar_familia.TabIndex = 15;
-            btn_agregar_familia.UseVisualStyleBackColor = true;
-            btn_agregar_familia.Click += btn_agregar_familia_Click;
-            // 
-            // lbl_todas_familias
-            // 
-            lbl_todas_familias.AutoSize = true;
-            lbl_todas_familias.Location = new Point(48, 29);
-            lbl_todas_familias.Name = "lbl_todas_familias";
-            lbl_todas_familias.Size = new Size(50, 15);
-            lbl_todas_familias.TabIndex = 3;
-            lbl_todas_familias.Text = "Familias";
-            // 
-            // cbx_familias
-            // 
-            cbx_familias.FormattingEnabled = true;
-            cbx_familias.Location = new Point(48, 47);
-            cbx_familias.Name = "cbx_familias";
-            cbx_familias.Size = new Size(263, 23);
-            cbx_familias.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.White;
-            panel3.Controls.Add(lbl_title_permisos);
-            panel3.Controls.Add(btn_guardar_todo);
-            panel3.Controls.Add(tw_permisos);
-            panel3.Location = new Point(376, 69);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(358, 632);
-            panel3.TabIndex = 18;
-            // 
-            // btn_guardar_todo
-            // 
-            btn_guardar_todo.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_guardar_todo.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            btn_guardar_todo.FlatStyle = FlatStyle.Flat;
-            btn_guardar_todo.Image = Properties.Resources.save_icon;
-            btn_guardar_todo.Location = new Point(298, 577);
-            btn_guardar_todo.Name = "btn_guardar_todo";
-            btn_guardar_todo.Size = new Size(35, 35);
-            btn_guardar_todo.TabIndex = 21;
-            btn_guardar_todo.UseVisualStyleBackColor = true;
-            // 
-            // tw_permisos
-            // 
-            tw_permisos.Location = new Point(21, 47);
-            tw_permisos.Name = "tw_permisos";
-            tw_permisos.Size = new Size(312, 513);
-            tw_permisos.TabIndex = 0;
-            // 
-            // lbl_title_permisos
-            // 
-            lbl_title_permisos.AutoSize = true;
-            lbl_title_permisos.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_title_permisos.Location = new Point(21, 20);
-            lbl_title_permisos.Name = "lbl_title_permisos";
-            lbl_title_permisos.Size = new Size(129, 20);
-            lbl_title_permisos.TabIndex = 22;
-            lbl_title_permisos.Text = "Permisos y Grupos";
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(12, 12);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(722, 51);
+            this.panel4.TabIndex = 6;
             // 
             // button1
             // 
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = Properties.Resources.interrogation;
-            button1.Location = new Point(674, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(35, 35);
-            button1.TabIndex = 22;
-            button1.UseVisualStyleBackColor = true;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::PD.Presentation.Properties.Resources.interrogation;
+            this.button1.Location = new System.Drawing.Point(674, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 22;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(45, 45);
+            this.panel5.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(54, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 32);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "PERMISOS";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.gb_nueva_patente);
+            this.panel1.Controls.Add(this.btn_agregar_patente);
+            this.panel1.Controls.Add(this.lbl_todas_patentes);
+            this.panel1.Controls.Add(this.cbx_patentes);
+            this.panel1.Location = new System.Drawing.Point(12, 358);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(358, 343);
+            this.panel1.TabIndex = 8;
+            // 
+            // gb_nueva_patente
+            // 
+            this.gb_nueva_patente.Controls.Add(this.btn_guardar_patente);
+            this.gb_nueva_patente.Controls.Add(this.lbl_nombre);
+            this.gb_nueva_patente.Controls.Add(this.txt_nombre_patente);
+            this.gb_nueva_patente.Controls.Add(this.lbl_permisos);
+            this.gb_nueva_patente.Controls.Add(this.cbx_permisos);
+            this.gb_nueva_patente.Location = new System.Drawing.Point(30, 129);
+            this.gb_nueva_patente.Name = "gb_nueva_patente";
+            this.gb_nueva_patente.Size = new System.Drawing.Size(306, 176);
+            this.gb_nueva_patente.TabIndex = 17;
+            this.gb_nueva_patente.TabStop = false;
+            this.gb_nueva_patente.Text = "Nueva";
+            // 
+            // btn_guardar_patente
+            // 
+            this.btn_guardar_patente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_guardar_patente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_guardar_patente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardar_patente.Image = global::PD.Presentation.Properties.Resources.save_icon;
+            this.btn_guardar_patente.Location = new System.Drawing.Point(252, 129);
+            this.btn_guardar_patente.Name = "btn_guardar_patente";
+            this.btn_guardar_patente.Size = new System.Drawing.Size(35, 35);
+            this.btn_guardar_patente.TabIndex = 19;
+            this.btn_guardar_patente.UseVisualStyleBackColor = true;
+            this.btn_guardar_patente.Click += new System.EventHandler(this.btn_guardar_patente_Click);
+            // 
+            // lbl_nombre
+            // 
+            this.lbl_nombre.AutoSize = true;
+            this.lbl_nombre.Location = new System.Drawing.Point(24, 81);
+            this.lbl_nombre.Name = "lbl_nombre";
+            this.lbl_nombre.Size = new System.Drawing.Size(51, 15);
+            this.lbl_nombre.TabIndex = 20;
+            this.lbl_nombre.Text = "Nombre";
+            // 
+            // txt_nombre_patente
+            // 
+            this.txt_nombre_patente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre_patente.Location = new System.Drawing.Point(24, 99);
+            this.txt_nombre_patente.Name = "txt_nombre_patente";
+            this.txt_nombre_patente.Size = new System.Drawing.Size(263, 23);
+            this.txt_nombre_patente.TabIndex = 19;
+            // 
+            // lbl_permisos
+            // 
+            this.lbl_permisos.AutoSize = true;
+            this.lbl_permisos.Location = new System.Drawing.Point(24, 29);
+            this.lbl_permisos.Name = "lbl_permisos";
+            this.lbl_permisos.Size = new System.Drawing.Size(55, 15);
+            this.lbl_permisos.TabIndex = 18;
+            this.lbl_permisos.Text = "Permisos";
+            // 
+            // cbx_permisos
+            // 
+            this.cbx_permisos.FormattingEnabled = true;
+            this.cbx_permisos.Location = new System.Drawing.Point(24, 47);
+            this.cbx_permisos.Name = "cbx_permisos";
+            this.cbx_permisos.Size = new System.Drawing.Size(263, 23);
+            this.cbx_permisos.TabIndex = 18;
+            // 
+            // btn_agregar_patente
+            // 
+            this.btn_agregar_patente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_agregar_patente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_agregar_patente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_patente.Image = global::PD.Presentation.Properties.Resources.angle_double_right;
+            this.btn_agregar_patente.Location = new System.Drawing.Point(297, 57);
+            this.btn_agregar_patente.Name = "btn_agregar_patente";
+            this.btn_agregar_patente.Size = new System.Drawing.Size(35, 35);
+            this.btn_agregar_patente.TabIndex = 17;
+            this.btn_agregar_patente.UseVisualStyleBackColor = true;
+            this.btn_agregar_patente.Click += new System.EventHandler(this.btn_agregar_patente_Click);
+            // 
+            // lbl_todas_patentes
+            // 
+            this.lbl_todas_patentes.AutoSize = true;
+            this.lbl_todas_patentes.Location = new System.Drawing.Point(48, 46);
+            this.lbl_todas_patentes.Name = "lbl_todas_patentes";
+            this.lbl_todas_patentes.Size = new System.Drawing.Size(52, 15);
+            this.lbl_todas_patentes.TabIndex = 1;
+            this.lbl_todas_patentes.Text = "Patentes";
+            // 
+            // cbx_patentes
+            // 
+            this.cbx_patentes.FormattingEnabled = true;
+            this.cbx_patentes.Location = new System.Drawing.Point(48, 64);
+            this.cbx_patentes.Name = "cbx_patentes";
+            this.cbx_patentes.Size = new System.Drawing.Size(231, 23);
+            this.cbx_patentes.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.gb_nueva_familia);
+            this.panel2.Controls.Add(this.btn_configurar);
+            this.panel2.Controls.Add(this.btn_agregar_familia);
+            this.panel2.Controls.Add(this.lbl_todas_familias);
+            this.panel2.Controls.Add(this.cbx_familias);
+            this.panel2.Location = new System.Drawing.Point(12, 69);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(358, 275);
+            this.panel2.TabIndex = 9;
+            // 
+            // gb_nueva_familia
+            // 
+            this.gb_nueva_familia.Controls.Add(this.btn_guardar_famila);
+            this.gb_nueva_familia.Controls.Add(this.label1);
+            this.gb_nueva_familia.Controls.Add(this.txt_nombre_familia);
+            this.gb_nueva_familia.Location = new System.Drawing.Point(26, 122);
+            this.gb_nueva_familia.Name = "gb_nueva_familia";
+            this.gb_nueva_familia.Size = new System.Drawing.Size(306, 128);
+            this.gb_nueva_familia.TabIndex = 21;
+            this.gb_nueva_familia.TabStop = false;
+            this.gb_nueva_familia.Text = "Nueva";
+            // 
+            // btn_guardar_famila
+            // 
+            this.btn_guardar_famila.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_guardar_famila.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_guardar_famila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardar_famila.Image = global::PD.Presentation.Properties.Resources.save_icon;
+            this.btn_guardar_famila.Location = new System.Drawing.Point(252, 80);
+            this.btn_guardar_famila.Name = "btn_guardar_famila";
+            this.btn_guardar_famila.Size = new System.Drawing.Size(35, 35);
+            this.btn_guardar_famila.TabIndex = 19;
+            this.btn_guardar_famila.UseVisualStyleBackColor = true;
+            this.btn_guardar_famila.Click += new System.EventHandler(this.btn_guardar_famila_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 15);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Nombre";
+            // 
+            // txt_nombre_familia
+            // 
+            this.txt_nombre_familia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_nombre_familia.Location = new System.Drawing.Point(24, 50);
+            this.txt_nombre_familia.Name = "txt_nombre_familia";
+            this.txt_nombre_familia.Size = new System.Drawing.Size(263, 23);
+            this.txt_nombre_familia.TabIndex = 19;
+            // 
+            // btn_configurar
+            // 
+            this.btn_configurar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_configurar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_configurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_configurar.Image = global::PD.Presentation.Properties.Resources.settings2;
+            this.btn_configurar.Location = new System.Drawing.Point(30, 14);
+            this.btn_configurar.Name = "btn_configurar";
+            this.btn_configurar.Size = new System.Drawing.Size(35, 35);
+            this.btn_configurar.TabIndex = 16;
+            this.btn_configurar.UseVisualStyleBackColor = true;
+            this.btn_configurar.Click += new System.EventHandler(this.btn_configurar_Click);
+            // 
+            // btn_agregar_familia
+            // 
+            this.btn_agregar_familia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_agregar_familia.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_agregar_familia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_familia.Image = global::PD.Presentation.Properties.Resources.angle_double_right;
+            this.btn_agregar_familia.Location = new System.Drawing.Point(297, 73);
+            this.btn_agregar_familia.Name = "btn_agregar_familia";
+            this.btn_agregar_familia.Size = new System.Drawing.Size(35, 35);
+            this.btn_agregar_familia.TabIndex = 15;
+            this.btn_agregar_familia.UseVisualStyleBackColor = true;
+            this.btn_agregar_familia.Click += new System.EventHandler(this.btn_agregar_familia_Click);
+            // 
+            // lbl_todas_familias
+            // 
+            this.lbl_todas_familias.AutoSize = true;
+            this.lbl_todas_familias.Location = new System.Drawing.Point(48, 62);
+            this.lbl_todas_familias.Name = "lbl_todas_familias";
+            this.lbl_todas_familias.Size = new System.Drawing.Size(50, 15);
+            this.lbl_todas_familias.TabIndex = 3;
+            this.lbl_todas_familias.Text = "Familias";
+            // 
+            // cbx_familias
+            // 
+            this.cbx_familias.FormattingEnabled = true;
+            this.cbx_familias.Location = new System.Drawing.Point(48, 80);
+            this.cbx_familias.Name = "cbx_familias";
+            this.cbx_familias.Size = new System.Drawing.Size(231, 23);
+            this.cbx_familias.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.lbl_title_permisos);
+            this.panel3.Controls.Add(this.btn_guardar_todo);
+            this.panel3.Controls.Add(this.tw_permisos);
+            this.panel3.Location = new System.Drawing.Point(376, 69);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(358, 632);
+            this.panel3.TabIndex = 18;
+            // 
+            // lbl_title_permisos
+            // 
+            this.lbl_title_permisos.AutoSize = true;
+            this.lbl_title_permisos.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_title_permisos.Location = new System.Drawing.Point(21, 20);
+            this.lbl_title_permisos.Name = "lbl_title_permisos";
+            this.lbl_title_permisos.Size = new System.Drawing.Size(129, 20);
+            this.lbl_title_permisos.TabIndex = 22;
+            this.lbl_title_permisos.Text = "Permisos y Grupos";
+            // 
+            // btn_guardar_todo
+            // 
+            this.btn_guardar_todo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_guardar_todo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_guardar_todo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_guardar_todo.Image = global::PD.Presentation.Properties.Resources.save_icon;
+            this.btn_guardar_todo.Location = new System.Drawing.Point(298, 584);
+            this.btn_guardar_todo.Name = "btn_guardar_todo";
+            this.btn_guardar_todo.Size = new System.Drawing.Size(35, 35);
+            this.btn_guardar_todo.TabIndex = 21;
+            this.btn_guardar_todo.UseVisualStyleBackColor = true;
+            this.btn_guardar_todo.Click += new System.EventHandler(this.btn_guardar_todo_Click);
+            // 
+            // tw_permisos
+            // 
+            this.tw_permisos.Location = new System.Drawing.Point(21, 47);
+            this.tw_permisos.Name = "tw_permisos";
+            this.tw_permisos.Size = new System.Drawing.Size(312, 531);
+            this.tw_permisos.TabIndex = 0;
             // 
             // GestionarPatentes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(746, 716);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(panel4);
-            Name = "GestionarPatentes";
-            Load += GestionarPatentes_Load;
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            gb_nueva_patente.ResumeLayout(false);
-            gb_nueva_patente.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            gb_nueva_familia.ResumeLayout(false);
-            gb_nueva_familia.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(746, 716);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel4);
+            this.Name = "GestionarPatentes";
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.gb_nueva_patente.ResumeLayout(false);
+            this.gb_nueva_patente.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.gb_nueva_familia.ResumeLayout(false);
+            this.gb_nueva_familia.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -15,6 +15,7 @@ namespace PD.Presentation.Forms.Configuracion
         {
             InitializeComponent();
             _usuarioManager = usuarioManager;
+            Load += GestionarPatentes_Load;
         }
 
         private void GestionarPatentes_Load(object sender, EventArgs e)
@@ -173,5 +174,18 @@ namespace PD.Presentation.Forms.Configuracion
         }
 
         #endregion Buttons
+
+        private void btn_guardar_todo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _usuarioManager.SaveFamilia(_familiaSeleccionada);
+                MsgBoxHelpers.ShowInfo("Guardado Correctamente");
+            }
+            catch (Exception ex)
+            {
+                MsgBoxHelpers.ShowError("Ocurrio un error al guardar");
+            }
+        }
     }
 }

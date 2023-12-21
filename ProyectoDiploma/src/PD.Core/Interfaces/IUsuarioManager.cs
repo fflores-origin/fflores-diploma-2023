@@ -14,6 +14,8 @@ namespace PD.Core.Interfaces
 
         List<UsuarioDto> GetUsuarios();
 
+        #region Permisos
+
         List<Patente> GetAllPatentes();
 
         List<Familia> GetAllFamilias();
@@ -27,5 +29,9 @@ namespace PD.Core.Interfaces
         bool PatenteExiste(PermisoBase permiso, PermisoBase patente);
 
         void CompleteComponent(Familia familia);
+
+        void SaveFamilia(PermisoBase familiaSeleccionada);
+
+        #endregion Permisos
     }
 }

@@ -12,6 +12,8 @@ namespace PD.Presentation.Bootstrap
         {
             services
                 .AddTransient<IConnection, Connection>()
+                .AddTransient<IPermisosRepository, PermisosRepository>()
+                .AddTransient<IPedidoRepository, PedidoRepository>()
                 .AddTransient<IClienteRepository, ClienteRepository>()
                 .AddTransient<ILanguageRepository, LanguageRepository>()
                 .AddTransient<IUsuarioRepository, UsuarioRepository>()

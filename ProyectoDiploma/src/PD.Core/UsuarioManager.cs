@@ -14,37 +14,91 @@ namespace PD.Core
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IPermisosRepository _permisosRepository;
-        private readonly ILanguageRepository _languageRepository;
         private readonly IUsuariosMapper _usuariosMapper;
         private readonly Sesion _sesion;
 
         public UsuarioManager(
             IUsuarioRepository usuarioRepository,
             IUsuariosMapper usuariosMapper,
-            ILanguageRepository languageRepository,
             IPermisosRepository permisosRepository)
         {
             _usuarioRepository = usuarioRepository;
             _usuariosMapper = usuariosMapper;
             _sesion = UserSesion.Session;
-            _languageRepository = languageRepository;
             _permisosRepository = permisosRepository;
         }
 
-        public void CompleteComponent(Familia familia)
-        {
-            familia.ClearPermisos();
-            var permisos = _permisosRepository.GetAllComponentes(familia.Id);
-
-            foreach (var p in permisos)
-            {
-                familia.AddPermiso(p);
-            }
-        }
+        #region Usuario
 
         public void CrearUsuario(string username, string password)
         {
             _usuarioRepository.Create(username, Encryption.Encrypt(password));
+        }
+
+        public List<UsuarioDto> GetUsuarios()
+        {
+            var usuarios = _usuarioRepository.GetAll();
+            var usuariosDto = _usuariosMapper.Map(usuarios);
+            return usuariosDto;
+        }
+
+        #endregion Usuario
+
+        #region Sesion
+
+        public LoginResult Login(string username, string password)
+        {
+            Usuario usuario = _usuarioRepository.GetByUserame(username);
+
+            if (usuario == null) { return LoginResult.InvalidUsername; }
+
+            var encripted = Encryption.Encrypt(password);
+
+            if (usuario.Password != encripted) { return LoginResult.InvalidPassword; }
+
+            _sesion.Login(usuario);
+
+            return LoginResult.ValidUser;
+        }
+
+        public void LogOut()
+        {
+            var user = _sesion.Usuario;
+
+            _sesion.Logout();
+        }
+
+        #endregion Sesion
+
+        #region Permisos
+
+        public bool PatenteExiste(PermisoBase permiso, PermisoBase patente)
+        {
+            bool existe = false;
+
+            if (permiso.Id.Equals(patente.Id))
+            {
+                existe = true;
+            }
+            else
+            {
+                foreach (var item in permiso.ObtenerHijos().ToList())
+                {
+                    if (PatenteExiste(item, patente)) return true;
+                }
+            }
+
+            return existe;
+        }
+
+        public PermisoBase SaveComponent(PermisoBase patente, bool esFamilia)
+        {
+            return _permisosRepository.SaveComponent(patente, esFamilia);
+        }
+
+        public void SaveFamilia(PermisoBase familiaSeleccionada)
+        {
+            throw new NotImplementedException();
         }
 
         public List<PermisoBase> GetAllComponentes(Familia familia = null)
@@ -79,57 +133,17 @@ namespace PD.Core
             return Enum.GetValues(typeof(TipoPermiso));
         }
 
-        public List<UsuarioDto> GetUsuarios()
+        public void CompleteComponent(Familia familia)
         {
-            var usuarios = _usuarioRepository.GetAll();
-            var usuariosDto = _usuariosMapper.Map(usuarios);
-            return usuariosDto;
-        }
+            familia.ClearPermisos();
+            var permisos = _permisosRepository.GetAllComponentes(familia.Id);
 
-        public LoginResult Login(string username, string password)
-        {
-            Usuario usuario = _usuarioRepository.GetByUserame(username);
-
-            if (usuario == null) { return LoginResult.InvalidUsername; }
-
-            var encripted = Encryption.Encrypt(password);
-
-            if (usuario.Password != encripted) { return LoginResult.InvalidPassword; }
-
-            _sesion.Login(usuario);
-
-            return LoginResult.ValidUser;
-        }
-
-        public void LogOut()
-        {
-            var user = _sesion.Usuario;
-
-            _sesion.Logout();
-        }
-
-        public bool PatenteExiste(PermisoBase permiso, PermisoBase patente)
-        {
-            bool existe = false;
-
-            if (permiso.Id.Equals(patente.Id))
+            foreach (var p in permisos)
             {
-                existe = true;
+                familia.AddPermiso(p);
             }
-            else
-            {
-                foreach (var item in permiso.ObtenerHijos().ToList())
-                {
-                    if (PatenteExiste(item, patente)) return true;
-                }
-            }
-
-            return existe;
         }
 
-        public PermisoBase SaveComponent(PermisoBase patente, bool esFamilia)
-        {
-            return _permisosRepository.SaveComponent(patente, esFamilia);
-        }
+        #endregion Permisos
     }
 }

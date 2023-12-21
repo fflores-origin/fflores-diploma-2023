@@ -162,20 +162,18 @@ namespace PD.Repositories
             using var conn = _connection.CreateConnection();
             conn.Open();
 
-            var query = "PermisosGetAll";
+            var query = "PermisoSave";
             using var cmd = _connection.CreateStoreCommand(query, conn);
 
-            using SqlDataAdapter da = new(cmd);
-            using DataSet ds = new();
-            var lista = new List<PermisoBase>();
+            if (patente.Id == Guid.Empty)
+                patente.Id = Guid.NewGuid();
 
-            da.Fill(ds);
+            cmd.Parameters.AddWithValue("@nombre", patente.Nombre);
+            cmd.Parameters.AddWithValue("@id", patente.Id);
 
-            if (ds.HasRows())
-            {
-                foreach (DataRow row in ds.Rows())
-                { }
-            }
+            cmd.ExecuteNonQuery();
+
+            return patente;
         }
 
         public Familia SaveFamilia(Familia familia)

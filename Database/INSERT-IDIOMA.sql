@@ -53,8 +53,8 @@ insert into @values values
 ('h_actions', 'ACTION', 'en', @idEn),
 ('dgb_edit', 'EDITAR', 'es', @idEs),
 ('dgv_edit', 'EDIT', 'en', @idEn),
-('lbl_edit', 'EDITAR', 'es', @idEs),
-('dgv_edit', 'EDIT', 'en', @idEn)
+('lbl_', 'EDITAR', 'es', @idEs),
+('lbl_', 'EDIT', 'en', @idEn)
 
 
 

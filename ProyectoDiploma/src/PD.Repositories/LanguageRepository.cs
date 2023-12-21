@@ -2,6 +2,7 @@
 using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
+using PD.Repositories.Utils;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -45,7 +46,7 @@ namespace PD.Repositories
                     {
                         list.Add(new Idioma()
                         {
-                            Id = Guid.Parse(item["id"].ToString()),
+                            Id = item["id"].AsGuid(),
                             Nombre = item["Nombre"].ToString(),
                             IsoCode = item["IsoCode"].ToString(),
                             IsDefault = Convert.ToBoolean(item["IsDefault"])

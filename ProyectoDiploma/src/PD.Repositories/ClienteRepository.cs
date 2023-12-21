@@ -2,6 +2,7 @@
 using PD.DataAccess.Interfaces;
 using PD.Entities;
 using PD.Repositories.Interfaces;
+using PD.Repositories.Utils;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -43,27 +44,27 @@ namespace PD.Repositories
                         {
                             var tipoCliente = new TipoCliente()
                             {
-                                Id = Guid.Parse(item["TipoClienteId"].ToString()),
+                                Id = item["TipoClienteId"].AsGuid(),
                                 Nombre = item["TipoClienteNombre"].ToString(),
                                 Tipo = item["TipoCliente"].ToString(),
                             };
 
                             var tipoDocumento = new TipoDocumento()
                             {
-                                Id = Guid.Parse(item["TipoDocumentoId"].ToString()),
+                                Id = item["TipoDocumentoId"].AsGuid(),
                                 Nombre = item["TipoDocumentoNombre"].ToString(),
                             };
 
                             var cliente = new Cliente()
                             {
-                                Id = Guid.Parse(item["id"].ToString()),
+                                Id = item["id"].AsGuid(),
                                 Nombre = item["Nombre"].ToString(),
                                 Documento = item["Documento"].ToString(),
                                 Direccion = item["Direccion"].ToString(),
                                 Email = item["Email"].ToString(),
                                 Telefono = item["Telefono"].ToString(),
-                                TipoDocumentoId = Guid.Parse(item["TipoDocumentoId"].ToString()),
-                                TipoClienteId = Guid.Parse(item["TipoClienteId"].ToString()),
+                                TipoDocumentoId = item["TipoDocumentoId"].AsGuid(),
+                                TipoClienteId = item["TipoClienteId"].AsGuid(),
                                 TipoDocumento = tipoDocumento,
                                 TipoCliente = tipoCliente,
                             };
