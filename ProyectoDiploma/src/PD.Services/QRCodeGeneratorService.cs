@@ -1,5 +1,5 @@
-﻿using QRCoder;
-using System.Drawing;
+﻿using System.Drawing;
+using QRCoder;
 
 namespace PD.Services
 {
@@ -7,12 +7,12 @@ namespace PD.Services
     {
         public static Bitmap GenerateQR(string textoQR)
         {
-            QRCodeGenerator qrGenerator = new();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(textoQR, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-            return qrCodeImage;
+            using QRCodeGenerator qrGenerator = new();
+            using QRCodeData qrCodeData = qrGenerator.CreateQrCode(textoQR, QRCodeGenerator.ECCLevel.Q);
+            using var qrCode = new PngByteQRCode(qrCodeData);
+            byte[] qrAsBytes = qrCode.GetGraphic(20);
+            using var ms = new MemoryStream(qrAsBytes);
+            return new Bitmap(stream: ms);
         }
     }
 }
